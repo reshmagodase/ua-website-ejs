@@ -1,0 +1,102 @@
+<div ng-include src="'adminViews/partials/header.html'"></div>
+<script>  $(document).ready(function () {
+    $.get("/getImages", function (response) {
+        $("#thumbwrap").html("");
+        $.each(response, function (k, data) {
+            $("#thumbwrap").append("<a class='thumb' href='" + data.path + "' target='_blank'><img width=200 height=120 src='/" + data.path + "'/></a>");
+
+        });
+    });
+    var myDropzone = new Dropzone("div#myId", {
+        // Prevents Dropzone from uploading dropped files immediately
+        autoProcessQueue: false,
+        url: "/uploadImages",
+        maxFilesize: 1,
+
+        init: function () {
+            var submitButton = document.querySelector("#submit-all")
+            myDropzone = this; // closure
+
+            submitButton.addEventListener("click", function () {
+                myDropzone.processQueue();
+            });
+
+            // You might want to show the submit button only when
+            // files are dropped here:
+            this.on("addedfile", function () {
+                // Show submit button here and/or inform user to click it.
+            });
+
+            this.on("success", function () {
+                myDropzone.removeAllFiles();
+                $.get("/getImages", function (response) {
+                    $("#thumbwrap").html("");
+                    $.each(response, function (k, data) {
+                        $("#thumbwrap").append("<div class='col-md-3 col-sm-4 col-xs-6'><a class='thumb' href='" + data.path + "' target='_blank'><img width=200 height=120 src='/" + data.path + "'/></a></div>");
+
+                    });
+                });
+            })
+
+
+        }
+    });
+
+
+});
+</script>
+<style>
+    /*   #thumbwrap {
+           position:relative;
+           margin:75px auto;
+           width:100%;
+       }
+       #thumbwrap img {
+           border: 1px solid silver;
+           margin:20px;
+           float:left;
+       }*/
+    #thumbwrap img {
+        -webkit-box-shadow: 0px 1px 1px 1px rgba(0, 0, 0, 0.75);
+        -moz-box-shadow: 0px 1px 1px 1px rgba(0, 0, 0, 0.75);
+        box-shadow: 0px 1px 1px 1px rgba(0, 0, 0, 0.75);
+        margin: 10px;
+    }
+
+
+</style>
+
+
+<div class="content">
+    <div class="inner"><h1>Upload Author Images <a
+            href="#"
+            class="small gray">Cancel</a></h1></div>
+    <div class="clearfix"></div>
+    <div id="content-main">
+        <div class="inner">
+            <div id="myId" class="dropzone"></div>
+            <br>
+            <center>
+                <button id="submit-all">Submit all files</button>
+            </center>
+            <br>
+        </div>
+        <div class="inner" style="background-color: white">
+
+
+
+
+            <div class="container">
+                <div class="row">
+                    <div id="thumbwrap"></div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+    <div class="clearfix" style="padding-bottom: 50px;"></div>
+</div>
+
+

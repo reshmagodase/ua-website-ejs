@@ -1,0 +1,101 @@
+﻿<div ng-include src="'views/partials/header.html'"></div>
+<div class="footersection">
+    <section class="contact-footer" id="contact-details">
+        <div class="inner">
+            <p>Contact <span>ua</span></p>
+            <img class="gt" src="img/contact-footer/good-together.png" alt="Good work" /><br>
+            <div class="row">
+                <div class="contact-part">
+                    <div class="icon mobile"></div>
+                    <h2>Freephone</h2>
+                    <span>{{contact_freephone}}</span>
+                </div>
+                <div class="contact-part">
+                    <div class="icon mobile"></div>
+                    <h2>Sales</h2>
+                    <span>{{contact_sales_phone}}</span>
+                </div>
+                <div class="contact-part">
+                    <div class="icon email"></div>
+                    <h2>Email</h2>
+                    <a href="{{contact_email}}">{{contact_email_text}}</a>
+                </div>
+                <div class="contact-part">
+                    <div class="icon tw"></div>
+                    <h2>Twitter</h2>
+                    <a href="{{contact_twitter_url}}">{{contact_twitter_text}}</a>
+                </div>
+                <div class="contact-part">
+                    <div class="icon fb"></div>
+                    <h2>Facebook</h2>
+                    <a href="{{contact_facebook_url}}">{{contact_facebook_text}}</a>
+                </div>
+            </div>
+            <div class="row">
+                <div class="contact-part null" style="color:#18252a;">&nbsp;</div>
+
+                <div class="contact-part">
+                    <div class="icon location"></div>
+                    <h2>Birmingham</h2>
+                    <ul class="local-address">
+                        <li>1 The Wharf, Bridge Street</li>
+                        <li>B1 2JS</li>
+                        <li class="tel">Tel: 0808 178 2021</li>
+                    </ul>
+                </div>
+                <div class="contact-part">
+                    <div class="icon location"></div>
+                    <h2>Glasgow</h2>
+                    <ul class="local-address">
+                        <li>69 Buchanan Street</li>
+                        <li>G1 3HL</li>
+                        <li class="tel">Tel: 0800 881 5678</li>
+                    </ul>
+                </div>
+
+                <div class="contact-part">
+                    <div class="icon location"></div>
+                    <h2>Sleaford</h2>
+                    <ul class="local-address">
+                        <li>Unit 8, Clover House</li>
+                        <li>NG34 7HD</li>
+                        <li class="tel">Tel: 0808 178 2022</li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <img class="aydg" src="img/contact-footer/aydg.png" alt="Are you doing good?">
+            <h2>{{request_title}}</h2>
+
+            <div class="button-holder">
+                <a class="btn btn-default" href="{{request_button_link}}">{{request_button_text}}</a>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-7">
+
+                    <div class="company-details"> &copy; 2015 Utility Aid <span>|</span> Designing change with <a href="http://www.viva-worldwide.com" target="_blank">VIVA</a></div>
+
+                    <div class="sp"> <a href="/privacy-policy">Privacy Policy</a>  <a href="/environmental-policy">Environmental Policy</a> <a href="/bribery-act-statement">Bribery Act Statement</a></div>
+
+                    <div class="sp legal"><span>UA is part of Utility Aid LTD. Company No. 04408718. Registered in England &amp; Wales.</span></div>
+
+                </div>
+
+                <div class="col-md-5">
+                    <form class="" role="subscribe" action="/subscribe" method="get">
+                        <h4>Subscribe to our newsletter</h4>
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Your email address" name="email">
+                            <button type="submit" class="btn btn-default">Go</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </footer>
+</div>

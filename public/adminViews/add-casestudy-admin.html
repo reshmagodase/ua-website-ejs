@@ -1,0 +1,1222 @@
+<script>
+    $(document).ready(function () {
+        $("#txtEditor1").Editor();
+        $("#txtEditor2").Editor();
+        $("#txtEditor3").Editor();
+        $("#txtEditor4").Editor();
+        $("#txtEditor5").Editor();
+        $("#txtEditor6").Editor();
+        $("#txtEditor7").Editor();
+        $("#txtEditor8").Editor();
+        $("#txtEditor9").Editor();
+        $("#txtEditor10").Editor();
+    });
+
+    var idName = "";
+    $(document).on("click", "#uploadImage1", function () {
+        idName = "#backImage1";
+        $.get("/getImages", function (response) {
+            $("#InsertImage .modal-body").html("");
+            $("#InsertImage .modal-body").append("<button class='uploadFiles' class='btn btn-default'>Upload Files</button><div id='myId' class='dropzone'></div>");
+            $("#InsertImage .modal-body").append("<div id='thumbwrap'/></div><div style='clear: both;'></div> ");
+            $("#thumbwrap").html("");
+            $.each(response, function (k, data) {
+                $("#thumbwrap").append("<img data-dismiss='modal' width=100 height=60  src='" + data.path + "'/>");
+
+            });
+        });
+    });
+    $(document).on("click", "#uploadImage2", function () {
+        idName = "#backImage2";
+        $.get("/getImages", function (response) {
+            $("#InsertImage .modal-body").html("");
+            $("#InsertImage .modal-body").append("<button class='uploadFiles' class='btn btn-default'>Upload Files</button><div id='myId' class='dropzone'></div>");
+            $("#InsertImage .modal-body").append("<div id='thumbwrap'/></div><div style='clear: both;'></div> ");
+            $("#thumbwrap").html("");
+            $.each(response, function (k, data) {
+                $("#thumbwrap").append("<img data-dismiss='modal' width=100 height=60  src='" + data.path + "'/>");
+
+            });
+        });
+    });
+    $(document).on("click", "#uploadImage3", function () {
+        idName = "#backImage3";
+        $.get("/getImages", function (response) {
+            $("#InsertImage .modal-body").html("");
+            $("#InsertImage .modal-body").append("<button class='uploadFiles' class='btn btn-default'>Upload Files</button><div id='myId' class='dropzone'></div>");
+            $("#InsertImage .modal-body").append("<div id='thumbwrap'/></div><div style='clear: both;'></div> ");
+            $("#thumbwrap").html("");
+            $.each(response, function (k, data) {
+                $("#thumbwrap").append("<img data-dismiss='modal' width=100 height=60  src='" + data.path + "'/>");
+
+            });
+        });
+    });
+
+    $(document).on("click", "#editor1 .btn", function () {
+        idName = "#editor1";
+    });
+    $(document).on("click", "#editor2 .btn", function () {
+        idName = "#editor2";
+    });
+    $(document).on("click", "#editor3 .btn", function () {
+        idName = "#editor3";
+    });
+    $(document).on("click", "#editor4 .btn", function () {
+        idName = "#editor4";
+    });
+    $(document).on("click", "#editor5 .btn", function () {
+        idName = "#editor5";
+    });
+    $(document).on("click", "#editor6 .btn", function () {
+        idName = "#editor6";
+    });
+    $(document).on("click", "#editor7 .btn", function () {
+        idName = "#editor7";
+    });
+    $(document).on("click", "#editor8 .btn", function () {
+        idName = "#editor8";
+    });
+    $(document).on("click", "#editor9 .btn", function () {
+        idName = "#editor9";
+    });
+    $(document).on("click", "#editor10 .btn", function () {
+        idName = "#editor10";
+    });
+    $(document).on('click', '#InsertImage img', function (e) {
+        if (idName == "#backImage1") {
+            $(idName).html('<img width=100 height=60 src="' + $(this).attr('src') + '"/>');
+        }
+        else if (idName == "#backImage2") {
+            $(idName).html('<img width=100 height=60 src="' + $(this).attr('src') + '"/>');
+        }
+        else if (idName == "#backImage3") {
+            $(idName).html('<img width=100 height=60 src="' + $(this).attr('src') + '"/>');
+        } else {
+            $(idName + " .Editor-editor").append('<img width=500 height=300 src="' + $(this).attr('src') + '"/>');
+        }
+        e.stopImmediatePropagation();
+    });
+
+
+    $(document).on("click", ".uploadFiles", function () {
+        $("#myId").css("display", "block");
+        var myDropzone = new Dropzone("div#myId", {
+            url: "/uploadImages",
+            maxFilesize: 1,
+
+            init: function () {
+
+                // You might want to show the submit button only when
+                // files are dropped here:
+                this.on("addedfile", function () {
+                    // Show submit button here and/or inform user to click it.
+                });
+                this.on("success", function () {
+                    myDropzone.removeAllFiles();
+                    $.get("/getImages", function (response) {
+                        $("#thumbwrap").html("");
+                        $.each(response, function (k, data) {
+                            $("#thumbwrap").append("<img data-dismiss='modal' width=100 height=60  src='" + data.path + "'/>");
+
+                        });
+                    });
+                })
+
+            }
+        });
+    });
+
+
+</script>
+
+
+<style>
+    #myId {
+        display: none;
+    }
+
+    #thumbwrap img {
+        border: 1px solid silver;
+        margin: 10px;
+        float: left;
+    }
+</style>
+
+
+<div ng-include src="'adminViews/partials/header.html'"></div>
+<div class="content">
+
+
+    <div class="inner"><h1>Case Study &nbsp; <a href="/list-casestudies-admin" class="small gray">Cancel</a></h1>
+    </div>
+
+
+    <div class="clearfix"></div>
+
+
+    <div id="content-main">
+        <form enctype="multipart/form-data" action="" method="post" id="add_edit_translation_form"
+              class="form-horizontal">
+            <div>
+
+                <div class="inner">
+
+
+                    <fieldset class="">
+
+                        <h2>Settings</h2>
+                        <div class="form-row">
+                            <div class="">
+                                <div class="form-group-checkbox">
+                                    <label class="checkbox">
+                                        <input id="id_active" name="active" checked="true" type="checkbox">
+                                        <label class="vCheckboxLabel" for="id_active">Active</label>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="field-box field-title required">
+
+
+                                <div class="form-group">
+                                    <label for="id_title" class="">Page title</label>
+
+                                    <div class="control-group">
+
+                                        <input data-slug="slug" id="id_title" maxlength="100" name="title" type="text"
+                                                >
+
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+
+
+                        <div class="form-row">
+                            <div class="field-box field-slug required">
+
+
+                                <div class="form-group">
+                                    <label for="id_slug" class="">Slug</label>
+
+                                    <div class="control-group">
+
+                                        <input id="id_slug" maxlength="100" name="slug" type="text"
+                                                >
+
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+
+
+                    </fieldset>
+
+                    <fieldset class="">
+
+                        <h2>Home page</h2>
+
+
+                        <div class="form-row">
+                            <div class="field-box field-home_page_feature_title ">
+
+
+                                <div class="form-group">
+                                    <label for="id_home_page_feature_title" class="">Feature title</label>
+
+                                    <div class="control-group">
+
+                                        <textarea cols="40" id="id_home_page_feature_title"
+                                                  name="home_page_feature_title" rows="10"></textarea>
+
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+
+
+                        <div class="form-row">
+                            <div class="field-box field-home_page_ua_action ">
+
+
+                                <div class="form-group">
+                                    <label for="id_home_page_ua_action" class="">Ua action</label>
+
+                                    <div class="control-group">
+
+                                        <textarea cols="40" id="id_home_page_ua_action" name="home_page_ua_action"
+                                                  rows="10"></textarea>
+
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+
+
+                        <div class="form-row">
+                            <div class="field-box field-home_page_case_study_button_text ">
+
+
+                                <div class="form-group">
+                                    <label for="id_home_page_case_study_button_text" class="">Case study button
+                                        text</label>
+
+                                    <div class="control-group">
+
+                                        <input id="id_home_page_case_study_button_text" maxlength="250"
+                                               name="home_page_case_study_button_text" type="text"
+                                                >
+
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+
+
+                        <div class="form-row">
+                            <div class="field-box field-home_page_listing_excerpt ">
+
+
+                                <div class="form-group">
+                                    <label for="id_home_page_listing_excerpt" class="">Listing excerpt</label>
+
+                                    <div class="control-group">
+
+                                        <textarea cols="40" id="id_home_page_listing_excerpt"
+                                                  name="home_page_listing_excerpt" rows="10"></textarea>
+
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+
+
+                    </fieldset>
+
+                    <fieldset class="">
+
+                        <h2>Banner</h2>
+
+                        <div class="form-row">
+                            <div class="field-box">
+
+
+                                <div class="form-group">
+                                    <label for="backImage1" class="">Background Image</label>
+
+                                    <div class="control-group">
+                                        <a id="uploadImage1" href="#InsertImage" role="button" class="btn btn-default"
+                                           data-toggle="modal"
+                                           title="Insert Image">Choose / Upload Image</a>
+
+                                        <div id="backImage1"></div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="field-box field-banner_col_1_title ">
+
+
+                                <div class="form-group">
+                                    <label for="id_banner_col_1_title" class="">Col 1 title</label>
+
+                                    <div class="control-group">
+
+                                        <input id="id_banner_col_1_title" maxlength="250" name="banner_col_1_title"
+                                               type="text">
+
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+
+
+                        <div class="form-row">
+                            <div class="field-box field-banner_col_1_text ">
+
+
+                                <div class="form-group">
+                                    <label for="id_banner_col_1_text" class="">Col 1 text</label>
+
+                                    <div class="control-group">
+
+                                        <textarea cols="40" id="id_banner_col_1_text" name="banner_col_1_text"
+                                                  rows="10"></textarea>
+
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+
+
+                        <div class="form-row">
+                            <div class="field-box field-banner_col_2_title ">
+
+
+                                <div class="form-group">
+                                    <label for="id_banner_col_2_title" class="">Col 2 title</label>
+
+                                    <div class="control-group">
+
+                                        <input id="id_banner_col_2_title" maxlength="250" name="banner_col_2_title"
+                                               type="text">
+
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+
+
+                        <div class="form-row">
+                            <div class="field-box field-banner_col_2_text ">
+
+
+                                <div class="form-group">
+                                    <label for="id_banner_col_2_text" class="">Col 2 text</label>
+
+                                    <div class="control-group">
+
+                                        <textarea cols="40" id="id_banner_col_2_text" name="banner_col_2_text"
+                                                  rows="10"></textarea>
+
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+
+
+                        <div class="form-row">
+                            <div class="field-box field-banner_col_3_title ">
+
+
+                                <div class="form-group">
+                                    <label for="id_banner_col_3_title" class="">Col 3 title</label>
+
+                                    <div class="control-group">
+
+                                        <input id="id_banner_col_3_title" maxlength="250" name="banner_col_3_title"
+                                               type="text">
+
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+
+
+                        <div class="form-row">
+                            <div class="field-box field-banner_col_3_text ">
+
+
+                                <div class="form-group">
+                                    <label for="id_banner_col_3_text" class="">Col 3 text</label>
+
+                                    <div class="control-group">
+
+                                        <textarea cols="40" id="id_banner_col_3_text" name="banner_col_3_text"
+                                                  rows="10"></textarea>
+
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+
+
+                        <div class="form-row">
+                            <div class="field-box field-banner_title ">
+
+
+                                <div class="form-group">
+                                    <label for="id_banner_title" class="">Title</label>
+
+                                    <div class="control-group">
+
+                                        <textarea cols="40" id="id_banner_title" name="banner_title"
+                                                  rows="10"></textarea>
+
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+
+
+                    </fieldset>
+
+                    <fieldset class="">
+
+                        <h2>Block 1</h2>
+
+
+                        <div class="form-row">
+                            <div class="field-box field-block_1_title ">
+
+
+                                <div class="form-group">
+                                    <label for="id_block_1_title" class="">Title</label>
+
+                                    <div class="control-group">
+
+                                        <input id="id_block_1_title" maxlength="250" name="block_1_title" type="text"
+                                                >
+
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+
+
+                        <div class="form-row">
+                            <div class="field-box field-block_1_sub_title ">
+
+
+                                <div class="form-group">
+                                    <label for="id_block_1_sub_title" class="">Sub title</label>
+
+                                    <div class="control-group">
+
+                                        <textarea cols="40" id="id_block_1_sub_title" name="block_1_sub_title"
+                                                  rows="10"></textarea>
+
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+
+
+                        <div class="form-row">
+                            <div class="field-box field-block_1_col_1_title ">
+
+
+                                <div class="form-group">
+                                    <label for="id_block_1_col_1_title" class="">Col 1 title</label>
+
+                                    <div class="control-group">
+
+                                        <input id="id_block_1_col_1_title" maxlength="250" name="block_1_col_1_title"
+                                               type="text">
+
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+
+
+                        <div class="form-row">
+                            <div class="field-box field-block_1_col_1_text ">
+
+
+                                <div class="form-group">
+                                    <label for="txtEditor1" class="">Col 1 text</label>
+
+                                    <div class="control-group" id="editor1">
+                                        <textarea id="txtEditor1" name="txtEditor1"></textarea>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+
+                        <div class="form-row">
+                            <div class="field-box field-block_1_col_2_title ">
+
+
+                                <div class="form-group">
+                                    <label for="id_block_1_col_2_title" class="">Col 2 title</label>
+
+                                    <div class="control-group">
+
+                                        <input id="id_block_1_col_2_title" maxlength="250" name="block_1_col_2_title"
+                                               type="text">
+
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+
+
+                        <div class="form-row">
+                            <div class="field-box field-block_1_col_2_text ">
+
+
+                                <div class="form-group">
+                                    <label for="txtEditor2" class="">Col 2 text</label>
+
+                                    <div class="control-group" id="editor2">
+                                        <textarea id="txtEditor2" name="txtEditor2"></textarea>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+
+
+                        <div class="form-row">
+                            <div class="field-box field-block_1_col_3_title ">
+
+
+                                <div class="form-group">
+                                    <label for="id_block_1_col_3_title" class="">Col 3 title</label>
+
+                                    <div class="control-group">
+
+                                        <input id="id_block_1_col_3_title" maxlength="250" name="block_1_col_3_title"
+                                               type="text">
+
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+
+
+                        <div class="form-row">
+                            <div class="field-box field-block_1_col_3_text ">
+
+
+                                <div class="form-group">
+                                    <label for="txtEditor3" class="">Col 3 text</label>
+
+                                    <div class="control-group" id="editor3">
+                                        <textarea id="txtEditor3" name="txtEditor3"></textarea>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+
+
+                    </fieldset>
+
+                    <fieldset class="">
+
+                        <h2>Block 2</h2>
+
+                        <div class="form-row">
+                            <div class="field-box  ">
+
+
+                                <div class="form-group">
+                                    <label for="backImage2" class="">Background Image</label>
+
+                                    <div class="control-group">
+                                        <a id="uploadImage2" href="#InsertImage" role="button" class="btn btn-default"
+                                           data-toggle="modal"
+                                           title="Insert Image">Choose / Upload Image</a>
+
+                                        <div id="backImage2"></div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="field-box field-block_2_quote ">
+
+
+                                <div class="form-group">
+                                    <label for="id_block_2_quote" class="">Quote</label>
+
+                                    <div class="control-group">
+
+                                        <textarea cols="40" id="id_block_2_quote" name="block_2_quote"
+                                                  rows="10"></textarea>
+
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+
+
+                        <div class="form-row">
+                            <div class="field-box field-block_2_author ">
+
+
+                                <div class="form-group">
+                                    <label for="id_block_2_author" class="">Author</label>
+
+                                    <div class="control-group">
+
+                                        <input id="id_block_2_author" maxlength="250" name="block_2_author" type="text"
+                                                >
+
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+
+
+                        <div class="form-row">
+                            <div class="field-box field-block_2_city ">
+
+
+                                <div class="form-group">
+                                    <label for="id_block_2_city" class="">City</label>
+
+                                    <div class="control-group">
+
+                                        <input id="id_block_2_city" maxlength="250" name="block_2_city" type="text"
+                                                >
+
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+
+
+                    </fieldset>
+
+                    <fieldset class="">
+
+                        <h2>Block 3</h2>
+
+
+                        <div class="form-row">
+                            <div class="field-box field-block_3_title ">
+
+
+                                <div class="form-group">
+                                    <label for="id_block_3_title" class="">Title</label>
+
+                                    <div class="control-group">
+
+                                        <input id="id_block_3_title" maxlength="250" name="block_3_title" type="text"
+                                                >
+
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+
+
+                        <div class="form-row">
+                            <div class="field-box field-block_3_sub_title ">
+
+
+                                <div class="form-group">
+                                    <label for="id_block_3_sub_title" class="">Sub title</label>
+
+                                    <div class="control-group">
+
+                                        <textarea cols="40" id="id_block_3_sub_title" name="block_3_sub_title"
+                                                  rows="10"></textarea>
+
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+
+
+                        <div class="form-row">
+                            <div class="field-box field-block_3_col_1_title ">
+
+
+                                <div class="form-group">
+                                    <label for="id_block_3_col_1_title" class="">Col 1 title</label>
+
+                                    <div class="control-group">
+
+                                        <input id="id_block_3_col_1_title" maxlength="250" name="block_3_col_1_title"
+                                               type="text">
+
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+
+
+                        <div class="form-row">
+                            <div class="field-box field-block_3_col_1_text ">
+
+
+                                <div class="form-group">
+                                    <label for="txtEditor4" class="">Col 1 text</label>
+
+                                    <div class="control-group" id="editor4">
+                                        <textarea id="txtEditor4" name="txtEditor4"></textarea>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+
+                        <div class="form-row">
+                            <div class="field-box field-block_3_col_2_title ">
+
+
+                                <div class="form-group">
+                                    <label for="id_block_3_col_2_title" class="">Col 2 title</label>
+
+                                    <div class="control-group">
+
+                                        <input id="id_block_3_col_2_title" maxlength="250" name="block_3_col_2_title"
+                                               type="text">
+
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+
+
+                        <div class="form-row">
+                            <div class="field-box field-block_3_col_2_text ">
+
+
+                                <div class="form-group">
+                                    <label for="txtEditor5" class="">Col 2 text</label>
+
+                                    <div class="control-group" id="editor5">
+                                        <textarea id="txtEditor5" name="txtEditor5"></textarea>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+
+
+                        <div class="form-row">
+                            <div class="field-box field-block_3_col_3_title ">
+
+
+                                <div class="form-group">
+                                    <label for="id_block_3_col_3_title" class="">Col 3 title</label>
+
+                                    <div class="control-group">
+
+                                        <input id="id_block_3_col_3_title" maxlength="250" name="block_3_col_3_title"
+                                               type="text">
+
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+
+
+                        <div class="form-row">
+                            <div class="field-box field-block_3_col_3_text ">
+
+
+                                <div class="form-group">
+                                    <label for="txtEditor6" class="">Col 3 text</label>
+
+                                    <div class="control-group" id="editor6">
+                                        <textarea id="txtEditor6" name="txtEditor6"></textarea>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+
+
+                    </fieldset>
+
+                    <fieldset class="">
+
+                        <h2>Block 4</h2>
+
+                        <div class="form-row">
+                            <div class="field-box  ">
+
+
+                                <div class="form-group">
+                                    <label for="backImage3" class="">Background Image</label>
+
+                                    <div class="control-group">
+                                        <a id="uploadImage3" href="#InsertImage" role="button" class="btn btn-default"
+                                           data-toggle="modal"
+                                           title="Insert Image">Choose / Upload Image</a>
+
+                                        <div id="backImage3"></div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="field-box field-block_4_quote ">
+
+
+                                <div class="form-group">
+                                    <label for="id_block_4_quote" class="">Quote</label>
+
+                                    <div class="control-group">
+
+                                        <textarea cols="40" id="id_block_4_quote" name="block_4_quote"
+                                                  rows="10"></textarea>
+
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+
+
+                        <div class="form-row">
+                            <div class="field-box field-block_4_author ">
+
+
+                                <div class="form-group">
+                                    <label for="id_block_4_author" class="">Author</label>
+
+                                    <div class="control-group">
+
+                                        <input id="id_block_4_author" maxlength="250" name="block_4_author" type="text"
+                                                >
+
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+
+
+                        <div class="form-row">
+                            <div class="field-box field-block_4_city ">
+
+
+                                <div class="form-group">
+                                    <label for="id_block_4_city" class="">City</label>
+
+                                    <div class="control-group">
+
+                                        <input id="id_block_4_city" maxlength="250" name="block_4_city" type="text"
+                                                >
+
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+
+
+                    </fieldset>
+
+                    <fieldset class="">
+
+                        <h2>Block 5</h2>
+
+
+                        <div class="form-row">
+                            <div class="field-box field-block_5_title ">
+
+
+                                <div class="form-group">
+                                    <label for="id_block_5_title" class="">Title</label>
+
+                                    <div class="control-group">
+
+                                        <input id="id_block_5_title" maxlength="250" name="block_5_title" type="text"
+                                                >
+
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+
+
+                        <div class="form-row">
+                            <div class="field-box field-block_5_sub_title ">
+
+
+                                <div class="form-group">
+                                    <label for="id_block_5_sub_title" class="">Sub title</label>
+
+                                    <div class="control-group">
+
+                                        <textarea cols="40" id="id_block_5_sub_title" name="block_5_sub_title"
+                                                  rows="10"></textarea>
+
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+
+
+                        <div class="form-row">
+                            <div class="field-box field-block_5_col_1_title ">
+
+
+                                <div class="form-group">
+                                    <label for="id_block_5_col_1_title" class="">Col 1 title</label>
+
+                                    <div class="control-group">
+
+                                        <input id="id_block_5_col_1_title" maxlength="250" name="block_5_col_1_title"
+                                               type="text">
+
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+
+
+                        <div class="form-row">
+                            <div class="field-box field-block_5_col_1_text ">
+
+
+                                <div class="form-group">
+                                    <label for="txtEditor7" class="">Col 1 text</label>
+
+                                    <div class="control-group" id="editor7">
+                                        <textarea id="txtEditor7" name="txtEditor7"></textarea>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+
+
+                        <div class="form-row">
+                            <div class="field-box field-block_5_col_2_title ">
+
+
+                                <div class="form-group">
+                                    <label for="id_block_5_col_2_title" class="">Col 2 title</label>
+
+                                    <div class="control-group">
+
+                                        <input id="id_block_5_col_2_title" maxlength="250" name="block_5_col_2_title"
+                                               type="text">
+
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+
+
+                        <div class="form-row">
+                            <div class="field-box field-block_5_col_2_text ">
+
+
+                                <div class="form-group">
+                                    <label for="txtEditor8" class="">Col 2 text</label>
+
+                                    <div class="control-group" id="editor8">
+                                        <textarea id="txtEditor8" name="txtEditor8"></textarea>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+
+
+                        <div class="form-row">
+                            <div class="field-box field-block_5_col_3_title ">
+
+
+                                <div class="form-group">
+                                    <label for="id_block_5_col_3_title" class="">Col 3 title</label>
+
+                                    <div class="control-group">
+
+                                        <input id="id_block_5_col_3_title" maxlength="250" name="block_5_col_3_title"
+                                               type="text">
+
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+
+
+                        <div class="form-row">
+                            <div class="field-box field-block_5_col_3_text ">
+
+
+                                <div class="form-group">
+                                    <label for="txtEditor9" class="">Col 3 text</label>
+
+                                    <div class="control-group" id="editor9">
+                                        <textarea id="txtEditor9" name="txtEditor9"></textarea>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+
+
+                    </fieldset>
+
+
+                    <fieldset class="">
+
+                        <h2>Meta data</h2>
+
+
+                        <div class="form-row">
+                            <div class="field-box field-meta_data_meta_title ">
+
+
+                                <div class="form-group">
+                                    <label for="id_meta_data_meta_title" class="">Meta title</label>
+
+                                    <div class="control-group">
+
+                                        <input id="id_meta_data_meta_title" maxlength="250" name="meta_data_meta_title"
+                                               type="text">
+
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+
+
+                        <div class="form-row">
+                            <div class="field-box field-meta_data_meta_description ">
+
+
+                                <div class="form-group">
+                                    <label for="id_meta_data_meta_description" class="">Meta description</label>
+
+                                    <div class="control-group">
+
+                                        <textarea cols="40" id="id_meta_data_meta_description"
+                                                  name="meta_data_meta_description" rows="10"></textarea>
+
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+
+
+                    </fieldset>
+
+                </div>
+
+                <div class="form-actions fixed_bottom">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <input type="submit" value="Save" class="btn btn-primary" name="_save">
+
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </form>
+    </div>
+
+
+    <div class="clearfix" style="padding-bottom: 50px;"></div>
+</div>

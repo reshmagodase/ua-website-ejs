@@ -1,0 +1,169 @@
+﻿<div id="request">
+    <section class="intro">
+        <div class="inner">
+        </div>
+    </section>
+    <section class="details">
+
+        <form action="">
+            <input type="hidden" name="csrfmiddlewaretoken" value="zPhgMVrOeP7iS6cQus1njfIftbdZmuCn">
+            <div class="inner">
+
+                <h2>Drop your details in below and we'll be in touch</h2>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <h3>About you</h3>
+                        <!-- Text input-->
+                        <div class="control-group">
+                            <!-- 					<label class="control-label" for="textinput">About You</label>
+                             -->
+                            <div class="controls ">
+
+                                <input class="form-control" id="id_title" name="title" placeholder="Title" type="text">
+                            </div>
+                        </div>
+
+                        <!-- Text input-->
+                        <div class="control-group">
+                            <!-- 					<label class="control-label" for="Forename">Forename</label>
+                             -->
+                            <div class="controls ">
+                                <span id="fullnameID"></span>
+
+                                <input class="form-control" id="id_full_name" ng-model="fullName" name="full_name" placeholder="Full name *" type="text">
+
+
+                            </div>
+                        </div>
+
+                        <!-- Text input-->
+                        <div class="control-group">
+                            <!-- 					<label class="control-label" for="Phone">Phone</label>
+                             -->
+                            <div class="controls ">
+
+                                <input class="form-control" id="id_contact_number" name="contact_number" placeholder="Contact number" type="text">
+                            </div>
+                        </div>
+
+                        <!-- Text input-->
+                        <div class="control-group">
+                            <!-- 					<label class="control-label" for="Email">Email</label>
+                             -->
+                            <div class="controls ">
+                                <span id="emailID"></span>
+
+                                <input class="form-control" id="id_email" name="email" placeholder="Email *" type="text" ng-model="email">
+
+
+                            </div>
+                        </div>
+
+                        <h3>Do you require a FREE energy audit?</h3>
+
+                        <div class="control-group control-radio">
+                            <div class="controls radio_btns ">
+
+
+                                <span id="auditID"></span>
+
+                                <label><input name="audit" ng-model="audit" type="radio" value="Yes"> Yes please</label>
+
+                                <label><input name="audit" ng-model="audit" type="radio" value="No"> No thank you</label>
+
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <h3>Your company</h3>
+                        <!-- Text input-->
+                        <div class="control-group">
+                            <!-- 					<label class="control-label" for="Company">Company</label>
+                             -->
+                            <div class="controls ">
+
+                                <input class="form-control" id="id_company_name" name="company_name" placeholder="Company name" type="text">
+                            </div>
+                        </div>
+
+                        <!-- Text input-->
+                        <div class="control-group">
+                            <!-- 					<label class="control-label" for="Position">Position</label>
+                             -->
+                            <div class="controls ">
+
+                                <input class="form-control" id="id_position" name="position" placeholder="Your position" type="text">
+                            </div>
+                        </div>
+
+                        <!-- Text input-->
+                        <div class="control-group">
+                            <!-- 					<label class="control-label" for="Current Energy Supplier">Current Energy Supplier</label>
+                             -->
+                            <div class="controls ">
+
+                                <input class="form-control" id="id_current_supplier" name="current_supplier" placeholder="Current energy supplier" type="text">
+                            </div>
+                        </div>
+
+                        <!-- Text input-->
+                        <div class="control-group">
+                            <!-- 					<label class="control-label" for="Annual Energy Costs">Annual Energy Costs</label>
+                             -->
+                            <div class="controls ">
+
+                                <input class="form-control" id="id_annual_energy_costs" name="annual_energy_costs" placeholder="Annual energy costs" type="text">
+                            </div>
+                        </div>
+
+                        <h3>How did you hear about us?</h3>
+
+                        <div class="control-group">
+                            <div class="controls radio_btns ">
+
+                                <span id="hearfromID"></span>
+
+                                <label><input name="hear_from" ng-model="hearfrom" type="radio" value="Internet"> Internet</label>
+
+                                <label><input name="hear_from" ng-model="hearfrom" type="radio" value="Press advert"> Press advert</label>
+
+                                <label><input name="hear_from" ng-model="hearfrom" type="radio" value="Recommendation"> Recommendation</label>
+
+                                <label><input name="hear_from" ng-model="hearfrom" type="radio" value="Other"> Other</label>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <!-- Textarea -->
+                        <div class="control-group">
+                            <div class="controls ">
+                                <span id="msgID"></span>
+
+                                <textarea ng-model="msg" class="form-control" cols="40" id="id_message" name="message" placeholder="Your enquiry" rows="10"></textarea>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <!-- Textarea -->
+                    <div class="control-group">
+                        <div class="controls">
+                            <button type="submit" class="btn btn-default" ng-click="addUser();">Send Enquiry</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </form>
+    </section>
+</div>
+<div ng-include src="'views/contact.html'"></div>
