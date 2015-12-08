@@ -13,6 +13,7 @@ var ObjectID = require('mongodb').ObjectID;
 var sys = require('sys');
 var exec = require('child_process').exec;
 var im = require('imagemagick');
+var Jimp = require("jimp");
 //var lwip = require('lwip');
 
 var server = new Server('localhost', 27017, {auto_reconnect: true});
@@ -177,7 +178,6 @@ exports.addBackgroundImages = function (req, res) {
         imageArray.push(req.files[j]);
     }
 
-
     for (var i = 0; i < imageArray.length; i++) {
 
         var np = './public/utilityAid/backgroundImages/' + req.files[i].filename;
@@ -214,9 +214,16 @@ exports.addBackgroundImages = function (req, res) {
 
         fs.rename('./public/utilityAid/tmp/' + req.files[i].filename, np, function (success) {
 
+
+            Jimp.read(np, function (err, lenna) {
+                if (err) throw err;
+                lenna.resize(280, 200)            // resize
+                    .write(dstPath); // save
+            });
             //console.log(imageArray[0]);
             console.log("Image uploaded successfully");
         });
+
 
         //imageArray.push('utilityAid/images/' + req.files[i].filename);
 
@@ -242,16 +249,16 @@ exports.addBackgroundImages = function (req, res) {
                  });*/
                 res.send(err);
             } else {
-                if (count == 0) {
-                    console.log('Success: ' + JSON.stringify(result));
-                    res.send({'status': 'success', 'message': "Data Uploaded Successfully"});
-                    count++;
-                    console.log(count);
-                    imagePath = {}
-                }
-                else if (count > 0) {
-                    console.log(result);
-                }
+                /*if (count == 0) {*/
+                console.log('Success: ' + JSON.stringify(result));
+                res.send({'status': 'success', 'message': "Data Uploaded Successfully"});
+                count++;
+                console.log(count);
+                imagePath = {}
+                /*}
+                 else if (count > 0) {
+                 console.log(result);
+                 }*/
 
                 //res.send(result);
             }

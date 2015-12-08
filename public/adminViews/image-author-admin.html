@@ -11,7 +11,10 @@
         // Prevents Dropzone from uploading dropped files immediately
         autoProcessQueue: false,
         url: "/uploadImages",
+        dictDefaultMessage: "Click or Drop files here to upload",
+        acceptedFiles: "image/jpeg,image/png,image/gif",
         maxFilesize: 1,
+        parallelUploads: 10,
 
         init: function () {
             var submitButton = document.querySelector("#submit-all")

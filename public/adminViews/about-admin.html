@@ -45,6 +45,9 @@
         $("#myId").css("display", "block");
         var myDropzone = new Dropzone("div#myId", {
             url: "/uploadImages",
+            dictDefaultMessage: "Click or Drop files here to upload",
+            acceptedFiles: "image/jpeg,image/png,image/gif",
+            parallelUploads: 10,
             maxFilesize: 1,
 
             init: function () {

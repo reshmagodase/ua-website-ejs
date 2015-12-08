@@ -1,17 +1,22 @@
 <div ng-include src="'adminViews/partials/header.html'"></div>
 <script>  $(document).ready(function () {
-    /*  $.get("/getBackgroundImages", function (response) {
-     $("#thumbwrap").html("");
-     $.each(response, function (k, data) {
-     $("#thumbwrap").append("<a class='thumb' href='" + data.path + "' target='_blank'><img width=200 height=120 src='/" + data.path + "'/></a>");
+    $.get("/getBackgroundImages", function (response) {
+        $("#thumbwrap").html("");
+        $.each(response, function (k, data) {
+            $("#thumbwrap").append("<a class='thumb' href='" + data.path + "' target='_blank'><img width=200 height=120 src='/" + data.path + "'/></a>");
 
-     });
-     });*/
+        });
+    });
+
+
+
     var myDropzone = new Dropzone("div#myId", {
         // Prevents Dropzone from uploading dropped files immediately
         autoProcessQueue: false,
+        parallelUploads: 10,
         url: "/addBackgroundImages",
-        maxFilesize: 1,
+        dictDefaultMessage: "Click or Drop files here to upload",
+        acceptedFiles: "image/jpeg,image/png,image/gif",
 
         init: function () {
             var submitButton = document.querySelector("#submit-all")
@@ -27,13 +32,12 @@
                 // Show submit button here and/or inform user to click it.
             });
 
-
             this.on("success", function () {
                 myDropzone.removeAllFiles();
                 $.get("/getBackgroundImages", function (response) {
                     $("#thumbwrap").html("");
                     $.each(response, function (k, data) {
-                        $("#thumbwrap").append("<div class='col-md-3 col-sm-4 col-xs-6'><a class='thumb' href='" + data.path + "' target='_blank'><img width=200 height=120 src='/" + data.path + "'/></a></div>");
+                        $("#thumbwrap").append("<a class='thumb' href='" + data.path + "' target='_blank'><img width=200 height=120 src='/" + data.path + "'/></a>");
 
                     });
                 });
@@ -42,7 +46,6 @@
 
         }
     });
-
 
 });
 </script>
