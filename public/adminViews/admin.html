@@ -1,2 +1,73 @@
+<nav class="navbar navbar-default" role="navigation">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="http://utility-aid.co.uk" title="Back to site">Utility Aid</a>
+    </div>
 
-<div ng-include src="'adminViews/partials/header.html'"></div>
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+
+    </div>
+    <!-- /.navbar-collapse -->
+</nav>
+<div class="content">
+
+
+    <div class="clearfix"></div>
+
+
+    <div id="content-main" class="inner">
+        <form action="/list-blogs-admin" method="get" id="login-form" class="form">
+            <legend>Login</legend>
+            <div class="control-group">
+
+                <label for="id_username" class="control-label">Username:</label>
+
+                <div class="controls"><input id="id_username" maxlength="254" name="username" type="text" required></div>
+            </div>
+            <div class="control-group">
+
+                <label for="id_password" class="control-label">Password:</label>
+
+                <div class="controls"><input id="id_password" name="password" type="password" required></div>
+            </div>
+
+
+            <div class="control-group">
+                <div class="controls">
+
+
+                    <input type="submit" value="Log in" class="btn btn-primary">
+                </div>
+            </div>
+
+
+        </form>
+
+        <script type="text/javascript">
+            document.getElementById('id_username').focus()
+        </script>
+    </div>
+
+
+    <div class="clearfix"></div>
+
+</div>
+<style>
+    .content {
+        width: 320px;
+        margin: 30px auto 0px auto;
+        background-color: #eeeeee;
+        border: 1px solid #e5e5e5;
+        padding: 10px 30px 20px 30px;
+        border-radius: 3px;
+    }
+</style>
+

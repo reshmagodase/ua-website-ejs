@@ -217,7 +217,8 @@ exports.addBackgroundImages = function (req, res) {
 
             Jimp.read(np, function (err, lenna) {
                 if (err) throw err;
-                lenna.resize(280, 200)            // resize
+                lenna.resize(280, 200)
+                    .quality(100) // resize
                     .write(dstPath); // save
             });
             //console.log(imageArray[0]);
