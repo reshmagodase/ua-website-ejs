@@ -35,7 +35,7 @@
                 $.get("/getImages", function (response) {
                     $("#thumbwrap").html("");
                     $.each(response, function (k, data) {
-                        $("#thumbwrap").append("<div class='col-md-3 col-sm-4 col-xs-6'><a class='thumb' href='" + data.path + "' target='_blank'><img width=200 height=120 src='/" + data.path + "'/></a></div>");
+                        $("#thumbwrap").append("<a class='thumb' href='" + data.path + "' target='_blank'><img width=200 height=120 src='/" + data.path + "'/></a>");
 
                     });
                 });
@@ -71,9 +71,7 @@
 
 
 <div class="content">
-    <div class="inner"><h1>Upload Blog Images <a
-            href="#"
-            class="small gray">Cancel</a></h1></div>
+    <div class="inner"><h1>Upload Content Images</h1></div>
     <div class="clearfix"></div>
     <div id="content-main">
         <div class="inner">

@@ -40,14 +40,45 @@ var storage = multer.diskStorage({
 
 var upMulter = multer({storage: storage});
 
-app.post('/uploadImages', upMulter.array('file', 10), service.uploadImage);
+app.post('/uploadImages', upMulter.array('file', 10), service.uploadImages);
 app.get('/getImages', service.getImages);
-app.post('/homepageText', service.homepageText);
-app.get('/getHomePageText', service.getHomepageText);
-app.post('/addBackgroundImages', upMulter.array('file', 10), service.addBackgroundImages);
+app.post('/uploadAuthorImages', upMulter.array('file', 10), service.uploadAuthorImages);
+app.get('/getAuthorImages', service.getAuthorImages);
+app.post('/uploadPartnerImages', upMulter.array('file', 10), service.uploadPartnerImages);
+app.get('/getPartnerImages', service.getPartnerImages);
+app.post('/uploadPeopleImages', upMulter.array('file', 10), service.uploadPeopleImages);
+app.get('/getPeopleImages', service.getPeopleImages);
+app.post('/uploadBackgroundImages', upMulter.array('file', 10), service.addBackgroundImages);
 app.get('/getBackgroundImages', service.getBackgroundImages);
 
+app.post('/homepageText', service.homepageText);
+app.get('/getHomePageText', service.getHomepageText);
 
+app.post('/addCaseStudies',service.addCaseStudies);
+app.post('/editCaseStudies',service.editCaseStudies);
+app.get('/getCaseStudiesList',service.getCaseStudiesList);
+app.post('/getCaseStudiesDetails',service.getCaseStudiesDetails);
+app.get('/getCaseStudiesLastOne',service.getCaseStudiesLastOne);
+
+app.post('/addPartners',service.addPartners);
+app.post('/editPartners',service.editPartners);
+app.get('/getPartnersList',service.getPartnersList);
+app.post('/getPartnerDetails',service.getPartnerDetails);
+
+app.post('/addPeople',service.addPeople);
+app.post('/editPeople',service.editPeople);
+app.get('/getPeopleList',service.getPeopleList);
+app.post('/getPeopleDetails',service.getPeopleDetails);
+
+app.post('/addAuthor',service.addAuthor);
+app.post('/editAuthor',service.editAuthor);
+app.get('/getAuthorList',service.getAuthorList);
+app.post('/getAuthorDetails',service.getAuthorDetails);
+
+app.post('/addDefault',service.addDefault);
+app.post('/editDefault',service.editDefault);
+app.get('/getDefaultList',service.getDefaultList);
+app.post('/getDefaultDetails',service.getDefaultDetails);
 //app.use('/', routes);
 //app.use('/users', users);
 app.get('/about-admin', function (req, res) {
@@ -71,7 +102,7 @@ app.get('/add-people-admin', function (req, res) {
 app.get('/admin', function (req, res) {
     res.sendfile('./public/indexAdmin.html');
 });
-app.get('/default', function (req, res) {
+app.get('/default-admin', function (req, res) {
     res.sendfile('./public/indexAdmin.html');
 });
 app.get('/edit-author-admin', function (req, res) {

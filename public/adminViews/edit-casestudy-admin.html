@@ -1,137 +1,6 @@
-<script>
-    $(document).ready(function () {
-        $("#txtEditor1").Editor();
-        $("#txtEditor2").Editor();
-        $("#txtEditor3").Editor();
-        $("#txtEditor4").Editor();
-        $("#txtEditor5").Editor();
-        $("#txtEditor6").Editor();
-        $("#txtEditor7").Editor();
-        $("#txtEditor8").Editor();
-        $("#txtEditor9").Editor();
-        $("#txtEditor10").Editor();
-    });
-
-    var idName = "";
-    $(document).on("click", "#uploadImage1", function () {
-        idName = "#backImage1";
-        $.get("/getImages", function (response) {
-            $("#InsertImage .modal-body").html("");
-            $("#InsertImage .modal-body").append("<button class='uploadFiles' class='btn btn-default'>Upload Files</button><div id='myId' class='dropzone'></div>");
-            $("#InsertImage .modal-body").append("<div id='thumbwrap'/></div><div style='clear: both;'></div> ");
-            $("#thumbwrap").html("");
-            $.each(response, function (k, data) {
-                $("#thumbwrap").append("<img data-dismiss='modal' width=100 height=60  src='" + data.path + "'/>");
-
-            });
-        });
-    });
-    $(document).on("click", "#uploadImage2", function () {
-        idName = "#backImage2";
-        $.get("/getImages", function (response) {
-            $("#InsertImage .modal-body").html("");
-            $("#InsertImage .modal-body").append("<button class='uploadFiles' class='btn btn-default'>Upload Files</button><div id='myId' class='dropzone'></div>");
-            $("#InsertImage .modal-body").append("<div id='thumbwrap'/></div><div style='clear: both;'></div> ");
-            $("#thumbwrap").html("");
-            $.each(response, function (k, data) {
-                $("#thumbwrap").append("<img data-dismiss='modal' width=100 height=60  src='" + data.path + "'/>");
-
-            });
-        });
-    });
-    $(document).on("click", "#uploadImage3", function () {
-        idName = "#backImage3";
-        $.get("/getImages", function (response) {
-            $("#InsertImage .modal-body").html("");
-            $("#InsertImage .modal-body").append("<button class='uploadFiles' class='btn btn-default'>Upload Files</button><div id='myId' class='dropzone'></div>");
-            $("#InsertImage .modal-body").append("<div id='thumbwrap'/></div><div style='clear: both;'></div> ");
-            $("#thumbwrap").html("");
-            $.each(response, function (k, data) {
-                $("#thumbwrap").append("<img data-dismiss='modal' width=100 height=60  src='" + data.path + "'/>");
-
-            });
-        });
-    });
-
-    $(document).on("click", "#editor1 .btn", function () {
-        idName = "#editor1";
-    });
-    $(document).on("click", "#editor2 .btn", function () {
-        idName = "#editor2";
-    });
-    $(document).on("click", "#editor3 .btn", function () {
-        idName = "#editor3";
-    });
-    $(document).on("click", "#editor4 .btn", function () {
-        idName = "#editor4";
-    });
-    $(document).on("click", "#editor5 .btn", function () {
-        idName = "#editor5";
-    });
-    $(document).on("click", "#editor6 .btn", function () {
-        idName = "#editor6";
-    });
-    $(document).on("click", "#editor7 .btn", function () {
-        idName = "#editor7";
-    });
-    $(document).on("click", "#editor8 .btn", function () {
-        idName = "#editor8";
-    });
-    $(document).on("click", "#editor9 .btn", function () {
-        idName = "#editor9";
-    });
-    $(document).on("click", "#editor10 .btn", function () {
-        idName = "#editor10";
-    });
-    $(document).on('click', '#InsertImage img', function (e) {
-        if (idName == "#backImage1") {
-            $(idName).html('<img width=100 height=60 src="' + $(this).attr('src') + '"/>');
-        }
-        else if (idName == "#backImage2") {
-            $(idName).html('<img width=100 height=60 src="' + $(this).attr('src') + '"/>');
-        }
-        else if (idName == "#backImage3") {
-            $(idName).html('<img width=100 height=60 src="' + $(this).attr('src') + '"/>');
-        } else {
-            $(idName + " .Editor-editor").append('<img width=500 height=300 src="' + $(this).attr('src') + '"/>');
-        }
-        e.stopImmediatePropagation();
-    });
+<script src="js/casestudiesEdit.js?2"></script>
 
 
-    $(document).on("click", ".uploadFiles", function () {
-        $("#myId").css("display", "block");
-        var myDropzone = new Dropzone("div#myId", {
-            url: "/uploadImages",
-            dictDefaultMessage: "Click or Drop files here to upload",
-            acceptedFiles: "image/jpeg,image/png,image/gif",
-            maxFilesize: 1,
-            parallelUploads: 10,
-
-            init: function () {
-
-                // You might want to show the submit button only when
-                // files are dropped here:
-                this.on("addedfile", function () {
-                    // Show submit button here and/or inform user to click it.
-                });
-                this.on("success", function () {
-                    myDropzone.removeAllFiles();
-                    $.get("/getImages", function (response) {
-                        $("#thumbwrap").html("");
-                        $.each(response, function (k, data) {
-                            $("#thumbwrap").append("<img data-dismiss='modal' width=100 height=60  src='" + data.path + "'/>");
-
-                        });
-                    });
-                })
-
-            }
-        });
-    });
-
-
-</script>
 
 
 <style>
@@ -161,6 +30,8 @@
     <div id="content-main">
         <form enctype="multipart/form-data" action="" method="post" id="add_edit_translation_form"
               class="form-horizontal">
+            <input type="hidden" id="objectId" name="objectId"/>
+            <input type="hidden" id="createdDate" name="createdDate"/>
             <div>
 
                 <div class="inner">
@@ -173,8 +44,8 @@
                             <div class="">
                                 <div class="form-group-checkbox">
                                     <label class="checkbox">
-                                        <input id="id_active" name="active" type="checkbox">
-                                        <label class="vCheckboxLabel" for="id_active">Active</label>
+                                        <input id="active" name="active" type="checkbox">
+                                        <label class="vCheckboxLabel" for="active">Active</label>
                                     </label>
                                 </div>
                             </div>
@@ -184,11 +55,11 @@
 
 
                                 <div class="form-group">
-                                    <label for="id_title" class="">Page title</label>
+                                    <label for="title" class="">Page title</label>
 
                                     <div class="control-group">
 
-                                        <input data-slug="slug" id="id_title" maxlength="100" name="title" type="text"
+                                        <input data-slug="slug" id="title" maxlength="100" name="title" type="text"
                                                 >
 
 
@@ -205,11 +76,11 @@
 
 
                                 <div class="form-group">
-                                    <label for="id_slug" class="">Slug</label>
+                                    <label for="slug" class="">Slug</label>
 
                                     <div class="control-group">
 
-                                        <input id="id_slug" maxlength="100" name="slug" type="text"
+                                        <input id="slug" maxlength="100" name="slug" type="text"
                                                 >
 
 
@@ -233,11 +104,11 @@
 
 
                                 <div class="form-group">
-                                    <label for="id_home_page_feature_title" class="">Feature title</label>
+                                    <label for="home_page_feature_title" class="">Feature title</label>
 
                                     <div class="control-group">
 
-                                        <textarea cols="40" id="id_home_page_feature_title"
+                                        <textarea cols="40" id="home_page_feature_title"
                                                   name="home_page_feature_title" rows="10"></textarea>
 
 
@@ -254,11 +125,11 @@
 
 
                                 <div class="form-group">
-                                    <label for="id_home_page_ua_action" class="">Ua action</label>
+                                    <label for="home_page_ua_action" class="">Ua action</label>
 
                                     <div class="control-group">
 
-                                        <textarea cols="40" id="id_home_page_ua_action" name="home_page_ua_action"
+                                        <textarea cols="40" id="home_page_ua_action" name="home_page_ua_action"
                                                   rows="10"></textarea>
 
 
@@ -275,12 +146,12 @@
 
 
                                 <div class="form-group">
-                                    <label for="id_home_page_case_study_button_text" class="">Case study button
+                                    <label for="home_page_case_study_button_text" class="">Case study button
                                         text</label>
 
                                     <div class="control-group">
 
-                                        <input id="id_home_page_case_study_button_text" maxlength="250"
+                                        <input id="home_page_case_study_button_text" maxlength="250"
                                                name="home_page_case_study_button_text" type="text"
                                                 >
 
@@ -298,11 +169,11 @@
 
 
                                 <div class="form-group">
-                                    <label for="id_home_page_listing_excerpt" class="">Listing excerpt</label>
+                                    <label for="home_page_listing_excerpt" class="">Listing excerpt</label>
 
                                     <div class="control-group">
 
-                                        <textarea cols="40" id="id_home_page_listing_excerpt"
+                                        <textarea cols="40" id="home_page_listing_excerpt"
                                                   name="home_page_listing_excerpt" rows="10"></textarea>
 
 
@@ -328,11 +199,13 @@
                                     <label for="backImage1" class="">Background Image</label>
 
                                     <div class="control-group">
-                                        <a id="uploadImage1" href="#InsertImage" role="button" class="btn btn-default"
+                                        <a id="uploadImage1"  role="button" class="btn btn-default"
                                            data-toggle="modal"
                                            title="Insert Image">Choose / Upload Image</a>
 
                                         <div id="backImage1"></div>
+                                        <input type="hidden" id="image1" name="image1">
+                                        <input type="hidden" id="thumbImage" name="thumbImage">
                                     </div>
 
                                 </div>
@@ -345,11 +218,11 @@
 
 
                                 <div class="form-group">
-                                    <label for="id_banner_col_1_title" class="">Col 1 title</label>
+                                    <label for="banner_col_1_title" class="">Col 1 title</label>
 
                                     <div class="control-group">
 
-                                        <input id="id_banner_col_1_title" maxlength="250" name="banner_col_1_title"
+                                        <input id="banner_col_1_title" maxlength="250" name="banner_col_1_title"
                                                type="text">
 
 
@@ -366,11 +239,11 @@
 
 
                                 <div class="form-group">
-                                    <label for="id_banner_col_1_text" class="">Col 1 text</label>
+                                    <label for="banner_col_1_text" class="">Col 1 text</label>
 
                                     <div class="control-group">
 
-                                        <textarea cols="40" id="id_banner_col_1_text" name="banner_col_1_text"
+                                        <textarea cols="40" id="banner_col_1_text" name="banner_col_1_text"
                                                   rows="10"></textarea>
 
 
@@ -387,11 +260,11 @@
 
 
                                 <div class="form-group">
-                                    <label for="id_banner_col_2_title" class="">Col 2 title</label>
+                                    <label for="banner_col_2_title" class="">Col 2 title</label>
 
                                     <div class="control-group">
 
-                                        <input id="id_banner_col_2_title" maxlength="250" name="banner_col_2_title"
+                                        <input id="banner_col_2_title" maxlength="250" name="banner_col_2_title"
                                                type="text">
 
 
@@ -408,11 +281,11 @@
 
 
                                 <div class="form-group">
-                                    <label for="id_banner_col_2_text" class="">Col 2 text</label>
+                                    <label for="banner_col_2_text" class="">Col 2 text</label>
 
                                     <div class="control-group">
 
-                                        <textarea cols="40" id="id_banner_col_2_text" name="banner_col_2_text"
+                                        <textarea cols="40" id="banner_col_2_text" name="banner_col_2_text"
                                                   rows="10"></textarea>
 
 
@@ -429,11 +302,11 @@
 
 
                                 <div class="form-group">
-                                    <label for="id_banner_col_3_title" class="">Col 3 title</label>
+                                    <label for="banner_col_3_title" class="">Col 3 title</label>
 
                                     <div class="control-group">
 
-                                        <input id="id_banner_col_3_title" maxlength="250" name="banner_col_3_title"
+                                        <input id="banner_col_3_title" maxlength="250" name="banner_col_3_title"
                                                type="text">
 
 
@@ -450,11 +323,11 @@
 
 
                                 <div class="form-group">
-                                    <label for="id_banner_col_3_text" class="">Col 3 text</label>
+                                    <label for="banner_col_3_text" class="">Col 3 text</label>
 
                                     <div class="control-group">
 
-                                        <textarea cols="40" id="id_banner_col_3_text" name="banner_col_3_text"
+                                        <textarea cols="40" id="banner_col_3_text" name="banner_col_3_text"
                                                   rows="10"></textarea>
 
 
@@ -471,11 +344,11 @@
 
 
                                 <div class="form-group">
-                                    <label for="id_banner_title" class="">Title</label>
+                                    <label for="banner_title" class="">Title</label>
 
                                     <div class="control-group">
 
-                                        <textarea cols="40" id="id_banner_title" name="banner_title"
+                                        <textarea cols="40" id="banner_title" name="banner_title"
                                                   rows="10"></textarea>
 
 
@@ -499,11 +372,11 @@
 
 
                                 <div class="form-group">
-                                    <label for="id_block_1_title" class="">Title</label>
+                                    <label for="block_1_title" class="">Title</label>
 
                                     <div class="control-group">
 
-                                        <input id="id_block_1_title" maxlength="250" name="block_1_title" type="text"
+                                        <input id="block_1_title" maxlength="250" name="block_1_title" type="text"
                                                 >
 
 
@@ -520,11 +393,11 @@
 
 
                                 <div class="form-group">
-                                    <label for="id_block_1_sub_title" class="">Sub title</label>
+                                    <label for="block_1_sub_title" class="">Sub title</label>
 
                                     <div class="control-group">
 
-                                        <textarea cols="40" id="id_block_1_sub_title" name="block_1_sub_title"
+                                        <textarea cols="40" id="block_1_sub_title" name="block_1_sub_title"
                                                   rows="10"></textarea>
 
 
@@ -541,11 +414,11 @@
 
 
                                 <div class="form-group">
-                                    <label for="id_block_1_col_1_title" class="">Col 1 title</label>
+                                    <label for="block_1_col_1_title" class="">Col 1 title</label>
 
                                     <div class="control-group">
 
-                                        <input id="id_block_1_col_1_title" maxlength="250" name="block_1_col_1_title"
+                                        <input id="block_1_col_1_title" maxlength="250" name="block_1_col_1_title"
                                                type="text">
 
 
@@ -578,11 +451,11 @@
 
 
                                 <div class="form-group">
-                                    <label for="id_block_1_col_2_title" class="">Col 2 title</label>
+                                    <label for="block_1_col_2_title" class="">Col 2 title</label>
 
-                                    <div class="control-group">
+                                    <div class="control-group" >
 
-                                        <input id="id_block_1_col_2_title" maxlength="250" name="block_1_col_2_title"
+                                        <input id="block_1_col_2_title" maxlength="250" name="block_1_col_2_title"
                                                type="text">
 
 
@@ -616,11 +489,11 @@
 
 
                                 <div class="form-group">
-                                    <label for="id_block_1_col_3_title" class="">Col 3 title</label>
+                                    <label for="block_1_col_3_title" class="">Col 3 title</label>
 
                                     <div class="control-group">
 
-                                        <input id="id_block_1_col_3_title" maxlength="250" name="block_1_col_3_title"
+                                        <input id="block_1_col_3_title" maxlength="250" name="block_1_col_3_title"
                                                type="text">
 
 
@@ -663,11 +536,12 @@
                                     <label for="backImage2" class="">Background Image</label>
 
                                     <div class="control-group">
-                                        <a id="uploadImage2" href="#InsertImage" role="button" class="btn btn-default"
+                                        <a id="uploadImage2"  role="button" class="btn btn-default"
                                            data-toggle="modal"
                                            title="Insert Image">Choose / Upload Image</a>
 
                                         <div id="backImage2"></div>
+                                        <input type="hidden" id="image2" name="image2">
                                     </div>
 
                                 </div>
@@ -680,11 +554,11 @@
 
 
                                 <div class="form-group">
-                                    <label for="id_block_2_quote" class="">Quote</label>
+                                    <label for="block_2_quote" class="">Quote</label>
 
                                     <div class="control-group">
 
-                                        <textarea cols="40" id="id_block_2_quote" name="block_2_quote"
+                                        <textarea cols="40" id="block_2_quote" name="block_2_quote"
                                                   rows="10"></textarea>
 
 
@@ -701,11 +575,11 @@
 
 
                                 <div class="form-group">
-                                    <label for="id_block_2_author" class="">Author</label>
+                                    <label for="block_2_author" class="">Author</label>
 
                                     <div class="control-group">
 
-                                        <input id="id_block_2_author" maxlength="250" name="block_2_author" type="text"
+                                        <input id="block_2_author" maxlength="250" name="block_2_author" type="text"
                                                 >
 
 
@@ -722,11 +596,11 @@
 
 
                                 <div class="form-group">
-                                    <label for="id_block_2_city" class="">City</label>
+                                    <label for="block_2_city" class="">City</label>
 
                                     <div class="control-group">
 
-                                        <input id="id_block_2_city" maxlength="250" name="block_2_city" type="text"
+                                        <input id="block_2_city" maxlength="250" name="block_2_city" type="text"
                                                 >
 
 
@@ -750,11 +624,11 @@
 
 
                                 <div class="form-group">
-                                    <label for="id_block_3_title" class="">Title</label>
+                                    <label for="block_3_title" class="">Title</label>
 
                                     <div class="control-group">
 
-                                        <input id="id_block_3_title" maxlength="250" name="block_3_title" type="text"
+                                        <input id="block_3_title" maxlength="250" name="block_3_title" type="text"
                                                 >
 
 
@@ -771,11 +645,11 @@
 
 
                                 <div class="form-group">
-                                    <label for="id_block_3_sub_title" class="">Sub title</label>
+                                    <label for="block_3_sub_title" class="">Sub title</label>
 
                                     <div class="control-group">
 
-                                        <textarea cols="40" id="id_block_3_sub_title" name="block_3_sub_title"
+                                        <textarea cols="40" id="block_3_sub_title" name="block_3_sub_title"
                                                   rows="10"></textarea>
 
 
@@ -792,11 +666,11 @@
 
 
                                 <div class="form-group">
-                                    <label for="id_block_3_col_1_title" class="">Col 1 title</label>
+                                    <label for="block_3_col_1_title" class="">Col 1 title</label>
 
                                     <div class="control-group">
 
-                                        <input id="id_block_3_col_1_title" maxlength="250" name="block_3_col_1_title"
+                                        <input id="block_3_col_1_title" maxlength="250" name="block_3_col_1_title"
                                                type="text">
 
 
@@ -829,11 +703,11 @@
 
 
                                 <div class="form-group">
-                                    <label for="id_block_3_col_2_title" class="">Col 2 title</label>
+                                    <label for="block_3_col_2_title" class="">Col 2 title</label>
 
                                     <div class="control-group">
 
-                                        <input id="id_block_3_col_2_title" maxlength="250" name="block_3_col_2_title"
+                                        <input id="block_3_col_2_title" maxlength="250" name="block_3_col_2_title"
                                                type="text">
 
 
@@ -867,11 +741,11 @@
 
 
                                 <div class="form-group">
-                                    <label for="id_block_3_col_3_title" class="">Col 3 title</label>
+                                    <label for="block_3_col_3_title" class="">Col 3 title</label>
 
                                     <div class="control-group">
 
-                                        <input id="id_block_3_col_3_title" maxlength="250" name="block_3_col_3_title"
+                                        <input id="block_3_col_3_title" maxlength="250" name="block_3_col_3_title"
                                                type="text">
 
 
@@ -914,11 +788,12 @@
                                     <label for="backImage3" class="">Background Image</label>
 
                                     <div class="control-group">
-                                        <a id="uploadImage3" href="#InsertImage" role="button" class="btn btn-default"
+                                        <a id="uploadImage3"  role="button" class="btn btn-default"
                                            data-toggle="modal"
                                            title="Insert Image">Choose / Upload Image</a>
 
                                         <div id="backImage3"></div>
+                                        <input type="hidden" id="image3" name="image3">
                                     </div>
 
                                 </div>
@@ -931,11 +806,11 @@
 
 
                                 <div class="form-group">
-                                    <label for="id_block_4_quote" class="">Quote</label>
+                                    <label for="block_4_quote" class="">Quote</label>
 
                                     <div class="control-group">
 
-                                        <textarea cols="40" id="id_block_4_quote" name="block_4_quote"
+                                        <textarea cols="40" id="block_4_quote" name="block_4_quote"
                                                   rows="10"></textarea>
 
 
@@ -952,11 +827,11 @@
 
 
                                 <div class="form-group">
-                                    <label for="id_block_4_author" class="">Author</label>
+                                    <label for="block_4_author" class="">Author</label>
 
                                     <div class="control-group">
 
-                                        <input id="id_block_4_author" maxlength="250" name="block_4_author" type="text"
+                                        <input id="block_4_author" maxlength="250" name="block_4_author" type="text"
                                                 >
 
 
@@ -973,11 +848,11 @@
 
 
                                 <div class="form-group">
-                                    <label for="id_block_4_city" class="">City</label>
+                                    <label for="block_4_city" class="">City</label>
 
                                     <div class="control-group">
 
-                                        <input id="id_block_4_city" maxlength="250" name="block_4_city" type="text"
+                                        <input id="block_4_city" maxlength="250" name="block_4_city" type="text"
                                                 >
 
 
@@ -1001,11 +876,11 @@
 
 
                                 <div class="form-group">
-                                    <label for="id_block_5_title" class="">Title</label>
+                                    <label for="block_5_title" class="">Title</label>
 
                                     <div class="control-group">
 
-                                        <input id="id_block_5_title" maxlength="250" name="block_5_title" type="text"
+                                        <input id="block_5_title" maxlength="250" name="block_5_title" type="text"
                                                 >
 
 
@@ -1022,11 +897,11 @@
 
 
                                 <div class="form-group">
-                                    <label for="id_block_5_sub_title" class="">Sub title</label>
+                                    <label for="block_5_sub_title" class="">Sub title</label>
 
                                     <div class="control-group">
 
-                                        <textarea cols="40" id="id_block_5_sub_title" name="block_5_sub_title"
+                                        <textarea cols="40" id="block_5_sub_title" name="block_5_sub_title"
                                                   rows="10"></textarea>
 
 
@@ -1043,11 +918,11 @@
 
 
                                 <div class="form-group">
-                                    <label for="id_block_5_col_1_title" class="">Col 1 title</label>
+                                    <label for="block_5_col_1_title" class="">Col 1 title</label>
 
                                     <div class="control-group">
 
-                                        <input id="id_block_5_col_1_title" maxlength="250" name="block_5_col_1_title"
+                                        <input id="block_5_col_1_title" maxlength="250" name="block_5_col_1_title"
                                                type="text">
 
 
@@ -1081,11 +956,11 @@
 
 
                                 <div class="form-group">
-                                    <label for="id_block_5_col_2_title" class="">Col 2 title</label>
+                                    <label for="block_5_col_2_title" class="">Col 2 title</label>
 
                                     <div class="control-group">
 
-                                        <input id="id_block_5_col_2_title" maxlength="250" name="block_5_col_2_title"
+                                        <input id="block_5_col_2_title" maxlength="250" name="block_5_col_2_title"
                                                type="text">
 
 
@@ -1119,11 +994,11 @@
 
 
                                 <div class="form-group">
-                                    <label for="id_block_5_col_3_title" class="">Col 3 title</label>
+                                    <label for="block_5_col_3_title" class="">Col 3 title</label>
 
                                     <div class="control-group">
 
-                                        <input id="id_block_5_col_3_title" maxlength="250" name="block_5_col_3_title"
+                                        <input id="block_5_col_3_title" maxlength="250" name="block_5_col_3_title"
                                                type="text">
 
 
@@ -1165,11 +1040,11 @@
 
 
                                 <div class="form-group">
-                                    <label for="id_meta_data_meta_title" class="">Meta title</label>
+                                    <label for="meta_data_meta_title" class="">Meta title</label>
 
                                     <div class="control-group">
 
-                                        <input id="id_meta_data_meta_title" maxlength="250" name="meta_data_meta_title"
+                                        <input id="meta_data_meta_title" maxlength="250" name="meta_data_meta_title"
                                                type="text">
 
 
@@ -1186,11 +1061,11 @@
 
 
                                 <div class="form-group">
-                                    <label for="id_meta_data_meta_description" class="">Meta description</label>
+                                    <label for="meta_data_meta_description" class="">Meta description</label>
 
                                     <div class="control-group">
 
-                                        <textarea cols="40" id="id_meta_data_meta_description"
+                                        <textarea cols="40" id="meta_data_meta_description"
                                                   name="meta_data_meta_description" rows="10"></textarea>
 
 

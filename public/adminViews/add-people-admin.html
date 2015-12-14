@@ -1,68 +1,5 @@
-<script type="text/javascript" src="js/blog.js"></script>
+<script type="text/javascript" src="js/peopleAdd.js"></script>
 
-<script>
-    $(document).ready(function () {
-        $("#txtEditor").Editor();
-    });
-
-    var idName = "";
-    $(document).on("click", "#uploadImage1", function () {
-        idName = "#backImage1";
-        $.get("/getImages", function (response) {
-            $("#InsertImage .modal-body").html("");
-            $("#InsertImage .modal-body").append("<button class='uploadFiles' class='btn btn-default'>Upload Files</button><div id='myId' class='dropzone'></div>");
-            $("#InsertImage .modal-body").append("<div id='thumbwrap'/></div><div style='clear: both;'></div> ");
-            $("#thumbwrap").html("");
-            $.each(response, function (k, data) {
-                $("#thumbwrap").append("<img data-dismiss='modal' width=100 height=60  src='" + data.path + "'/>");
-
-            });
-        });
-    });
-
-
-    $(document).on('click', '#InsertImage img', function (e) {
-        if (idName == "#backImage1") {
-            $(idName).html('<img width=100 height=60 src="' + $(this).attr('src') + '"/>');
-        } else {
-            $(".Editor-editor").append('<img width=500 height=300 src="' + $(this).attr('src') + '"/>');
-        }
-        e.stopImmediatePropagation();
-    });
-
-
-    $(document).on("click", ".uploadFiles", function () {
-        $("#myId").css("display", "block");
-        var myDropzone = new Dropzone("div#myId", {
-            url: "/uploadImages",
-            dictDefaultMessage: "Click or Drop files here to upload",
-            acceptedFiles: "image/jpeg,image/png,image/gif",
-            maxFilesize: 1,
-            parallelUploads: 10,
-
-            init: function () {
-
-                // You might want to show the submit button only when
-                // files are dropped here:
-                this.on("addedfile", function () {
-                    // Show submit button here and/or inform user to click it.
-                });
-                this.on("success", function () {
-                    myDropzone.removeAllFiles();
-                    $.get("/getImages", function (response) {
-                        $("#thumbwrap").html("");
-                        $.each(response, function (k, data) {
-                            $("#thumbwrap").append("<img data-dismiss='modal' width=100 height=60  src='" + data.path + "'/>");
-
-                        });
-                    });
-                })
-
-            }
-        });
-    });
-
-</script>
 
 
 <style>
@@ -89,7 +26,7 @@
     <div id="content-main">
         <form enctype="multipart/form-data" action="" method="post" id="add_edit_translation_form"
               class="form-horizontal">
-
+            <input type="hidden" id="image1" name="image1">
             <div>
 
                 <div class="inner">
@@ -100,8 +37,8 @@
                             <div class="">
                                 <div class="form-group-checkbox">
                                     <label class="checkbox">
-                                        <input id="id_active" name="active" type="checkbox">
-                                        <label class="vCheckboxLabel" for="id_active">Active</label>
+                                        <input id="active" name="active" checked="true" type="checkbox">
+                                        <label class="vCheckboxLabel" for="active">Active</label>
                                     </label>
                                 </div>
                             </div>
@@ -114,7 +51,7 @@
                                 <div class="form-group">
                                     <label for="backImage1" class="">Profile Pic</label>
                                     <div class="control-group">
-                                        <a id="uploadImage1" href="#InsertImage" role="button" class="btn btn-default"
+                                        <a id="uploadImage1"  role="button" class="btn btn-default"
                                            data-toggle="modal"
                                            title="Insert Image">Choose / Upload Image</a>
 
@@ -132,11 +69,11 @@
 
 
                                 <div class="form-group">
-                                    <label for="id_people_order_1" class="">Order Id</label>
+                                    <label for="people_order_1" class="">Order Id</label>
 
                                     <div class="control-group">
 
-                                        <input id="id_people_order_1" maxlength="250" name="people_order_1"
+                                        <input id="people_order_1" maxlength="250" name="people_order_1"
                                                type="text" value="0">
 
 
@@ -151,11 +88,11 @@
 
 
                                 <div class="form-group">
-                                    <label for="id_people_person_1_name" class="">Person name</label>
+                                    <label for="people_person_1_name" class="">Person name</label>
 
                                     <div class="control-group">
 
-                                        <input id="id_people_person_1_name" maxlength="250" name="people_person_1_name"
+                                        <input id="people_person_1_name" maxlength="250" name="people_person_1_name"
                                                type="text">
 
 
@@ -171,11 +108,11 @@
 
 
                                 <div class="form-group">
-                                    <label for="id_people_person_1_position" class="">Person position</label>
+                                    <label for="people_person_1_position" class="">Person position</label>
 
                                     <div class="control-group">
 
-                                        <input id="id_people_person_1_position" maxlength="250"
+                                        <input id="people_person_1_position" maxlength="250"
                                                name="people_person_1_position" type="text">
 
 
@@ -192,11 +129,11 @@
 
 
                                 <div class="form-group">
-                                    <label for="id_people_person_1_job" class="">Person job</label>
+                                    <label for="people_person_1_job" class="">Person job</label>
 
                                     <div class="control-group">
 
-                                        <input id="id_people_person_1_job" maxlength="250" name="people_person_1_job"
+                                        <input id="people_person_1_job" maxlength="250" name="people_person_1_job"
                                                type="text">
 
 
@@ -213,11 +150,11 @@
 
 
                                 <div class="form-group">
-                                    <label for="id_people_person_1_text" class="">Person text</label>
+                                    <label for="people_person_1_text" class="">Person text</label>
 
                                     <div class="control-group">
 
-                                        <textarea cols="40" id="id_people_person_1_text" name="people_person_1_text"
+                                        <textarea cols="40" id="people_person_1_text" name="people_person_1_text"
                                                   rows="10"></textarea>
 
 
@@ -234,11 +171,11 @@
 
 
                                 <div class="form-group">
-                                    <label for="id_people_person_1_email" class="">Person email</label>
+                                    <label for="people_person_1_email" class="">Person email</label>
 
                                     <div class="control-group">
 
-                                        <input id="id_people_person_1_email" maxlength="250"
+                                        <input id="people_person_1_email" maxlength="250"
                                                name="people_person_1_email" type="text"
                                                 >
 
@@ -256,11 +193,11 @@
 
 
                                 <div class="form-group">
-                                    <label for="id_people_person_1_linkedin" class="">Person linkedin</label>
+                                    <label for="people_person_1_linkedin" class="">Person linkedin</label>
 
                                     <div class="control-group">
 
-                                        <input id="id_people_person_1_linkedin" maxlength="250"
+                                        <input id="people_person_1_linkedin" maxlength="250"
                                                name="people_person_1_linkedin" type="text"
                                                 >
 

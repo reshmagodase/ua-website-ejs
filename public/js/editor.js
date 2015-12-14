@@ -749,7 +749,7 @@
                     // Chetan "modalBody": methods.imageWidget.apply(this),
                     "beforeLoad": function () {
 
-                        $('#InsertImage .btnSuccess').css("display:none");
+                        $('#InsertImage .btn-success').css("display","none");
                         $("#InsertImage .modal-body").html("");
 
                         $("#InsertImage .modal-body").append("<button class='uploadFiles' class='btn btn-default'>Upload Files</button><div id='myId' class='dropzone'></div>");
@@ -1461,7 +1461,7 @@
         createModal: function (modalId, modalHeader, modalBody, onSave) {
             //Create a Modal for the button.
             var modalTrigger = $('<a/>', {
-                href: "#" + modalId,
+                "data-target": "#" + modalId,
                 role: "button",
                 class: "btn btn-default",
                 "data-toggle": "modal"

@@ -1,68 +1,5 @@
-<script type="text/javascript" src="js/blog.js"></script>
+<script type="text/javascript" src="js/authorEdit.js"></script>
 
-<script>
-    $(document).ready(function () {
-        $("#txtEditor").Editor();
-    });
-
-    var idName = "";
-    $(document).on("click", "#uploadImage1", function () {
-        idName = "#backImage1";
-        $.get("/getImages", function (response) {
-            $("#InsertImage .modal-body").html("");
-            $("#InsertImage .modal-body").append("<button class='uploadFiles' class='btn btn-default'>Upload Files</button><div id='myId' class='dropzone'></div>");
-            $("#InsertImage .modal-body").append("<div id='thumbwrap'/></div><div style='clear: both;'></div> ");
-            $("#thumbwrap").html("");
-            $.each(response, function (k, data) {
-                $("#thumbwrap").append("<img data-dismiss='modal' width=100 height=60  src='" + data.path + "'/>");
-
-            });
-        });
-    });
-
-
-    $(document).on('click', '#InsertImage img', function (e) {
-        if (idName == "#backImage1") {
-            $(idName).html('<img width=100 height=60 src="' + $(this).attr('src') + '"/>');
-        } else {
-            $(".Editor-editor").append('<img width=500 height=300 src="' + $(this).attr('src') + '"/>');
-        }
-        e.stopImmediatePropagation();
-    });
-
-
-    $(document).on("click", ".uploadFiles", function () {
-        $("#myId").css("display", "block");
-        var myDropzone = new Dropzone("div#myId", {
-            url: "/uploadImages",
-            dictDefaultMessage: "Click or Drop files here to upload",
-            acceptedFiles: "image/jpeg,image/png,image/gif",
-            maxFilesize: 1,
-            parallelUploads: 10,
-
-            init: function () {
-
-                // You might want to show the submit button only when
-                // files are dropped here:
-                this.on("addedfile", function () {
-                    // Show submit button here and/or inform user to click it.
-                });
-                this.on("success", function () {
-                    myDropzone.removeAllFiles();
-                    $.get("/getImages", function (response) {
-                        $("#thumbwrap").html("");
-                        $.each(response, function (k, data) {
-                            $("#thumbwrap").append("<img data-dismiss='modal' width=100 height=60  src='" + data.path + "'/>");
-
-                        });
-                    });
-                })
-
-            }
-        });
-    });
-
-</script>
 
 
 <style>
@@ -92,7 +29,9 @@
     <div id="content-main">
 
         <form enctype="multipart/form-data" action="" method="post" id="author_form" class="form-horizontal">
-
+            <input type="hidden" id="createdDate" name="createdDate">
+            <input type="hidden" id="objectId" name="objectId">
+            <input type="hidden" id="image1" name="image1">
             <div>
 
 
@@ -111,8 +50,8 @@
 
                                 <div class="form-group-checkbox">
                                     <label class="checkbox">
-                                        <input id="id_active" name="active" type="checkbox">
-                                        <label class="vCheckboxLabel" for="id_active">Active</label>
+                                        <input id="active" name="active" type="checkbox">
+                                        <label class="vCheckboxLabel" for="active">Active</label>
                                     </label>
 
                                 </div>
@@ -129,11 +68,11 @@
 
 
                                 <div class="form-group">
-                                    <label for="id_first_name" class="">First name</label>
+                                    <label for="first_name" class="">First name</label>
 
                                     <div class="control-group">
 
-                                        <input class="vTextField" id="id_first_name" maxlength="100" name="first_name"
+                                        <input class="vTextField" id="first_name" maxlength="100" name="first_name"
                                                type="text">
 
 
@@ -153,11 +92,11 @@
 
 
                                 <div class="form-group">
-                                    <label for="id_last_name" class="">Last name</label>
+                                    <label for="last_name" class="">Last name</label>
 
                                     <div class="control-group">
 
-                                        <input class="vTextField" id="id_last_name" maxlength="100" name="last_name"
+                                        <input class="vTextField" id="last_name" maxlength="100" name="last_name"
                                                type="text">
 
 
@@ -177,7 +116,7 @@
                                 <div class="form-group">
                                     <label for="backImage1" class="">Profile Pic</label>
                                     <div class="control-group">
-                                        <a id="uploadImage1" href="#InsertImage" role="button" class="btn btn-default"
+                                        <a id="uploadImage1"  role="button" class="btn btn-default"
                                            data-toggle="modal"
                                            title="Insert Image">Choose / Upload Image</a>
 
@@ -196,11 +135,11 @@
 
 
                                 <div class="form-group">
-                                    <label for="id_order_id" class="">Order id</label>
+                                    <label for="order_id" class="">Order id</label>
 
                                     <div class="control-group">
 
-                                        <input class="vIntegerField" id="id_order_id" name="order_id" type="text"
+                                        <input class="vIntegerField" id="order_id" name="order_id" type="text"
                                                value="0">
 
 
@@ -220,11 +159,11 @@
 
 
                                 <div class="form-group">
-                                    <label for="id_identifier" class="">Identifier</label>
+                                    <label for="identifier" class="">Identifier</label>
 
                                     <div class="control-group">
 
-                                        <input class="vTextField" id="id_identifier" maxlength="100" name="identifier"
+                                        <input class="vTextField" id="identifier" maxlength="100" name="identifier"
                                                type="text">
 
 
@@ -261,11 +200,11 @@
 
 
                                         <div class="form-group">
-                                            <label for="id_translations-0-bio" class="">Bio</label>
+                                            <label for="translations-0-bio" class="">Bio</label>
 
                                             <div class="control-group">
 
-                                                <textarea class="vLargeTextField" cols="40" id="id_translations-0-bio"
+                                                <textarea class="vLargeTextField" cols="40" id="translations-0-bio"
                                                           name="translations-0-bio" rows="10"></textarea>
 
 

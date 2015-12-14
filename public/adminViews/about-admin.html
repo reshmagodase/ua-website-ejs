@@ -1,79 +1,5 @@
-<script type="text/javascript" src="js/blog.js"></script>
+<script type="text/javascript" src="js/about.js"></script>
 
-<script>
-    $(document).ready(function () {
-        $("#txtEditor1").Editor();
-        $("#txtEditor2").Editor();
-        $("#txtEditor3").Editor();
-    });
-    var idName = "";
-    $(document).on("click", "#uploadImage1", function () {
-        idName = "#backImage1";
-        $.get("/getImages", function (response) {
-            $("#InsertImage .modal-body").html("");
-            $("#InsertImage .modal-body").append("<button class='uploadFiles' class='btn btn-default'>Upload Files</button><div id='myId' class='dropzone'></div>");
-            $("#InsertImage .modal-body").append("<div id='thumbwrap'/></div><div style='clear: both;'></div> ");
-            $("#thumbwrap").html("");
-            $.each(response, function (k, data) {
-                $("#thumbwrap").append("<img data-dismiss='modal' width=100 height=60  src='" + data.path + "'/>");
-
-            });
-        });
-    });
-
-
-    $(document).on("click", "#editor1 .btn", function () {
-        idName = "#editor1";
-    });
-    $(document).on("click", "#editor2 .btn", function () {
-        idName = "#editor2";
-    });
-    $(document).on("click", "#editor3 .btn", function () {
-        idName = "#editor3";
-    });
-    $(document).on('click', '#InsertImage img', function (e) {
-        if (idName == "#backImage1") {
-            $(idName).html('<img width=100 height=60 src="' + $(this).attr('src') + '"/>');
-        } else {
-            $(idName + " .Editor-editor").append('<img width=500 height=300 src="' + $(this).attr('src') + '"/>');
-        }
-        e.stopImmediatePropagation();
-
-    });
-
-    $(document).on("click", ".uploadFiles", function () {
-        $("#myId").css("display", "block");
-        var myDropzone = new Dropzone("div#myId", {
-            url: "/uploadImages",
-            dictDefaultMessage: "Click or Drop files here to upload",
-            acceptedFiles: "image/jpeg,image/png,image/gif",
-            parallelUploads: 10,
-            maxFilesize: 1,
-
-            init: function () {
-
-                // You might want to show the submit button only when
-                // files are dropped here:
-                this.on("addedfile", function () {
-                    // Show submit button here and/or inform user to click it.
-                });
-                this.on("success", function () {
-                    myDropzone.removeAllFiles();
-                    $.get("/getImages", function (response) {
-                        $("#thumbwrap").html("");
-                        $.each(response, function (k, data) {
-                            $("#thumbwrap").append("<img data-dismiss='modal' width=100 height=60  src='" + data.path + "'/>");
-
-                        });
-                    });
-                })
-
-            }
-        });
-    });
-
-
-</script>
 
 <style>
     #myId {
@@ -94,7 +20,7 @@
 <div class="content">
 
 
-    <div class="inner"><h1>About &nbsp; <a href="http://www.utility-aid.co.uk/admin/cmsbase/page/"
+    <div class="inner"><h1>About &nbsp; <a href="list-pages-admin"
                                            class="small gray">Cancel</a></h1></div>
 
 
@@ -122,7 +48,7 @@
                                     <label for="backImage1" class="">Background Image</label>
 
                                     <div class="control-group">
-                                        <a id="uploadImage1" href="#InsertImage" role="button" class="btn btn-default"
+                                        <a id="uploadImage1"  role="button" class="btn btn-default"
                                            data-toggle="modal"
                                            title="Insert Image">Choose / Upload Image</a>
 
@@ -443,13 +369,8 @@
                                     <label class="">Select People</label>
 
                                     <div class="control-group">
-                                        <div>
-                                            <label>
-                                                <input type="checkbox" class="radio" value="Giles Hankinson" name="people" />Giles Hankinson</label>
-                                            <label>
-                                                <input type="checkbox" class="radio" value="William Campbell" name="people" />William Campbell</label>
-                                            <label>
-                                                <input type="checkbox" class="radio" value="Paul Dunkley" name="people" />Paul Dunkley</label>
+                                        <div id="peopleList">
+
                                         </div>
 
                                     </div>
