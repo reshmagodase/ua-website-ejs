@@ -40,6 +40,8 @@ var storage = multer.diskStorage({
 
 var upMulter = multer({storage: storage});
 
+
+app.post('/login',service.login);
 app.post('/uploadImages', upMulter.array('file', 10), service.uploadImages);
 app.get('/getImages', service.getImages);
 app.post('/uploadAuthorImages', upMulter.array('file', 10), service.uploadAuthorImages);
@@ -79,6 +81,16 @@ app.post('/addDefault',service.addDefault);
 app.post('/editDefault',service.editDefault);
 app.get('/getDefaultList',service.getDefaultList);
 app.post('/getDefaultDetails',service.getDefaultDetails);
+
+app.post('/editAbout',service.editAbout);
+app.get('/getAboutDetails',service.getAboutDetails);
+
+
+app.post('/addBlog',service.addBlog);
+app.post('/editBlog',service.editBlog);
+app.get('/getBlogList',service.getBlogList);
+app.post('/getBlogDetails',service.getBlogDetails);
+
 //app.use('/', routes);
 //app.use('/users', users);
 app.get('/about-admin', function (req, res) {

@@ -46,6 +46,7 @@ $(document).ready(function () {
 
 var idName = "";
 $(document).on("click", "#uploadImage1", function () {
+    $("#InsertImage").modal("show");
     idName = "#backImage1";
     $.get("/getBackgroundImages", function (response) {
         $("#InsertImage .modal-body").html("");

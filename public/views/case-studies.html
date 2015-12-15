@@ -1,99 +1,45 @@
 ﻿<div class="case-studies">
     <section class="case-studies-head" style="background-image: url('img/case-study/header.jpg');">
         <div class="inner">
-            <h2>A small sample of the near 2,000 organisations <strong>ua</strong> are helping do more <img src="img/blog/header_good_white.png" class="good"></h2>
+            <h2>A small sample of the near 2,000 organisations <strong>ua</strong> are helping do more <img
+                    src="img/blog/header_good_white.png" class="good"></h2>
         </div>
     </section>
     <div class="inner">
-        <div id="case-study-items" style="position: relative; height: 972px;">
-            <div class="item" style="position: absolute; left: 0px; top: 40px;">
-                <a class="post" href="/case-studies/st-vincent-de-paul-society/">
-                    <img class="main-pic" src="media/cache/a9/c6/a9c6ad6a8a790ff803822c61db62cf7c.jpg"
-                         style="height: 200px;">
+        <div id="case-study-items" data-masonry-options='{ "columnWidth": 320, "itemSelector": ".item" }'>
+            <div class="item" ng-repeat="data in CaseStudies">
+                <a class="post" href="{{data.slug}}">
+                    <img class="main-pic" src="{{data.thumbImage}}" style="height:200px;">
+
                     <div class="info">
-                        <h2>
-                            St Vincent de Paul Society
-                        </h2>
-                        <p>
-                            The St Vincent de Paul Society is helping to tackle issues of poverty and disadvantage
-                            in society.
-                        </p>
+                        <h2>{{data.title}}</h2>
+
+                        <p>{{data.home_page_listing_excerpt}}</p>
                     </div>
                 </a>
             </div>
-            <div class="item" style="position: absolute; left: 320px; top: 40px;">
-                <a class="post" href="/case-studies/the-bridge-centre-haddington/">
-                    <img class="main-pic" src="media/cache/7e/29/7e296b2bd21aadb5abab05077076ddda.jpg"
-                         style="height: 200px;">
-                    <div class="info">
-                        <h2>
-                            The Bridge Centre, Haddington
-                        </h2>
-                        <p>
-                            The Bridge Centre, Haddington supports the local community through activity based
-                            programmes.
-                        </p>
-                    </div>
-                </a>
-            </div>
-            <div class="item" style="position: absolute; left: 640px; top: 40px;">
-                <a class="post" href="/case-studies/the-multiple-sclerosis-ms-society---hull-beverley-borough-and-holderness-branch/">
-                    <img class="main-pic" src="media/cache/e4/4d/e44d0ba51c1bcf4c578a24c5ed561be8.jpg"
-                         style="height: 200px;">
-                    <div class="info">
-                        <h2>
-                            The Multiple Sclerosis (MS) Society - Hull, Beverley Borough and Holderness Branch
-                        </h2>
-                        <p>
-                            The Multiple Sclerosis (MS) Society - Hull, Beverley Borough and Holderness Branch
-                            is working to provide valuable support to those affected by MS.
-                        </p>
-                    </div>
-                </a>
-            </div>
-            <div class="item" style="position: absolute; left: 0px; top: 476px;">
-                <a class="post" href="/case-studies/the-wildfowl-wetlands-trust/">
-                    <img class="main-pic" src="media/cache/53/44/5344f996c2ec1655eba7f70688477dd6.jpg"
-                         style="height: 200px;">
-                    <div class="info">
-                        <h2>
-                            The Wildfowl &amp; Wetlands Trust
-                        </h2>
-                        <p>
-                            The Wildfowl &amp; Wetlands Trust (WWT) is a conservation charity that saves wetlands,
-                            which are essential for life itself.
-                        </p>
-                    </div>
-                </a>
-            </div>
-            <div class="item" style="position: absolute; left: 320px; top: 476px;">
-                <a class="post" href="/case-studies/emmaus-leeds/">
-                    <img class="main-pic" src="media/cache/64/c1/64c114f02b0d1d568c1564e8afc534d1.jpg"
-                         style="height: 200px;">
-                    <div class="info">
-                        <h2>
-                            Emmaus Leeds
-                        </h2>
-                        <p>
-                            Emmaus believes that people who are formerly homeless and socially excluded have
-                            something to offer.
-                        </p>
-                    </div>
-                </a>
-            </div>
-            <div class="clearfix">
-            </div>
+
         </div>
+        <div style="clear: both"></div>
     </div>
 </div>
+<style>
+    .item {
+        width: 300px;
+        margin: 10px;
+        float: left;
+    }
+</style>
 
 <script src="js/masonry.pkgd.min.js"></script>
 <script>
-    var container = document.querySelector('#case-study-items');
-    var msnry = new Masonry(container, {
-        // options
-        columnWidth: 320,
-        itemSelector: '.item'
-    });
+    function CreateMsnry() {
+        $('#case-study-items').masonry({
+            itemSelector: '.item',
+            columnWidth: 320
+        });
+    }
 </script>
+
+
 <div ng-include src="'views/contact.html'"></div>

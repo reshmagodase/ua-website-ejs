@@ -17,7 +17,7 @@ $.get("/getBlogList", function (data) {
             IsPublished = " <i class='glyphicon glyphicon-remove'></i>"
         }
         var td2 = "<td>" + IsPublished + "</td>"
-        var td3 = "<td>" + data[i]["publishedDate"] + "</td>"
+        var td3 = "<td>" + data[i]["publish_date_0"] + "</td>"
         var td4 = "<td><a href='edit-blog-admin?id=" + data[i]["_id"] + "'>Edit Content</a> </td></tr>"
 
 

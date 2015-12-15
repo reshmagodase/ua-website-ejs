@@ -2,8 +2,26 @@
  * Created by chetan on 12/11/2015.
  */
 $(document).ready(function () {
+    $('form').submit(function (evt) {
+        evt.preventDefault();
+        var formDataAppend = "";
+        var formData = $(this).serialize();
+        formData = formData + '&editor1=' + encodeURIComponent($('.Editor-editor').html());
+        var url = "/addBlog";
+        var getCallback = function (response) {
+            alert("Data added successfully!");
+            window.location = "/list-blogs-admin";
+        };
+        $.ajax({
+            url: url,
+            type: "POST",
+            data: formData,
+            success: getCallback
+        });
+    });// form submit end
     $("#txtEditor").Editor();
 });
+
 
 var idName = "";
 $(document).on("click", "#uploadImage1", function () {
@@ -21,7 +39,7 @@ $(document).on("click", "#uploadImage1", function () {
 });
 
 
-$(document).on('click', '#InsertImage img', function (e) {
+$(document).on('click', '#InsertImage img', function () {
     if (idName == "#backImage1") {
         $("#image1").val($(this).attr('src'));
         $("#thumbImage").val($(this).attr('alt'));
@@ -29,7 +47,6 @@ $(document).on('click', '#InsertImage img', function (e) {
     } else {
         $(".Editor-editor").append('<img width=500 height=300 src="' + $(this).attr('src') + '"/>');
     }
-    e.stopImmediatePropagation();
 });
 
 
@@ -64,6 +81,6 @@ $(document).on("click", ".uploadBackgroundImages", function () {
 });
 $.get("/getAuthorList", function (response) {
     $.each(response, function (k, data) {
-        $("#authorList").append("<label> <input type='checkbox' class='radio' value='"+ data._id +"' name='author'/>"+ data.first_name +"</label>");
+        $("#authorList").append("<label> <input type='checkbox' class='radio' value='" + data._id + "' name='author'/>" + data.first_name + "</label>");
     });
 });

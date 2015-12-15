@@ -22,6 +22,7 @@ app.config(function ($routeProvider, $locationProvider) {
         })
         .when('/add-casestudy-admin', {
             templateUrl: 'adminViews/add-casestudy-admin.html'
+
         })
         .when('/add-partner-admin', {
             templateUrl: 'adminViews/add-partner-admin.html'
@@ -92,7 +93,7 @@ app.config(function ($routeProvider, $locationProvider) {
             redirectTo: '/admin'
         });
 }).
-    run(function ($rootScope, $location,$route,$templateCache) {
+    run(function ($rootScope, $location) {
         $rootScope.$on("$routeChangeStart", function (event, next, current) {
             /*if ($rootScope.loggedInUser == null) {
              // no logged user, redirect to /login

@@ -19,34 +19,34 @@
             <li class="menu-item dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Templates <b
                     class="caret"></b></a>
                 <ul class="dropdown-menu">
-                    <li><a href="/add-blog-admin">Article</a></li>
-                    <li><a href="/add-casestudy-admin">Case Studies</a></li>
+                    <li><a href="/add-blog-admin" target="_self">Article</a></li>
+                    <li><a href="/add-casestudy-admin" target="_self">Case Studies</a></li>
                 </ul>
             </li>
             <li class="menu-item dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">CMS <b
                     class="caret"></b></a>
                 <ul class="dropdown-menu">
-                    <li><a href="/list-pages-admin">Pages</a></li>
+                    <li><a href="/list-pages-admin" target="_self">Pages</a></li>
                 </ul>
             </li>
-            <li class="menu-item first "><a href="/list-casestudies-admin">Case Studies </a></li>
+            <li class="menu-item first "><a href="/list-casestudies-admin" target="_self">Case Studies </a></li>
             <li class="menu-item dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Blog <b
                     class="caret"></b></a>
                 <ul class="dropdown-menu">
-                    <li><a href="/list-authors-admin">Authors</a></li>
-                    <li><a href="/list-blogs-admin">Articles</a></li>
+                    <li><a href="/list-authors-admin" target="_self">Authors</a></li>
+                    <li><a href="/list-blogs-admin" target="_self">Articles</a></li>
                 </ul>
             </li>
-            <li class="menu-item first "><a href="/list-people-admin">People </a></li>
-            <li class="menu-item first "><a href="/list-partners-admin">Partners </a></li>
+            <li class="menu-item first "><a href="/list-people-admin" target="_self">People </a></li>
+            <li class="menu-item first "><a href="/list-partners-admin" target="_self">Partners </a></li>
             <li class="menu-item dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Media <b
                     class="caret"></b></a>
                 <ul class="dropdown-menu">
-                    <li><a href="/image-background-admin">Upload background images</a></li>
-                    <li><a href="/image-blog-admin">Upload content images</a></li>
-                    <li><a href="/image-author-admin">Upload author images</a></li>
-                    <li><a href="/image-people-admin">Upload people images</a></li>
-                    <li><a href="/image-partner-admin">Upload partner images</a></li>
+                    <li><a href="/image-background-admin" target="_self">Upload background images</a></li>
+                    <li><a href="/image-blog-admin" target="_self">Upload content images</a></li>
+                    <li><a href="/image-author-admin" target="_self">Upload author images</a></li>
+                    <li><a href="/image-people-admin" target="_self">Upload people images</a></li>
+                    <li><a href="/image-partner-admin" target="_self">Upload partner images</a></li>
                 </ul>
             </li>
         </ul>
@@ -62,43 +62,7 @@
     <!-- /.navbar-collapse -->
 </nav>
 <style>
-    .navbar{margin-bottom: 0}
+    .navbar {
+        margin-bottom: 0
+    }
 </style>
-<script>
-    if (document.addEventListener) {
-    }
-    else {
-        document.body.className += " ie8"
-    }
-
-    $(document).on("click", ".uploadFiles", function () {
-        $("#myId").css("display", "block");
-        var myDropzone = new Dropzone("div#myId", {
-            url: "/uploadImages",
-            dictDefaultMessage: "Click or Drop files here to upload",
-            acceptedFiles: "image/jpeg,image/png,image/gif",
-            parallelUploads: 10,
-            maxFilesize: 1,
-
-            init: function () {
-
-                // You might want to show the submit button only when
-                // files are dropped here:
-                this.on("addedfile", function () {
-                    // Show submit button here and/or inform user to click it.
-                });
-                this.on("success", function () {
-                    myDropzone.removeAllFiles();
-                    $.get("/getImages", function (response) {
-                        $("#thumbwrap").html("");
-                        $.each(response, function (k, data) {
-                            $("#thumbwrap").append("<img data-dismiss='modal' width=100 height=60  src='" + data.path + "'/>");
-
-                        });
-                    });
-                })
-
-            }
-        });
-    });
-</script>

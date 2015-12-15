@@ -18,7 +18,8 @@ app.config(function ($routeProvider, $locationProvider) {
         })
         .when('/case-studies/', {
             title: 'UA | Case Studies',
-            templateUrl: 'views/case-studies.html'
+            templateUrl: 'views/case-studies.html',
+            controller: 'CaseStudiesController'
         })
         .when('/contact/', {
             title: 'UA | Case Studies',
@@ -42,7 +43,8 @@ app.config(function ($routeProvider, $locationProvider) {
         })
         .when('/partners/', {
             title: 'UA | Partners',
-            templateUrl: 'views/partners.html'
+            templateUrl: 'views/partners.html',
+            controller: 'PartnerController'
         })
         .when('/thank-you/', {
             title: 'UA | Thank You',
@@ -55,6 +57,7 @@ app.config(function ($routeProvider, $locationProvider) {
         .when('/case-studies/:group*', {
             templateUrl: 'views/case-studies/case-study.html'
         })
+
         .otherwise({
             redirectTo: '/'
         });

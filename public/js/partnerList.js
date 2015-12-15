@@ -19,7 +19,7 @@ $.get("/getPartnersList", function (data) {
             IsPublished = " <i class='glyphicon glyphicon-remove'></i>"
         }
         var td2 = "<td>" + IsPublished + "</td>";
-        var td3 = "<td>" + data[i]["link"] + "</td>";
+        var td3 = "<td><a href='" + data[i]["link"] + "' target='_blank'>" + data[i]["link"] + "</a></td>";
 
         var td4 = "<td><a href='edit-partner-admin?id=" + data[i]["_id"] + "'>Edit Content</a> </td>"
         var trClose = "</tr></tbody>"

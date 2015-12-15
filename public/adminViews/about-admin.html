@@ -30,6 +30,7 @@
     <div id="content-main">
         <form enctype="multipart/form-data" action="" method="post" id="add_edit_translation_form"
               class="form-horizontal">
+            <input type="hidden" id="objectId" name="objectId"/>
 
             <div>
 
@@ -48,11 +49,12 @@
                                     <label for="backImage1" class="">Background Image</label>
 
                                     <div class="control-group">
-                                        <a id="uploadImage1"  role="button" class="btn btn-default"
+                                        <a id="uploadImage1" role="button" class="btn btn-default"
                                            data-toggle="modal"
                                            title="Insert Image">Choose / Upload Image</a>
 
                                         <div id="backImage1"></div>
+                                        <input type="hidden" id="image1" name="image1">
                                     </div>
 
                                 </div>
@@ -65,11 +67,11 @@
 
 
                                 <div class="form-group">
-                                    <label for="id_title" class="">Page title</label>
+                                    <label for="title" class="">Page title</label>
 
                                     <div class="control-group">
 
-                                        <input data-slug="slug" id="id_title" maxlength="100" name="title" type="text"
+                                        <input data-slug="slug" id="title" maxlength="100" name="title" type="text"
                                                 >
 
 
@@ -86,11 +88,11 @@
 
 
                                 <div class="form-group">
-                                    <label for="id_slug" class="">Slug</label>
+                                    <label for="slug" class="">Slug</label>
 
                                     <div class="control-group">
 
-                                        <input id="id_slug" maxlength="100" name="slug" type="text">
+                                        <input id="slug" maxlength="100" name="slug" type="text">
 
 
                                     </div>
@@ -113,11 +115,11 @@
 
 
                                 <div class="form-group">
-                                    <label for="id_banner_title" class="">Title</label>
+                                    <label for="banner_title" class="">Title</label>
 
                                     <div class="control-group">
 
-                                        <textarea cols="40" id="id_banner_title" name="banner_title"
+                                        <textarea cols="40" id="banner_title" name="banner_title"
                                                   rows="10"></textarea>
 
 
@@ -141,11 +143,11 @@
 
 
                                 <div class="form-group">
-                                    <label for="id_block_1_title" class="">Title</label>
+                                    <label for="block_1_title" class="">Title</label>
 
                                     <div class="control-group">
 
-                                        <textarea cols="40" id="id_block_1_title" name="block_1_title"
+                                        <textarea cols="40" id="block_1_title" name="block_1_title"
                                                   rows="10"></textarea>
 
 
@@ -162,10 +164,10 @@
 
 
                                 <div class="form-group">
-                                    <label for="id_block_1_col_1_title" class="">Col 1 title</label>
+                                    <label for="block_1_col_1_title" class="">Col 1 title</label>
 
                                     <div class="control-group">
-                                        <input id="id_block_1_col_1_title" maxlength="250" name="block_1_col_1_title"
+                                        <input id="block_1_col_1_title" maxlength="250" name="block_1_col_1_title"
                                                type="text">
 
 
@@ -204,11 +206,11 @@
 
 
                                 <div class="form-group">
-                                    <label for="id_block_1_col_2_title" class="">Col 2 title</label>
+                                    <label for="block_1_col_2_title" class="">Col 2 title</label>
 
                                     <div class="control-group">
 
-                                        <input id="id_block_1_col_2_title" maxlength="250" name="block_1_col_2_title"
+                                        <input id="block_1_col_2_title" maxlength="250" name="block_1_col_2_title"
                                                type="text">
 
 
@@ -247,11 +249,11 @@
 
 
                                 <div class="form-group">
-                                    <label for="id_block_1_col_3_title" class="">Col 3 title</label>
+                                    <label for="block_1_col_3_title" class="">Col 3 title</label>
 
                                     <div class="control-group">
 
-                                        <input id="id_block_1_col_3_title" maxlength="250" name="block_1_col_3_title"
+                                        <input id="block_1_col_3_title" maxlength="250" name="block_1_col_3_title"
                                                type="text">
 
 
@@ -298,11 +300,11 @@
 
 
                                 <div class="form-group">
-                                    <label for="id_meta_data_meta_title" class="">Meta title</label>
+                                    <label for="meta_data_meta_title" class="">Meta title</label>
 
                                     <div class="control-group">
 
-                                        <input id="id_meta_data_meta_title" maxlength="250" name="meta_data_meta_title"
+                                        <input id="meta_data_meta_title" maxlength="250" name="meta_data_meta_title"
                                                type="text">
 
 
@@ -319,11 +321,11 @@
 
 
                                 <div class="form-group">
-                                    <label for="id_meta_data_meta_description" class="">Meta description</label>
+                                    <label for="meta_data_meta_description" class="">Meta description</label>
 
                                     <div class="control-group">
 
-                                        <textarea cols="40" id="id_meta_data_meta_description"
+                                        <textarea cols="40" id="meta_data_meta_description"
                                                   name="meta_data_meta_description" rows="10"></textarea>
 
 
@@ -346,11 +348,11 @@
 
 
                                 <div class="form-group">
-                                    <label for="id_people_title" class="">Title</label>
+                                    <label for="people_title" class="">Title</label>
 
                                     <div class="control-group">
 
-                                        <textarea cols="40" id="id_people_title" name="people_title"
+                                        <textarea cols="40" id="people_title" name="people_title"
                                                   rows="10"></textarea>
 
 

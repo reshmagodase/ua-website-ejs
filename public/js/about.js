@@ -32,6 +32,7 @@ $(document).on("click", "#editor3 .btn", function () {
 $(document).on('click', '#InsertImage img', function (e) {
     if (idName == "#backImage1") {
         $(idName).html('<img width=100 height=60 src="' + $(this).attr('src') + '"/>');
+        $("#image1").val($(this).attr('src'));
     } else {
         $(idName + " .Editor-editor").append('<img width=500 height=300 src="' + $(this).attr('src') + '"/>');
     }
@@ -72,11 +73,71 @@ $(document).on("click", ".uploadBackgroundImages", function () {
 
 $.get("/getPeopleList", function (response) {
     $.each(response, function (k, data) {
-        $("#peopleList").append("<label> <input type='checkbox' class='radio' value='"+ data._id +"' name='people'/>"+ data.people_person_1_name +"</label>");
+        $("#peopleList").append("<label> <input type='checkbox' class='radio' value='" + data._id + "' name='people'/>" + data.people_person_1_name + "</label>");
     });
 });
 
-$('form').submit(function(ev){
-    ev.preventDefault();
-    alert($(this).serialize());
+
+//Get About page Data
+
+$.get("/getAboutDetails", function (data) {
+    console.log(data);
+    $.each(data, function (i, item) {
+        if (i == "_id") {
+            $("#objectId").val(item);
+        }
+        else if (i == "image1") {
+            $("#backImage1").html("<img data-dismiss='modal' width=100 height=60  src='" + item + "'/>");
+            $("#image1").val(item);
+        }
+        else if (i == "editor1") {
+            $("#editor1 .Editor-editor").html(item);
+        }
+        else if (i == "editor2") {
+            $("#editor2 .Editor-editor").html(item);
+        }
+        else if (i == "editor3") {
+            $("#editor3 .Editor-editor").html(item);
+        }
+        else if (i == "people") {
+            for (j = 0; j < item.length; j++) {
+                $('input:checkbox').each(function () {
+                    if ($(this).val() == item[j]) {
+                        $(this).attr('checked', true);
+                    }
+                });
+            }
+        }
+        else {
+            $("#" + i).val(item);
+        }
+
+    });
+
 });
+
+
+$('form').submit(function (evt) {
+    evt.preventDefault();
+
+
+    var formDataAppend = "";
+    formData = $(this).serialize();
+    for (var i = 1; i < 4; i++) {
+        formDataAppend += '&editor' + i + '=' + encodeURIComponent($('#editor' + i + ' .Editor-editor').html());
+    }
+    formData = formData + formDataAppend;
+    console.log(formData);
+    var url = "/editAbout";
+    var getCallback = function (response) {
+        alert("Data edited successfully!");
+        window.location = "/list-pages-admin";
+    };
+    $.ajax({
+        url: url,
+        type: "POST",
+        data: formData,
+        success: getCallback
+    });
+});
+

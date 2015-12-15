@@ -34,6 +34,47 @@ db.open(function (err, db) {
 });
 
 
+//Validate Login
+
+exports.login = function (req, res) {
+
+
+    var uName = req.body.username;
+    var pwd = req.body.password;
+
+    console.log('Retrieving data: ' + uName);
+    db.collection('adminDetails', function (err, collection) {
+        collection.findOne({'userName': uName}, function (err, item) {
+
+
+            if (item === null) {
+                var msg = {'error': 'Invalid Username'}
+                var jm = JSON.stringify(msg);
+                res.send(jm);
+            }
+            else {
+                //console.log('else')
+                if (item.password == pwd) {
+
+
+                    //res.send(item);
+                    var data = item;
+                    //req.session.user = data;
+                    delete data.password;
+                    data.status = 'success';
+                    res.send(data);
+                    //console.log(item);
+                }
+                else {
+                    var msg = {'error': 'Invalid Password'}
+                    var jm = JSON.stringify(msg);
+                    res.send(jm);
+                }
+            }
+        });
+    });
+}
+
 //Test Service
 exports.uploadData = function (req, res) {
     console.log(req.files);
@@ -202,9 +243,9 @@ exports.addBackgroundImages = function (req, res) {
 
             Jimp.read(np, function (err, lenna) {
                 if (err) throw err;
-                lenna.resize(280, 200)
-                    .quality(30) // resize
-                    .write(dstPath); // save
+                lenna.resize(360, 200)
+                    .quality(80) // resize
+                    .write(dstPath)
             });
             //console.log(imageArray[0]);
             console.log("Image uploaded successfully");
@@ -774,8 +815,6 @@ exports.getPartnerDetails = function (req, res) {
 }
 
 
-
-
 //Service to add people
 exports.addPeople = function (req, res) {
     var info = req.body;
@@ -993,6 +1032,122 @@ exports.addDefault = function (req, res) {
             else {
                 console.log(result);
                 res.send({'status': 'success', 'message': 'Data Added successfully'});
+            }
+        });
+    });
+}
+
+
+//Service to edit about
+exports.editAbout = function (req, res) {
+    var info = req.body;
+    var id = req.body.objectId;
+    info.updatedDate = new Date().getTime().toString();
+
+    delete info.objectId;
+    db.collection('about', function (err, collection) {
+        collection.update({'_id': new ObjectID(id)}, info, {safe: true}, function (err, result) {
+            if (err) {
+                res.send({'status': 'error', 'message': 'An error has occurred'});
+            }
+            else {
+                console.log(result);
+                res.send({'status': 'success', 'message': 'Data Updated successfully'});
+            }
+        });
+    });
+}
+//Service to get about text
+
+//Service to get homepage data
+exports.getAboutDetails = function (req, res) {
+    db.collection('about', function (err, collection) {
+        collection.find({}).toArray(function (err, result) {
+            if (err) {
+                res.send({'status': 'error', 'message': 'An error has occurred'});
+            }
+            if (result == null) {
+                res.send({'status': 'error', 'message': 'Data Not Found'});
+            }
+            if (result !== null) {
+                console.log(result);
+                var data = result[0];
+                res.send(data);
+            }
+
+        });
+    });
+}
+
+
+
+//Service to add Blog
+exports.addBlog = function (req, res) {
+    var info = req.body;
+    info.createdDate = new Date().getTime().toString();
+    info.updatedDate = new Date().getTime().toString();
+
+    db.collection('blog', function (err, collection) {
+        collection.insert(info, {safe: true}, function (err, result) {
+            if (err) {
+                res.send({'status': 'error', 'message': 'An error has occurred'});
+            }
+            else {
+                console.log(result);
+                res.send({'status': 'success', 'message': 'Data Added successfully'});
+            }
+        });
+    });
+}
+
+exports.editBlog = function (req, res) {
+    var info = req.body;
+    var id = req.body.objectId;
+    info.updatedDate = new Date().getTime().toString();
+
+    delete info.objectId;
+    db.collection('blog', function (err, collection) {
+        collection.update({'_id': new ObjectID(id)}, info, {safe: true}, function (err, result) {
+            if (err) {
+                res.send({'status': 'error', 'message': 'An error has occurred'});
+            }
+            else {
+                console.log(result);
+                res.send({'status': 'success', 'message': 'Data Updated successfully'});
+            }
+        });
+    });
+}
+
+exports.getBlogList = function (req, res) {
+    db.collection('blog', function (err, collection) {
+        collection.find({}).sort({'createdDate': -1}).toArray(function (err, result) {
+            if (err) {
+                res.send({'status': 'error', 'message': 'An error has occurred'});
+            }
+            if (result == null) {
+                res.send({'status': 'error', 'message': 'Data Not Found'});
+            }
+            if (result !== null) {
+                res.send(result);
+            }
+        });
+    });
+}
+
+//service to get case study details
+exports.getBlogDetails = function (req, res) {
+    db.collection('blog', function (err, collection) {
+        console.log(req.body.objectId);
+        collection.findOne({'_id': new ObjectID(req.body.objectId)}, function (err, result) {
+            if (err) {
+                res.send({'status': 'error', 'message': 'An error has occurred'});
+            }
+            if (result == null) {
+                res.send({'status': 'error', 'message': 'Data Not Found'});
+            }
+            if (result !== null) {
+                res.send(result);
             }
         });
     });

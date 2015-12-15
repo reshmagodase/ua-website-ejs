@@ -2,11 +2,16 @@
  * Created by chetan on 12/11/2015.
  */
 $(document).ready(function () {
+    $.get("/getAuthorList", function (response) {
+        $.each(response, function (k, data) {
+            $("#authorList").append("<label> <input type='checkbox' class='radio' value='" + data._id + "' name='author'/>" + data.first_name + "</label>");
+        });
+    });
+
 
     var url = "/getBlogDetails";
     var formData = '{"objectId":"' + getQueryStringValue("id") + '"}';
 
-    console.log(formData);
 
     var getCallback = function (response) {
         console.log(response);
@@ -17,10 +22,27 @@ $(document).ready(function () {
             else if (i == "active") {
                 $('#active').prop('checked', item);
             }
+            else if (i == "editor1") {
+                $(".Editor-editor").html(item);
+            }
             else if (i == "image1") {
                 $("#backImage1").html("<img data-dismiss='modal' width=100 height=60  src='" + item + "'/>");
                 $("#image1").val(item);
                 $("#thumbImage").val(item);
+            }
+            else if (i == "author") {
+                $('input:checkbox').each(function () {
+                    if ($(this).val() == item) {
+                        $(this).attr('checked', true);
+                    }
+                });
+                for (j = 0; j < item.length; j++) {
+                    $('input:checkbox').each(function () {
+                        if ($(this).val() == item[j]) {
+                            $(this).attr('checked', true);
+                        }
+                    });
+                }
             }
             else {
                 $("#" + i).val(item);
@@ -44,6 +66,7 @@ $(document).ready(function () {
     $('form').submit(function (evt) {
         evt.preventDefault();
         formData = $(this).serialize();
+        formData = formData + '&editor1=' + encodeURIComponent($('.Editor-editor').html());
         var url = "/editBlog";
         var getCallback = function (response) {
             alert("Data edited successfully!");
@@ -81,7 +104,7 @@ $(document).on("click", "#uploadImage1", function () {
 });
 
 
-$(document).on('click', '#InsertImage img', function (e) {
+$(document).on('click', '#InsertImage img', function () {
     if (idName == "#backImage1") {
         $("#image1").val($(this).attr('src'));
         $("#thumbImage").val($(this).attr('alt'));
@@ -89,7 +112,6 @@ $(document).on('click', '#InsertImage img', function (e) {
     } else {
         $(".Editor-editor").append('<img width=500 height=300 src="' + $(this).attr('src') + '"/>');
     }
-    e.stopImmediatePropagation();
 });
 
 
@@ -122,12 +144,6 @@ $(document).on("click", ".uploadBackgroundImages", function () {
             })
 
         }
-    });
-});
-
-$.get("/getAuthorList", function (response) {
-    $.each(response, function (k, data) {
-        $("#authorList").append("<label> <input type='checkbox' class='radio' value='"+ data._id +"' name='author'/>"+ data.first_name +"</label>");
     });
 });
 
