@@ -7,10 +7,10 @@ $(document).ready(function () {
         var formDataAppend = "";
         var formData = $(this).serialize();
         formData = formData + '&editor1=' + encodeURIComponent($('.Editor-editor').html());
-        var url = "/addBlog";
+        var url = "/addCaseStudies";
         var getCallback = function (response) {
             alert("Data added successfully!");
-            window.location = "/list-blogs-admin";
+            window.location = "/list-casestudies-admin";
         };
         $.ajax({
             url: url,

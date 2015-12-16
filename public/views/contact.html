@@ -3,7 +3,8 @@
     <section class="contact-footer" id="contact-details">
         <div class="inner">
             <p>Contact <span>ua</span></p>
-            <img class="gt" src="img/contact-footer/good-together.png" alt="Good work" /><br>
+            <img class="gt" src="img/contact-footer/good-together.png" alt="Good work"/><br>
+
             <div class="row">
                 <div class="contact-part">
                     <div class="icon mobile"></div>
@@ -66,10 +67,11 @@
             </div>
 
             <img class="aydg" src="img/contact-footer/aydg.png" alt="Are you doing good?">
+
             <h2>{{request_title}}</h2>
 
             <div class="button-holder">
-                <a class="btn btn-default" href="{{request_button_link}}">{{request_button_text}}</a>
+                <a class="btn btn-default"  target="_self" href="{{request_button_link}}">{{request_button_text}}</a>
             </div>
         </div>
     </section>
@@ -78,17 +80,20 @@
             <div class="row">
                 <div class="col-md-7">
 
-                    <div class="company-details"> &copy; 2015 Utility Aid <span>|</span> Designing change with <a href="http://www.viva-worldwide.com" target="_blank">VIVA</a></div>
 
-                    <div class="sp"> <a href="/privacy-policy">Privacy Policy</a>  <a href="/environmental-policy">Environmental Policy</a> <a href="/bribery-act-statement">Bribery Act Statement</a></div>
+                    <div class="sp"><a href="/privacy-policy" target="_self">Privacy Policy</a>
+                        <a href="/environmental-policy" target="_self">Environmental Policy</a>
+                        <a href="/bribery-act-statement" target="_self">Bribery Act Statement</a></div>
 
-                    <div class="sp legal"><span>UA is part of Utility Aid LTD. Company No. 04408718. Registered in England &amp; Wales.</span></div>
+                    <div class="sp legal"><span>UA is part of Utility Aid LTD. Company No. 04408718. Registered in England &amp; Wales.</span>
+                    </div>
 
                 </div>
 
                 <div class="col-md-5">
                     <form class="" role="subscribe" action="/subscribe" method="get">
                         <h4>Subscribe to our newsletter</h4>
+
                         <div class="form-group">
                             <input type="text" class="form-control" placeholder="Your email address" name="email">
                             <button type="submit" class="btn btn-default">Go</button>

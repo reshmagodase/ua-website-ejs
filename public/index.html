@@ -9,14 +9,16 @@
     <base href="/">
 
     <title>{{ seo.pageTitle }}</title>
-    <meta property="og:title" content="{{ seo.pageTitle }}"/>
+    <meta property="og:title" content="{{ seo.ogTitle }}"/>
+    <meta name="description" content="{{seo.pageDescripton}}" />
+    <meta property='og:description' content="{{seo.ogDescripton}}"/>
+    <meta property="og:image" content="{{seo.ogImage}}"/>
+
+    <meta property="og:url" content="http://www.utility-aid.co.uk"/>
+
+
     <meta name="keywords"
           content="Utility, Aid Utility, service, utility, consultancy, energy, not for profit, saving, charities, charity">
-    <meta property="og:url" content="http://www.utility-aid.co.uk"/>
-    <meta name="description" content="{{seo.pageDescripton}}" />
-    <meta property='og:description' content="{{seo.pageDescripton}}"/>
-    <meta property="og:image" content="{{pageImage}}"/>
-
 
     <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
     <link href="fonts/stylesheet.css" rel="stylesheet" type="text/css"/>

@@ -90,6 +90,7 @@ app.post('/addBlog',service.addBlog);
 app.post('/editBlog',service.editBlog);
 app.get('/getBlogList',service.getBlogList);
 app.post('/getBlogDetails',service.getBlogDetails);
+app.post('/getArticleDetails',service.getArticleDetails);
 
 //app.use('/', routes);
 //app.use('/users', users);

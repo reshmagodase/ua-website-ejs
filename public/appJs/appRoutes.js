@@ -27,19 +27,23 @@ app.config(function ($routeProvider, $locationProvider) {
         })
         .when('/about/', {
             title: 'UA | About UA',
-            templateUrl: 'views/about.html'
+            templateUrl: 'views/about.html',
+            controller: 'AboutController'
         })
         .when('/blog/', {
             title: 'UA | Blog',
-            templateUrl: 'views/blog.html'
+            templateUrl: 'views/blog.html',
+            controller: 'BlogController'
         })
         .when('/subscribe/', {
             title: 'UA | Subscribe to our newsletter',
-            templateUrl: 'views/subscribe.html'
+            templateUrl: 'views/subscribe.html',
+            controller: 'RequestController'
         })
         .when('/request/', {
             title: 'UA | Request your free energy consultation',
-            templateUrl: 'views/request.html'
+            templateUrl: 'views/request.html',
+            controller: 'RequestController'
         })
         .when('/partners/', {
             title: 'UA | Partners',
@@ -48,11 +52,13 @@ app.config(function ($routeProvider, $locationProvider) {
         })
         .when('/thank-you/', {
             title: 'UA | Thank You',
-            templateUrl: 'views/thank-you.html'
+            templateUrl: 'views/thank-you.html',
+            controller: 'RequestController'
         })
 
         .when('/blog/:group*', {
-            templateUrl: 'views/blog/articles.html'
+            templateUrl: 'views/blog/articles.html',
+            controller: 'ArticleController'
         })
         .when('/case-studies/:group*', {
             templateUrl: 'views/case-studies/case-study.html'
@@ -61,7 +67,17 @@ app.config(function ($routeProvider, $locationProvider) {
         .otherwise({
             redirectTo: '/'
         });
-});
+}).directive('emitLastRepeaterElement', function() {
+    return function(scope) {
+        if (scope.$last){
+            scope.$emit('LastRepeaterElement');
+        }
+    };
+}).filter('to_trusted', ['$sce', function($sce){
+    return function(text) {
+        return $sce.trustAsHtml(text);
+    };
+}]);
 /*
 app.run(['$rootScope', '$route', function ($rootScope, $route) {
     $rootScope.$on('$routeChangeSuccess', function () {

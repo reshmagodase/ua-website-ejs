@@ -1080,7 +1080,6 @@ exports.getAboutDetails = function (req, res) {
 }
 
 
-
 //Service to add Blog
 exports.addBlog = function (req, res) {
     var info = req.body;
@@ -1135,7 +1134,7 @@ exports.getBlogList = function (req, res) {
     });
 }
 
-//service to get case study details
+//service to get blogdetails
 exports.getBlogDetails = function (req, res) {
     db.collection('blog', function (err, collection) {
         console.log(req.body.objectId);
@@ -1152,6 +1151,25 @@ exports.getBlogDetails = function (req, res) {
         });
     });
 }
+
+//service to get article details
+exports.getArticleDetails = function (req, res) {
+    console.log(req.body.slug);
+    db.collection('blog', function (err, collection) {
+        collection.findOne({'slug': req.body.slug}, function (err, result) {
+            if (err) {
+                res.send({'status': 'error', 'message': 'An error has occurred'});
+            }
+            if (result == null) {
+                res.send({'status': 'error', 'message': 'Data Not Found'});
+            }
+            if (result !== null) {
+                res.send(result);
+            }
+        });
+    });
+}
+
 
 
 

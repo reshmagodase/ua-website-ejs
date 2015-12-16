@@ -6,6 +6,14 @@ $(document).ready(function () {
         $.each(response, function (k, data) {
             $("#authorList").append("<label> <input type='checkbox' class='radio' value='" + data._id + "' name='author'/>" + data.first_name + "</label>");
         });
+        $.ajax({
+            url: url,
+            type: "POST",
+            data: formData,
+            dataType: "json",
+            contentType: "application/json; charset=utf-8",
+            success: getCallback
+        });
     });
 
 
@@ -50,14 +58,7 @@ $(document).ready(function () {
 
         });
     };
-    $.ajax({
-        url: url,
-        type: "POST",
-        data: formData,
-        dataType: "json",
-        contentType: "application/json; charset=utf-8",
-        success: getCallback
-    });
+
 
     function getQueryStringValue(key) {
         return unescape(window.location.search.replace(new RegExp("^(?:.*[&\\?]" + escape(key).replace(/[\.\+\*]/g, "\\$&") + "(?:\\=([^&]*))?)?.*$", "i"), "$1"));

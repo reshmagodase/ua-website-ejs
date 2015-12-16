@@ -1,7 +1,5 @@
-﻿
-
-<div id="home">
-    <section class="intro"  style='background-image: url({{image1}})'>
+﻿<div id="home">
+    <section class="intro" style='background-image: url({{image1}})'>
         <div class="inner">
 
             <h1>
@@ -10,7 +8,7 @@
             <img src="img/home/do-more-good.png" alt="Do More Good">
 
             <div class="button-holder">
-                <a class="btn btn-default" href="{{page_content_story_button_link}}">
+                <a class="btn btn-default" href="{{page_content_story_button_link}}" target="_self">
                     <div ng-bind-html="page_content_story_button_text"></div>
                 </a>
             </div>
@@ -21,20 +19,25 @@
             </div>
         </div>
     </section>
-    <section class="home-case-study" style="background-image: url('media/uploads/2014/10/20/camping.jpg');">
+    <section class="home-case-study" style="background-image:url('{{image2}}');">
         <div class="inner">
             <p>Some of our</p>
             <img class="gw" src="img/home/case-study/good-work.png" alt="Good work"><br/>
 
-            <h2 class="company"><strong>What are St Vincent de Paul Society doing?</strong><br>Tackling issues of
-                poverty and disadvantage in society</h2>
+            <h2 class="company">
+                <div ng-bind-html="home_page_feature_title"></div>
+            </h2>
 
             <img class="plus" src="img/home/case-study/plus.png" alt="">
 
-            <h2><strong>What are we doing?</strong><br>Introducing systems to help make savings and do more good</h2>
+            <h2>
+                <div ng-bind-html="home_page_ua_action"></div>
+            </h2>
 
             <div class="button-holder">
-                <a class="btn btn-default" href="#case-studies/st-vincent-de-paul-society/">Read the case study</a>
+                <a class="btn btn-default" href="case-studies/{{slug2}}/"  target="_self">
+                    <div ng-bind-html="home_page_case_study_button_text"></div>
+                </a>
             </div>
         </div>
     </section>

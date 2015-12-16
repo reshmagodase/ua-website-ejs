@@ -1,14 +1,19 @@
-
+<style>
+    p {
+        margin: 0 0 30px;
+        display: block;
+    }
+</style>
 
 <div class="headersection">
     <header>
 
-        <div class="header-phone">Freephone: <span>0808 1788 170</span></div>
+        <div class="header-phone">Freephone: <span>{{contact_freephone}}</span></div>
         <a href="" class="menu">menu</a>
         <ul>
-            <li><a href="/case-studies/">Case Studies</a></li>
-            <li><a href="/about/" title="About">About</a></li>
-            <li><a href="/blog/">Blog</a></li>
+            <li><a href="/case-studies/" target="_self">Case Studies</a></li>
+            <li><a href="/about/" title="About" target="_self">About</a></li>
+            <li><a href="/blog/" target="_self">Blog</a></li>
             <li><a id="contact" style='cursor:pointer'>Contact Us</a></li>
             <li><a href="https://utilityaid.uaenergy.co.uk" target="_blank">Domestic Switching Site</a></li>
         </ul>
@@ -16,26 +21,26 @@
     </header>
 </div>
 <script>
-    $('.menu').click(function(e){
+    $('.menu').click(function (e) {
         e.preventDefault();
         $('header ul').toggle();
-        if($('header ul').hasClass('mobile')) $('header ul').removeClass('mobile')
+        if ($('header ul').hasClass('mobile')) $('header ul').removeClass('mobile')
         else $('header ul').addClass('mobile')
     })
 
-    function adjust_navigation(){
+    function adjust_navigation() {
 
-        if(($(window).scrollTop() > 160 && $(window).width() >=1024) || ($(window).scrollTop() > 300 && $(window).width() < 1024)){
+        if (($(window).scrollTop() > 160 && $(window).width() >= 1024) || ($(window).scrollTop() > 300 && $(window).width() < 1024)) {
             $('header').addClass('inverse')
 
         }
-        else{
+        else {
             $('header').removeClass('inverse')
         }
     }
 
     adjust_navigation();
-    $(window).scroll(function(){
+    $(window).scroll(function () {
         adjust_navigation();
     })
 

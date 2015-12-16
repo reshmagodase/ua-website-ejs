@@ -827,7 +827,7 @@
                         if (range == '' && targetText == '') {
                             targetText = targetURL;
                         }
-                        var targetLink = "<iframe width='560' height='315' src='" + targetURL + "' frameborder='0' allowfullscreen='' style='margin-bottom: 40px; color: rgb(255, 255, 255); font-family: vag_roundedregular, sans-serif; font-size: 16px; line-height: 28px; text-align: center;'></iframe>";
+                        var targetLink = "<iframe width='560' height='315' src='" + targetURL + "' frameborder='0' allowfullscreen=''/>";
 
                         if (navigator.userAgent.match(/MSIE/i)) {
                             methods.restoreSelection.apply(editorObj, [targetLink, 'html']);
