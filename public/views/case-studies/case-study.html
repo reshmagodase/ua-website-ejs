@@ -1,149 +1,121 @@
-<div id="generic-case-study">
-    <section class="intro" style="background-image:url('media/uploads/2014/08/20/emmaus-case-study.jpg');">
+
+<div id="generic-case-study" ng-repeat="data in CaseStudiesDetails">
+    <section class="intro" style="background-image:url('{{data.image1}}');">
         <div class="inner">
             <div class="row">
                 <div class="desc">
-                    <h2>Energy</h2>
-                    <span>Two year budget security with the best supplier</span>
+                    <h2> <div ng-bind-html="data.banner_col_1_title"></div></h2>
+                    <span> <div ng-bind-html="data.banner_col_1_text"></div></span>
                 </div>
                 <div class="icon icon-plus"></div>
                 <div class="desc">
-                    <h2>Efficiency</h2>
-                    <span>Our Energy Specialists took responsibility of their energy</span>
+                    <h2> <div ng-bind-html="data.banner_col_2_title"></div></h2>
+                    <span> <div ng-bind-html="data.banner_col_2_text"></div></span>
                 </div>
                 <div class="icon icon-equals"></div>
                 <div class="desc">
-                    <h2>More Good</h2>
-                    <span>All this allowed Emmaus Leeds to focus on their core purpose - rebuilding the lives of formerly homeless people</span>
+                    <h2> <div ng-bind-html="data.banner_col_3_title"></div></h2>
+                    <span> <div ng-bind-html="data.banner_col_3_text"></div></span>
                 </div>
 
-                <h3>Case study: <span>Emmaus Leeds</span></h3>
+                <h3><div ng-bind-html="data.banner_title"></div></h3>
             </div>
         </div>
     </section>
 
     <section class="appreciate">
         <div class="inner">
-            <h2>Appreciate</h2>
-            <h3>Emmaus Leeds is working to end homelessness</h3>
+            <h2><div ng-bind-html="data.block_1_title"></div></h2>
+            <h3><div ng-bind-html="data.block_1_sub_title"></div></h3>
             <div class="row">
                 <div class="col-md-4">
                     <div class="text">
-                        <h2>What are they trying to achieve?</h2>
-                        <p>
-                            Emmaus believes that people who are formerly homeless and socially excluded have something to offer.
-                        </p>
-                        <p>
-                            They encourage people to use their skills to change themselves - and change the world.
-                        </p>
+                        <h2><div ng-bind-html="data.block_1_col_1_title"></div></h2>
+                        <div ng-bind-html="editor1"></div> 
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="text">
-                        <h2>What do they provide?</h2>
-                        <p>
-                            Emmaus provide more than just a bed for the night for people who have experienced homelessness and social exclusion.
-                        </p>
-                        <p>
-                            Emmaus provide a home for as long as someone needs it, as well as meaningful work to help restore feelings of self-esteem and give residents the opportunity to regain control of their lives.
-                        </p>
+                        <h2><div ng-bind-html="data.block_1_col_2_title"></div></h2>
+                        <div ng-bind-html="editor2"></div> 
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="text">
-                        <h2>What was their energy strategy?</h2>
-                        <p>
-                            Emmaus came to <strong>ua</strong> through a recommendation from one of our current charity clients in Leeds.
-                        </p>
-                        <p>
-                            Like many charities we work with they didn't have any real energy strategy in place and were working with a range of suppliers and contracts.
-                        </p>
+                        <h2><div ng-bind-html="data.block_1_col_3_title"></div></h2>
+                        <div ng-bind-html="editor3"></div> 
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="support-quote quote-1" style="background-image:url('media/uploads/2014/08/22/quote_1.jpg');">
+    <section class="support-quote quote-1" style="background-image:url('{{data.image2}}');">
         <div class="inner">
-            <blockquote>"I wouldn't have known where to start obtaining and analysing the information to decide on which supplier would be best for us... your service saved us loads of time and effort."</blockquote>
-            <h4>
-                Gina Morrison
-                <span>Emmaus Leeds</span>
+            <blockquote><div ng-bind-html="data.block_2_quote"></div></blockquote>
+            <h4><div ng-bind-html="data.block_2_author"></div>
+                <span><div ng-bind-html="data.block_2_city"></div></span>
             </h4>
         </div>
     </section>
 
     <section class="analyse">
         <div class="inner">
-            <h2>Analyse</h2>
-            <h3><strong>ua</strong> conducted a full energy audit for Emmaus Leeds</h3>
+            <h2><div ng-bind-html="data.block_3_title"></div></h2>
+            <h3><div ng-bind-html="data.block_3_sub_title"></div></h3>
             <div class="row">
                 <div class="col-md-4">
                     <div class="text">
-                        <h2>What were the immediate benefits?</h2>
-                        <p>
-                            <span style="background-color: initial;">We analysed Emmaus Leeds current consumption so we could arrange the relevant contract to give them immediate benefits.</span>
-                        </p>
+                        <h2><div ng-bind-html="data.block_3_col_1_title"></div></h2>
+                        <div ng-bind-html="editor4"></div>  
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="text">
-                        <h2>What was their contract position?</h2>
-                        <p>
-                            <span style="background-color: initial;">Emmaus Leeds had several contracts that ended on different dates. We worked with them to align these contracts so that they finished on the same date.</span>
-                        </p>
+                        <h2><div ng-bind-html="data.block_3_col_2_title"></div></h2>
+                        <div ng-bind-html="editor5"></div> 
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="text">
-                        <h2>What did we recommend?</h2>
-                        <p>
-                            <span style="background-color: initial;">We presented the three most relevant energy providers following best practice examples. We explained the benefits of each, in line with Emmaus Leeds' energy consumption and their values and ethics.</span>
-                        </p>
+                        <h2><div ng-bind-html="data.block_3_col_3_title"></div></h2>
+                        <div ng-bind-html="editor6"></div> 
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="support-quote quote-2" style="background-image:url('media/uploads/2014/08/22/quote_2.jpg');">
+    <section class="support-quote quote-2" style="background-image:url('{{data.image3}}');">
         <div class="inner">
-            <blockquote>"Our aim was to offer Emmaus Leeds genuine help so they can do more good by providing more help to the formerly homeless in Leeds."</blockquote>
-            <h4>
-                William Campbell
-                <span>UA Commercial Director</span>
+            <blockquote><div ng-bind-html="data.block_4_quote"></div></blockquote>
+            <h4><div ng-bind-html="data.block_4_author"></div>
+                <span><div ng-bind-html="data.block_4_city"></div></span>
             </h4>
         </div>
     </section>
 
     <section class="analyse">
         <div class="inner">
-            <h2>Action</h2>
-            <h3><strong>ua</strong> sourced and aligned energy contracts to bring about improved budget security</h3>
+            <h2><div ng-bind-html="data.block_5_title"></div></h2>
+            <h3><div ng-bind-html="data.block_5_sub_title"></div></h3>
             <div class="row">
                 <div class="col-md-4">
                     <div class="text">
-                        <h2>Energy</h2>
-                        <p>
-                            <span style="background-color: initial;">We gave Emmaus Leeds two years of budget security with the best supplier.</span>
-                        </p>
+                        <h2><div ng-bind-html="data.block_5_col_1_title"></div></h2>
+                        <div ng-bind-html="editor7"></div> 
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="text">
-                        <h2>Efficiency</h2>
-                        <p>
-                            <span style="background-color: initial;">Our Energy Specialists took responsibility of their energy, found the best contract based on the most competitive price and what was right for the charity, to create a simple more efficient billing administration.</span>
-                        </p>
+                        <h2><div ng-bind-html="data.block_5_col_2_title"></div></h2>
+                        <div ng-bind-html="editor8"></div>  
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="text">
-                        <h2>Do more good</h2>
-                        <p>
-                            <span style="background-color: initial;">All of this allowed Emmaus Leeds to focus on their core purpose - rebuilding the lives of formerly homeless people.</span>
-                        </p>
+                        <h2><div ng-bind-html="data.block_5_col_3_title"></div></h2>
+                        <div ng-bind-html="editor9"></div> 
                     </div>
                 </div>
             </div>
@@ -152,4 +124,6 @@
 
 
 </div>
+
 <div ng-include src="'views/contact.html'"></div>
+

@@ -1,4 +1,5 @@
-﻿<div id="request">
+﻿
+<div id="request">
     <section class="intro">
         <div class="inner">
         </div>
@@ -6,7 +7,6 @@
     <section class="details">
 
         <form action="">
-            <input type="hidden" name="csrfmiddlewaretoken" value="zPhgMVrOeP7iS6cQus1njfIftbdZmuCn">
             <div class="inner">
 
                 <h2>Drop your details in below and we'll be in touch</h2>
@@ -20,7 +20,7 @@
                              -->
                             <div class="controls ">
 
-                                <input class="form-control" id="id_title" name="title" placeholder="Title" type="text">
+                                <input class="form-control" id="title" ng-model="title" name="title" placeholder="Title" type="text">
                             </div>
                         </div>
 
@@ -31,7 +31,7 @@
                             <div class="controls ">
                                 <span id="fullnameID"></span>
 
-                                <input class="form-control" id="id_full_name" ng-model="fullName" name="full_name" placeholder="Full name *" type="text">
+                                <input class="form-control" id="full_name" ng-model="fullName" name="full_name" placeholder="Full name *" type="text">
 
 
                             </div>
@@ -43,7 +43,7 @@
                              -->
                             <div class="controls ">
 
-                                <input class="form-control" id="id_contact_number" name="contact_number" placeholder="Contact number" type="text">
+                                <input class="form-control" id="contact_number" ng-model="contact_number" name="contact_number" placeholder="Contact number" type="text">
                             </div>
                         </div>
 
@@ -54,7 +54,7 @@
                             <div class="controls ">
                                 <span id="emailID"></span>
 
-                                <input class="form-control" id="id_email" name="email" placeholder="Email *" type="text" ng-model="email">
+                                <input class="form-control" id="email" name="email" placeholder="Email *" type="text" ng-model="email">
 
 
                             </div>
@@ -85,7 +85,7 @@
                              -->
                             <div class="controls ">
 
-                                <input class="form-control" id="id_company_name" name="company_name" placeholder="Company name" type="text">
+                                <input class="form-control" id="company_name"  ng-model="company_name"  name="company_name" placeholder="Company name" type="text">
                             </div>
                         </div>
 
@@ -95,7 +95,7 @@
                              -->
                             <div class="controls ">
 
-                                <input class="form-control" id="id_position" name="position" placeholder="Your position" type="text">
+                                <input class="form-control" id="position" name="position" ng-model="position"  placeholder="Your position" type="text">
                             </div>
                         </div>
 
@@ -105,7 +105,7 @@
                              -->
                             <div class="controls ">
 
-                                <input class="form-control" id="id_current_supplier" name="current_supplier" placeholder="Current energy supplier" type="text">
+                                <input class="form-control" id="current_supplier" name="current_supplier" ng-model="current_supplier"  placeholder="Current energy supplier" type="text">
                             </div>
                         </div>
 
@@ -115,7 +115,7 @@
                              -->
                             <div class="controls ">
 
-                                <input class="form-control" id="id_annual_energy_costs" name="annual_energy_costs" placeholder="Annual energy costs" type="text">
+                                <input class="form-control" id="annual_energy_costs" name="annual_energy_costs" ng-model="annual_energy_costs" placeholder="Annual energy costs" type="text">
                             </div>
                         </div>
 
@@ -146,7 +146,7 @@
                             <div class="controls ">
                                 <span id="msgID"></span>
 
-                                <textarea ng-model="msg" class="form-control" cols="40" id="id_message" name="message" placeholder="Your enquiry" rows="10"></textarea>
+                                <textarea ng-model="msg" class="form-control" cols="40" id="message" name="message" placeholder="Your enquiry" rows="10"></textarea>
 
                             </div>
                         </div>

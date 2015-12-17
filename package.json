@@ -16,6 +16,7 @@
     "morgan": "~1.6.1",
     "multer": "~1.0.3",
     "prerender-node": "^2.1.0",
-    "serve-favicon": "~2.3.0"
+    "serve-favicon": "~2.3.0",
+    "client-sessions": "~0.7.0"
   }
 }

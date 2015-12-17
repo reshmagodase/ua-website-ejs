@@ -61,7 +61,20 @@ app.config(function ($routeProvider, $locationProvider) {
             controller: 'ArticleController'
         })
         .when('/case-studies/:group*', {
-            templateUrl: 'views/case-studies/case-study.html'
+            templateUrl: 'views/case-studies/case-study.html',
+            controller: 'CaseStudiesDetailsController'
+        })
+        .when('/privacy-policy/', {
+            templateUrl: 'views/default.html',
+            controller: 'DefaultController'
+        })
+        .when('/environmental-policy/', {
+            templateUrl: 'views/default.html',
+            controller: 'DefaultController'
+        })
+        .when('/bribery-act-statement/', {
+            templateUrl: 'views/default.html',
+            controller: 'DefaultController'
         })
 
         .otherwise({

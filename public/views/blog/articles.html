@@ -35,7 +35,7 @@
                         <h3>More good news</h3>
                         <span ng-repeat="article in Article">
                         <a class="recent" target="_self"
-                           href="{{article.get_absolute_url}}">{{article.page_content_extended_title}}</a>
+                           href="blog/{{formatDate(article.publish_date_0) |  date:'yyyy/M/d'}}/{{article.slug}}/">{{article.page_content_extended_title}}</a>
                             </span>
                     </div>
                 </div>

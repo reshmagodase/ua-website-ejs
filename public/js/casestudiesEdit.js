@@ -84,6 +84,7 @@ $(document).ready(function () {
 
         var formDataAppend = "";
         formData = $(this).serialize();
+        var editorText='';
         for (var i = 1; i < 11; i++) {
             formDataAppend += '&editor' + i + '=' + encodeURIComponent($('#editor' + i + ' .Editor-editor').html());
         }

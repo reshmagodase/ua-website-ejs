@@ -14,7 +14,13 @@ var sys = require('sys');
 var exec = require('child_process').exec;
 var im = require('imagemagick');
 var Jimp = require("jimp");
+var session = require('client-sessions');
 //var lwip = require('lwip');
+
+var nodemailer = require('nodemailer');
+
+
+
 
 var server = new Server('localhost', 27017, {auto_reconnect: true});
 db = new Db('utilityAid', server);
@@ -59,7 +65,7 @@ exports.login = function (req, res) {
 
                     //res.send(item);
                     var data = item;
-                    //req.session.user = data;
+                    req.session.user = data;
                     delete data.password;
                     data.status = 'success';
                     res.send(data);
@@ -393,11 +399,45 @@ exports.getCaseStudiesList = function (req, res) {
     });
 }
 
+exports.getActiveCaseStudiesList = function (req, res) {
+    db.collection('caseStudies', function (err, collection) {
+        collection.find({'active': 'on'}).sort({'createdDate': -1}).toArray(function (err, result) {
+            if (err) {
+                res.send({'status': 'error', 'message': 'An error has occurred'});
+            }
+            if (result == null) {
+                res.send({'status': 'error', 'message': 'Data Not Found'});
+            }
+            if (result !== null) {
+                res.send(result);
+            }
+        });
+    });
+}
+
 //service to get case study details
 exports.getCaseStudiesDetails = function (req, res) {
     db.collection('caseStudies', function (err, collection) {
         console.log(req.body.objectId);
         collection.findOne({'_id': new ObjectID(req.body.objectId)}, function (err, result) {
+            if (err) {
+                res.send({'status': 'error', 'message': 'An error has occurred'});
+            }
+            if (result == null) {
+                res.send({'status': 'error', 'message': 'Data Not Found'});
+            }
+            if (result !== null) {
+                res.send(result);
+            }
+        });
+    });
+}
+
+//service to get case study details by slug
+exports.getCaseStudiesDetailsBySlug = function (req, res) {
+    console.log(req.body.slug);
+    db.collection('caseStudies', function (err, collection) {
+        collection.findOne({'slug': req.body.slug,'active':'on'}, function (err, result) {
             if (err) {
                 res.send({'status': 'error', 'message': 'An error has occurred'});
             }
@@ -776,6 +816,21 @@ exports.getPartnersList = function (req, res) {
         });
     });
 }
+exports.getActivePartnersList = function (req, res) {
+    db.collection('partners', function (err, collection) {
+        collection.find({'active':'on'}).sort({'createdDate': -1}).toArray(function (err, result) {
+            if (err) {
+                res.send({'status': 'error', 'message': 'An error has occurred'});
+            }
+            if (result == null) {
+                res.send({'status': 'error', 'message': 'Data Not Found'});
+            }
+            if (result !== null) {
+                res.send(result);
+            }
+        });
+    });
+}
 
 
 exports.editPartners = function (req, res) {
@@ -1018,6 +1073,25 @@ exports.getDefaultDetails = function (req, res) {
     });
 }
 
+//service to get case study details by slug
+exports.getDefaultDetailsBySlug = function (req, res) {
+    console.log(req.body.slug);
+    db.collection('default', function (err, collection) {
+        collection.findOne({'slug': req.body.slug}, function (err, result) {
+            if (err) {
+                res.send({'status': 'error', 'message': 'An error has occurred'});
+            }
+            if (result == null) {
+                res.send({'status': 'error', 'message': 'Data Not Found'});
+            }
+            if (result !== null) {
+                res.send(result);
+            }
+        });
+    });
+}
+
+
 //Service to add Default
 exports.addDefault = function (req, res) {
     var info = req.body;
@@ -1134,6 +1208,22 @@ exports.getBlogList = function (req, res) {
     });
 }
 
+exports.getActiveBlogList = function (req, res) {
+    db.collection('blog', function (err, collection) {
+        collection.find({'active':'on'}).sort({'createdDate': -1}).toArray(function (err, result) {
+            if (err) {
+                res.send({'status': 'error', 'message': 'An error has occurred'});
+            }
+            if (result == null) {
+                res.send({'status': 'error', 'message': 'Data Not Found'});
+            }
+            if (result !== null) {
+                res.send(result);
+            }
+        });
+    });
+}
+
 //service to get blogdetails
 exports.getBlogDetails = function (req, res) {
     db.collection('blog', function (err, collection) {
@@ -1156,7 +1246,7 @@ exports.getBlogDetails = function (req, res) {
 exports.getArticleDetails = function (req, res) {
     console.log(req.body.slug);
     db.collection('blog', function (err, collection) {
-        collection.findOne({'slug': req.body.slug}, function (err, result) {
+        collection.findOne({'slug': req.body.slug,'active':'on'}, function (err, result) {
             if (err) {
                 res.send({'status': 'error', 'message': 'An error has occurred'});
             }
@@ -1170,6 +1260,32 @@ exports.getArticleDetails = function (req, res) {
     });
 }
 
+
+var transporter = nodemailer.createTransport({
+    service: 'Gmail',
+    auth: {
+        user: 'chetan@scriptlanes.com',
+        pass: 'domain@1535'
+    }
+});
+
+
+exports.sendRequestMail = function (req, res) {
+    var mailOptions = {
+        from: 'chetan@scriptlanes.com', // sender address
+        to: 'resistcheat@gmail.com', // list of receivers
+        subject: 'Request A Free Energy Consultation', // Subject line
+        text: '', // plaintext body
+        html: '<b>' + req.body.title+ '<br>' +req.body.contact_number+ '<br>' +req.body.company_name+ '<br>' +req.body.position+ '<br>' +req.body.current_supplier+ '<br>' +req.body.annual_energy_costs + '</b>'
+    };
+    transporter.sendMail(mailOptions, function(error, info){
+        if(error){
+            return console.log(error);
+        }
+        console.log('Message sent: ' + info.response);
+
+    });
+}
 
 
 
