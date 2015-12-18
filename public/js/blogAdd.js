@@ -7,7 +7,7 @@ $(document).ready(function () {
         var formDataAppend = "";
         var formData = $(this).serialize();
         formData = formData + '&editor1=' + encodeURIComponent($('.Editor-editor').html());
-        var url = "/addCaseStudies";
+        var url = "/addBlog";
         var getCallback = function (response) {
             alert("Data added successfully!");
             window.location = "/list-casestudies-admin";
