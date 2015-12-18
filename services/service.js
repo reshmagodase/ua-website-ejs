@@ -452,7 +452,7 @@ exports.getCaseStudiesDetailsBySlug = function (req, res) {
 //service to get case study last one
 exports.getCaseStudiesLastOne = function (req, res) {
     db.collection('caseStudies', function (err, collection) {
-        collection.find({}).sort({'createdDate': -1}).toArray(function (err, result) {
+        collection.find({'active': 'on'}).sort({'createdDate': -1}).toArray(function (err, result) {
             if (err) {
                 res.send({'status': 'error', 'message': 'An error has occurred'});
             }
