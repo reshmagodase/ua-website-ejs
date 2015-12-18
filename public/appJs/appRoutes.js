@@ -53,7 +53,12 @@ app.config(function ($routeProvider, $locationProvider) {
         .when('/thank-you/', {
             title: 'UA | Thank You',
             templateUrl: 'views/thank-you.html',
-            controller: 'RequestController'
+            controller: 'ThankYouController'
+        })
+        .when('/thank-you-for-subscribing/', {
+            title: 'UA | Thank You',
+            templateUrl: 'views/thank-you-for-subscribing.html',
+            controller: 'ThankYouController'
         })
 
         .when('/blog/:group*', {

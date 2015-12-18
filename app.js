@@ -136,6 +136,7 @@ app.post('/getBlogDetails',service.getBlogDetails);
 app.post('/getArticleDetails',service.getArticleDetails);
 
 app.post('/sendRequestMail',service.sendRequestMail);
+app.post('/addSubscribers',service.addSubscribers);
 //app.use('/', routes);
 //app.use('/users', users);
 

@@ -20,8 +20,6 @@ var session = require('client-sessions');
 var nodemailer = require('nodemailer');
 
 
-
-
 var server = new Server('localhost', 27017, {auto_reconnect: true});
 db = new Db('utilityAid', server);
 
@@ -437,7 +435,7 @@ exports.getCaseStudiesDetails = function (req, res) {
 exports.getCaseStudiesDetailsBySlug = function (req, res) {
     console.log(req.body.slug);
     db.collection('caseStudies', function (err, collection) {
-        collection.findOne({'slug': req.body.slug,'active':'on'}, function (err, result) {
+        collection.findOne({'slug': req.body.slug, 'active': 'on'}, function (err, result) {
             if (err) {
                 res.send({'status': 'error', 'message': 'An error has occurred'});
             }
@@ -818,7 +816,7 @@ exports.getPartnersList = function (req, res) {
 }
 exports.getActivePartnersList = function (req, res) {
     db.collection('partners', function (err, collection) {
-        collection.find({'active':'on'}).sort({'createdDate': -1}).toArray(function (err, result) {
+        collection.find({'active': 'on'}).sort({'createdDate': -1}).toArray(function (err, result) {
             if (err) {
                 res.send({'status': 'error', 'message': 'An error has occurred'});
             }
@@ -1210,7 +1208,7 @@ exports.getBlogList = function (req, res) {
 
 exports.getActiveBlogList = function (req, res) {
     db.collection('blog', function (err, collection) {
-        collection.find({'active':'on'}).sort({'createdDate': -1}).toArray(function (err, result) {
+        collection.find({'active': 'on'}).sort({'createdDate': -1}).toArray(function (err, result) {
             if (err) {
                 res.send({'status': 'error', 'message': 'An error has occurred'});
             }
@@ -1246,7 +1244,7 @@ exports.getBlogDetails = function (req, res) {
 exports.getArticleDetails = function (req, res) {
     console.log(req.body.slug);
     db.collection('blog', function (err, collection) {
-        collection.findOne({'slug': req.body.slug,'active':'on'}, function (err, result) {
+        collection.findOne({'slug': req.body.slug, 'active': 'on'}, function (err, result) {
             if (err) {
                 res.send({'status': 'error', 'message': 'An error has occurred'});
             }
@@ -1264,29 +1262,92 @@ exports.getArticleDetails = function (req, res) {
 var transporter = nodemailer.createTransport({
     service: 'Gmail',
     auth: {
-        user: 'chetan@scriptlanes.com',
-        pass: 'domain@1535'
+        user: 'uaenergyandutilities@gmail.com',
+        pass: 'utilityaid'
     }
 });
 
 
 exports.sendRequestMail = function (req, res) {
+    var htmlFormat = '<table cellspacing="2" cellpadding="2">';
+    if (req.body.title != '') {
+        htmlFormat += '<tr><td><b>Title</b> </td><td>' + req.body.title + '</td></tr>'
+    }
+    if (req.body.fullName != '') {
+        htmlFormat += '<tr><td><b>Full Name </b></td><td>' + req.body.fullName + '</td></tr>'
+    }
+    if (req.body.contact_number != '') {
+        htmlFormat += '<tr><td><b>Contact Number </b></td><td>' + req.body.contact_number + '</td></tr>'
+    }
+    if (req.body.email != '') {
+        htmlFormat += '<tr><td><b>Email </b></td><td>' + req.body.email + '</td></tr>'
+    }
+    if (req.body.company_name != '') {
+        htmlFormat += '<tr><td><b>Company Name</b></td><td>' + req.body.company_name + '</td></tr>'
+    }
+    if (req.body.position != '') {
+        htmlFormat += '<tr><td><b>Position</b></td><td>' + req.body.position + '</td></tr>'
+    }
+    if (req.body.current_supplier != '') {
+        htmlFormat += '<tr><td><b>Current Supplier</b></td><td>' + req.body.current_supplier + '</td></tr>'
+    }
+    if (req.body.annual_energy_costs != '') {
+        htmlFormat += '<tr><td><b>Annual Energy Cost</b></td><td>' + req.body.annual_energy_costs + '</td></tr>'
+    }
+    if (req.body.audit != '') {
+        htmlFormat += '<tr><td><b>Do you require a FREE energy audit?</b></td><td>' + req.body.audit + '</td></tr>'
+    }
+    if (req.body.hearfrom != '') {
+        htmlFormat += '<tr><td><b>How did you hear about us?</b></td><td>' + req.body.hearfrom + '</td></tr>'
+    }
+    if (req.body.msg != '') {
+        htmlFormat += '<tr><td><b>Enquiry</b></td><td>' + req.body.msg + '</td></tr>'
+    }
+    htmlFormat += '</table>'
     var mailOptions = {
-        from: 'chetan@scriptlanes.com', // sender address
-        to: 'resistcheat@gmail.com', // list of receivers
+        from: 'Utility Aid', // sender address
+        to: 'chetan@scriptlanes.com', // list of receivers
         subject: 'Request A Free Energy Consultation', // Subject line
         text: '', // plaintext body
-        html: '<b>' + req.body.title+ '<br>' +req.body.contact_number+ '<br>' +req.body.company_name+ '<br>' +req.body.position+ '<br>' +req.body.current_supplier+ '<br>' +req.body.annual_energy_costs + '</b>'
+        html: htmlFormat
     };
-    transporter.sendMail(mailOptions, function(error, info){
-        if(error){
+    transporter.sendMail(mailOptions, function (error, info) {
+        if (error) {
             return console.log(error);
         }
         console.log('Message sent: ' + info.response);
 
     });
+    var info = req.body;
+    info.createdDate = new Date().getTime().toString();
+
+    db.collection('request', function (err, collection) {
+        collection.insert(info, {safe: true}, function (err, result) {
+            if (err) {
+                res.send({'status': 'error', 'message': 'An error has occurred'});
+            }
+            else {
+                console.log(result);
+                res.send({'status': 'success', 'message': 'Data Added successfully'});
+            }
+        });
+    });
 }
 
+exports.addSubscribers = function (req, res) {
+    var info = req.body;
+    db.collection('subscribers', function (err, collection) {
+        collection.insert(info, {safe: true}, function (err, result) {
+            if (err) {
+                res.send({'status': 'error', 'message': 'An error has occurred'});
+            }
+            else {
+                console.log(result);
+                res.send({'status': 'success', 'message': 'Data Added successfully'});
+            }
+        });
+    });
+}
 
 
 

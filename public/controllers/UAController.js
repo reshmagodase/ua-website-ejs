@@ -1,7 +1,6 @@
 angular.module('myApp')
     .controller('HomeController', function ($scope, $location, $localStorage, $http) {
         $scope.getData = function () {
-            $('.loading-indicator-modal').show();
             $http({
                 method: 'GET',
                 url: '/getHomepageText'
@@ -41,15 +40,12 @@ angular.module('myApp')
                         ogImage: 'http://www.utility-aid.co.uk/img/blog/share.jpg'
                     };
 
-                    $('.loading-indicator-modal').hide();
                 })
                 .error(function (data, status) {
-                    $('.loading-indicator-modal').hide();
 
                 })
         }
         $scope.getCaseStudyData = function () {
-            $('.loading-indicator-modal').show();
             $http({
                 method: 'GET',
                 url: '/getCaseStudiesLastOne'
@@ -60,11 +56,8 @@ angular.module('myApp')
                     $scope.home_page_ua_action = data.home_page_ua_action;
                     $scope.home_page_case_study_button_text = data.home_page_case_study_button_text;
                     $scope.slug2 = data.slug;
-                    console.log(data);
-                    $('.loading-indicator-modal').hide();
                 })
                 .error(function (data, status) {
-                    $('.loading-indicator-modal').hide();
 
                 })
         }
@@ -72,13 +65,7 @@ angular.module('myApp')
         $scope.getCaseStudyData();
         //shows Loader for Modal
 
-        $scope.showMLoader = function () {
-            $('.loding-indicator-modal').css('display', 'inline-block');
-        }
-        //hide Loader for Modal
-        $scope.hideMLoader = function () {
-            $('.loding-indicator-modal').css('display', 'none');
-        }
+
         $scope.logOut = function () {
             $localStorage.session = '';
             $location.path('/login');
@@ -87,7 +74,6 @@ angular.module('myApp')
     .controller('AboutController', function ($scope, $location, $localStorage, $http) {
 
         $scope.getData = function () {
-            $('.loading-indicator-modal').show();
             $http({
                 method: 'GET',
                 url: '/getAboutDetails'
@@ -140,17 +126,13 @@ angular.module('myApp')
                     $scope.block_1_col_3_title = data.block_1_col_3_title;
                     $scope.editor3 = data.editor3;
                     $scope.people_title = data.people_title;
-                    $('.loading-indicator-modal').hide();
-
                 })
 
                 .error(function (data, status) {
-                    $('.loading-indicator-modal').hide();
 
                 })
         }
         $scope.getContactData = function () {
-            $('.loading-indicator-modal').show();
             $http({
                 method: 'GET',
                 url: '/getHomepageText'
@@ -173,10 +155,8 @@ angular.module('myApp')
                     $scope.request_title = data.request_title;
 
 
-                    $('.loading-indicator-modal').hide();
                 })
                 .error(function (data, status) {
-                    $('.loading-indicator-modal').hide();
 
                 })
         }
@@ -262,7 +242,6 @@ angular.module('myApp')
 
         $scope.CaseStudies = [];
         $scope.getData = function () {
-            $('.loading-indicator-modal').show();
             $http({
                 method: 'GET',
                 url: '/getActiveCaseStudiesList'
@@ -288,7 +267,6 @@ angular.module('myApp')
                 })
         }
         $scope.getContactData = function () {
-            $('.loading-indicator-modal').show();
             $http({
                 method: 'GET',
                 url: '/getHomepageText'
@@ -391,7 +369,6 @@ angular.module('myApp')
                 })
         }
         $scope.getContactData = function () {
-            $('.loading-indicator-modal').show();
             $http({
                 method: 'GET',
                 url: '/getHomepageText'
@@ -413,10 +390,8 @@ angular.module('myApp')
                     $scope.request_button_text = data.request_button_text;
                     $scope.request_title = data.request_title;
 
-                    $('.loading-indicator-modal').hide();
                 })
                 .error(function (data, status) {
-                    $('.loading-indicator-modal').hide();
 
                 })
         }
@@ -445,7 +420,6 @@ angular.module('myApp')
         };
         $scope.Blogs = [];
         $scope.getData = function () {
-            $('.loading-indicator-modal').show();
             $http({
                 method: 'GET',
                 url: '/getActiveBlogList'
@@ -460,17 +434,14 @@ angular.module('myApp')
                     };
                     $scope.Blogs = data;
 
-                    $('.loading-indicator-modal').hide();
 
                 })
 
                 .error(function (data, status) {
-                    $('.loading-indicator-modal').hide();
 
                 })
         }
         $scope.getContactData = function () {
-            $('.loading-indicator-modal').show();
             $http({
                 method: 'GET',
                 url: '/getHomepageText'
@@ -492,10 +463,8 @@ angular.module('myApp')
                     $scope.request_button_text = data.request_button_text;
                     $scope.request_title = data.request_title;
 
-                    $('.loading-indicator-modal').hide();
                 })
                 .error(function (data, status) {
-                    $('.loading-indicator-modal').hide();
 
                 })
         }
@@ -532,7 +501,6 @@ angular.module('myApp')
                 slug = parts[parts.length - 2]
             }
             var formdata = {"slug": "" + slug + ""};
-            $('.loading-indicator-modal').show();
             $http({
                 url: "/getArticleDetails",
                 method: "POST",
@@ -614,17 +582,14 @@ angular.module('myApp')
                     value = value.replace(/font-family: Arial, Helvetica, Verdana, Tahoma, sans-serif; font-size: 15px; line-height: 22.5px; border: none; box-shadow: none; background: none;/g, 'border:none');
                     value = value.replace(/&nbsp;/g, ' ');
                     $scope.editor1 = value;
-                    $('.loading-indicator-modal').hide();
 
                 })
 
                 .error(function (data, status) {
-                    $('.loading-indicator-modal').hide();
 
                 })
         }
         $scope.getContactData = function () {
-            $('.loading-indicator-modal').show();
             $http({
                 method: 'GET',
                 url: '/getHomepageText'
@@ -646,10 +611,8 @@ angular.module('myApp')
                     $scope.request_button_text = data.request_button_text;
                     $scope.request_title = data.request_title;
 
-                    $('.loading-indicator-modal').hide();
                 })
                 .error(function (data, status) {
-                    $('.loading-indicator-modal').hide();
 
                 })
         }
@@ -664,12 +627,18 @@ angular.module('myApp')
 
     })
     .controller('RequestController', function ($scope, $location, $localStorage, $http) {
+        $scope.$parent.seo = {
+            pageTitle: 'UA | Request your free energy consultation',
+            pageDescripton: "We're inspired by the organisations and people we work with. We want to help save them time and money when they source and purchase their energy.",
+            ogTitle: 'UA | Request your free energy consultation',
+            ogDescripton: "We're inspired by the organisations and people we work with. We want to help save them time and money when they source and purchase their energy.",
+        };
         $scope.addUser = function () {
             if (!$scope.validate()) {
                 return false;
             }
             else {
-                $scope.showMLoader();
+
                 $scope.requestData = {};
                 $scope.requestData.title = $scope.title;
                 $scope.requestData.contact_number = $scope.contact_number;
@@ -687,17 +656,16 @@ angular.module('myApp')
                 $http({
                     url: "/sendRequestMail",
                     method: "POST",
-                    data:  $scope.requestData,
+                    data: $scope.requestData,
                     dataType: "json",
                     contentType: "application/json; charset=utf-8"
                 })
                     .success(function (data, status) {
 
-
+                        window.location = "/thank-you/";
                     })
 
                     .error(function (data, status) {
-
                     })
 
             }
@@ -712,41 +680,46 @@ angular.module('myApp')
             $("#hearfromID").html("");
 
         }
-        //shows Loader for Modal
-        $scope.showMLoader = function () {
-            $('.loding-indicator-modal').css('display', 'inline-block');
-        }
-        //hide Loader for Modal
-        $scope.hideMLoader = function () {
-            $('.loding-indicator-modal').css('display', 'none');
-        }
+
         $scope.validate = function () {
             $scope.makeEmptyValidators();
-            var temp=false;
+            var temp = false;
             if ($scope.fullName == "" || $scope.fullName == undefined) {
                 $("#fullnameID").html("<ul class='errorlist'>This field is required.<li></li></ul>");
-                temp=true;
+                temp = true;
             }
             if ($scope.email == "" || $scope.email == undefined) {
                 $("#emailID").html("<ul class='errorlist'>This field is required.<li></li></ul>");
-                temp=true;
+                temp = true;
             }
             if ($scope.msg == "" || $scope.msg == undefined) {
                 $("#msgID").html("<ul class='errorlist'>This field is required.<li></li></ul>");
-                temp=true;
+                temp = true;
             }
             if ($scope.audit == "" || $scope.audit == undefined) {
                 $("#auditID").html("<ul class='errorlist'>This field is required.<li></li></ul>");
-                temp=true;
+                temp = true;
             }
             if ($scope.hearfrom == "" || $scope.hearfrom == undefined) {
                 $("#hearfromID").html("<ul class='errorlist'>This field is required.<li></li></ul>");
-                temp=true;
+                temp = true;
             }
-            if (temp==true){
+            if ($scope.email != "") {
+                if (!validateEmail($scope.email)) {
+                    $("#emailID").html("<ul class='errorlist'>Please enter correct email id.<li></li></ul>");
+                    temp = true;
+                }
+            }
+            function validateEmail(email) {
+                var re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+                return re.test(email);
+            }
+
+
+            if (temp == true) {
                 return false;
 
-            }else{
+            } else {
                 return true;
 
             }
@@ -754,7 +727,6 @@ angular.module('myApp')
 
 
         $scope.getContactData = function () {
-            $('.loading-indicator-modal').show();
             $http({
                 method: 'GET',
                 url: '/getHomepageText'
@@ -776,10 +748,8 @@ angular.module('myApp')
                     $scope.request_button_text = data.request_button_text;
                     $scope.request_title = data.request_title;
 
-                    $('.loading-indicator-modal').hide();
                 })
                 .error(function (data, status) {
-                    $('.loading-indicator-modal').hide();
 
                 })
         }
@@ -817,7 +787,6 @@ angular.module('myApp')
                 })
         }
         $scope.getContactData = function () {
-            $('.loading-indicator-modal').show();
             $http({
                 method: 'GET',
                 url: '/getHomepageText'
@@ -839,14 +808,50 @@ angular.module('myApp')
                     $scope.request_button_text = data.request_button_text;
                     $scope.request_title = data.request_title;
 
-                    $('.loading-indicator-modal').hide();
                 })
                 .error(function (data, status) {
-                    $('.loading-indicator-modal').hide();
 
                 })
         }
         $scope.getData();
+        $scope.getContactData();
+    })
+    .controller('ThankYouController', function ($scope, $location, $localStorage, $http) {
+        $scope.$parent.seo = {
+            pageTitle: 'UA | ThankYou',
+            pageDescripton: "We're inspired by the organisations and people we work with. We want to help save them time and money when they source and purchase their energy.",
+            ogTitle: 'UA | ThankYou',
+            ogDescripton: "We're inspired by the organisations and people we work with. We want to help save them time and money when they source and purchase their energy.",
+        };
+
+
+        $scope.getContactData = function () {
+            $http({
+                method: 'GET',
+                url: '/getHomepageText'
+            })
+                .success(function (data, status) {
+                    $scope.contact_birmingham_find_url = data.contact_birmingham_find_url;
+                    $scope.contact_email = data.contact_email;
+                    $scope.contact_email_text = data.contact_email_text;
+                    $scope.contact_facebook_text = data.contact_facebook_text;
+                    $scope.contact_facebook_url = data.contact_facebook_url;
+                    $scope.contact_freephone = data.contact_freephone;
+                    $scope.contact_glasgow_find_url = data.contact_glasgow_find_url;
+                    $scope.contact_sales_phone = data.contact_sales_phone;
+                    $scope.contact_sleaford_find_url = data.contact_sleaford_find_url;
+                    $scope.contact_twitter_text = data.contact_twitter_text;
+                    $scope.contact_twitter_url = data.contact_twitter_url;
+
+                    $scope.request_button_link = data.request_button_link;
+                    $scope.request_button_text = data.request_button_text;
+                    $scope.request_title = data.request_title;
+
+                })
+                .error(function (data, status) {
+
+                })
+        }
         $scope.getContactData();
     })
 
