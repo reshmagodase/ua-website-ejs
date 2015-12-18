@@ -63,13 +63,7 @@ angular.module('myApp')
         }
         $scope.getData();
         $scope.getCaseStudyData();
-        //shows Loader for Modal
 
-
-        $scope.logOut = function () {
-            $localStorage.session = '';
-            $location.path('/login');
-        }
     })
     .controller('AboutController', function ($scope, $location, $localStorage, $http) {
 
@@ -631,7 +625,7 @@ angular.module('myApp')
             pageTitle: 'UA | Request your free energy consultation',
             pageDescripton: "We're inspired by the organisations and people we work with. We want to help save them time and money when they source and purchase their energy.",
             ogTitle: 'UA | Request your free energy consultation',
-            ogDescripton: "We're inspired by the organisations and people we work with. We want to help save them time and money when they source and purchase their energy.",
+            ogDescripton: "We're inspired by the organisations and people we work with. We want to help save them time and money when they source and purchase their energy."
         };
         $scope.addUser = function () {
             if (!$scope.validate()) {
@@ -821,7 +815,7 @@ angular.module('myApp')
             pageTitle: 'UA | ThankYou',
             pageDescripton: "We're inspired by the organisations and people we work with. We want to help save them time and money when they source and purchase their energy.",
             ogTitle: 'UA | ThankYou',
-            ogDescripton: "We're inspired by the organisations and people we work with. We want to help save them time and money when they source and purchase their energy.",
+            ogDescripton: "We're inspired by the organisations and people we work with. We want to help save them time and money when they source and purchase their energy."
         };
 
 

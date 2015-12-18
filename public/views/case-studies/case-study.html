@@ -1,4 +1,9 @@
-
+<style>
+    #generic-case-study .appreciate .text , #generic-case-study .analyse .text, #generic-case-study .action .text  {
+        font-size: 14px;
+        line-height: 23px;
+    }
+</style>
 <div id="generic-case-study" ng-repeat="data in CaseStudiesDetails">
     <section class="intro" style="background-image:url('{{data.image1}}');">
         <div class="inner">
@@ -43,7 +48,7 @@
                 <div class="col-md-4">
                     <div class="text">
                         <h2><div ng-bind-html="data.block_1_col_3_title"></div></h2>
-                        <div ng-bind-html="editor3"></div> 
+                        <div ng-bind-html="editor3"></div>
                     </div>
                 </div>
             </div>
