@@ -10,7 +10,7 @@ $(document).ready(function () {
         var url = "/addBlog";
         var getCallback = function (response) {
             alert("Data added successfully!");
-            window.location = "/list-casestudies-admin";
+            window.location = "/list-blogs-admin";
         };
         $.ajax({
             url: url,
