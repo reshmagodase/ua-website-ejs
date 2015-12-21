@@ -275,9 +275,8 @@ angular.module('myApp')
                 })
         }
         $scope.getData();
-
+        $scope.getContactData();
         $scope.$on('LastRepeaterElement', function () {
-            $scope.getContactData();
             CreateMsnry();
         });
 

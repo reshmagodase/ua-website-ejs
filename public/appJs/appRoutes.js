@@ -355,11 +355,11 @@ app.config(function ($routeProvider, $locationProvider) {
 
                 })
         }
+        $scope.getContactData();
         $scope.getData();
 
         $scope.$on('LastRepeaterElement', function () {
-            $scope.getContactData();
-            CreateMsnry();
+
         });
 
     })
@@ -574,6 +574,7 @@ app.config(function ($routeProvider, $locationProvider) {
         $scope.getContactData();
         $scope.$on('LastRepeaterElement', function () {
             CreateMsnry();
+
         });
 
     })
