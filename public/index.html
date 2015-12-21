@@ -8,7 +8,7 @@
 
     <base href="/">
 
-    <title>{{ seo.pageTitle }}</title>
+    <title ng-bind="seo.pageTitle"></title>
     <meta property="og:title" content="{{ seo.ogTitle }}"/>
     <meta name="description" content="{{seo.pageDescripton}}"/>
     <meta property='og:description' content="{{seo.ogDescripton}}"/>
@@ -48,7 +48,8 @@
     <script src="https://code.angularjs.org/1.2.28/angular-cookies.min.js"></script>-->
 
     <script src="appJs/appRoutes.js?2"></script>
-    <script src="controllers/UAController.js?2"></script>
+  <!--  <script src="controllers/UAController.js?2"></script>-->
+
     <script>
         if (document.addEventListener) {
         }

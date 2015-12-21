@@ -527,10 +527,12 @@ angular.module('myApp')
             $.get("/getBlogList", function (article) {
                 $scope.Article = article.slice(0, 3);
                 for (var k = 0; k < $scope.Article.length; k++) {
-
                     if ($scope.Article[k].slug == slug) {
                         $scope.Article.splice(k, 1);
                     }
+                }
+                if($scope.Article.length==3){
+                    $scope.Article.splice(2, 1);
                 }
             });
             $http({
