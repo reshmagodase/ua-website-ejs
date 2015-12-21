@@ -113,6 +113,7 @@ app.post('/addPeople',service.addPeople);
 app.post('/editPeople',service.editPeople);
 app.get('/getPeopleList',service.getPeopleList);
 app.post('/getPeopleDetails',service.getPeopleDetails);
+app.post('/getAllPeopleDetails',service.getAllPeopleDetails);
 
 app.post('/addAuthor',service.addAuthor);
 app.post('/editAuthor',service.editAuthor);

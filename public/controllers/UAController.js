@@ -6,6 +6,13 @@ angular.module('myApp')
                 url: '/getHomepageText'
             })
                 .success(function (data, status) {
+                    $scope.$parent.seo = {
+                        pageTitle: data.meta_data_meta_title,
+                        pageDescripton: data.meta_data_meta_description,
+                        ogTitle: data.meta_data_meta_title,
+                        ogDescripton: data.meta_data_meta_description,
+                        ogImage: 'http://www.utility-aid.co.uk/img/blog/share.jpg'
+                    };
                     $scope.contact_birmingham_find_url = data.contact_birmingham_find_url;
                     $scope.contact_email = data.contact_email;
                     $scope.contact_email_text = data.contact_email_text;
@@ -32,13 +39,7 @@ angular.module('myApp')
                     $scope.slug = data.slug;
                     $scope.title = data.title;
 
-                    $scope.$parent.seo = {
-                        pageTitle: data.meta_data_meta_title,
-                        pageDescripton: data.meta_data_meta_description,
-                        ogTitle: data.meta_data_meta_title,
-                        ogDescripton: data.meta_data_meta_description,
-                        ogImage: 'http://www.utility-aid.co.uk/img/blog/share.jpg'
-                    };
+
 
                 })
                 .error(function (data, status) {
@@ -83,31 +84,15 @@ angular.module('myApp')
 
 
                     $scope.People = [];
-                    if (Array.isArray(data.people)) {
-                        for (var k = 0; k < data.people.length; k++) {
-                            $http({
-                                url: "/getPeopleDetails",
-                                method: "POST",
-                                data: '{"objectId":"' + data.people[k] + '"}',
-                                dataType: "json",
-                                contentType: "application/json; charset=utf-8"
-                            }).success(function (response) {
-                                $scope.People.push(response);
-                            });
-                        }
-                    }
-                    else {
-                        $http({
-                            url: "/getPeopleDetails",
-                            method: "POST",
-                            data: '{"objectId":"' + data.people + '"}',
-                            dataType: "json",
-                            contentType: "application/json; charset=utf-8"
-
-                        }).success(function (response) {
-                            $scope.People.push(response);
-                        });
-                    }
+                    $http({
+                        url: "/getAllPeopleDetails",
+                        method: "POST",
+                        data: data.people,
+                        dataType: "json",
+                        contentType: "application/json; charset=utf-8"
+                    }).success(function (response) {
+                        $scope.People=response;
+                    });
 
 
                     $scope.image1 = data.image1;
@@ -329,50 +314,47 @@ angular.module('myApp')
                     };
 
 
-                    $scope.banner_col_1_title=data.banner_col_1_title;
-                    $scope.banner_col_1_text=data.banner_col_1_text;
-                    $scope.banner_col_2_title=data.banner_col_2_title;
-                    $scope.banner_col_2_text=data.banner_col_2_text;
-                    $scope.banner_col_3_title=data.banner_col_3_title;
-                    $scope.banner_col_3_text=data.banner_col_3_text;
-                    $scope.banner_title=data.banner_title;
+                    $scope.banner_col_1_title = data.banner_col_1_title;
+                    $scope.banner_col_1_text = data.banner_col_1_text;
+                    $scope.banner_col_2_title = data.banner_col_2_title;
+                    $scope.banner_col_2_text = data.banner_col_2_text;
+                    $scope.banner_col_3_title = data.banner_col_3_title;
+                    $scope.banner_col_3_text = data.banner_col_3_text;
+                    $scope.banner_title = data.banner_title;
 
 
-
-                    $scope.block_1_title=data.block_1_title;
-                    $scope.block_1_sub_title=data.block_1_sub_title;
-                    $scope.block_1_col_1_title=data.block_1_col_1_title;
-                    $scope.block_1_col_2_title=data.block_1_col_2_title;
-                    $scope.block_1_col_3_title=data.block_1_col_3_title;
-
+                    $scope.block_1_title = data.block_1_title;
+                    $scope.block_1_sub_title = data.block_1_sub_title;
+                    $scope.block_1_col_1_title = data.block_1_col_1_title;
+                    $scope.block_1_col_2_title = data.block_1_col_2_title;
+                    $scope.block_1_col_3_title = data.block_1_col_3_title;
 
 
-                    $scope.block_2_quote=data.block_2_quote;
-                    $scope.block_2_author=data.block_2_author;
-                    $scope.block_2_city=data.block_2_city;
+                    $scope.block_2_quote = data.block_2_quote;
+                    $scope.block_2_author = data.block_2_author;
+                    $scope.block_2_city = data.block_2_city;
 
 
-                    $scope.block_3_title=data.block_3_title;
-                    $scope.block_3_sub_title=data.block_3_sub_title;
-                    $scope.block_3_col_1_title=data.block_3_col_1_title;
-                    $scope.block_3_col_2_title=data.block_3_col_2_title;
-                    $scope.block_3_col_3_title=data.block_3_col_3_title;
+                    $scope.block_3_title = data.block_3_title;
+                    $scope.block_3_sub_title = data.block_3_sub_title;
+                    $scope.block_3_col_1_title = data.block_3_col_1_title;
+                    $scope.block_3_col_2_title = data.block_3_col_2_title;
+                    $scope.block_3_col_3_title = data.block_3_col_3_title;
 
 
+                    $scope.block_4_quote = data.block_4_quote;
+                    $scope.block_4_author = data.block_4_author;
+                    $scope.block_4_city = data.block_4_city;
 
-                    $scope.block_4_quote=data.block_4_quote;
-                    $scope.block_4_author=data.block_4_author;
-                    $scope.block_4_city=data.block_4_city;
+                    $scope.block_5_title = data.block_5_title;
+                    $scope.block_5_sub_title = data.block_5_sub_title;
+                    $scope.block_5_col_1_title = data.block_5_col_1_title;
+                    $scope.block_5_col_2_title = data.block_5_col_2_title;
+                    $scope.block_5_col_3_title = data.block_5_col_3_title;
 
-                    $scope.block_5_title=data.block_5_title;
-                    $scope.block_5_sub_title=data.block_5_sub_title;
-                    $scope.block_5_col_1_title=data.block_5_col_1_title;
-                    $scope.block_5_col_2_title=data.block_5_col_2_title;
-                    $scope.block_5_col_3_title=data.block_5_col_3_title;
-
-                    $scope.image1=data.image1;
-                    $scope.image2=data.image2;
-                    $scope.image3=data.image3;
+                    $scope.image1 = data.image1;
+                    $scope.image2 = data.image2;
+                    $scope.image3 = data.image3;
 
 
                     var value = data.editor1;
@@ -540,6 +522,17 @@ angular.module('myApp')
                 slug = parts[parts.length - 2]
             }
             var formdata = {"slug": "" + slug + ""};
+            //get latest articles
+            $scope.Article = [];
+            $.get("/getBlogList", function (article) {
+                $scope.Article = article.slice(0, 3);
+                for (var k = 0; k < $scope.Article.length; k++) {
+
+                    if ($scope.Article[k].slug == slug) {
+                        $scope.Article.splice(k, 1);
+                    }
+                }
+            });
             $http({
                 url: "/getArticleDetails",
                 method: "POST",
@@ -561,6 +554,17 @@ angular.module('myApp')
 
 //get author list
                     $scope.Author = [];
+                    $http({
+                        url: "/getAllAuthorDetails",
+                        method: "POST",
+                        data: data.author,
+                        dataType: "json",
+                        contentType: "application/json; charset=utf-8"
+                    }).success(function (response) {
+                        $scope.People=response;
+                    });
+
+
                     if (Array.isArray(data.author)) {
                         for (var k = 0; k < data.author.length; k++) {
                             $http({
@@ -575,7 +579,7 @@ angular.module('myApp')
                             );
                         }
                     }
-                    else {
+                                else {
                         $http({
                             url: "/getAuthorDetails",
                             method: "POST",
@@ -588,17 +592,6 @@ angular.module('myApp')
                             }
                         );
                     }
-//get latest articles
-                    $scope.Article = [];
-                    $.get("/getBlogList", function (article) {
-                        $scope.Article = article.slice(0, 3);
-                        for (var k = 0; k < $scope.Article.length; k++) {
-
-                            if ($scope.Article[k].slug == slug) {
-                                $scope.Article.splice(k, 1);
-                            }
-                        }
-                    });
 
 
                     $scope.image1 = data.image1;

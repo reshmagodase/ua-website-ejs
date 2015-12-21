@@ -940,6 +940,27 @@ exports.getPeopleDetails = function (req, res) {
         });
     });
 }
+exports.getAllPeopleDetails = function (req, res) {
+    var array = [];
+    for (var i = 0; i < req.body.length; i++) {
+        array.push(new ObjectID(req.body[i]));
+    }
+    db.collection('people', function (err, collection) {
+        //noinspection JSUnresolvedVariable
+        collection.find({'_id': {$in: array}}).toArray(function (err, result) {
+            if (err) {
+                res.send({'status': 'error', 'message': 'An error has occurred'});
+            }
+            if (result == null) {
+                res.send({'status': 'error', 'message': 'Data Not Found'});
+            }
+            if (result !== null) {
+                console.log(result);
+                res.send(result);
+            }
+        });
+    });
+}
 
 
 //Service to add author
