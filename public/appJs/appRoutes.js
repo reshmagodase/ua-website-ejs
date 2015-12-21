@@ -1,11 +1,11 @@
 'use strict';
 // Declare app level module which depends on views, and components
 var app = angular.module('myApp', [
-    'ngCookies',
-    'ngResource',
+ //   'ngCookies',
+  //  'ngResource',
     'ngRoute',
     'ngSanitize',
-    'ui.router',
+  //  'ui.router',
     'ngStorage'
 ]);
 app.config(function ($routeProvider, $locationProvider) {
