@@ -4,50 +4,50 @@
         line-height: 23px;
     }
 </style>
-<div id="generic-case-study" ng-repeat="data in CaseStudiesDetails">
-    <section class="intro" style="background-image:url('{{data.image1}}');">
+<div id="generic-case-study">
+    <section class="intro" style="background-image:url('{{image1}}');">
         <div class="inner">
             <div class="row">
                 <div class="desc">
-                    <h2> <div ng-bind-html="data.banner_col_1_title"></div></h2>
-                    <span> <div ng-bind-html="data.banner_col_1_text"></div></span>
+                    <h2> <div ng-bind-html="banner_col_1_title"></div></h2>
+                    <span> <div ng-bind-html="banner_col_1_text"></div></span>
                 </div>
                 <div class="icon icon-plus"></div>
                 <div class="desc">
-                    <h2> <div ng-bind-html="data.banner_col_2_title"></div></h2>
-                    <span> <div ng-bind-html="data.banner_col_2_text"></div></span>
+                    <h2> <div ng-bind-html="banner_col_2_title"></div></h2>
+                    <span> <div ng-bind-html="banner_col_2_text"></div></span>
                 </div>
                 <div class="icon icon-equals"></div>
                 <div class="desc">
-                    <h2> <div ng-bind-html="data.banner_col_3_title"></div></h2>
-                    <span> <div ng-bind-html="data.banner_col_3_text"></div></span>
+                    <h2> <div ng-bind-html="banner_col_3_title"></div></h2>
+                    <span> <div ng-bind-html="banner_col_3_text"></div></span>
                 </div>
 
-                <h3><div ng-bind-html="data.banner_title"></div></h3>
+                <h3><div ng-bind-html="banner_title"></div></h3>
             </div>
         </div>
     </section>
 
     <section class="appreciate">
         <div class="inner">
-            <h2><div ng-bind-html="data.block_1_title"></div></h2>
-            <h3><div ng-bind-html="data.block_1_sub_title"></div></h3>
+            <h2><div ng-bind-html="block_1_title"></div></h2>
+            <h3><div ng-bind-html="block_1_sub_title"></div></h3>
             <div class="row">
                 <div class="col-md-4">
                     <div class="text">
-                        <h2><div ng-bind-html="data.block_1_col_1_title"></div></h2>
+                        <h2><div ng-bind-html="block_1_col_1_title"></div></h2>
                         <div ng-bind-html="editor1"></div> 
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="text">
-                        <h2><div ng-bind-html="data.block_1_col_2_title"></div></h2>
+                        <h2><div ng-bind-html="block_1_col_2_title"></div></h2>
                         <div ng-bind-html="editor2"></div> 
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="text">
-                        <h2><div ng-bind-html="data.block_1_col_3_title"></div></h2>
+                        <h2><div ng-bind-html="block_1_col_3_title"></div></h2>
                         <div ng-bind-html="editor3"></div>
                     </div>
                 </div>
@@ -55,35 +55,35 @@
         </div>
     </section>
 
-    <section class="support-quote quote-1" style="background-image:url('{{data.image2}}');">
+    <section class="support-quote quote-1" style="background-image:url('{{image2}}');">
         <div class="inner">
-            <blockquote><div ng-bind-html="data.block_2_quote"></div></blockquote>
-            <h4><div ng-bind-html="data.block_2_author"></div>
-                <span><div ng-bind-html="data.block_2_city"></div></span>
+            <blockquote><div ng-bind-html="block_2_quote"></div></blockquote>
+            <h4><div ng-bind-html="block_2_author"></div>
+                <span><div ng-bind-html="block_2_city"></div></span>
             </h4>
         </div>
     </section>
 
     <section class="analyse">
         <div class="inner">
-            <h2><div ng-bind-html="data.block_3_title"></div></h2>
-            <h3><div ng-bind-html="data.block_3_sub_title"></div></h3>
+            <h2><div ng-bind-html="block_3_title"></div></h2>
+            <h3><div ng-bind-html="block_3_sub_title"></div></h3>
             <div class="row">
                 <div class="col-md-4">
                     <div class="text">
-                        <h2><div ng-bind-html="data.block_3_col_1_title"></div></h2>
+                        <h2><div ng-bind-html="block_3_col_1_title"></div></h2>
                         <div ng-bind-html="editor4"></div>  
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="text">
-                        <h2><div ng-bind-html="data.block_3_col_2_title"></div></h2>
+                        <h2><div ng-bind-html="block_3_col_2_title"></div></h2>
                         <div ng-bind-html="editor5"></div> 
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="text">
-                        <h2><div ng-bind-html="data.block_3_col_3_title"></div></h2>
+                        <h2><div ng-bind-html="block_3_col_3_title"></div></h2>
                         <div ng-bind-html="editor6"></div> 
                     </div>
                 </div>
@@ -91,35 +91,35 @@
         </div>
     </section>
 
-    <section class="support-quote quote-2" style="background-image:url('{{data.image3}}');">
+    <section class="support-quote quote-2" style="background-image:url('{{image3}}');">
         <div class="inner">
-            <blockquote><div ng-bind-html="data.block_4_quote"></div></blockquote>
-            <h4><div ng-bind-html="data.block_4_author"></div>
-                <span><div ng-bind-html="data.block_4_city"></div></span>
+            <blockquote><div ng-bind-html="block_4_quote"></div></blockquote>
+            <h4><div ng-bind-html="block_4_author"></div>
+                <span><div ng-bind-html="block_4_city"></div></span>
             </h4>
         </div>
     </section>
 
     <section class="analyse">
         <div class="inner">
-            <h2><div ng-bind-html="data.block_5_title"></div></h2>
-            <h3><div ng-bind-html="data.block_5_sub_title"></div></h3>
+            <h2><div ng-bind-html="block_5_title"></div></h2>
+            <h3><div ng-bind-html="block_5_sub_title"></div></h3>
             <div class="row">
                 <div class="col-md-4">
                     <div class="text">
-                        <h2><div ng-bind-html="data.block_5_col_1_title"></div></h2>
+                        <h2><div ng-bind-html="block_5_col_1_title"></div></h2>
                         <div ng-bind-html="editor7"></div> 
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="text">
-                        <h2><div ng-bind-html="data.block_5_col_2_title"></div></h2>
+                        <h2><div ng-bind-html="block_5_col_2_title"></div></h2>
                         <div ng-bind-html="editor8"></div>  
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="text">
-                        <h2><div ng-bind-html="data.block_5_col_3_title"></div></h2>
+                        <h2><div ng-bind-html="block_5_col_3_title"></div></h2>
                         <div ng-bind-html="editor9"></div> 
                     </div>
                 </div>

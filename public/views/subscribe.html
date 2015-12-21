@@ -7,18 +7,16 @@
     </section>
     <section class="details">
         <div class="inner">
-            <h2>Drop your details in below and we'll be in touch</h2>
             <div class="row">
-                <div class="col-md-6 col-md-offset-3">
-                    <h3>Please confirm your email address</h3>
-
-                    <form action="http://newsletter.utility-aid.co.uk/t/i/s/diwe/" method="post" id="subForm">
+                <div class="col-md-6 col-md-offset-3"  id="subForm">
+                    <h2>Drop your details in below and we'll be in touch</h2>
+                    <form action="" method="post">
+                        <h3>Please confirm your email address</h3>
                         <div class="control-group">
                             <div class="controls">
                                 <input class="form-control" id="fieldEmail" name="cm-diwe-diwe" type="email" required/>
                             </div>
                         </div>
-
                         <div class="row">
                             <!-- Textarea -->
                             <div class="control-group">
@@ -39,12 +37,32 @@
     var email = query.split('=')[1];
     if (email != '') {
         $("#fieldEmail").val(email);
-        if(validateEmail(email)){
-            $("#subForm").submit();
-        }
+    }
+    if (validateEmail($("#fieldEmail").val())) {
+        Subscribe();
     }
     function validateEmail(email) {
         var re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
         return re.test(email);
+    }
+
+    $(document).ready(function () {
+        $('#subForm form').submit(function (evt) {
+            evt.preventDefault();
+            Subscribe();
+        });// form submit end
+    });// end ready
+    function Subscribe() {
+        var formData = $(this).serialize();
+        var url = "http://newsletter.utility-aid.co.uk/t/i/s/diwe/";
+        var getCallBack = function (response) {
+            $('#subForm').html('<div class="alert alert-success">Thank you for your subscription.</div>');
+        };
+        $.ajax({
+            url: url,
+            type: "POST",
+            data: formData,
+            success: getCallBack
+        });
     }
 </script>

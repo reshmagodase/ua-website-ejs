@@ -298,7 +298,6 @@ angular.module('myApp')
 
     })
     .controller('CaseStudiesDetailsController', function ($scope, $location, $localStorage, $http) {
-        $scope.CaseStudiesDetails = [];
         $scope.getData = function () {
             var url = window.location.toString();
             var parts = url.split("/");
@@ -321,8 +320,6 @@ angular.module('myApp')
                         window.location = "/";
                     }
 
-                    $scope.CaseStudiesDetails.push(data);
-
                     $scope.$parent.seo = {
                         pageTitle: 'UA | ' + data.title,
                         pageDescripton: data.meta_data_meta_description,
@@ -330,6 +327,54 @@ angular.module('myApp')
                         ogDescripton: data.meta_data_meta_description,
                         ogImage: 'http://www.utility-aid.co.uk/' + data.thumbImage
                     };
+
+
+                    $scope.banner_col_1_title=data.banner_col_1_title;
+                    $scope.banner_col_1_text=data.banner_col_1_text;
+                    $scope.banner_col_2_title=data.banner_col_2_title;
+                    $scope.banner_col_2_text=data.banner_col_2_text;
+                    $scope.banner_col_3_title=data.banner_col_3_title;
+                    $scope.banner_col_3_text=data.banner_col_3_text;
+                    $scope.banner_title=data.banner_title;
+
+
+
+                    $scope.block_1_title=data.block_1_title;
+                    $scope.block_1_sub_title=data.block_1_sub_title;
+                    $scope.block_1_col_1_title=data.block_1_col_1_title;
+                    $scope.block_1_col_2_title=data.block_1_col_2_title;
+                    $scope.block_1_col_3_title=data.block_1_col_3_title;
+
+
+
+                    $scope.block_2_quote=data.block_2_quote;
+                    $scope.block_2_author=data.block_2_author;
+                    $scope.block_2_city=data.block_2_city;
+
+
+                    $scope.block_3_title=data.block_3_title;
+                    $scope.block_3_sub_title=data.block_3_sub_title;
+                    $scope.block_3_col_1_title=data.block_3_col_1_title;
+                    $scope.block_3_col_2_title=data.block_3_col_2_title;
+                    $scope.block_3_col_3_title=data.block_3_col_3_title;
+
+
+
+                    $scope.block_4_quote=data.block_4_quote;
+                    $scope.block_4_author=data.block_4_author;
+                    $scope.block_4_city=data.block_4_city;
+
+                    $scope.block_5_title=data.block_5_title;
+                    $scope.block_5_sub_title=data.block_5_sub_title;
+                    $scope.block_5_col_1_title=data.block_5_col_1_title;
+                    $scope.block_5_col_2_title=data.block_5_col_2_title;
+                    $scope.block_5_col_3_title=data.block_5_col_3_title;
+
+                    $scope.image1=data.image1;
+                    $scope.image2=data.image2;
+                    $scope.image3=data.image3;
+
+
                     var value = data.editor1;
                     value = value.replace(/&nbsp;/g, ' ');
                     $scope.editor1 = value;
@@ -656,7 +701,7 @@ angular.module('myApp')
                 })
                     .success(function (data, status) {
 
-                        window.location = "/thank-you/";
+                        window.location = "/request/thank-you/";
                     })
 
                     .error(function (data, status) {
@@ -815,6 +860,44 @@ angular.module('myApp')
             pageTitle: 'UA | ThankYou',
             pageDescripton: "We're inspired by the organisations and people we work with. We want to help save them time and money when they source and purchase their energy.",
             ogTitle: 'UA | ThankYou',
+            ogDescripton: "We're inspired by the organisations and people we work with. We want to help save them time and money when they source and purchase their energy."
+        };
+
+
+        $scope.getContactData = function () {
+            $http({
+                method: 'GET',
+                url: '/getHomepageText'
+            })
+                .success(function (data, status) {
+                    $scope.contact_birmingham_find_url = data.contact_birmingham_find_url;
+                    $scope.contact_email = data.contact_email;
+                    $scope.contact_email_text = data.contact_email_text;
+                    $scope.contact_facebook_text = data.contact_facebook_text;
+                    $scope.contact_facebook_url = data.contact_facebook_url;
+                    $scope.contact_freephone = data.contact_freephone;
+                    $scope.contact_glasgow_find_url = data.contact_glasgow_find_url;
+                    $scope.contact_sales_phone = data.contact_sales_phone;
+                    $scope.contact_sleaford_find_url = data.contact_sleaford_find_url;
+                    $scope.contact_twitter_text = data.contact_twitter_text;
+                    $scope.contact_twitter_url = data.contact_twitter_url;
+
+                    $scope.request_button_link = data.request_button_link;
+                    $scope.request_button_text = data.request_button_text;
+                    $scope.request_title = data.request_title;
+
+                })
+                .error(function (data, status) {
+
+                })
+        }
+        $scope.getContactData();
+    })
+    .controller('SubscribeController', function ($scope, $location, $localStorage, $http) {
+        $scope.$parent.seo = {
+            pageTitle: 'UA | Subscribe to our newsletter',
+            pageDescripton: "We're inspired by the organisations and people we work with. We want to help save them time and money when they source and purchase their energy.",
+            ogTitle: 'UA | Subscribe to our newsletter',
             ogDescripton: "We're inspired by the organisations and people we work with. We want to help save them time and money when they source and purchase their energy."
         };
 

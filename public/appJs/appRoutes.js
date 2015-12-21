@@ -12,12 +12,10 @@ app.config(function ($routeProvider, $locationProvider) {
     $locationProvider.html5Mode(true).hashPrefix('!');
     $routeProvider
         .when('/', {
-            title: 'UA | Energy and Utilities Consultancy',
             templateUrl: 'views/home.html',
             controller: 'HomeController'
         })
         .when('/case-studies/', {
-            title: 'UA | Case Studies',
             templateUrl: 'views/case-studies.html',
             controller: 'CaseStudiesController'
         })
@@ -26,41 +24,29 @@ app.config(function ($routeProvider, $locationProvider) {
             templateUrl: 'views/contact.html'
         })
         .when('/about/', {
-            title: 'UA | About UA',
             templateUrl: 'views/about.html',
             controller: 'AboutController'
         })
         .when('/blog/', {
-            title: 'UA | Blog',
             templateUrl: 'views/blog.html',
             controller: 'BlogController'
         })
         .when('/subscribe/', {
-            title: 'UA | Subscribe to our newsletter',
             templateUrl: 'views/subscribe.html',
-            controller: 'RequestController'
+            controller: 'SubscribeController'
         })
         .when('/request/', {
-            title: 'UA | Request your free energy consultation',
             templateUrl: 'views/request.html',
             controller: 'RequestController'
         })
-        .when('/partners/', {
-            title: 'UA | Partners',
-            templateUrl: 'views/partners.html',
-            controller: 'PartnerController'
-        })
-        .when('/thank-you/', {
-            title: 'UA | Thank You',
+        .when('/request/:group*', {
             templateUrl: 'views/thank-you.html',
             controller: 'ThankYouController'
         })
-        .when('/thank-you-for-subscribing/', {
-            title: 'UA | Thank You',
-            templateUrl: 'views/thank-you-for-subscribing.html',
-            controller: 'ThankYouController'
+        .when('/partners/', {
+            templateUrl: 'views/partners.html',
+            controller: 'PartnerController'
         })
-
         .when('/blog/:group*', {
             templateUrl: 'views/blog/articles.html',
             controller: 'ArticleController'
@@ -81,7 +67,6 @@ app.config(function ($routeProvider, $locationProvider) {
             templateUrl: 'views/default.html',
             controller: 'DefaultController'
         })
-
         .otherwise({
             redirectTo: '/'
         });
