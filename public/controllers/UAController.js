@@ -554,16 +554,6 @@ angular.module('myApp')
 
 //get author list
                     $scope.Author = [];
-                    $http({
-                        url: "/getAllAuthorDetails",
-                        method: "POST",
-                        data: data.author,
-                        dataType: "json",
-                        contentType: "application/json; charset=utf-8"
-                    }).success(function (response) {
-                        $scope.People=response;
-                    });
-
 
                     if (Array.isArray(data.author)) {
                         for (var k = 0; k < data.author.length; k++) {
