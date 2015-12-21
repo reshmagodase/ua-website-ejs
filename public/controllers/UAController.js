@@ -251,7 +251,6 @@ angular.module('myApp')
                     };
 
                     $scope.CaseStudies = data;
-                    $scope.getContactData();
 
 
                 })
@@ -293,6 +292,7 @@ angular.module('myApp')
         $scope.getData();
 
         $scope.$on('LastRepeaterElement', function () {
+            $scope.getContactData();
             CreateMsnry();
         });
 
