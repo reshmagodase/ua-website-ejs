@@ -749,7 +749,7 @@
                     // Chetan "modalBody": methods.imageWidget.apply(this),
                     "beforeLoad": function () {
 
-                        $('#InsertImage .btn-success').css("display","none");
+                        $('#InsertImage .btn-success').css("display", "none");
                         $("#InsertImage .modal-body").html("");
 
                         $("#InsertImage .modal-body").append("<button class='uploadFiles' class='btn btn-default'>Upload Files</button><div id='myId' class='dropzone'></div>");
@@ -788,13 +788,18 @@
                 'insert_link': {
                     "modal": true,
                     "modalId": "InsertLink",
-                    "icon": "fa fa-video-camera",
+                    "icon": "fa fa-link",
                     "tooltip": "Insert Link",
-                    "modalHeader": "Insert Youtube Video Hyperlink",
+                    "modalHeader": "Insert Hyperlink",
                     "modalBody": $('<div/>', {
                         class: "form-group"
                     }).append($('<div/>', {
                         id: "errMsg"
+                    })).append($('<input/>', {
+                        type: "text",
+                        id: "inputText",
+                        class: "form-control form-control-link ",
+                        placeholder: "Text to Display",
                     })).append($('<input/>', {
                         type: "text",
                         id: "inputUrl",
@@ -827,6 +832,66 @@
                         if (range == '' && targetText == '') {
                             targetText = targetURL;
                         }
+                        if (navigator.userAgent.match(/MSIE/i)) {
+                            var targetLink = '<a href="' + targetURL + '" target="_blank">' + targetText + '</a>';
+                            methods.restoreSelection.apply(editorObj, [targetLink, 'html']);
+                        }
+                        else {
+                            methods.restoreSelection.apply(editorObj, [targetText]);
+                            document.execCommand('createLink', false, targetURL);
+                        }
+                        $(editorObj).data("editor").find('a[href="' + targetURL + '"]').each(function () {
+                            $(this).attr("target", "_blank");
+                        });
+                        $(".alert").alert("close");
+                        $("#InsertLink").modal("hide");
+                        $(editorObj).data("editor").focus();
+                        return false;
+                    }
+                },
+                'insert_youtube_link': {
+                    "modal": true,
+                    "modalId": "InsertYoutubeLink",
+                    "icon": "fa fa-video-camera",
+                    "tooltip": "Insert Link",
+                    "modalHeader": "Insert Youtube Video Hyperlink",
+                    "modalBody": $('<div/>', {
+                        class: "form-group"
+                    }).append($('<div/>', {
+                        id: "errMsg"
+                    })).append($('<input/>', {
+                        type: "text",
+                        id: "inputUrl1",
+                        required: true,
+                        class: "form-control form-control-link",
+                        placeholder: "Enter URL"
+                    })),
+                    "beforeLoad": function () {
+                        editorObj = this;
+                        $('#inputText').val("");
+                        $('#inputUrl1').val("");
+                        $(".alert").alert("close");
+                        if ($(editorObj).data('currentRange') != '') {
+                            $('#inputText').val($(editorObj).data('currentRange'));
+                        }
+                    },
+                    "onSave": function () {
+                        var urlPattern = /(http|ftp|https):\/\/[\w-]+(\.[\w-]+)+([\w.,@?^=%&amp;:\/~+#-]*[\w@?^=%&amp;\/~+#-])?/;
+                        var targetText = $('#inputText').val();
+                        var targetURL = $('#inputUrl1').val();
+                        alert(targetURL);
+                        var range = $(editorObj).data('currentRange');
+                        if (targetURL == '') {
+                            methods.showMessage.apply(editorObj, ["errMsg", "Please enter url"]);
+                            return false;
+                        }
+                        if (!targetURL.match(urlPattern)) {
+                            methods.showMessage.apply(editorObj, ["errMsg", "Enter valid url"]);
+                            return false;
+                        }
+                        if (range == '' && targetText == '') {
+                            targetText = targetURL;
+                        }
                         var targetLink = "<iframe width='560' height='315' src='" + targetURL + "' frameborder='0' allowfullscreen=''/>";
 
                         if (navigator.userAgent.match(/MSIE/i)) {
@@ -842,12 +907,11 @@
                             $(this).attr("target", "_blank");
                         });
                         $(".alert").alert("close");
-                        $("#InsertLink").modal("hide");
+                        $("#InsertYoutubeLink").modal("hide");
                         $(editorObj).data("editor").focus();
                         return false;
                     }
                 },
-
                 'insert_table': {
                     "modal": true,
                     "modalId": "InsertTable",
@@ -1080,7 +1144,7 @@
                 'textformats': ['indent', 'outdent', 'block_quote', 'ol', 'ul'],
                 'fonteffects': ['fonts', 'styles', 'font_size'],
                 'actions': ['undo', 'redo'],
-                'insertoptions': ['insert_link', 'unlink', 'insert_img', 'insert_table'],
+                'insertoptions': ['insert_link', 'insert_youtube_link', 'unlink', 'insert_img', 'insert_table'],
                 'extraeffects': ['strikeout', 'hr_line', 'splchars'],
                 'advancedoptions': ['print', 'rm_format', 'select_all', 'source'],
                 'screeneffects': ['togglescreen']
@@ -1108,6 +1172,7 @@
                 'c_align': true,
                 'justify': true,
                 'insert_link': true,
+                'insert_youtube_link': true,
                 'unlink': false,
                 'insert_img': true,
                 'hr_line': true,
