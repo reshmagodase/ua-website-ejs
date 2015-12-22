@@ -111,7 +111,7 @@ $(document).on('click', '#InsertImage img', function () {
         $("#thumbImage").val($(this).attr('alt'));
         $(idName).html('<img width=100 height=60 src="' + $(this).attr('src') + '"/>');
     } else {
-        $(".Editor-editor").append('<img width=500 height=300 src="' + $(this).attr('src') + '"/>');
+        $(".Editor-editor").append('<img src="' + $(this).attr('src') + '"/>');
     }
 });
 

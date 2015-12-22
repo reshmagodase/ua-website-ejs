@@ -101,7 +101,7 @@ $(document).on('click', '#InsertImage img', function () {
         $("#image3").val($(this).attr('src'));
         $(idName).html('<img width=100 height=60 src="' + $(this).attr('src') + '"/>');
     } else {
-        $(idName + " .Editor-editor").append('<img width=500 height=300 src="' + $(this).attr('src') + '"/>');
+        $(idName + " .Editor-editor").append('<img src="' + $(this).attr('src') + '"/>');
     }
 });
 
