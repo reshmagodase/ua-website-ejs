@@ -245,18 +245,22 @@ app.config(function ($routeProvider, $locationProvider) {
                         ogImage: 'http://www.utility-aid.co.uk/img/blog/share.jpg'
                     };
 
+                      var html = '';
+                     for (var i = 0; i < data.length; i++) {
+                     if (i == 0) {
+                     html += '<div class="row">'
+                     }
+                     if (i % 4 == 0 && i != 0) {
+                     html += '</div><div class="row">'
+                     }
+                     html += ' <div class="col-md-3"><a href="' + data[i].link + '" target="_blank"> <img src="' + data[i].image1 + '" title="' + data[i].partner_name + '" alt="' + data[i].partner_name + '"> <span>' + data[i].partner_name + '</span> </a></div>';
+                     }
+                     $("#partnerList").append(html + "</div>");
 
-                    var html = '';
-                    for (var i = 0; i < data.length; i++) {
-                        if (i == 0) {
-                            html += '<div class="row">'
-                        }
-                        if (i % 4 == 0 && i != 0) {
-                            html += '</div><div class="row">'
-                        }
-                        html += ' <div class="col-md-3"><a href="' + data[i].link + '" target="_blank"> <img src="' + data[i].image1 + '" title="' + data[i].partner_name + '" alt="' + data[i].partner_name + '"> <span>' + data[i].partner_name + '</span> </a></div>';
-                    }
-                    $("#partnerList").append(html + "</div>");
+
+
+                    //  $scope.Partners = [];
+                    //  $scope.Partners = data;
                 })
 
                 .error(function (data, status) {

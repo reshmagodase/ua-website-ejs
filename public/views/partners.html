@@ -2,14 +2,25 @@
     <div class="logos">
         <div class="inner">
 
-            <div id="partnerList"></div>
+            <div id="partnerList">
+
+            </div>
+           <!-- <div class="row">
+
+                <div class="col-md-3" ng-repeat="(index, data) in Partners"><a href="{{data.link}}" target="_blank">
+                    <img src="{{data.image1}}" title="{{data.partner_name}}"
+                         alt="{{data.partner_name}}"/>
+                    <span>{{data.partner_name}}</span> </a></div>
+            </div>-->
 
 
             <div class="button-holder">
-                <a class="btn btn-default" href="about#about-partners" >Return to About</a>
+                <a class="btn btn-default" href="about#contact-details">Return to About</a>
             </div>
 
         </div>
     </div>
 </div>
+
 <div ng-include src="'views/contact.html'"></div>
+
