@@ -11,7 +11,7 @@
             <div class="item" ng-repeat="data in Blogs" emit-last-repeater-element>
                 <a class="post" href="blog/{{formatDate(data.publish_date_0) |  date:'yyyy/M/d'}}/{{data.slug}}/">
                     <img class="main-pic" src="{{data.thumbImage}}"
-                         style="height: 200px;width: 100%;object-fit: cover;object-position: center;"/>
+                         style="height: 200px;"/>
 
                     <div class="info">
                         <h2 class="three-lines">

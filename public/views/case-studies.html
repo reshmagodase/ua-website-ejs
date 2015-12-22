@@ -9,9 +9,8 @@
         <div id="case-study-items">
             <div class="item" ng-repeat="data in CaseStudies" emit-last-repeater-element>
                 <a class="post" href="case-studies/{{data.slug}}/">
-                    <img class="main-pic" src="{{data.thumbImage}}"
-                         style="height: 200px;width: 100%;object-fit: cover;object-position: center;">
-
+                    <img class="main-pic" src="{{data.thumbImage}}" style="height:200px">
+                    <!--style="height: 200px;width: 100%;object-fit: cover;object-position: center;"-->
                     <div class="info">
                         <h2>{{data.title}}</h2>
 
