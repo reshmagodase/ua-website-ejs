@@ -33,8 +33,10 @@ $(document).on('click', '#InsertImage img', function (e) {
     if (idName == "#backImage1") {
         $(idName).html('<img width=100 height=60 src="' + $(this).attr('src') + '"/>');
         $("#image1").val($(this).attr('src'));
+        idName="";
     } else {
         $(idName + " .Editor-editor").append('<img width=500 height=300 src="' + $(this).attr('src') + '"/>');
+        idName="";
     }
     e.stopImmediatePropagation();
 

@@ -645,10 +645,13 @@ app.config(function ($routeProvider, $locationProvider) {
                         e.preventDefault();
 
                         //We get the URL of the link
-                        var loc = window.location.href;
+                        var loc = "http://utility-aid.co.uk";
+                        var title = data.meta_data_meta_title;
+                        var summary = data.meta_data_meta_description;
+                        var thumbImage = "http://52.25.191.184:3000/" + data.thumbImage;
                         //We trigger a new window with the Twitter dialog, in the middle of the page
                         //window.open('https://www.facebook.com/sharer/sharer.php?u=' + loc + '&', 'facebookwindow', 'height=450, width=550, top=' + ($(window).height() / 2 - 225) + ', left=' + $(window).width() / 2 + ', toolbar=0, location=0, menubar=0, directories=0, scrollbars=0');
-                        window.open('http://www.facebook.com/sharer.php?s=100&p[title]=' + encodeURIComponent(data.meta_data_meta_title) + '&p[summary]=' + encodeURIComponent(data.meta_data_meta_description) + '&p[url]=' + encodeURIComponent(loc) + '&p[images][0]=' + encodeURIComponent('http://52.25.191.184:3000/' + data.thumbImage), 'facebookwindow', 'height=450, width=550, top=' + ($(window).height() / 2 - 225) + ', left=' + $(window).width() / 2 + ', toolbar=0, location=0, menubar=0, directories=0, scrollbars=0');
+                        window.open('http://www.facebook.com/sharer.php?s=100&p[title]=' + encodeURIComponent(title) + '&p[summary]=' + encodeURIComponent(data.summary) + '&p[url]=' + encodeURIComponent(loc) + '&p[images][0]=' + encodeURIComponent(thumbImage), 'facebookwindow', 'height=450, width=550, top=' + ($(window).height() / 2 - 225) + ', left=' + $(window).width() / 2 + ', toolbar=0, location=0, menubar=0, directories=0, scrollbars=0');
                     });
                     $('a.tweet').click(function (e) {
 
@@ -658,7 +661,7 @@ app.config(function ($routeProvider, $locationProvider) {
                         //We get the URL of the link
                         var loc = window.location.href;
                         //We get the title of the link
-                        var title =data.meta_data_meta_title;
+                        var title = data.meta_data_meta_title;
 
                         //We trigger a new window with the Twitter dialog, in the middle of the page
                         window.open('http://twitter.com/share?url=' + loc + '&text=' + title + '&', 'twitterwindow', 'height=450, width=550, top=' + ($(window).height() / 2 - 225) + ', left=' + $(window).width() / 2 + ', toolbar=0, location=0, menubar=0, directories=0, scrollbars=0');

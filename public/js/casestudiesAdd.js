@@ -92,16 +92,20 @@ $(document).on('click', '#InsertImage img', function () {
         $("#image1").val($(this).attr('src'));
         $("#thumbImage").val($(this).attr('alt'));
         $(idName).html('<img width=100 height=60 src="' + $(this).attr('src') + '"/>');
+        idName="";
     }
     else if (idName == "#backImage2") {
         $("#image2").val($(this).attr('src'));
         $(idName).html('<img width=100 height=60 src="' + $(this).attr('src') + '"/>');
+        idName="";
     }
     else if (idName == "#backImage3") {
         $("#image3").val($(this).attr('src'));
         $(idName).html('<img width=100 height=60 src="' + $(this).attr('src') + '"/>');
+        idName="";
     } else {
         $(idName + " .Editor-editor").append('<img src="' + $(this).attr('src') + '"/>');
+        idName="";
     }
 });
 
