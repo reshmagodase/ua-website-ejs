@@ -16,7 +16,7 @@ var app = express();
 
 //app.use(require('prerender-node').set('prerenderToken', 'n4dsybLPw3LSlpktVQ7i'));
 
-app.use(require('prerender-node').set('prerenderServiceUrl', 'http://localhost:3000/').set('prerenderToken', 'n4dsybLPw3LSlpktVQ7i'));
+app.use(require('prerender-node').set('prerenderServiceUrl', 'http://52.25.191.184:3000/').set('prerenderToken', 'n4dsybLPw3LSlpktVQ7i'));
 
 
 // view engine setup

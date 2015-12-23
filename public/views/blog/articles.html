@@ -13,7 +13,8 @@
 
                         <p class="date">on <span ng-bind="publish_date_0 |  date:'dd/MM/yyyy'"></span></p>
 
-                        <div ng-bind-html="editor1 | to_trusted"></div>
+                        <!--<div ng-bind-html="editor1 | to_trusted"></div>-->
+                        <div id="editor1"></div>
                         <div class="share-social">
                             <span>Share:</span>
                             <a class="facebook" href="#"></a>
@@ -49,10 +50,14 @@
 <div ng-include src="'views/blog/share.html'">
 </div>
 <style>
-    .blog .blog-content .inner .row .white-bg .story, .case-studies .blog-content .inner .row .white-bg .story div{
+     #editor1{
         padding-left: 30px;
         padding-right: 60px;
     }
+     #editor1 p{
+         padding-left: 0px;
+         padding-right: 0px;
+     }
 </style>
 
 
