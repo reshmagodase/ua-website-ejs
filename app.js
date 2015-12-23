@@ -13,7 +13,10 @@ var users = require('./routes/users');
 
 
 var app = express();
-app.use(require('prerender-node').set('prerenderToken', 'n4dsybLPw3LSlpktVQ7i'));
+
+
+
+
 //app.use(require('prerender-node').set('prerenderToken', 'n4dsybLPw3LSlpktVQ7i'));
 
 //app.use(require('prerender-node').set('prerenderServiceUrl', 'http://52.25.191.184:3000/').set('prerenderToken', 'n4dsybLPw3LSlpktVQ7i'));
@@ -30,6 +33,11 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
+var prerender =  require('prerender-node').set('prerenderServiceUrl', 'http://localhost:3000/');
+app.use(prerender);
+
+
 
 app.use(session({
     cookieName: 'session',

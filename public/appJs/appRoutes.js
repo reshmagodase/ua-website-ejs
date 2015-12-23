@@ -638,15 +638,18 @@ app.config(function ($routeProvider, $locationProvider) {
                         ogDescripton: data.meta_data_meta_description,
                         ogImage: 'http://www.utility-aid.co.uk/' + data.thumbImage
                     };
-
+                  /*  $scope.url=url;
+                    $scope.thumbImage = "http://52.25.191.184:3000/" + data.thumbImage;
+                    $scope.meta_data_meta_title =  data.meta_data_meta_title;
+                    $scope.meta_data_meta_description =  data.meta_data_meta_description;*/
                     $('a.facebook').click(function (e) {
 
                         //We tell our browser not to follow that link
                         e.preventDefault();
 
                         //We get the URL of the link
-                        var loc = "http://utility-aid.co.uk";
-                        var title = data.meta_data_meta_title;
+                        var loc =  window.location.href;
+                        var title =  data.meta_data_meta_title ;
                         var summary = data.meta_data_meta_description;
                         var thumbImage = "http://52.25.191.184:3000/" + data.thumbImage;
                         //We trigger a new window with the Twitter dialog, in the middle of the page
