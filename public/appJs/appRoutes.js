@@ -245,18 +245,17 @@ app.config(function ($routeProvider, $locationProvider) {
                         ogImage: 'http://www.utility-aid.co.uk/img/blog/share.jpg'
                     };
 
-                      var html = '';
-                     for (var i = 0; i < data.length; i++) {
-                     if (i == 0) {
-                     html += '<div class="row">'
-                     }
-                     if (i % 4 == 0 && i != 0) {
-                     html += '</div><div class="row">'
-                     }
-                     html += ' <div class="col-md-3"><a href="' + data[i].link + '" target="_blank"> <img src="' + data[i].image1 + '" title="' + data[i].partner_name + '" alt="' + data[i].partner_name + '"> <span>' + data[i].partner_name + '</span> </a></div>';
-                     }
-                     $("#partnerList").append(html + "</div>");
-
+                    var html = '';
+                    for (var i = 0; i < data.length; i++) {
+                        if (i == 0) {
+                            html += '<div class="row">'
+                        }
+                        if (i % 4 == 0 && i != 0) {
+                            html += '</div><div class="row">'
+                        }
+                        html += ' <div class="col-md-3"><a href="' + data[i].link + '" target="_blank"> <img src="' + data[i].image1 + '" title="' + data[i].partner_name + '" alt="' + data[i].partner_name + '"> <span>' + data[i].partner_name + '</span> </a></div>';
+                    }
+                    $("#partnerList").append(html + "</div>");
 
 
                     //  $scope.Partners = [];
@@ -640,6 +639,19 @@ app.config(function ($routeProvider, $locationProvider) {
                         ogImage: 'http://www.utility-aid.co.uk/' + data.thumbImage
                     };
 
+                    $('a.facebook').click(function (e) {
+
+                        //We tell our browser not to follow that link
+                        e.preventDefault();
+
+                        //We get the URL of the link
+                        var loc = window.location.href;
+                        //We trigger a new window with the Twitter dialog, in the middle of the page
+                        //window.open('https://www.facebook.com/sharer/sharer.php?u=' + loc + '&', 'facebookwindow', 'height=450, width=550, top=' + ($(window).height() / 2 - 225) + ', left=' + $(window).width() / 2 + ', toolbar=0, location=0, menubar=0, directories=0, scrollbars=0');
+                        window.open('http://www.facebook.com/sharer.php?s=100&p[title]=' + encodeURIComponent(data.meta_data_meta_title) + '&p[summary]=' + encodeURIComponent(data.meta_data_meta_description) + '&p[url]=' + encodeURIComponent('http://www.utility-aid.co.uk') + '&p[images][0]=' + encodeURIComponent('http://52.25.191.184:3000/' + data.thumbImage), 'facebookwindow', 'height=450, width=550, top=' + ($(window).height() / 2 - 225) + ', left=' + $(window).width() / 2 + ', toolbar=0, location=0, menubar=0, directories=0, scrollbars=0');
+                    });
+
+
 //get author list
                     $scope.Author = [];
 
@@ -688,9 +700,9 @@ app.config(function ($routeProvider, $locationProvider) {
                     );
                     $scope.publish_date_0 = dateObject;
 
-      /*              var value = data.editor1;
-                    value = value.replace(/font-family: Arial, Helvetica, Verdana, Tahoma, sans-serif; font-size: 15px; line-height: 22.5px; border: none; box-shadow: none; background: none;/g, 'border:none');
-                    value = value.replace(/&nbsp;/g, ' ');*/
+                    /*              var value = data.editor1;
+                     value = value.replace(/font-family: Arial, Helvetica, Verdana, Tahoma, sans-serif; font-size: 15px; line-height: 22.5px; border: none; box-shadow: none; background: none;/g, 'border:none');
+                     value = value.replace(/&nbsp;/g, ' ');*/
                     var value = data.editor1;
                     $("#editor1").append(data.editor1);
                     $("#editor1").find('*').removeAttr("style");
@@ -738,7 +750,8 @@ app.config(function ($routeProvider, $locationProvider) {
         });
 
     })
-    .controller('RequestController', function ($scope, $location, $localStorage, $http) {
+    .
+    controller('RequestController', function ($scope, $location, $localStorage, $http) {
         $scope.$parent.seo = {
             pageTitle: 'UA | Request your free energy consultation',
             pageDescripton: "We're inspired by the organisations and people we work with. We want to help save them time and money when they source and purchase their energy.",
