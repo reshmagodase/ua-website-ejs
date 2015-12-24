@@ -29,6 +29,7 @@ $(document).on("click", "#uploadImage1", function () {
     $("#InsertImage").modal("show");
     $.get("/getBackgroundImages", function (response) {
         $("#InsertImage .modal-body").html("");
+        $('#InsertImage .btn-success').css("display", "none");
         $("#InsertImage .modal-body").append("<button class='uploadBackgroundImages' class='btn btn-default'>Upload Files</button><div id='myId' class='dropzone'></div>");
         $("#InsertImage .modal-body").append("<div id='thumbwrap'/></div><div style='clear: both;'></div> ");
         $("#thumbwrap").html("");

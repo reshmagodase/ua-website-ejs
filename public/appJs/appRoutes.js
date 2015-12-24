@@ -722,7 +722,8 @@ app.config(function ($routeProvider, $locationProvider) {
                      value = value.replace(/font-family: Arial, Helvetica, Verdana, Tahoma, sans-serif; font-size: 15px; line-height: 22.5px; border: none; box-shadow: none; background: none;/g, 'border:none');
                      value = value.replace(/&nbsp;/g, ' ');*/
                     var value = data.editor1;
-                    $("#editor1").append(data.editor1);
+                    value = value.replace(/&nbsp;/g, ' ');
+                    $("#editor1").append(value);
                     $("#editor1").find('*').removeAttr("style");
 
                 })
