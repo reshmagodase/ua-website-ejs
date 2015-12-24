@@ -650,7 +650,7 @@ app.config(function ($routeProvider, $locationProvider) {
                         var loc = window.location.href;
                         var title = data.meta_data_meta_title;
                         var summary = data.meta_data_meta_description;
-                        var thumbImage = "http://52.25.191.184:3000/" + data.thumbImage;
+                        var thumbImage = "http://www.utility-aid.co.uk/" + data.thumbImage;
                         //We trigger a new window with the Twitter dialog, in the middle of the page
                         //window.open('https://www.facebook.com/sharer/sharer.php?u=' + loc + '&', 'facebookwindow', 'height=450, width=550, top=' + ($(window).height() / 2 - 225) + ', left=' + $(window).width() / 2 + ', toolbar=0, location=0, menubar=0, directories=0, scrollbars=0');
                         window.open('http://www.facebook.com/sharer.php?s=100&p[title]=' + encodeURIComponent(title) + '&p[summary]=' + encodeURIComponent(data.summary) + '&p[url]=' + encodeURIComponent(loc) + '&p[images][0]=' + encodeURIComponent(thumbImage), 'facebookwindow', 'height=450, width=550, top=' + ($(window).height() / 2 - 225) + ', left=' + $(window).width() / 2 + ', toolbar=0, location=0, menubar=0, directories=0, scrollbars=0');
