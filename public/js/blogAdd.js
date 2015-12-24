@@ -58,7 +58,6 @@ $(document).on("click", ".uploadBackgroundImages", function () {
         dictDefaultMessage: "Click or Drop files here to upload",
         acceptedFiles: "image/jpeg,image/png,image/gif",
         parallelUploads: 10,
-        maxFilesize: 1,
 
         init: function () {
 

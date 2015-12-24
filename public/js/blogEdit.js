@@ -123,7 +123,6 @@ $(document).on("click", ".uploadBackgroundImages", function () {
         url: "/uploadBackgroundImages",
         dictDefaultMessage: "Click or Drop files here to upload",
         acceptedFiles: "image/jpeg,image/png,image/gif",
-        maxFilesize: 1,
         parallelUploads: 10,
 
         init: function () {
