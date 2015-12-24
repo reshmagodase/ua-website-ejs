@@ -1,6 +1,6 @@
 <div ng-include src="'adminViews/partials/header.html'"></div>
 <script>  $(document).ready(function () {
-    $.get("/getBackgroundImages", function (response) {
+    $.get("/getAllBackgroundImages", function (response) {
         $("#thumbwrap").html("");
         $.each(response, function (k, data) {
             $("#thumbwrap").append("<a class='thumb' href='" + data.path + "' target='_blank'><img width=200 height=120 src='/" + data.path + "'/></a>");

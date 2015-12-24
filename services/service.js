@@ -172,6 +172,28 @@ exports.uploadImages = function (req, res) {
 //Service to get images
 exports.getImages = function (req, res) {
     db.collection('images', function (err, collection) {
+        collection.find().limit(20).sort({'createdDate': -1}).toArray(function (err, items) {
+
+            if (err) {
+                res.send({'error': 'An error has occurred'})
+            }
+            else if (items.length == 0) {
+                var msg = [{
+                    'status': 'error',
+                    'message': 'Data not found'
+                }]
+                res.send(msg);
+            }
+            else if (items.length !== 0) {
+                //console.log('else');
+                items[0].status = 'success';
+                res.send(items);
+            }
+        });
+    });
+}
+exports.getAllImages = function (req, res) {
+    db.collection('images', function (err, collection) {
         collection.find().sort({'createdDate': -1}).toArray(function (err, items) {
 
             if (err) {
@@ -192,7 +214,6 @@ exports.getImages = function (req, res) {
         });
     });
 }
-
 //Service to add background images
 exports.addBackgroundImages = function (req, res) {
     var imageArray = [];
@@ -300,6 +321,28 @@ exports.addBackgroundImages = function (req, res) {
 //Service to get background images
 exports.getBackgroundImages = function (req, res) {
     db.collection('backgroundImages', function (err, collection) {
+        collection.find().limit(20).sort({'createdDate': -1}).toArray(function (err, items) {
+
+            if (err) {
+                res.send({'error': 'An error has occurred'})
+            }
+            else if (items.length == 0) {
+                var msg = [{
+                    'status': 'error',
+                    'message': 'Data not found'
+                }]
+                res.send(msg);
+            }
+            else if (items.length !== 0) {
+                //console.log('else');
+                items[0].status = 'success';
+                res.send(items);
+            }
+        });
+    });
+}
+exports.getAllBackgroundImages = function (req, res) {
+    db.collection('backgroundImages', function (err, collection) {
         collection.find().sort({'createdDate': -1}).toArray(function (err, items) {
 
             if (err) {
@@ -320,6 +363,7 @@ exports.getBackgroundImages = function (req, res) {
         });
     });
 }
+
 
 
 //Service to add homepage text
@@ -583,6 +627,7 @@ exports.getAuthorImages = function (req, res) {
         });
     });
 }
+
 
 
 //Service to upload Partner images
