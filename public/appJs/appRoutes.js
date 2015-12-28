@@ -145,6 +145,7 @@ app.config(function ($routeProvider, $locationProvider) {
         }
         $scope.getData();
         $scope.getCaseStudyData();
+        window.prerenderReady = true;
     })
     .controller('AboutController', function ($scope, $location, $localStorage, $http) {
 

@@ -15,15 +15,14 @@ var users = require('./routes/users');
 var app = express();
 
 
-
-//app.use(require('prerender-node').set('prerenderServiceUrl', 'http://52.25.191.184:3000/').set('prerenderToken', 'n4dsybLPw3LSlpktVQ7i'));
+app.use(require('prerender-node').set('prerenderToken', 'n4dsybLPw3LSlpktVQ7i'));
 
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
-app.use(require('prerender-node').set('prerenderServiceUrl', 'http://localhost:3000/'));
+//app.use(require('prerender-node').set('prerenderServiceUrl', 'http://localhost:3000/'));
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
