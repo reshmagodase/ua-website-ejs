@@ -609,7 +609,7 @@ app.config(function ($routeProvider, $locationProvider) {
             var formdata = {"slug": "" + slug + ""};
             //get latest articles
             $scope.Article = [];
-            $.get("/getBlogList", function (article) {
+            $.get("/getActiveBlogList", function (article) {
                 $scope.Article = article.slice(0, 3);
                 for (var k = 0; k < $scope.Article.length; k++) {
                     if ($scope.Article[k].slug == slug) {

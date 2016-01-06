@@ -1274,7 +1274,7 @@ exports.getBlogList = function (req, res) {
 
 exports.getActiveBlogList = function (req, res) {
     db.collection('blog', function (err, collection) {
-        collection.find({'active': 'on'}).sort({'createdDate': -1}).toArray(function (err, result) {
+        collection.find({'active': 'on'}).sort({'publish_date_0': -1}).toArray(function (err, result) {
             if (err) {
                 res.send({'status': 'error', 'message': 'An error has occurred'});
             }
