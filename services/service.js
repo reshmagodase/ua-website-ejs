@@ -365,7 +365,6 @@ exports.getAllBackgroundImages = function (req, res) {
 }
 
 
-
 //Service to add homepage text
 exports.homepageText = function (req, res) {
     var info = req.body;
@@ -627,7 +626,6 @@ exports.getAuthorImages = function (req, res) {
         });
     });
 }
-
 
 
 //Service to upload Partner images
@@ -1336,43 +1334,43 @@ var transporter = nodemailer.createTransport({
 
 exports.sendRequestMail = function (req, res) {
     var htmlFormat = '<table cellspacing="2" cellpadding="2">';
-    if (req.body.title != '') {
+    if (req.body.title !=='' && req.body.title !==undefined) {
         htmlFormat += '<tr><td><b>Title</b> </td><td>' + req.body.title + '</td></tr>'
     }
-    if (req.body.fullName != '') {
+    if (req.body.fullName !=='' && req.body.fullName !==undefined) {
         htmlFormat += '<tr><td><b>Full Name </b></td><td>' + req.body.fullName + '</td></tr>'
     }
-    if (req.body.contact_number != '') {
+    if (req.body.contact_number !=='' && req.body.contact_number !==undefined) {
         htmlFormat += '<tr><td><b>Contact Number </b></td><td>' + req.body.contact_number + '</td></tr>'
     }
-    if (req.body.email != '') {
+    if (req.body.email !=='' && req.body.email !==undefined) {
         htmlFormat += '<tr><td><b>Email </b></td><td>' + req.body.email + '</td></tr>'
     }
-    if (req.body.company_name != '') {
+    if (req.body.company_name !=='' && req.body.company_name !==undefined) {
         htmlFormat += '<tr><td><b>Company Name</b></td><td>' + req.body.company_name + '</td></tr>'
     }
-    if (req.body.position != '') {
+    if (req.body.position !=='' && req.body.position !==undefined) {
         htmlFormat += '<tr><td><b>Position</b></td><td>' + req.body.position + '</td></tr>'
     }
-    if (req.body.current_supplier != '') {
+    if (req.body.current_supplier !=='' && req.body.current_supplier !==undefined) {
         htmlFormat += '<tr><td><b>Current Supplier</b></td><td>' + req.body.current_supplier + '</td></tr>'
     }
-    if (req.body.annual_energy_costs != '') {
+    if (req.body.annual_energy_costs !=='' && req.body.annual_energy_costs !==undefined) {
         htmlFormat += '<tr><td><b>Annual Energy Cost</b></td><td>' + req.body.annual_energy_costs + '</td></tr>'
     }
-    if (req.body.audit != '') {
+    if (req.body.audit !=='' && req.body.audit !==undefined) {
         htmlFormat += '<tr><td><b>Do you require a FREE energy audit?</b></td><td>' + req.body.audit + '</td></tr>'
     }
-    if (req.body.hearfrom != '') {
+    if (req.body.hearfrom !=='' && req.body.hearfrom !==undefined) {
         htmlFormat += '<tr><td><b>How did you hear about us?</b></td><td>' + req.body.hearfrom + '</td></tr>'
     }
-    if (req.body.msg != '') {
+    if (req.body.msg !=='' && req.body.msg !==undefined) {
         htmlFormat += '<tr><td><b>Enquiry</b></td><td>' + req.body.msg + '</td></tr>'
     }
     htmlFormat += '</table>'
     var mailOptions = {
         from: 'Utility Aid', // sender address
-        to: 'chetan@scriptlanes.com', // list of receivers
+        to: 'enquiries@utility-aid.co.uk,gary@viva-worldwide.com,chetan@scriptlanes.com', // list of receivers
         subject: 'Request A Free Energy Consultation', // Subject line
         text: '', // plaintext body
         html: htmlFormat
