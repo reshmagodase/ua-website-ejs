@@ -668,7 +668,7 @@ app.config(function ($routeProvider, $locationProvider) {
                                 name: title,
                                 link: loc,
                                 picture: thumbImage,
-                                caption: 'This is the content of the "caption" field.',
+                                caption: 'www.utility-aid.co.uk',
                                 description: summary,
                                 message: ''
                             });
