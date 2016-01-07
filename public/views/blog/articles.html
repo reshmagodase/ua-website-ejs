@@ -87,9 +87,13 @@
 <script>
     window.fbAsyncInit = function () {
         FB.init({
-            status: true, cookie: true,
-            xfbml: true
+            appId: '1073804676025156', // App ID
+            status: true, // check login status
+            cookie: true, // enable cookies to allow the server to access the session
+            xfbml: true  // parse XFBML
         });
+
+        alert("this statement never gets called either");
     };
     (function () {
         var e = document.createElement('script');
@@ -99,6 +103,8 @@
         document.getElementById('fb-root').appendChild(e);
     }());
 </script>
+
+
 
 
 
