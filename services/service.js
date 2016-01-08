@@ -1370,7 +1370,7 @@ exports.sendRequestMail = function (req, res) {
     htmlFormat += '</table>'
     var mailOptions = {
         from: 'Utility Aid', // sender address
-        to: 'enquiries@utility-aid.co.uk,gary@viva-worldwide.com', // list of receivers
+        to: 'enquiries@utility-aid.co.uk,gary@viva-worldwide.com,mdaly@utility-aid.com,WCampbell@utility-aid.co.uk', // list of receivers
         subject: 'Request A Free Energy Consultation', // Subject line
         text: '', // plaintext body
         html: htmlFormat
