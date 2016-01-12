@@ -642,21 +642,23 @@ app.config(function ($routeProvider, $locationProvider) {
                      $scope.thumbImage = "http://52.25.191.184:3000/" + data.thumbImage;
                      $scope.meta_data_meta_title =  data.meta_data_meta_title;
                      $scope.meta_data_meta_description =  data.meta_data_meta_description;*/
-                  /*  $('a.facebook').click(function (e) {
+                    /*  $('a.facebook').click(function (e) {
 
-                        //We tell our browser not to follow that link
-                        e.preventDefault();
+                     //We tell our browser not to follow that link
+                     e.preventDefault();
 
-                        //We get the URL of the link
-                        var loc = window.location.href;
-                        var title = data.meta_data_meta_title;
-                        var summary = data.meta_data_meta_description;
-                        var thumbImage = "http://www.utility-aid.co.uk/" + data.thumbImage;
-                        //We trigger a new window with the Twitter dialog, in the middle of the page
-                        //window.open('https://www.facebook.com/sharer/sharer.php?u=' + loc + '&', 'facebookwindow', 'height=450, width=550, top=' + ($(window).height() / 2 - 225) + ', left=' + $(window).width() / 2 + ', toolbar=0, location=0, menubar=0, directories=0, scrollbars=0');
-                        window.open('http://www.facebook.com/sharer.php?s=100&p[title]=' + encodeURIComponent(title) + '&p[summary]=' + encodeURIComponent(data.summary) + '&p[url]=' + encodeURIComponent(loc) + '&p[images][0]=' + encodeURIComponent(thumbImage), 'facebookwindow', 'height=450, width=550, top=' + ($(window).height() / 2 - 225) + ', left=' + $(window).width() / 2 + ', toolbar=0, location=0, menubar=0, directories=0, scrollbars=0');
-                    });*/
-                    $('a.facebook').click(function(e){
+                     //We get the URL of the link
+                     var loc = window.location.href;
+                     var title = data.meta_data_meta_title;
+                     var summary = data.meta_data_meta_description;
+                     var thumbImage = "http://www.utility-aid.co.uk/" + data.thumbImage;
+                     //We trigger a new window with the Twitter dialog, in the middle of the page
+                     //window.open('https://www.facebook.com/sharer/sharer.php?u=' + loc + '&', 'facebookwindow', 'height=450, width=550, top=' + ($(window).height() / 2 - 225) + ', left=' + $(window).width() / 2 + ', toolbar=0, location=0, menubar=0, directories=0, scrollbars=0');
+                     window.open('http://www.facebook.com/sharer.php?s=100&p[title]=' + encodeURIComponent(title) + '&p[summary]=' + encodeURIComponent(data.summary) + '&p[url]=' + encodeURIComponent(loc) + '&p[images][0]=' + encodeURIComponent(thumbImage), 'facebookwindow', 'height=450, width=550, top=' + ($(window).height() / 2 - 225) + ', left=' + $(window).width() / 2 + ', toolbar=0, location=0, menubar=0, directories=0, scrollbars=0');
+                     });*/
+                    alert(data.meta_data_meta_title);
+                    $("#sharer").html('<a class="facebook" href="#"></a> <a class="tweet" href="#" title="' + data.meta_data_meta_title + ' @UA_Energy"></a>');
+                    $('a.facebook').click(function (e) {
                         e.preventDefault();
                         var loc = window.location.href;
                         var title = data.meta_data_meta_title;

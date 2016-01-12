@@ -9,7 +9,7 @@
     <div class="inner">
         <div id="blog-contents">
             <div class="item" ng-repeat="data in Blogs" emit-last-repeater-element>
-                <a class="post" href="http://www.utility-aid.co.uk/blog/{{formatDate(data.publish_date_0) |  date:'yyyy/M/d'}}/{{data.slug}}/">
+                <a class="post" href="blog/{{formatDate(data.publish_date_0) |  date:'yyyy/M/d'}}/{{data.slug}}/">
                     <img class="main-pic" src="{{data.thumbImage}}"
                          style="height: 200px;"/>
 
