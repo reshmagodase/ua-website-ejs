@@ -15,7 +15,7 @@ var users = require('./routes/users');
 var app = express();
 
 
-app.use(require('prerender-node').set('prerenderToken', 'n4dsybLPw3LSlpktVQ7i'));
+app.use(require('prerender-node').set('prerenderToken', 'IotwLbEkuBAtsinzzF6p'));
 
 
 // view engine setup

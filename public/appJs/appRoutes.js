@@ -656,7 +656,7 @@ app.config(function ($routeProvider, $locationProvider) {
                         //window.open('https://www.facebook.com/sharer/sharer.php?u=' + loc + '&', 'facebookwindow', 'height=450, width=550, top=' + ($(window).height() / 2 - 225) + ', left=' + $(window).width() / 2 + ', toolbar=0, location=0, menubar=0, directories=0, scrollbars=0');
                         window.open('http://www.facebook.com/sharer.php?s=100&p[title]=' + encodeURIComponent(title) + '&p[summary]=' + encodeURIComponent(data.summary) + '&p[url]=' + encodeURIComponent(loc) + '&p[images][0]=' + encodeURIComponent(thumbImage), 'facebookwindow', 'height=450, width=550, top=' + ($(window).height() / 2 - 225) + ', left=' + $(window).width() / 2 + ', toolbar=0, location=0, menubar=0, directories=0, scrollbars=0');
                     });*/
-                    $('a.facebook').click(function(e){
+                    $(document).on("click","a.facebook",function(e){
                         e.preventDefault();
                         var loc = window.location.href;
                         var title = data.meta_data_meta_title;
@@ -675,7 +675,7 @@ app.config(function ($routeProvider, $locationProvider) {
                     });
 
 
-                    $('a.tweet').click(function (e) {
+                    $(document).on("click","a.tweet",function(e){
 
                         //We tell our browser not to follow that link
                         e.preventDefault();
