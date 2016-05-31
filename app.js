@@ -13,8 +13,8 @@ var users = require('./routes/users');
 
 
 var app = express();
-
-
+var compression=require('compression');
+app.use(compression());
 app.use(require('prerender-node').set('prerenderToken', 'IotwLbEkuBAtsinzzF6p'));
 
 
