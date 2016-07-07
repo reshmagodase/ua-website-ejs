@@ -10,7 +10,7 @@ var session = require('client-sessions');
 var app = express();
 var compression = require('compression');
 app.use(compression());
-//app.use(require('prerender-node').set('prerenderToken', 'IotwLbEkuBAtsinzzF6p'));
+app.use(require('prerender-node').set('prerenderToken', 'zTnhoVfplm0FeP4hgDr2'));
 
 
 // view engine setup
