@@ -109,6 +109,7 @@ exports.getCaseStudyList = function (req, res) {
                 res.send({'status': 'error', 'message': 'Data Not Found'});
             }
             if (result !== null) {
+
                 res.send(result);
             }
         });
@@ -143,6 +144,11 @@ exports.getBlogList = function (req, res) {
                 res.send({'status': 'error', 'message': 'Data Not Found'});
             }
             if (result !== null) {
+                result.sort(function (a, b) {
+                    console.log(new Date(b.publish_date_0) - new Date(a.publish_date_0))
+                    return new Date(b.publish_date_0) - new Date(a.publish_date_0);
+
+                });
                 res.send(result);
             }
         });
