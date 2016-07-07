@@ -20,6 +20,10 @@ app.config(function ($routeProvider, $locationProvider) {
             templateUrl: 'views/why-ua.html',
             controller: 'whyuaController'
         })
+        .when('/blog/', {
+            templateUrl: 'views/why-ua.html',
+            controller: 'whyuaController'
+        })
         .when('/our-products/', {
             templateUrl: 'views/our-products.html',
             controller: 'ourproductsController'
@@ -29,6 +33,10 @@ app.config(function ($routeProvider, $locationProvider) {
             controller: 'ourclientssayController'
         })
         .when('/advisory-board/', {
+            templateUrl: 'views/advisory-board.html',
+            controller: 'advisoryboardController'
+        })
+        .when('/about/', {
             templateUrl: 'views/advisory-board.html',
             controller: 'advisoryboardController'
         })
@@ -94,6 +102,14 @@ app.controller('whyuaController', function ($scope, $http) {
         ogDescripton: "We're inspired by the organisations and people we work with. We want to help save them time and money when they source and purchase their energy."
     };
 })
+/*app.controller('blogController', function ($scope, $http) {
+    $scope.$parent.seo = {
+        pageTitle: "UA | Blogs",
+        ogTitle: "UA | Blogs",
+        pageDescripton: "We're inspired by the organisations and people we work with. We want to help save them time and money when they source and purchase their energy.",
+        ogDescripton: "We're inspired by the organisations and people we work with. We want to help save them time and money when they source and purchase their energy."
+    };
+})*/
 app.controller('ourproductsController', function ($scope, $http) {
     $scope.$parent.seo = {
         pageTitle: "UA | Our Products",
