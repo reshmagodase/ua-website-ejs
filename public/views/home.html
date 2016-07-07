@@ -1,56 +1,198 @@
-﻿<div id="home">
-    <section class="intro" style='background-image: url({{image1}})'>
-        <div class="inner">
+<header class="home header">
 
-            <h1>
-                <div ng-bind-html="page_content_banner_text"></div>
-            </h1>
-            <img src="img/home/do-more-good.png" alt="Do More Good">
+    <div class="text-vertical-center">
+        <h1 class="heading_text"><span class="fontBold"> Welcome to Utility Aid</span>
 
-            <div class="button-holder">
-                <a class="btn btn-default" href="{{page_content_story_button_link}}">
-                    <div ng-bind-html="page_content_story_button_text"></div>
-                </a>
+
+            <p class="heading_text_inner">the UK's lowest cost energy broker</p>
+        </h1>
+
+    </div>
+</header>
+
+<section class="home" style="background-color: #17252a">
+    <div class="container-fluid" style="padding: 20px">
+        <div class="text-center">
+            <h2 class="subheading">We have negotiated low cost energy tariffs for clients including:</h2>
+
+            <div class="center slider">
+                <div>
+                    <img src="img/home/clients/1.png">
+                </div>
+                <div>
+                    <img src="img/home/clients/2.png">
+                </div>
+                <div>
+                    <img src="img/home/clients/3.png">
+                </div>
+                <div>
+                    <img src="img/home/clients/4.png">
+                </div>
+                <div>
+                    <img src="img/home/clients/5.png">
+                </div>
+                <div>
+                    <img src="img/home/clients/6.png">
+                </div>
+                <div>
+                    <img src="img/home/clients/7.png">
+                </div>
+                <div>
+                    <img src="img/home/clients/8.png">
+                </div>
+                <div>
+                    <img src="img/home/clients/9.png">
+                </div>
+                <div>
+                    <img src="img/home/clients/10.png">
+                </div>
+                <div>
+                    <img src="img/home/clients/11.png">
+                </div>
+                <div>
+                    <img src="img/home/clients/12.png">
+                </div>
+                <div>
+                    <img src="img/home/clients/13.png">
+                </div>
+                <div>
+                    <img src="img/home/clients/14.png">
+                </div>
             </div>
-            <div class="scroll">
-                <p>scroll down</p>
 
-                <div class="mouse"></div>
-            </div>
+
+            <script type="text/javascript">
+
+                $('.center').slick({
+                    dots: true,
+                    infinite: false,
+                    speed: 300,
+                    slidesToShow: 7,
+                    slidesToScroll: 7,
+                    responsive: [
+                        {
+                            breakpoint: 1024,
+                            settings: {
+                                slidesToShow: 5,
+                                slidesToScroll: 5,
+                                infinite: true,
+                                dots: true
+                            }
+                        },
+                        {
+                            breakpoint: 600,
+                            settings: {
+                                slidesToShow: 3,
+                                slidesToScroll: 3
+                            }
+                        },
+                        {
+                            breakpoint: 480,
+                            settings: {
+                                slidesToShow: 1,
+                                slidesToScroll: 1
+                            }
+                        }
+                        // You can unslick at a given breakpoint now by adding:
+                        // settings: "unslick"
+                        // instead of a settings object
+                    ]
+                });
+            </script>
+
+
         </div>
-    </section>
-    <section class="home-case-study" style="background-image:url('{{image2}}');">
-        <div class="inner">
-            <p>Some of our</p>
-            <img class="gw" src="img/home/case-study/good-work.png" alt="Good work"><br/>
+    </div>
+</section>
 
-            <h2 class="company">
-                <div ng-bind-html="home_page_feature_title"></div>
+
+<section class="home darkBlue " style="background-color: #3697c2">
+    <div class="container-fluid">
+        <div class="text-center">
+            <h2 class="heading_text">ua + you<span class="fontBold"> = &pound;&pound;&pound; saved</span>
+
+                <p class="subheading">As the UK's largest broker in the Third Sector - we negotiate great savings
+                    on
+                    your
+                    energy tariff's</p>
+            </h2>
+            <br>
+            <a href="/why-ua/#savemoney" class="btnFindOutMore fontBold">find out more</a><br><br>
+        </div>
+    </div>
+</section>
+<section class="home burner lightBlue ">
+    <div class="text-vertical-center">
+        <p class="fontBold">
+            <br>
+            "ua has been instrumental in saving <br>WWT approximately &pound;10K of unexpected<br> energy charges,
+            over 80% of
+            the
+            total bill.<br>
+            They worked hard and passionately on our behalf."
+            <br><br>
+            <span style="color: #3385a8;font-weight: 900"> Julia McKay, Head of Finance, The Wildfowl & Wetlands Trust</span>
+            <br><br><br>
+            <a href="/our-clients-say/#case-studies" class="btnFindOutMore fontBold">find out more</a><br><br>
+        </p>
+    </div>
+</section>
+<section class="home" style="background-color: #17252a">
+    <div class="container-fluid">
+        <div class="text-center">
+            <h2 class="heading_text_inner"><span class="fontBold"> Let's work together!</span>
+
+                <p style="font-size: 21.5px"><br>The money we save for your organisation can be used to do more good!
+                </p>
+                <br>
+                <img src="img/home/letsdomoregood.png" style="width: 100%;max-width: 605px">
             </h2>
 
-            <img class="plus" src="img/home/case-study/plus.png" alt="">
-
-            <h2>
-                <div ng-bind-html="home_page_ua_action"></div>
-            </h2>
-
-            <div class="button-holder">
-                <a class="btn btn-default" href="case-studies/{{slug2}}/"  >
-                    <div ng-bind-html="home_page_case_study_button_text"></div>
-                </a>
-            </div>
         </div>
-    </section>
-    <section class="njib" id="hiring">
-        <div class="inner">
-            <h2>The Nicest Job in Britain</h2>
-            <iframe width="520" height="293" src="//www.youtube.com/embed/wKeGBbMpSiI?rel=0" frameborder="0"
-                    allowfullscreen=""></iframe>
-            <div class="button-holder">
-                <p>Watch our nationwide campaign to do more good in 2015</p>
-                <a class="btn btn-default" href="http://www.nicestjobinbritain.co.uk/blog">Follow Luke's journey</a>
-            </div>
-        </div>
-    </section>
-</div>
-<div ng-include src="'views/contact.html'"></div>
+    </div>
+</section>
+<style>
+    .header {
+        background: url('img/home/homepage.jpg') no-repeat center 25% fixed;
+        display: table;
+        position: relative;
+        width: 100%;
+        height: 70%;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        background-size: cover;
+        -o-background-size: cover;
+    }
+
+    @media (max-width: 768px) {
+        .header {
+            background-attachment: scroll;
+        }
+    }
+
+    .burner {
+        background: url('img/home/burner.jpg') no-repeat center center scroll;
+        display: table;
+        position: relative;
+        width: 100%;
+        height: 70%;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        background-size: cover;
+        -o-background-size: cover;
+    }
+
+    @media (max-width: 768px) {
+        .burner {
+            background: url('img/home/burner.jpg') no-repeat center center scroll;
+            display: table;
+            position: relative;
+            width: 100%;
+            height: 70%;
+
+        }
+    }
+
+
+</style>
+

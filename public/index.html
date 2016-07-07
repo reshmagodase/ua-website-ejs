@@ -1,13 +1,10 @@
 <!DOCTYPE html>
 <html ng-app="myApp" class="no-js">
 <head>
-
     <meta name="fragment" content="!">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale = 1.0">
-
     <base href="/">
-
     <title ng-bind="seo.pageTitle"></title>
     <meta property="og:title" content="{{ seo.ogTitle }}"/>
     <meta name="description" content="{{seo.pageDescripton}}"/>
@@ -16,55 +13,161 @@
 
     <meta property="og:url" content="http://www.utility-aid.co.uk"/>
 
-
     <meta name="keywords"
           content="Utility, Aid Utility, service, utility, consultancy, energy, not for profit, saving, charities, charity">
 
-    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
-    <link href="fonts/stylesheet.css" rel="stylesheet" type="text/css"/>
-    <link href="css/layout.css?16102015" rel="stylesheet" type="text/css"/>
     <link rel="shortcut icon" href="img/favicon.ico">
 
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link href="css/style.css?16" rel="stylesheet" type="text/css">
     <script type="text/javascript" src="http://www.chrs-mln-krs.com/js/30390.js"></script>
     <noscript><img src="http://www.chrs-mln-krs.com/30390.png" style="display:none;"/></noscript>
 
-    <script type='text/javascript'
-            src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js'></script>
-    <!-- HTML5shiv is a javscript workaround to provide support for the new HTML 5 elements in IE Browsers older than IE 9. -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"
-            type="text/javascript"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"
-            type="text/javascript"></script>
-    <script type="text/javascript"
-            src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick-theme.css"/>
 
-    <script src="https://code.angularjs.org/1.2.28/angular.min.js"></script>
-    <script src="https://code.angularjs.org/1.2.28/angular-route.min.js"></script>
-    <script src="https://code.angularjs.org/1.2.28/angular-sanitize.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/ngStorage/0.3.10/ngStorage.min.js"></script>
-
-<!--    <script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.8/angular-ui-router.min.js"></script>
-    <script src="https://code.angularjs.org/1.2.28/angular-resource.min.js"></script>
-    <script src="https://code.angularjs.org/1.2.28/angular-cookies.min.js"></script>-->
-
-    <script src="appJs/appRoutes.js?1342"></script>
-  <!--  <script src="controllers/UAController.js?2"></script>-->
-
-    <script>
-        if (document.addEventListener) {
-        }
-        else {
-            document.body.className += " ie8"
+    <style>
+        .slick-next {
+            right: -15px !important;
         }
 
+        .slick-prev {
+            left: -15px !important;
+        }
 
-    </script>
+        .slick-list {
+            margin: 0 20px !important;
+        }
 
+        .slick-dots li button {
+            display: none;
+        }
+
+        .slick-slide img {
+            display: table;
+            margin: 0 auto;
+        }
+
+        @font-face {
+            font-family: 'vag_roundedbold';
+            src: url('fonts/vag_rounded_bold-webfont.eot');
+            src: url('fonts/vag_rounded_bold-webfont.eot?#iefix') format('embedded-opentype'),
+            url('fonts/vag_rounded_bold-webfont.woff') format('woff'),
+            url('fonts/vag_rounded_bold-webfont.ttf') format('truetype'),
+            url('fonts/vag_rounded_bold-webfont.svg#vag_roundedbold') format('svg');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: 'vag_roundedregular';
+            src: url('fonts/vag_rounded_thin-webfont.eot');
+            src: url('fonts/vag_rounded_thin-webfont.eot?#iefix') format('embedded-opentype'),
+            url('fonts/vag_rounded_thin-webfont.woff') format('woff'),
+            url('fonts/vag_rounded_thin-webfont.ttf') format('truetype'),
+            url('fonts/vag_rounded_thin-webfont.svg#vag_roundedregular') format('svg');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        .fontRegular {
+            font-family: vag_roundedregular, sans-serif;
+        }
+
+        .fontBold {
+            font-family: vag_roundedbold, sans-serif;
+        }
+
+        .freephone {
+            text-align: center;
+            font-size: 21.7px;
+            padding: 8px;
+        }
+
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+        }
+
+        .h1, .h2, .h3, h1, h2, h3 {
+            margin-top: 10px;
+            margin-bottom: 10px;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            line-height: 1.5;
+        }
+
+        h1 {
+            line-height: 1;
+        }
+
+        body {
+            -webkit-font-smoothing: antialiased !important;
+            font: 20.5px vag_roundedregular, sans-serif;
+            line-height: 1.4;
+            color: #f5f6f7;
+        }
+
+        p {
+            font-size: 16.5px;
+        }
+
+        .row {
+            margin: 0px;
+        }
+
+        * {
+            outline: none;
+        }
+
+        a.back-to-top {
+            display: none;
+            cursor: pointer;
+            width: 50px;
+            height: 50px;
+            text-indent: -9999px;
+            position: fixed;
+            z-index: 999;
+            right: 10px;
+            bottom: 10px;
+            background: #dddddd url("img/up-arrow.png?6633") no-repeat center 43%;
+            border: 1px solid #3697C2;
+        }
+    </style>
 </head>
 <body>
 
-<div class="ng-view" autoscroll="true"></div>
+<div ng-include src="'views/partials/header.html'"></div>
+<ng-view autoscroll="true" style="max-height: 1000px"></ng-view>
+<div ng-include src="'views/partials/footer.html?23'"></div>
+<script src="https://code.angularjs.org/1.2.28/angular.min.js"></script>
+<script src="https://code.angularjs.org/1.2.28/angular-route.min.js"></script>
+<script src="https://code.angularjs.org/1.2.28/angular-sanitize.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ngStorage/0.3.10/ngStorage.min.js"></script>
+<script src="js/routes.js?2113"></script>
 <script>
+    $('body').prepend('<a  class="back-to-top"></a>');
+    var amountScrolled = 300;
+    $(window).scroll(function () {
+        if ($(window).scrollTop() > amountScrolled) {
+            $('a.back-to-top').fadeIn('slow');
+        } else {
+            $('a.back-to-top').fadeOut('slow');
+        }
+    });
+
+    $('a.back-to-top').click(function () {
+        $('html, body').animate({
+            scrollTop: 0
+        }, 900);
+        return false;
+    });
+    $(document).on("click", ".in,.navbar-brand", function () {
+        $(".navbar-collapse").removeClass('in');
+    });
     (function (i, s, o, g, r, a, m) {
         i['GoogleAnalyticsObject'] = r;
         i[r] = i[r] || function () {
@@ -79,7 +182,10 @@
 
     ga('create', 'UA-71590805-1', 'auto');
     ga('send', 'pageview');
-
 </script>
+
+<script type="text/javascript" src="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js"></script>
+
+
 </body>
 </html>

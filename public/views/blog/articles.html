@@ -1,10 +1,10 @@
 <div class="blog">
     <section class="blog-head"
              style="background-image:url('{{image1}}')">
-        &nbsp;</section>
+    </section>
 
     <section class="blog-content">
-        <div class="inner">
+        <div class="container" style="max-width: 940px;">
             <div class="row">
                 <div class="col-md-8 white-bg">
                     <div class="story">
@@ -45,11 +45,142 @@
     </section>
 </div>
 
-<div ng-include src="'views/contact.html'">
-</div>
-<!--<div ng-include src="'views/blog/share.html'">
-</div>-->
+
 <style>
+    .share-social span {
+        float: left;
+        display: block;
+        width: 100px;
+        padding-right: 20px;
+        padding-left: 30px;
+        height: 64px;
+        line-height: 64px;
+        text-align: left;
+        font-family: 'vag_roundedbold', sans-serif;
+    }
+    .share-social a.tweet {
+        background-image: url('img/blog/sm_share-tw.png');
+        margin-right: 20px;
+    }
+    .share-social a.facebook {
+        background-image: url('img/blog/sm_share-fb.png');
+        margin-right: 20px;
+    }
+    .share-social a {
+        color: #3496c1;
+        text-decoration: none;
+        float: left;
+        width: 64px;
+        height: 64px;
+        background-size: 64px 64px;
+        background-repeat: no-repeat;
+    }
+    .share-social {
+        margin-top: 20px;
+        clear: both;
+        height: 64px;
+        overflow: hidden;
+    }
+    .blog-head {
+        min-height: 598px;
+        background-position: center center;
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+
+    .blog-content .container {
+        padding: 0px;
+    }
+
+    .blog-content {
+        color: black;
+
+        min-height: 450px;
+    }
+
+    .blog-content p {
+        margin: 0 0 30px;
+    }
+
+    .blog-content span {
+        font-size: 16.5px;
+    }
+
+    .white-bg {
+        background-color: #fff;
+        margin-top: -80px;
+    }
+
+    .story {
+        font-size: 16px;
+        line-height: 1.75;
+        margin-bottom: 40px;
+    }
+
+    .story h2 {
+        padding: 20px 60px 0 36px;
+        border-left: 8px solid #3496c1;
+        margin-left: -15px;
+        font-family: 'vag_roundedbold', sans-serif;
+        font-size: 34px;
+        line-height: 46px;
+        margin-bottom: 40px;
+    }
+
+    .story p {
+        padding-left: 30px;
+        padding-right: 60px;
+    }
+
+    .side {
+        background-color: #e4dcc1;
+        margin-left: -15px;
+        padding: 40px 30px 0;
+        margin-bottom: 40px;
+        overflow: hidden;
+    }
+
+    .side img {
+        width: 150px;
+        height: 150px;
+        margin-bottom: 40px;
+        -webkit-border-radius: 75px;
+        -moz-border-radius: 75px;
+        border-radius: 75px;
+    }
+
+    .author {
+        color: black;
+        font-family: 'vag_roundedbold', sans-serif;
+        margin-bottom: 15px;
+        font-size: 18px;
+        line-height: 28px;
+    }
+
+    .author span {
+        font-family: 'vag_roundedregular', sans-serif;
+    }
+
+    .articles h3 {
+        font-size: 16px;
+        font-family: 'vag_roundedbold', sans-serif;
+        margin-bottom: 30px;
+    }
+
+    .articles a.recent:hover {
+        border-left: 4px solid #3496c1;
+        text-decoration: none;
+        color: #3496c1;
+    }
+
+    .articles a.recent {
+        border-left: 4px solid #18252a;
+        display: block;
+        margin-bottom: 40px;
+        padding-left: 30px;
+        color: #18252a;
+    }
+
     #editor1 {
         padding-left: 30px;
         padding-right: 60px;

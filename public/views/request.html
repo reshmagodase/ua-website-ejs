@@ -1,13 +1,16 @@
-﻿
-<div id="request">
-    <section class="intro">
-        <div class="inner">
-        </div>
-    </section>
+﻿<header class="header">
+
+    <div class="text-vertical-center">
+        <h1 class="heading_text"><span class="fontBold"> request a free energy consultation</span>
+        </h1>
+    </div>
+</header>
+<div id="request" class="darkBlue">
+
     <section class="details">
 
         <form action="">
-            <div class="inner">
+            <div class="container" style="max-width: 900px">
 
                 <h2>Drop your details in below and we'll be in touch</h2>
 
@@ -20,7 +23,8 @@
                              -->
                             <div class="controls ">
 
-                                <input class="form-control" id="title" ng-model="title" name="title" placeholder="Title" type="text">
+                                <input class="form-control" id="title" ng-model="title" name="title" placeholder="Title"
+                                       type="text">
                             </div>
                         </div>
 
@@ -31,7 +35,8 @@
                             <div class="controls ">
                                 <span id="fullnameID"></span>
 
-                                <input class="form-control" id="full_name" ng-model="fullName" name="full_name" placeholder="Full name *" type="text">
+                                <input class="form-control" id="full_name" ng-model="fullName" name="full_name"
+                                       placeholder="Full name *" type="text">
 
 
                             </div>
@@ -43,7 +48,8 @@
                              -->
                             <div class="controls ">
 
-                                <input class="form-control" id="contact_number" ng-model="contact_number" name="contact_number" placeholder="Contact number" type="text">
+                                <input class="form-control" id="contact_number" ng-model="contact_number"
+                                       name="contact_number" placeholder="Contact number" type="text">
                             </div>
                         </div>
 
@@ -54,7 +60,8 @@
                             <div class="controls ">
                                 <span id="emailID"></span>
 
-                                <input class="form-control" id="email" name="email" placeholder="Email *" type="text" ng-model="email">
+                                <input class="form-control" id="email" name="email" placeholder="Email *" type="text"
+                                       ng-model="email">
 
 
                             </div>
@@ -70,7 +77,8 @@
 
                                 <label><input name="audit" ng-model="audit" type="radio" value="Yes"> Yes please</label>
 
-                                <label><input name="audit" ng-model="audit" type="radio" value="No"> No thank you</label>
+                                <label><input name="audit" ng-model="audit" type="radio" value="No"> No thank
+                                    you</label>
 
 
                             </div>
@@ -85,7 +93,8 @@
                              -->
                             <div class="controls ">
 
-                                <input class="form-control" id="company_name"  ng-model="company_name"  name="company_name" placeholder="Company name" type="text">
+                                <input class="form-control" id="company_name" ng-model="company_name"
+                                       name="company_name" placeholder="Company name" type="text">
                             </div>
                         </div>
 
@@ -95,7 +104,8 @@
                              -->
                             <div class="controls ">
 
-                                <input class="form-control" id="position" name="position" ng-model="position"  placeholder="Your position" type="text">
+                                <input class="form-control" id="position" name="position" ng-model="position"
+                                       placeholder="Your position" type="text">
                             </div>
                         </div>
 
@@ -105,7 +115,8 @@
                              -->
                             <div class="controls ">
 
-                                <input class="form-control" id="current_supplier" name="current_supplier" ng-model="current_supplier"  placeholder="Current energy supplier" type="text">
+                                <input class="form-control" id="current_supplier" name="current_supplier"
+                                       ng-model="current_supplier" placeholder="Current energy supplier" type="text">
                             </div>
                         </div>
 
@@ -115,7 +126,8 @@
                              -->
                             <div class="controls ">
 
-                                <input class="form-control" id="annual_energy_costs" name="annual_energy_costs" ng-model="annual_energy_costs" placeholder="Annual energy costs" type="text">
+                                <input class="form-control" id="annual_energy_costs" name="annual_energy_costs"
+                                       ng-model="annual_energy_costs" placeholder="Annual energy costs" type="text">
                             </div>
                         </div>
 
@@ -126,13 +138,17 @@
 
                                 <span id="hearfromID"></span>
 
-                                <label><input name="hear_from" ng-model="hearfrom" type="radio" value="Internet"> Internet</label>
+                                <label><input name="hear_from" ng-model="hearfrom" type="radio" value="Internet">
+                                    Internet</label>
 
-                                <label><input name="hear_from" ng-model="hearfrom" type="radio" value="Press advert"> Press advert</label>
+                                <label><input name="hear_from" ng-model="hearfrom" type="radio" value="Press advert">
+                                    Press advert</label>
 
-                                <label><input name="hear_from" ng-model="hearfrom" type="radio" value="Recommendation"> Recommendation</label>
+                                <label><input name="hear_from" ng-model="hearfrom" type="radio" value="Recommendation">
+                                    Recommendation</label>
 
-                                <label><input name="hear_from" ng-model="hearfrom" type="radio" value="Other"> Other</label>
+                                <label><input name="hear_from" ng-model="hearfrom" type="radio" value="Other">
+                                    Other</label>
 
                             </div>
                         </div>
@@ -146,7 +162,8 @@
                             <div class="controls ">
                                 <span id="msgID"></span>
 
-                                <textarea ng-model="msg" class="form-control" cols="40" id="message" name="message" placeholder="Your enquiry" rows="10"></textarea>
+                                <textarea ng-model="msg" class="form-control" cols="40" id="message" name="message"
+                                          placeholder="Your enquiry" rows="10"></textarea>
 
                             </div>
                         </div>
@@ -157,7 +174,7 @@
                     <!-- Textarea -->
                     <div class="control-group">
                         <div class="controls">
-                            <button type="submit" class="btn btn-default" ng-click="addUser();">Send Enquiry</button>
+                            <button type="submit" class="btnFindOutMore" ng-click="addUser();">Send Enquiry</button>
                         </div>
                     </div>
                 </div>
@@ -166,4 +183,127 @@
         </form>
     </section>
 </div>
-<div ng-include src="'views/contact.html'"></div>
+<style>
+    .header {
+        background: url('img/request.jpg') no-repeat center 25% fixed;
+        display: table;
+        position: relative;
+        width: 100%;
+        height: 70%;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        background-size: cover;
+        -o-background-size: cover;
+    }
+
+    @media (max-width: 768px) {
+        .header {
+            background-attachment: scroll;
+        }
+    }
+
+    #request .btnFindOutMore {
+        text-decoration: none;
+        color: #3496C1;
+        padding: 8px 10px;
+        border: 6px solid #3496C1;
+        border-radius: 20px;
+        font-size: 18px;
+    }
+
+    #request .btnFindOutMore:hover {
+        color: #17252A;
+        border: 6px solid #17252A;
+    }
+
+    #request {
+
+        line-height: 1.7;
+        color: black;
+        text-align: center;
+    }
+
+    #request .details .control-group {
+        padding: 0 15px;
+        margin-bottom: 20px;
+    }
+
+    #request .details .control-group .controls input {
+        width: 100%;
+        padding: 4px 0 0 15px;
+        border-radius: 18px;
+        border: none;
+        border: 1px solid #ccc;
+        font-size: 16px;
+        height: auto;
+    }
+
+    #request .details .control-group .radio_btns label input {
+        width: 22px;
+        float: left;
+    }
+
+    #request .details .control-group .controls textarea {
+        width: 100%;
+        max-width: 100%;
+        min-width: 100%;
+        padding: 9px 0 0 15px;
+        border-radius: 18px;
+        border: none;
+        border: 1px solid #ccc;
+        height: 120px;
+        max-height: 120px;
+        font-size: 16px;
+        margin-bottom: 25px;
+    }
+
+    #request .details .control-group .radio_btns {
+        min-height: 30px;
+        clear: both;
+        overflow: hidden;
+    }
+
+    #request .details .control-group .radio_btns label {
+        text-align: left;
+        float: left;
+        min-width: 175px;
+        margin-top: 0;
+        padding-left: 0px;
+        padding-top: 5px;
+        height: 28px;
+        line-height: 25px;
+        font-size: 14px;
+        margin-bottom: 10px;
+    }
+
+    #request .details h3 {
+        font-family: 'vag_roundedbold';
+        font-size: 16px;
+        text-align: left;
+        padding-left: 20px;
+        margin-top: 50px;
+        margin-bottom: 20px;
+        color: #3496c1;
+    }
+
+    #request .details {
+        background-color: #f2f2f2;
+    }
+
+    #request .details h2 {
+        margin-bottom: 20px;
+    }
+    .errorlist {
+        list-style: none;
+        margin: 0;
+        font-size: 16px;
+        text-align: left;
+        border-radius: 18px;
+        padding: 4px 0 0 15px;
+        margin-bottom: 20px;
+        height: 34px;
+        border: none;
+        background-color: #ffd6d6;
+        color: #ff0000;
+    }
+</style>

@@ -1,134 +1,326 @@
 <style>
-    #generic-case-study .appreciate .text , #generic-case-study .analyse .text, #generic-case-study .action .text  {
-        font-size: 14px;
-        line-height: 23px;
+    .desc h2 {
+        font-family: 'vag_roundedbold';
+        font-size: 28px;
+        margin-bottom: 15px;
+    }
+
+    .desc {
+        width: 180px;
+        min-height: 190px;
+        margin-bottom: 60px;
+        float: left;
+    }
+
+    .desc span {
+        font-size: 16px;
+        line-height: 24px;
+        display: block;
+    }
+
+    .casestudy .row {
+        display: table;
+        margin: 0 auto;
+    }
+
+    .appreciate {
+        background-color: #F2F2F2;
+    }
+
+    .appreciatetitle {
+        font-size: 28px;
+        font-family: 'vag_roundedbold';
+        margin-bottom: 60px;
+        background-repeat: no-repeat;
+        background-position: top center;
+        background-size: 100px 100px;
+        padding-top: 115px;
+        color: black;
+    }
+
+    .appreciatetitle1 {
+        background-image: url('img/casestudy/appreciate.png');
+
+    }
+
+    .appreciatetitle2 {
+        background-image: url('img/casestudy/analyse.png');
+
+    }
+
+    .appreciatetitle3 {
+        background-image: url('img/casestudy/action.png');
+
+    }
+
+    .appreciatesubtitle {
+        font-size: 24px;
+        margin-bottom: 60px;
+        color: #3496c1;
+        line-height: 36px;
+    }
+
+    .appreciate span {
+        font-size: 16.5px;
+        -webkit-font-smoothing: antialiased !important;
+    }
+
+    .text {
+        color: black;
+        padding: 0 10px;
+        text-align: left;
+    }
+
+    .text h2 {
+        font-size: 16px;
+        margin-bottom: 20px;
+        font-family: 'vag_roundedbold';
+        color: #3496c1;
+        padding-top: 0;
+        padding-left: 0;
+        line-height: 24px;
+    }
+
+    .blockquote {
+        border: none;
+        padding: 0 40px;
+        font-size: 42px;
+        line-height: 64px;
+        margin-bottom: 80px;
+        margin: 0 0 31px;
+        color: #fff;
+    }
+
+    .block_2_quote {
+        font-size: 42px;
+        line-height: 64px;
+        color: #fff;
+    }
+
+    .casestudies h4 {
+        color: #fff;
+        margin-bottom: 0;
+        font-family: 'vag_roundedbold';
+        font-size: 24px;
+    }
+
+    .casestudies h4 span {
+        display: block;
+        color: #fff;
+        line-height: 42px;
+        font-family: 'vag_roundedregular';
+
+    }
+
+    .casestudies .container {
+        padding: 180px 0;
+    }
+
+    @media (max-width: 768px) {
+        .desc {
+            min-height: 100px;
+            clear: both;
+            display: table;
+            margin: 20px;
+        }
+
+        .blockquote {
+            border: none;
+            font-size: 28px;
+            line-height: 34px;
+            color: #fff;
+        }
+        .casestudies .container {
+            padding: 50px 0;
+        }
+
+    }
+    .casestudy h3 span{
+        font-family: 'vag_roundedbold';
     }
 </style>
-<div id="generic-case-study">
-    <section class="intro" style="background-image:url('{{image1}}');">
-        <div class="inner">
-            <div class="row">
-                <div class="desc">
-                    <h2> <div ng-bind-html="banner_col_1_title"></div></h2>
-                    <span> <div ng-bind-html="banner_col_1_text"></div></span>
-                </div>
-                <div class="icon icon-plus"></div>
-                <div class="desc">
-                    <h2> <div ng-bind-html="banner_col_2_title"></div></h2>
-                    <span> <div ng-bind-html="banner_col_2_text"></div></span>
-                </div>
-                <div class="icon icon-equals"></div>
-                <div class="desc">
-                    <h2> <div ng-bind-html="banner_col_3_title"></div></h2>
-                    <span> <div ng-bind-html="banner_col_3_text"></div></span>
-                </div>
+<section class="casestudy" style="background:url('{{image1}}');    text-align: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: bottom left;
+    min-height: 584px;">
 
-                <h3><div ng-bind-html="banner_title"></div></h3>
+    <div class="container text-center">
+        <div class="row ">
+            <div class="desc">
+                <h2>
+                    <div ng-bind-html="banner_col_1_title"></div>
+                </h2>
+                <span> <div ng-bind-html="banner_col_1_text"></div></span>
             </div>
-        </div>
-    </section>
+            <div class="desc">
+                <img src="img/casestudy/plus.png">
+            </div>
+            <div class="desc">
+                <h2>
+                    <div ng-bind-html="banner_col_2_title"></div>
+                </h2>
+                <span> <div ng-bind-html="banner_col_2_text"></div></span>
+            </div>
+            <div class="desc"><img src="img/casestudy/equal.png"></div>
+            <div class="desc">
+                <h2>
+                    <div ng-bind-html="banner_col_3_title"></div>
+                </h2>
+                <span> <div ng-bind-html="banner_col_3_text"></div></span>
+            </div>
 
-    <section class="appreciate">
-        <div class="inner">
-            <h2><div ng-bind-html="block_1_title"></div></h2>
-            <h3><div ng-bind-html="block_1_sub_title"></div></h3>
-            <div class="row">
-                <div class="col-md-4">
-                    <div class="text">
-                        <h2><div ng-bind-html="block_1_col_1_title"></div></h2>
-                        <div ng-bind-html="editor1"></div> 
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="text">
-                        <h2><div ng-bind-html="block_1_col_2_title"></div></h2>
-                        <div ng-bind-html="editor2"></div> 
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="text">
-                        <h2><div ng-bind-html="block_1_col_3_title"></div></h2>
-                        <div ng-bind-html="editor3"></div>
-                    </div>
+        </div>
+        <div class="row">
+            <h3>
+                <div ng-bind-html="banner_title"></div>
+            </h3>
+        </div>
+    </div>
+
+</section>
+
+<section class="appreciate">
+    <div class="container text-center">
+        <h2 class="appreciatetitle appreciatetitle1">
+            <div ng-bind-html="block_1_title"></div>
+        </h2>
+        <h3 class="appreciatesubtitle">
+            <div ng-bind-html="block_1_sub_title"></div>
+        </h3>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="text">
+                    <h2>
+                        <div ng-bind-html="block_1_col_1_title"></div>
+                    </h2>
+                    <div ng-bind-html="editor1"></div>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <section class="support-quote quote-1" style="background-image:url('{{image2}}');">
-        <div class="inner">
-            <blockquote><div ng-bind-html="block_2_quote"></div></blockquote>
-            <h4><div ng-bind-html="block_2_author"></div>
-                <span><div ng-bind-html="block_2_city"></div></span>
-            </h4>
-        </div>
-    </section>
-
-    <section class="analyse">
-        <div class="inner">
-            <h2><div ng-bind-html="block_3_title"></div></h2>
-            <h3><div ng-bind-html="block_3_sub_title"></div></h3>
-            <div class="row">
-                <div class="col-md-4">
-                    <div class="text">
-                        <h2><div ng-bind-html="block_3_col_1_title"></div></h2>
-                        <div ng-bind-html="editor4"></div>  
-                    </div>
+            <div class="col-md-4">
+                <div class="text">
+                    <h2>
+                        <div ng-bind-html="block_1_col_2_title"></div>
+                    </h2>
+                    <div ng-bind-html="editor2"></div>
                 </div>
-                <div class="col-md-4">
-                    <div class="text">
-                        <h2><div ng-bind-html="block_3_col_2_title"></div></h2>
-                        <div ng-bind-html="editor5"></div> 
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="text">
-                        <h2><div ng-bind-html="block_3_col_3_title"></div></h2>
-                        <div ng-bind-html="editor6"></div> 
-                    </div>
+            </div>
+            <div class="col-md-4">
+                <div class="text">
+                    <h2>
+                        <div ng-bind-html="block_1_col_3_title"></div>
+                    </h2>
+                    <div ng-bind-html="editor3"></div>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <section class="support-quote quote-2" style="background-image:url('{{image3}}');">
-        <div class="inner">
-            <blockquote><div ng-bind-html="block_4_quote"></div></blockquote>
-            <h4><div ng-bind-html="block_4_author"></div>
-                <span><div ng-bind-html="block_4_city"></div></span>
-            </h4>
+<section class="casestudies" style="background:url('http://www.utility-aid.co.uk/{{image2}}');     background-position: center top;   text-align: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    min-height: 800px;">
+    <div class="container">
+        <div class="blockquote">
+            <div ng-bind-html="block_2_quote"></div>
         </div>
-    </section>
+        <h4>
+            <div ng-bind-html="block_2_author"></div>
+            <span><div ng-bind-html="block_2_city"></div></span>
+        </h4>
+    </div>
+</section>
 
-    <section class="analyse">
-        <div class="inner">
-            <h2><div ng-bind-html="block_5_title"></div></h2>
-            <h3><div ng-bind-html="block_5_sub_title"></div></h3>
-            <div class="row">
-                <div class="col-md-4">
-                    <div class="text">
-                        <h2><div ng-bind-html="block_5_col_1_title"></div></h2>
-                        <div ng-bind-html="editor7"></div> 
-                    </div>
+<section class="appreciate">
+    <div class="container  text-center">
+        <h2 class="appreciatetitle appreciatetitle2">
+            <div ng-bind-html="block_3_title"></div>
+        </h2>
+        <h3 class="appreciatesubtitle">
+            <div ng-bind-html="block_3_sub_title"></div>
+        </h3>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="text">
+                    <h2>
+                        <div ng-bind-html="block_3_col_1_title"></div>
+                    </h2>
+                    <div ng-bind-html="editor4"></div>
                 </div>
-                <div class="col-md-4">
-                    <div class="text">
-                        <h2><div ng-bind-html="block_5_col_2_title"></div></h2>
-                        <div ng-bind-html="editor8"></div>  
-                    </div>
+            </div>
+            <div class="col-md-4">
+                <div class="text">
+                    <h2>
+                        <div ng-bind-html="block_3_col_2_title"></div>
+                    </h2>
+                    <div ng-bind-html="editor5"></div>
                 </div>
-                <div class="col-md-4">
-                    <div class="text">
-                        <h2><div ng-bind-html="block_5_col_3_title"></div></h2>
-                        <div ng-bind-html="editor9"></div> 
-                    </div>
+            </div>
+            <div class="col-md-4">
+                <div class="text">
+                    <h2>
+                        <div ng-bind-html="block_3_col_3_title"></div>
+                    </h2>
+                    <div ng-bind-html="editor6"></div>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
+
+<section class="casestudies" style="background:url('http://www.utility-aid.co.uk/{{image3}}');     background-position: center top;   text-align: center;
+background-size: cover;
+background-repeat: no-repeat;
+min-height: 800px;">
+    <div class="container">
+        <div class="blockquote">
+            <div ng-bind-html="block_4_quote"></div>
+        </div>
+        <h4>
+            <div ng-bind-html="block_4_author"></div>
+            <span><div ng-bind-html="block_4_city"></div></span>
+        </h4>
+    </div>
+</section>
+
+<section class="appreciate">
+    <div class="container  text-center">
+        <h2 class="appreciatetitle appreciatetitle3">
+            <div ng-bind-html="block_5_title"></div>
+        </h2>
+        <h3 class="appreciatesubtitle">
+            <div ng-bind-html="block_5_sub_title"></div>
+        </h3>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="text">
+                    <h2>
+                        <div ng-bind-html="block_5_col_1_title"></div>
+                    </h2>
+                    <div ng-bind-html="editor7"></div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="text">
+                    <h2>
+                        <div ng-bind-html="block_5_col_2_title"></div>
+                    </h2>
+                    <div ng-bind-html="editor8"></div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="text">
+                    <h2>
+                        <div ng-bind-html="block_5_col_3_title"></div>
+                    </h2>
+                    <div ng-bind-html="editor9"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
 
-</div>
 
-<div ng-include src="'views/contact.html'"></div>
 
