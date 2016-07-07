@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html ng-app="myApp" class="no-js">
+<head>
+    <meta name="fragment" content="!">
+    <base href="/">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+
+    <title>UA | Utilities and Energy Consultancy</title>
+    <link rel="shortcut icon" href="img/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="css/base.css">
+    <link rel="stylesheet" type="text/css" href="css/editor.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css"
+          href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/4.2.0/min/dropzone.min.css">
+
+</head>
+<body>
+<div class="ng-view" autoscroll="true"></div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<script src="https://code.angularjs.org/1.2.28/angular.min.js"></script>
+<script src="https://code.angularjs.org/1.2.28/angular-route.min.js"></script>
+<script src="https://code.angularjs.org/1.2.28/angular-sanitize.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ngStorage/0.3.10/ngStorage.min.js"></script>
+<script src="js/adminroutes.js"></script>
+
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/4.2.0/min/dropzone.min.js"></script>
+<script src="js/editor.js"></script>
+
+
+
+
+
+
+<script>
+    $(document).on("click", ".uploadFiles", function () {
+        $("#myId").css("display", "block");
+        var myDropzone = new Dropzone("div#myId", {
+            url: "/uploadImages",
+            dictDefaultMessage: "Click or Drop files here to upload",
+            acceptedFiles: "image/jpeg,image/png,image/gif",
+            parallelUploads: 10,
+            maxFilesize: 1,
+
+            init: function () {
+
+                // You might want to show the submit button only when
+                // files are dropped here:
+                this.on("addedfile", function () {
+                    // Show submit button here and/or inform user to click it.
+                });
+                this.on("success", function () {
+                    myDropzone.removeAllFiles();
+                    $.get("/getImages", function (response) {
+                        $("#thumbwrap").html("");
+                        $.each(response, function (k, data) {
+                            $("#thumbwrap").append("<img data-dismiss='modal' width=100 height=60  src='" + data.path + "'/>");
+
+                        });
+                    });
+                })
+
+            }
+        });
+    });
+</script>
+</body>
+</html>
+
+
+

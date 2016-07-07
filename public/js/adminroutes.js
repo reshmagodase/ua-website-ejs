@@ -8,13 +8,12 @@ var app = angular.module('myApp', [
 app.config(function ($routeProvider, $locationProvider) {
     $locationProvider.html5Mode(true).hashPrefix('!');
     $routeProvider
-        .when('/admin/register/', {
-            templateUrl: 'viewsAdmin/register.html'
+        .when('/admin/', {
+            templateUrl: 'viewsAdmin/admin.html'
         }).
         otherwise({
             redirectTo: '/admin/'
         });
-
 });
 app.directive('emitLastRepeaterElement', function () {
     return function (scope) {
