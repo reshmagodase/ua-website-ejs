@@ -629,20 +629,8 @@ app.controller('BlogAddCtrl', function ($scope, $http) {
         $.each(response, function (k, data) {
             $("#authorList").append("<label> <input type='checkbox' class='radio' value='" + data._id + "' name='author'/>" + data.first_name + "</label>");
         });
-        $.ajax({
-            url: url,
-            type: "POST",
-            data: formData,
-            dataType: "json",
-            contentType: "application/json; charset=utf-8",
-            success: getCallback
-        });
+
     });
-
-
-    var url = "/getBlogDetails";
-    var formData = '{"objectId":"' + getQueryStringValue("id") + '"}';
-
 
     var getCallback = function (response) {
         console.log(response);
@@ -681,6 +669,17 @@ app.controller('BlogAddCtrl', function ($scope, $http) {
 
         });
     };
+    $.ajax({
+        url: "/getBlogDetails",
+        type: "POST",
+        data: '{"objectId":"' + getQueryStringValue("id") + '"}',
+        dataType: "json",
+        contentType: "application/json; charset=utf-8",
+        success: getCallback
+    });
+
+
+
 
 
     function getQueryStringValue(key) {
@@ -770,11 +769,7 @@ app.controller('BlogAddCtrl', function ($scope, $http) {
             }
         });
     });
-    $.get("/getAuthorList", function (response) {
-        $.each(response, function (k, data) {
-            $("#authorList").append("<label> <input type='checkbox' class='radio' value='" + data._id + "' name='author'/>" + data.first_name + "</label>");
-        });
-    });
+
 
 });
 app.controller('AuthorAddCtrl', function ($scope, $http) {

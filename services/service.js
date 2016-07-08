@@ -249,7 +249,7 @@ exports.addBackgroundImages = function (req, res) {
                     .write(dstPath)
             });
 
-        
+
             //console.log(imageArray[0]);
             console.log("Image uploaded successfully");
         });

@@ -111,7 +111,7 @@ app.post('/getBlogDetails', service.getBlogDetails);
 
 app.post('/addAuthor', service.addAuthor);
 app.post('/editAuthor', service.editAuthor);
-app.post('/getAuthorList', service.getAuthorList);
+app.get('/getAuthorList', service.getAuthorList);
 app.post('/getAuthorDetails', service.getAuthorDetails);
 
 app.post('/getProductList', service.getProductList);
