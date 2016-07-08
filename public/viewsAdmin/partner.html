@@ -1,0 +1,130 @@
+
+
+
+
+<style>
+    #myId {
+        display: none;
+    }
+
+    #thumbwrap img {
+        border: 1px solid silver;
+        margin: 10px;
+        float: left;
+    }
+
+</style>
+<div ng-include src="'viewsAdmin/partials/header.html'"></div>
+<div class="content">
+
+
+    <div class="inner"><h1>Partner &nbsp; <a href="/list-partners-admin"
+                                             class="small gray">Cancel</a></h1></div>
+
+
+    <div class="clearfix"></div>
+    <div id="content-main">
+        <form enctype="multipart/form-data" action="" method="post" id="add_edit_translation_form"
+              class="form-horizontal">
+            <input type="hidden" id="createdDate" name="createdDate">
+            <input type="hidden" id="objectId" name="objectId">
+            <input type="hidden" id="image1" name="image1">
+            <div>
+
+                <div class="inner">
+                    <fieldset class="">
+
+                        <h2>Partner</h2>
+
+                        <div class="form-row">
+                            <div class="">
+                                <div class="form-group-checkbox">
+                                    <label class="checkbox">
+                                        <input id="active" name="active" type="checkbox">
+                                        <label class="vCheckboxLabel" for="active">Active</label>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="field-box">
+
+
+                                <div class="form-group">
+                                    <label for="backImage1" class="">Logo</label>
+
+                                    <div class="control-group">
+                                        <a id="uploadImage1"  role="button" class="btn btn-default"
+                                           data-toggle="modal"
+                                           title="Insert Image">Choose / Upload Image</a>
+
+                                        <div id="backImage1"></div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+
+
+                        <div class="form-row">
+                            <div class="field-box field-partner_name ">
+
+
+                                <div class="form-group">
+                                    <label for="partner_name" class="">Partner Name</label>
+
+                                    <div class="control-group">
+
+                                        <input id="partner_name" maxlength="250" name="partner_name"
+                                               type="text" value="">
+
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="field-box field-people_person_1_name ">
+
+
+                                <div class="form-group">
+                                    <label for="link" class="">Website Address</label>
+
+                                    <div class="control-group">
+
+                                        <input id="link" maxlength="250" name="link"
+                                               type="text">
+
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+
+
+                    </fieldset>
+                </div>
+
+                <div class="form-actions fixed_bottom">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <input type="submit" value="Save" class="btn btn-primary" name="_save">
+
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </form>
+    </div>
+
+
+    <div class="clearfix" style="padding-bottom: 50px;"></div>
+</div>

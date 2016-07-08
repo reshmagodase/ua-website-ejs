@@ -1,0 +1,103 @@
+<div ng-include src="'viewsAdmin/partials/header.html'"></div>
+
+<div class="content">
+
+
+    <div class="inner"><h1>Contact &nbsp; <a href="/admin/contactlist/" class="small gray">Cancel</a></h1>
+    </div>
+
+
+    <div class="clearfix"></div>
+
+    <div id="content-main">
+
+        <form enctype="multipart/form-data" action="" method="post" id="add_edit_translation_form"
+              class="form-horizontal">
+            <input type="hidden" id="objectId" name="objectId"/>
+
+            <div>
+
+                <div class="inner">
+
+
+                    <fieldset class="">
+
+                        <h2>Page content</h2>
+
+
+                        <div class="form-row">
+                            <div class="field-box field-page_content_extended_title required">
+
+
+                                <div class="form-group">
+                                    <label class="">Title</label>
+
+                                    <div class="control-group">
+                                        <input id="title" maxlength="100" name="title" type="text">
+
+
+                                    </div>
+
+                                </div>
+                                <div class="form-group">
+                                    <label class="">Location</label>
+
+                                    <div class="control-group">
+                                        <input id="location" maxlength="100" name="location" type="text">
+
+
+                                    </div>
+
+                                </div>
+                                <div class="form-group">
+                                    <label class="">Address</label>
+
+                                    <div class="control-group">
+                                        <input id="address" maxlength="100" name="address" type="text">
+
+                                    </div>
+
+                                </div>
+                                <div class="form-group">
+                                    <label class="">Phone</label>
+
+                                    <div class="control-group">
+                                        <input id="phone" maxlength="100" name="phone" type="text">
+
+                                    </div>
+
+                                </div>
+                                <div class="form-group">
+                                    <label class="">Mail</label>
+
+                                    <div class="control-group">
+                                        <input id="mail" maxlength="100" name="mail" type="text">
+
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </fieldset>
+
+                    <div class="">
+                        <div class="col-md-4">
+                            <input type="submit" value="Save" class="btn btn-primary" name="_save">
+
+                        </div>
+
+                    </div>
+                </div>
+
+
+            </div>
+
+
+        </form>
+    </div>
+
+
+    <div class="clearfix" style="padding-bottom: 50px;"></div>
+</div>

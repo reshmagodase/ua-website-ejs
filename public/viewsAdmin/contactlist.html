@@ -1,0 +1,43 @@
+<div ng-include src="'viewsAdmin/partials/header.html'"></div>
+
+<div class="content">
+    <div class="inner"><h1>Contact List</h1>
+
+        <div class="clearfix"></div>
+        <div id="content-main">
+            <table id="mytable" class='table table-striped'>
+                <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Address</th>
+                    <th>Location</th>
+                    <th>Phone</th>
+                    <th>Mail</th>
+                    <th>Edit</th>
+                </tr>
+                </thead>
+                <tr ng-repeat="data in items">
+
+                    <td title="Title">
+                        {{data.title}}
+                    </td>
+                    <td title="Address">
+                        {{data.address}}
+                    </td>
+                    <td title="Location">
+                        {{data.location}}
+                    </td>
+                    <td title="Phone">
+                        {{data.phone}}
+                    </td>
+
+                    <td title="Mail">
+                        {{data.mail}}
+                    </td>
+                    <td><a href="/admin/contact?id={{data._id}}">Edit</a></td>
+                    <!--<td><a style="cursor: pointer;" ng-click="deleteModal(data._id);"> Delete</a></td>-->
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>

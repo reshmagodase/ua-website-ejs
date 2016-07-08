@@ -1,0 +1,245 @@
+
+
+
+<style>
+    #myId {
+        display: none;
+    }
+
+    #thumbwrap img {
+        border: 1px solid silver;
+        margin: 10px;
+        float: left;
+    }
+
+</style>
+<div ng-include src="'viewsAdmin/partials/header.html'"></div>
+
+
+<div class="content">
+
+
+    <div class="inner"><h1>Author &nbsp; <a href="/admin/authorlist/" class="small gray">Cancel</a></h1></div>
+
+
+
+
+    <div class="clearfix"></div>
+    <div id="content-main">
+
+        <form enctype="multipart/form-data" action="" method="post" id="author_form" class="form-horizontal">
+            <input type="hidden" id="createdDate" name="createdDate">
+            <input type="hidden" id="objectId" name="objectId">
+            <input type="hidden" id="image1" name="image1">
+            <div>
+
+
+                <div class="inner">
+
+
+                    <fieldset class="module aligned default">
+                        <h2>Settings</h2>
+
+
+                        <div class="form-row field-published">
+
+
+                            <div class="">
+
+
+                                <div class="form-group-checkbox">
+                                    <label class="checkbox">
+                                        <input id="active" name="active" type="checkbox">
+                                        <label class="vCheckboxLabel" for="active">Active</label>
+                                    </label>
+
+                                </div>
+
+
+                            </div>
+
+                        </div>
+
+                        <div class="form-row field-first_name">
+
+
+                            <div class="required">
+
+
+                                <div class="form-group">
+                                    <label for="first_name" class="">First name</label>
+
+                                    <div class="control-group">
+
+                                        <input class="vTextField" id="first_name" maxlength="100" name="first_name"
+                                               type="text">
+
+
+                                    </div>
+
+                                </div>
+
+
+                            </div>
+
+                        </div>
+
+                        <div class="form-row field-last_name">
+
+
+                            <div class="required">
+
+
+                                <div class="form-group">
+                                    <label for="last_name" class="">Last name</label>
+
+                                    <div class="control-group">
+
+                                        <input class="vTextField" id="last_name" maxlength="100" name="last_name"
+                                               type="text">
+
+
+                                    </div>
+
+                                </div>
+
+
+                            </div>
+
+                        </div>
+
+                        <div class="form-row">
+                            <div class="field-box">
+
+
+                                <div class="form-group">
+                                    <label for="backImage1" class="">Profile Pic</label>
+                                    <div class="control-group">
+                                        <a id="uploadImage1"  role="button" class="btn btn-default"
+                                           data-toggle="modal"
+                                           title="Insert Image">Choose / Upload Image</a>
+
+                                        <div id="backImage1"></div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="form-row field-order_id">
+
+
+                            <div class="">
+
+
+                                <div class="form-group">
+                                    <label for="order_id" class="">Order id</label>
+
+                                    <div class="control-group">
+
+                                        <input class="vIntegerField" id="order_id" name="order_id" type="text"
+                                               value="0">
+
+
+                                    </div>
+
+                                </div>
+
+
+                            </div>
+
+                        </div>
+
+                        <div class="form-row field-identifier">
+
+
+                            <div class="">
+
+
+                                <div class="form-group">
+                                    <label for="identifier" class="">Identifier</label>
+
+                                    <div class="control-group">
+
+                                        <input class="vTextField" id="identifier" maxlength="100" name="identifier"
+                                               type="text">
+
+
+                                    </div>
+
+                                </div>
+
+
+                            </div>
+
+                        </div>
+
+                    </fieldset>
+
+
+                    <div class="inline-group" id="translations-group">
+                        <h2>Bio</h2>
+
+
+                        <div class="inline-related dynamic-translations" id="translations-0">
+                            <h3><b>Bio:</b>&nbsp;<span class="inline_label">English</span>
+
+
+                            </h3>
+
+
+                            <fieldset class="module aligned ">
+
+
+                                <div class="form-row field-bio">
+
+
+                                    <div class="">
+
+
+                                        <div class="form-group">
+                                            <label for="bio" class="">Bio</label>
+
+                                            <div class="control-group">
+
+                                                <textarea class="vLargeTextField" cols="40" id="bio"
+                                                          name="bio" rows="10"></textarea>
+
+
+                                            </div>
+
+                                        </div>
+
+
+                                    </div>
+
+                                </div>
+
+                            </fieldset>
+
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+                <div class="form-actions fixed_bottom">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <input type="submit" value="Save" class="btn btn-primary" name="_save">
+
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </form>
+    </div>
+
+
+    <div class="clearfix" style="padding-bottom: 50px;"></div>
+</div>

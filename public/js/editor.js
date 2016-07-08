@@ -391,7 +391,11 @@
                 "Huge": "6"
             };
 
-            var colors = [{name: 'Black', hex: '#000000'},
+            var colors = [
+                {name: 'WebsiteColor1', hex: '#3697C2'},
+                {name: 'WebsiteColor2', hex: '#17252A'},
+                {name: 'Black', hex: '#000000'},
+                {name: 'Black', hex: '#000000'},
                 {name: 'MediumBlack', hex: '#444444'},
                 {name: 'LightBlack', hex: '#666666'},
                 {name: 'DimBlack', hex: '#999999'},
@@ -825,10 +829,10 @@
                             methods.showMessage.apply(editorObj, ["errMsg", "Please enter url"]);
                             return false;
                         }
-                        if (!targetURL.match(urlPattern)) {
+                     /*   if (!targetURL.match(urlPattern)) {
                             methods.showMessage.apply(editorObj, ["errMsg", "Enter valid url"]);
                             return false;
-                        }
+                        }*/
                         if (range == '' && targetText == '') {
                             targetText = targetURL;
                         }

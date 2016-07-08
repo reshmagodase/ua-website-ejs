@@ -5,7 +5,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var service = require('./services/service');
 var session = require('client-sessions');
-
+var multer = require('multer');
 
 var app = express();
 var compression = require('compression');
@@ -62,20 +62,63 @@ app.use(function (req, res, next) {
 
 
 function requireLogin(req, res, next) {
-    next();
-    /* console.log(req.user);
-     if (!req.user) {
-     res.redirect('/admin');
-     } else {
-     next();
-     }*/
+    if (!req.user) {
+        res.redirect('/admin');
+    } else {
+        next();
+    }
 };
+var storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+        cb(null, './public/utilityAid/tmp/')
+    },
+    filename: function (req, file, cb) {
+        cb(null, Date.now() + '-' + file.originalname)
+    }
+})
+
+var upMulter = multer({storage: storage});
+app.post('/login', service.login);
+app.post('/uploadImages', upMulter.array('file', 10), service.uploadImages);
+app.get('/getImages', service.getImages);
+app.get('/getAllImages', service.getAllImages);
+app.post('/uploadAuthorImages', upMulter.array('file', 10), service.uploadAuthorImages);
+app.get('/getAuthorImages', service.getAuthorImages);
+app.post('/uploadPartnerImages', upMulter.array('file', 10), service.uploadPartnerImages);
+app.get('/getPartnerImages', service.getPartnerImages);
+app.post('/uploadPeopleImages', upMulter.array('file', 10), service.uploadPeopleImages);
+app.get('/getPeopleImages', service.getPeopleImages);
+app.post('/uploadBackgroundImages', upMulter.array('file', 10), service.addBackgroundImages);
+app.get('/getBackgroundImages', service.getBackgroundImages);
+app.get('/getAllBackgroundImages', service.getAllBackgroundImages);
+
 app.post('/getCaseStudyList', service.getCaseStudyList);
 app.post('/getPartnerList', service.getPartnerList);
-app.post('/getBlogList', service.getBlogList);
-app.get('/getAuthorList', service.getAuthorList);
-app.post('/sendRequestMail', service.sendRequestMail);
+app.post('/addPartners', service.addPartners);
+app.post('/editPartners', service.editPartners);
+app.post('/getPartnerDetails', service.getPartnerDetails);
 
+
+app.post('/sendRequestMail', service.sendRequestMail);
+app.post('/getCaseStudiesDetails', service.getCaseStudiesDetails);
+app.post('/addCaseStudies', service.addCaseStudies);
+app.post('/editCaseStudies', service.editCaseStudies);
+
+app.post('/addBlog', service.addBlog);
+app.post('/editBlog', service.editBlog);
+app.post('/getBlogList', service.getBlogList);
+app.post('/getBlogDetails', service.getBlogDetails);
+
+app.post('/addAuthor', service.addAuthor);
+app.post('/editAuthor', service.editAuthor);
+app.post('/getAuthorList', service.getAuthorList);
+app.post('/getAuthorDetails', service.getAuthorDetails);
+
+app.post('/getProductList', service.getProductList);
+app.post('/updateProductData', service.updateProductData);
+
+
+app.post('/getContactData', service.getContactData);
 app.get('/admin/', function (req, res) {
     req.session.reset();
     res.sendfile('./public/indexAdmin.html');
@@ -89,7 +132,6 @@ app.get('/admin/*', requireLogin, function (req, res) {
 app.get('*', function (req, res) {
     res.sendfile('./public/index.html');
 });
-app.post('/login', service.login);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

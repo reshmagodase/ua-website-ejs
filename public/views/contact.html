@@ -13,69 +13,17 @@
         <h3 class="fontBold">0808 1788 170 </h3>
 
         <div class="row">
-            <div class="col-md-4 col-sm-6 contact text-left">
-                <div class="title"> Sales &amp; Head Office</div>
-                <div class="location"> Norwich</div>
-                <div class="address">
-                    Union Building, Rose Lane NR1 1BY
-                </div>
-                <div class="number">
-                    01603 567 357
-                </div>
-                <a href="mailto:njones@utility-aid.co.uk">
-                    <div class="mail"></div>
-                </a>
 
-            </div>
-            <div class="col-md-4 col-sm-6 contact text-left">
-                <div class="title"> Sales</div>
-                <div class="location"> Birmingham</div>
+            <div class="col-md-4 col-sm-6 contact text-left" ng-repeat="data in items">
+                <div class="title">{{data.title}}</div>
+                <div class="location">{{data.location}}</div>
                 <div class="address">
-                    1 The Wharf, Bridge Street B1 2JS
+                    {{data.address}}
                 </div>
                 <div class="number">
-                    0808 178 2021
+                    {{data.phone}}
                 </div>
-                <a href="mailto:Eberry@utility-aid.com">
-                    <div class="mail"></div>
-                </a>
-            </div>
-            <div class="col-md-4 col-sm-6 contact text-left">
-                <div class="title"> Sales</div>
-                <div class="location"> Glasgow</div>
-                <div class="address">
-                    8 Sandyford Place G3 7NB
-                </div>
-                <div class="number">
-                    0800 881 5678
-                </div>
-                <a href="mailto:LDuffy@utility-aid.net">
-                    <div class="mail"></div>
-                </a>
-            </div>
-            <div class="col-md-4 col-sm-6 contact text-left">
-                <div class="title"> Procurement</div>
-                <div class="location"> Blackpool</div>
-                <div class="address">
-                    Lancaster House, FY4 2RP
-                </div>
-                <div class="number">
-                    0808 178 2022
-                </div>
-                <a href="mailto:AClayton@utility-aid.co.uk">
-                    <div class="mail"></div>
-                </a>
-            </div>
-            <div class="col-md-4 col-sm-6 contact text-left">
-                <div class="title"> Data Processing & Sales</div>
-                <div class="location"> Sleaford</div>
-                <div class="address">
-                    Unit 3C, Mill House NG34 7TW
-                </div>
-                <div class="number">
-                    0808 178 2022
-                </div>
-                <a href="mailto:APatterson@utility-aid.co.uk">
+                <a href="mailto:{{data.mail}}">
                     <div class="mail"></div>
                 </a>
             </div>

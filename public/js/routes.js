@@ -10,12 +10,13 @@ app.config(function ($routeProvider, $locationProvider) {
     $routeProvider
         .when('/', {
             templateUrl: 'views/home.html',
-            controller: 'DefaultController'
+            controller: 'HomeCtrl'
         })
         .when('/home/', {
             templateUrl: 'views/home.html',
-            controller: 'DefaultController'
+            controller: 'HomeCtrl'
         })
+
         .when('/why-ua/', {
             templateUrl: 'views/why-ua.html',
             controller: 'whyuaController'
@@ -42,7 +43,7 @@ app.config(function ($routeProvider, $locationProvider) {
         })
         .when('/faq/', {
             templateUrl: 'views/faq.html',
-            controller: 'faqController'
+            controller: 'faqCtrl'
         })
         .when('/contact/', {
             templateUrl: 'views/contact.html',
@@ -103,13 +104,13 @@ app.controller('whyuaController', function ($scope, $http) {
     };
 })
 /*app.controller('blogController', function ($scope, $http) {
-    $scope.$parent.seo = {
-        pageTitle: "UA | Blogs",
-        ogTitle: "UA | Blogs",
-        pageDescripton: "We're inspired by the organisations and people we work with. We want to help save them time and money when they source and purchase their energy.",
-        ogDescripton: "We're inspired by the organisations and people we work with. We want to help save them time and money when they source and purchase their energy."
-    };
-})*/
+ $scope.$parent.seo = {
+ pageTitle: "UA | Blogs",
+ ogTitle: "UA | Blogs",
+ pageDescripton: "We're inspired by the organisations and people we work with. We want to help save them time and money when they source and purchase their energy.",
+ ogDescripton: "We're inspired by the organisations and people we work with. We want to help save them time and money when they source and purchase their energy."
+ };
+ })*/
 app.controller('ourproductsController', function ($scope, $http) {
     $scope.$parent.seo = {
         pageTitle: "UA | Our Products",
@@ -133,15 +134,21 @@ app.controller('advisoryboardController', function ($scope, $http) {
         pageDescripton: "We're inspired by the organisations and people we work with. We want to help save them time and money when they source and purchase their energy.",
         ogDescripton: "We're inspired by the organisations and people we work with. We want to help save them time and money when they source and purchase their energy."
     };
+    $.post("/getProductList", {"collection": "advisory"}, function (data) {
+        $scope.$apply(function () {
+            //$scope.product_text = decodeURIComponent(data[0].product_text);
+            $("#titletext").html(data[0].titletext);
+            $("#person1").html(data[0].person1);
+            $("#person2").html(data[0].person2);
+            $("#person3").html(data[0].person3);
+            $("#person1_description").html(data[0].person1_description);
+            $("#person2_description").html(data[0].person2_description);
+            $("#person3_description").html(data[0].person3_description);
+
+        });
+    });
 })
-app.controller('faqController', function ($scope, $http) {
-    $scope.$parent.seo = {
-        pageTitle: "UA | FAQ",
-        ogTitle: "UA | FAQ",
-        pageDescripton: "We're inspired by the organisations and people we work with. We want to help save them time and money when they source and purchase their energy.",
-        ogDescripton: "We're inspired by the organisations and people we work with. We want to help save them time and money when they source and purchase their energy."
-    };
-})
+
 app.controller('contactController', function ($scope, $http) {
     $scope.$parent.seo = {
         pageTitle: "UA | Contact",
@@ -149,6 +156,11 @@ app.controller('contactController', function ($scope, $http) {
         pageDescripton: "We're inspired by the organisations and people we work with. We want to help save them time and money when they source and purchase their energy.",
         ogDescripton: "We're inspired by the organisations and people we work with. We want to help save them time and money when they source and purchase their energy."
     };
+    $.post("/getProductList", {"collection": "contact"}, function (data) {
+        $scope.$apply(function () {
+            $scope.items = data;
+        });
+    });
 })
 app.controller('CaseStudiesController', function ($scope, $http) {
     $scope.CaseStudies = [];
@@ -525,6 +537,84 @@ app.controller('RequestController', function ($scope, $location, $http) {
         }
     }
 })
+app.controller('fpsCtrl', function ($scope, $location, $http) {
+    $.post("/getProductList", {"collection": "fps"}, function (data) {
+        $scope.$apply(function () {
+            //$scope.product_text = decodeURIComponent(data[0].product_text);
+            $("#fps").html(decodeURIComponent(data[0].product_text));
+        });
+    });
+
+});
+app.controller('mtsCtrl', function ($scope, $location, $http) {
+    $.post("/getProductList", {"collection": "mts"}, function (data) {
+        $scope.$apply(function () {
+            //$scope.product_text = decodeURIComponent(data[0].product_text);
+            $("#mts").html(decodeURIComponent(data[0].product_text));
+        });
+    });
+
+});
+app.controller('pmsCtrl', function ($scope, $location, $http) {
+    $.post("/getProductList", {"collection": "pms"}, function (data) {
+        $scope.$apply(function () {
+            //$scope.product_text = decodeURIComponent(data[0].product_text);
+            $("#pms").html(decodeURIComponent(data[0].product_text));
+        });
+    });
+
+});
+app.controller('busCtrl', function ($scope, $location, $http) {
+    $.post("/getProductList", {"collection": "bus"}, function (data) {
+        $scope.$apply(function () {
+            //$scope.product_text = decodeURIComponent(data[0].product_text);
+            $("#bus").html(decodeURIComponent(data[0].product_text));
+        });
+    });
+
+});
+app.controller('besCtrl', function ($scope, $location, $http) {
+    $.post("/getProductList", {"collection": "bes"}, function (data) {
+        $scope.$apply(function () {
+            //$scope.product_text = decodeURIComponent(data[0].product_text);
+            $("#bes").html(decodeURIComponent(data[0].product_text));
+        });
+    });
+
+});
+app.controller('faqCtrl', function ($scope, $location, $http) {
+    $scope.$parent.seo = {
+        pageTitle: "UA | FAQ",
+        ogTitle: "UA | FAQ",
+        pageDescripton: "We're inspired by the organisations and people we work with. We want to help save them time and money when they source and purchase their energy.",
+        ogDescripton: "We're inspired by the organisations and people we work with. We want to help save them time and money when they source and purchase their energy."
+    };
+    $.post("/getProductList", {"collection": "faq"}, function (data) {
+        $scope.$apply(function () {
+            //$scope.product_text = decodeURIComponent(data[0].product_text);
+            $("#faq").html(decodeURIComponent(data[0].product_text));
+        });
+    });
+
+});
+app.controller('HomeCtrl', function ($scope, $location, $http) {
+    $scope.$parent.seo = {
+        pageTitle: "UA | Energy and Utilities Consultancy",
+        ogTitle: "UA | Energy and Utilities Consultancy",
+        pageDescripton: "We're inspired by the organisations and people we work with. We want to help save them time and money when they source and purchase their energy.",
+        ogDescripton: "We're inspired by the organisations and people we work with. We want to help save them time and money when they source and purchase their energy."
+    };
+    $.post("/getProductList", {"collection": "home"}, function (data) {
+        $scope.$apply(function () {
+            //$scope.product_text = decodeURIComponent(data[0].product_text);
+            $("#text1").html(data[0].text1);
+            $("#text2").html(data[0].text2);
+            $("#text3").html(data[0].text3);
+            $("#text4").html(decodeURIComponent(data[0].text4));
+        });
+    });
+});
+
 app.directive('emitLastRepeaterElement', function () {
     return function (scope) {
         if (scope.$last) {
