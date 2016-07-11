@@ -1,3 +1,12 @@
+var fs = require('fs');
+
+process.on('uncaughtException', function (error) {
+    fs.appendFile('debug.txt', "\n\r\n\r-------Error :------" + new Date() + "---" + error.stack, function (err) {
+        if (err) throw err;
+        console.log('The error was appended to file!');
+    });
+});
+
 var express = require('express');
 var path = require('path');
 var logger = require('morgan');
