@@ -33,6 +33,10 @@ app.config(function ($routeProvider, $locationProvider) {
             templateUrl: 'views/our-clients-say.html',
             controller: 'ourclientssayController'
         })
+        .when('/case-studies/', {
+            templateUrl: 'views/our-clients-say.html',
+            controller: 'ourclientssayController'
+        })
         .when('/advisory-board/', {
             templateUrl: 'views/advisory-board.html',
             controller: 'advisoryboardController'
@@ -65,6 +69,7 @@ app.config(function ($routeProvider, $locationProvider) {
             templateUrl: 'views/case-studies/case-study.html',
             controller: 'CaseStudiesDetailsController'
         })
+
         .when('/blog/:group*', {
             templateUrl: 'views/blog/articles.html',
             controller: 'BlogDetailsController'
