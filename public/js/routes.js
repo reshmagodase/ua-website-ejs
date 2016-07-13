@@ -546,7 +546,7 @@ app.controller('fpsCtrl', function ($scope, $location, $http) {
     $.post("/getProductList", {"collection": "fps"}, function (data) {
         $scope.$apply(function () {
             //$scope.product_text = decodeURIComponent(data[0].product_text);
-            $("#fps").html(decodeURIComponent(data[0].product_text));
+            $("#fps").html(decodeURIComponent(data[0].product_text).replace(/(?:&nbsp;)/g,' '));
         });
     });
 
@@ -555,7 +555,7 @@ app.controller('mtsCtrl', function ($scope, $location, $http) {
     $.post("/getProductList", {"collection": "mts"}, function (data) {
         $scope.$apply(function () {
             //$scope.product_text = decodeURIComponent(data[0].product_text);
-            $("#mts").html(decodeURIComponent(data[0].product_text));
+            $("#mts").html(decodeURIComponent(data[0].product_text).replace(/(?:&nbsp;)/g,' '));
         });
     });
 
@@ -564,7 +564,7 @@ app.controller('pmsCtrl', function ($scope, $location, $http) {
     $.post("/getProductList", {"collection": "pms"}, function (data) {
         $scope.$apply(function () {
             //$scope.product_text = decodeURIComponent(data[0].product_text);
-            $("#pms").html(decodeURIComponent(data[0].product_text));
+            $("#pms").html(decodeURIComponent(data[0].product_text).replace(/(?:&nbsp;)/g,' '));
         });
     });
 
@@ -573,7 +573,7 @@ app.controller('busCtrl', function ($scope, $location, $http) {
     $.post("/getProductList", {"collection": "bus"}, function (data) {
         $scope.$apply(function () {
             //$scope.product_text = decodeURIComponent(data[0].product_text);
-            $("#bus").html(decodeURIComponent(data[0].product_text));
+            $("#bus").html(decodeURIComponent(data[0].product_text).replace(/(?:&nbsp;)/g,' '));
         });
     });
 
@@ -582,7 +582,7 @@ app.controller('besCtrl', function ($scope, $location, $http) {
     $.post("/getProductList", {"collection": "bes"}, function (data) {
         $scope.$apply(function () {
             //$scope.product_text = decodeURIComponent(data[0].product_text);
-            $("#bes").html(decodeURIComponent(data[0].product_text));
+            $("#bes").html(decodeURIComponent(data[0].product_text).replace(/(?:&nbsp;)/g,' '));
         });
     });
 
@@ -597,7 +597,7 @@ app.controller('faqCtrl', function ($scope, $location, $http) {
     $.post("/getProductList", {"collection": "faq"}, function (data) {
         $scope.$apply(function () {
             //$scope.product_text = decodeURIComponent(data[0].product_text);
-            $("#faq").html(decodeURIComponent(data[0].product_text));
+            $("#faq").html(decodeURIComponent(data[0].product_text).replace(/(?:&nbsp;)/g,' '));
         });
     });
 
@@ -615,7 +615,7 @@ app.controller('HomeCtrl', function ($scope, $location, $http) {
             $("#text1").html(data[0].text1);
             $("#text2").html(data[0].text2);
             $("#text3").html(data[0].text3);
-            $("#text4").html(decodeURIComponent(data[0].text4));
+            $("#text4").html(decodeURIComponent(data[0].text4).replace(/(?:&nbsp;)/g,' '));
         });
     });
 });
