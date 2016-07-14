@@ -107,6 +107,16 @@ app.controller('whyuaController', function ($scope, $http) {
         pageDescripton: "We're inspired by the organisations and people we work with. We want to help save them time and money when they source and purchase their energy.",
         ogDescripton: "We're inspired by the organisations and people we work with. We want to help save them time and money when they source and purchase their energy."
     };
+
+    $.post("/getProductList", {"collection": "whyua"}, function (data) {
+        $scope.$apply(function () {
+            //$scope.product_text = decodeURIComponent(data[0].product_text);
+            $("#text1").html(data[0].text1);
+            $("#text2").html(data[0].text2);
+            $("#text3").html(data[0].text3);
+        });
+    });
+
 })
 /*app.controller('blogController', function ($scope, $http) {
  $scope.$parent.seo = {

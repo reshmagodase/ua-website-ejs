@@ -56,6 +56,10 @@ app.config(function ($routeProvider, $locationProvider) {
             templateUrl: 'viewsAdmin/fps.html',
             controller: 'fpsCtrl'
         })
+        .when('/admin/whyua/', {
+            templateUrl: 'viewsAdmin/whyua.html',
+            controller: 'whyuaCtrl'
+        })
         .when('/admin/mts/', {
             templateUrl: 'viewsAdmin/mts.html',
             controller: 'mtsCtrl'
@@ -897,7 +901,7 @@ app.controller('AuthorAddCtrl', function ($scope, $http) {
 });
 app.controller('AuthorListCtrl', function ($scope, $http) {
 
-    $.post("/getAuthorList", {}, function (data) {
+    $.get("/getAuthorList", {}, function (data) {
         console.log(data);
         var tbl = $("<table/>").attr("id", "mytable");
         $("#div1").append(tbl);
@@ -1112,6 +1116,43 @@ app.controller('faqCtrl', function ($scope, $http) {
             "product_text": encodeURIComponent($('#editor1 .Editor-editor').html()),
             "collection": "faq"
         }
+
+        var url = "/updateProductData";
+        var getCallback = function (response) {
+            $("#successMsg").css("display", "block");
+        };
+        $.ajax({
+            url: url,
+            type: "POST",
+            data: formData,
+            contentType: "application/x-www-form-urlencoded; charset=UTF-8",
+            success: getCallback
+        });
+    });// form submit end
+
+});
+app.controller('whyuaCtrl', function ($scope, $http) {
+    $("#successMsg").css("display", "none");
+
+    $.post("/getProductList", {"collection": "whyua"}, function (data) {
+        $scope.$apply(function () {
+            $scope.objectId = data[0]._id;
+            $("#text1").val(data[0].text1);
+            $("#text2").val(data[0].text2);
+            $("#text3").val(data[0].text3);
+        });
+    });
+
+    $('form').submit(function (evt) {
+        evt.preventDefault();
+        var formData = {
+            "objectId": $scope.objectId,
+            "text1": $("#text1").val(),
+            "text2": $("#text2").val(),
+            "text3": $("#text3").val(),
+            "collection": "whyua"
+        }
+
 
         var url = "/updateProductData";
         var getCallback = function (response) {
