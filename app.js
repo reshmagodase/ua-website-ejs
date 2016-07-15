@@ -124,7 +124,9 @@ app.get('/getAuthorList', service.getAuthorList);
 app.post('/getAuthorDetails', service.getAuthorDetails);
 
 app.post('/getProductList', service.getProductList);
+app.post('/getProductDetails', service.getProductDetails);
 app.post('/updateProductData', service.updateProductData);
+app.post('/insertProductData', service.insertProductData);
 
 
 app.post('/getContactData', service.getContactData);

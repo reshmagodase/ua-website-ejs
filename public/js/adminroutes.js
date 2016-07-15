@@ -88,9 +88,99 @@ app.config(function ($routeProvider, $locationProvider) {
             templateUrl: 'viewsAdmin/contact.html',
             controller: 'ContactAddCtrl'
         })
+        .when('/admin/productlist/', {
+            templateUrl: 'viewsAdmin/productlist.html',
+            controller: 'ProductListCtrl'
+        })
+        .when('/admin/product/', {
+            templateUrl: 'viewsAdmin/product.html',
+            controller: 'ProductCtrl'
+        })
         .otherwise({
             redirectTo: '/admin/'
         });
+});
+app.controller('ProductListCtrl', function ($scope, $http) {
+    /*   $.post("/getList", {"collection": "testimonial"}, function (data) {
+     $scope.list = data;
+     });
+     */
+    var httpRequest = $http({
+        method: 'POST',
+        url: '/getProductList',
+        data: {"collection": "products"}
+
+    }).success(function (data, status) {
+        $scope.list = data;
+    });
+
+    $scope.objectId = "";
+    $scope.deleteModal = function (objectId) {
+        $("#deleteModal").modal("show");
+        $scope.objectId = objectId;
+    }
+    $scope.deleteData = function () {
+        $("#deleteModal").modal("hide");
+        $.post("/deleteData", {"collection": "testimonial", "objectId": $scope.objectId}, function (data) {
+        });
+        alert("Data deleted successfully!");
+        window.location = "/list-testimonials-admin";
+
+    }
+
+});
+app.controller('ProductCtrl', function ($scope, $http) {
+    $("#successMsg").css("display", "none");
+    $("#product_text").Editor();
+
+    $.post("/getProductDetails", {"objectId": getQueryStringValue("id")}, function (data) {
+        $scope.$apply(function () {
+            $scope.objectId = data._id;
+            $("#order").val(data.order);
+            $("#heading").val(data.heading);
+            $("#editor1 .Editor-editor").html(decodeURIComponent(data.product_text));
+        });
+    });
+
+    $('form').submit(function (evt) {
+        evt.preventDefault();
+        var formData;
+        var url;
+        if (getQueryStringValue("id") == "") {
+            url = "/insertProductData";
+            formData = {
+                "order": $("#order").val(),
+                "heading": $("#heading").val(),
+                "product_text": encodeURIComponent($('#editor1 .Editor-editor').html()),
+                "collection": "products"
+            }
+
+        } else {
+            url = "/updateProductData";
+            formData = {
+                "objectId": $scope.objectId,
+                "order": $("#order").val(),
+                "heading": $("#heading").val(),
+                "product_text": encodeURIComponent($('#editor1 .Editor-editor').html()),
+                "collection": "products"
+            }
+        }
+        var getCallback = function (response) {
+            $("#successMsg").css("display", "block");
+        };
+        $.ajax({
+            url: url,
+            type: "POST",
+            data: formData,
+            contentType: "application/x-www-form-urlencoded; charset=UTF-8",
+            success: getCallback
+        });
+    });// form submit end
+
+    function getQueryStringValue(key) {
+        return unescape(window.location.search.replace(new RegExp("^(?:.*[&\\?]" + escape(key).replace(/[\.\+\*]/g, "\\$&") + "(?:\\=([^&]*))?)?.*$", "i"), "$1"));
+    }
+
 });
 app.controller('ContactListCtrl', function ($scope, $http) {
     $.post("/getProductList", {"collection": "contact"}, function (data) {
@@ -111,7 +201,6 @@ app.controller('ContactAddCtrl', function ($scope, $http) {
             $("#mail").val(data.mail);
         });
     });
-
 
 
     function getQueryStringValue(key) {
@@ -683,9 +772,6 @@ app.controller('BlogAddCtrl', function ($scope, $http) {
     });
 
 
-
-
-
     function getQueryStringValue(key) {
         return unescape(window.location.search.replace(new RegExp("^(?:.*[&\\?]" + escape(key).replace(/[\.\+\*]/g, "\\$&") + "(?:\\=([^&]*))?)?.*$", "i"), "$1"));
     }
@@ -1137,6 +1223,7 @@ app.controller('whyuaCtrl', function ($scope, $http) {
     $.post("/getProductList", {"collection": "whyua"}, function (data) {
         $scope.$apply(function () {
             $scope.objectId = data[0]._id;
+            $("#titletext").val(data[0].titletext);
             $("#text1").val(data[0].text1);
             $("#text2").val(data[0].text2);
             $("#text3").val(data[0].text3);
@@ -1147,6 +1234,7 @@ app.controller('whyuaCtrl', function ($scope, $http) {
         evt.preventDefault();
         var formData = {
             "objectId": $scope.objectId,
+            "titletext": $("#titletext").val(),
             "text1": $("#text1").val(),
             "text2": $("#text2").val(),
             "text3": $("#text3").val(),

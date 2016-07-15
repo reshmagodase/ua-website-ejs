@@ -1005,6 +1005,24 @@ exports.getProductList = function (req, res) {
         });
     });
 }
+
+exports.insertProductData = function (req, res) {
+    var info = req.body;
+    info.createdDate = new Date().getTime().toString();
+    info.updatedDate = new Date().getTime().toString();
+
+    db.collection("products", function (err, collection) {
+        collection.insert(info, {safe: true}, function (err, result) {
+            if (err) {
+                res.send({'status': 'error', 'message': 'An error has occurred'});
+            }
+            else {
+                console.log(result);
+                res.send({'status': 'success', 'message': 'Data Added successfully'});
+            }
+        });
+    });
+}
 exports.updateProductData = function (req, res) {
     var info = req.body;
     var id = req.body.objectId;
@@ -1031,6 +1049,23 @@ exports.updateProductData = function (req, res) {
 
 exports.getContactData = function (req, res) {
     db.collection('contact', function (err, collection) {
+        console.log(req.body.objectId);
+        collection.findOne({'_id': new ObjectID(req.body.objectId)}, function (err, result) {
+            if (err) {
+                res.send({'status': 'error', 'message': 'An error has occurred'});
+            }
+            if (result == null) {
+                res.send({'status': 'error', 'message': 'Data Not Found'});
+            }
+            if (result !== null) {
+                res.send(result);
+            }
+        });
+    });
+}
+
+exports.getProductDetails = function (req, res) {
+    db.collection('products', function (err, collection) {
         console.log(req.body.objectId);
         collection.findOne({'_id': new ObjectID(req.body.objectId)}, function (err, result) {
             if (err) {

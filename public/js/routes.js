@@ -111,6 +111,7 @@ app.controller('whyuaController', function ($scope, $http) {
     $.post("/getProductList", {"collection": "whyua"}, function (data) {
         $scope.$apply(function () {
             //$scope.product_text = decodeURIComponent(data[0].product_text);
+            $("#titletext").html(data[0].titletext);
             $("#text1").html(data[0].text1);
             $("#text2").html(data[0].text2);
             $("#text3").html(data[0].text3);
@@ -193,6 +194,27 @@ app.controller('PartnersController', function ($scope, $http) {
             $scope.Partners = data;
         });
     });
+
+})
+app.controller('productsCtrl', function ($scope, $http) {
+
+    $scope.Products = [];
+    $.post("/getProductList", {"collection": "products"}, function (data) {
+
+        var html = '<div class="responsive-tabs">'
+
+        for (var i = 0; i < data.length; i++) {
+            html += '<h2>' + data[i].heading + '</h2><div class="container-fluid data"><div class="container">  <h3>' + data[i].heading + '</h3>'
+                + decodeURIComponent(data[i].product_text).replace(/(?:&nbsp;)/g, ' ') + '</div></div>'
+        }
+        html += '</div>';
+        $("#tag").html(html);
+
+        RESPONSIVEUI.responsiveTabs();
+
+
+    });
+
 
 })
 app.controller('BlogsController', function ($scope, $http) {
@@ -556,7 +578,7 @@ app.controller('fpsCtrl', function ($scope, $location, $http) {
     $.post("/getProductList", {"collection": "fps"}, function (data) {
         $scope.$apply(function () {
             //$scope.product_text = decodeURIComponent(data[0].product_text);
-            $("#fps").html(decodeURIComponent(data[0].product_text).replace(/(?:&nbsp;)/g,' '));
+            $("#fps").html(decodeURIComponent(data[0].product_text).replace(/(?:&nbsp;)/g, ' '));
         });
     });
 
@@ -565,7 +587,7 @@ app.controller('mtsCtrl', function ($scope, $location, $http) {
     $.post("/getProductList", {"collection": "mts"}, function (data) {
         $scope.$apply(function () {
             //$scope.product_text = decodeURIComponent(data[0].product_text);
-            $("#mts").html(decodeURIComponent(data[0].product_text).replace(/(?:&nbsp;)/g,' '));
+            $("#mts").html(decodeURIComponent(data[0].product_text).replace(/(?:&nbsp;)/g, ' '));
         });
     });
 
@@ -574,7 +596,7 @@ app.controller('pmsCtrl', function ($scope, $location, $http) {
     $.post("/getProductList", {"collection": "pms"}, function (data) {
         $scope.$apply(function () {
             //$scope.product_text = decodeURIComponent(data[0].product_text);
-            $("#pms").html(decodeURIComponent(data[0].product_text).replace(/(?:&nbsp;)/g,' '));
+            $("#pms").html(decodeURIComponent(data[0].product_text).replace(/(?:&nbsp;)/g, ' '));
         });
     });
 
@@ -583,7 +605,7 @@ app.controller('busCtrl', function ($scope, $location, $http) {
     $.post("/getProductList", {"collection": "bus"}, function (data) {
         $scope.$apply(function () {
             //$scope.product_text = decodeURIComponent(data[0].product_text);
-            $("#bus").html(decodeURIComponent(data[0].product_text).replace(/(?:&nbsp;)/g,' '));
+            $("#bus").html(decodeURIComponent(data[0].product_text).replace(/(?:&nbsp;)/g, ' '));
         });
     });
 
@@ -592,7 +614,7 @@ app.controller('besCtrl', function ($scope, $location, $http) {
     $.post("/getProductList", {"collection": "bes"}, function (data) {
         $scope.$apply(function () {
             //$scope.product_text = decodeURIComponent(data[0].product_text);
-            $("#bes").html(decodeURIComponent(data[0].product_text).replace(/(?:&nbsp;)/g,' '));
+            $("#bes").html(decodeURIComponent(data[0].product_text).replace(/(?:&nbsp;)/g, ' '));
         });
     });
 
@@ -607,7 +629,7 @@ app.controller('faqCtrl', function ($scope, $location, $http) {
     $.post("/getProductList", {"collection": "faq"}, function (data) {
         $scope.$apply(function () {
             //$scope.product_text = decodeURIComponent(data[0].product_text);
-            $("#faq").html(decodeURIComponent(data[0].product_text).replace(/(?:&nbsp;)/g,' '));
+            $("#faq").html(decodeURIComponent(data[0].product_text).replace(/(?:&nbsp;)/g, ' '));
         });
     });
 
@@ -625,7 +647,7 @@ app.controller('HomeCtrl', function ($scope, $location, $http) {
             $("#text1").html(data[0].text1);
             $("#text2").html(data[0].text2);
             $("#text3").html(data[0].text3);
-            $("#text4").html(decodeURIComponent(data[0].text4).replace(/(?:&nbsp;)/g,' '));
+            $("#text4").html(decodeURIComponent(data[0].text4).replace(/(?:&nbsp;)/g, ' '));
         });
     });
 });

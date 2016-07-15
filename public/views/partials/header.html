@@ -10,7 +10,15 @@
     <div class="collapse navbar-collapse" id="myNavbar">
         <ul class="nav navbar-nav navbar-right">
             <li><a href="/why-ua/">why ua?</a></li>
-            <li><a href="/our-products/">our products</a></li>
+
+            <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">products
+                    <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    <li><a href="/our-products/">our products</a></li>
+                    <li><a href="https://utilityaid.uaenergy.co.uk/" target="_blank">switching site</a></li>
+                </ul>
+            </li>
             <li><a href="/our-clients-say/">our clients say</a></li>
             <li><a href="/advisory-board/">advisory board</a></li>
             <li><a href="/faq/">FAQ's</a></li>
@@ -23,6 +31,25 @@
 
 </nav>
 <style>
+    .dropdown-menu{
+        background-color: #17252A;
+
+    }
+    @media (max-width: 767px){
+        .navbar-nav .open .dropdown-menu{
+            background-color: #17252A !important;
+
+        }
+        .navbar-nav .open .dropdown-menu>li>a {
+            color: white !important;
+        }
+    }
+    .dropdown-menu>li{
+    }
+    .dropdown-menu>li>a {
+        color: white;
+      font-size: 20.5px;
+    }
     .container-fluid, .container {
         padding: 70px 20px;
     }
@@ -35,7 +62,8 @@
         .navbar-brand img {
             height: 40px;
         }
-        .navbar.container-fluid{
+
+        .navbar.container-fluid {
             padding: 10px 20px 10px;
         }
     }
