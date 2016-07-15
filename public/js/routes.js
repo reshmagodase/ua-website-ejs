@@ -111,10 +111,10 @@ app.controller('whyuaController', function ($scope, $http) {
     $.post("/getProductList", {"collection": "whyua"}, function (data) {
         $scope.$apply(function () {
             //$scope.product_text = decodeURIComponent(data[0].product_text);
-            $("#titletext").html(data[0].titletext);
-            $("#text1").html(data[0].text1);
-            $("#text2").html(data[0].text2);
-            $("#text3").html(data[0].text3);
+            $("#titletext").html(data[0].titletext.replace(/\r\n|\r|\n/g,"<br />"));
+            $("#text1").html(data[0].text1.replace(/\r\n|\r|\n/g,"<br />"));
+            $("#text2").html(data[0].text2.replace(/\r\n|\r|\n/g,"<br />"));
+            $("#text3").html(data[0].text3.replace(/\r\n|\r|\n/g,"<br />"));
         });
     });
 
@@ -153,13 +153,13 @@ app.controller('advisoryboardController', function ($scope, $http) {
     $.post("/getProductList", {"collection": "advisory"}, function (data) {
         $scope.$apply(function () {
             //$scope.product_text = decodeURIComponent(data[0].product_text);
-            $("#titletext").html(data[0].titletext);
-            $("#person1").html(data[0].person1);
-            $("#person2").html(data[0].person2);
-            $("#person3").html(data[0].person3);
-            $("#person1_description").html(data[0].person1_description);
-            $("#person2_description").html(data[0].person2_description);
-            $("#person3_description").html(data[0].person3_description);
+            $("#titletext").html(data[0].titletext.replace(/\r\n|\r|\n/g,"<br />"));
+            $("#person1").html(data[0].person1.replace(/\r\n|\r|\n/g,"<br />"));
+            $("#person2").html(data[0].person2.replace(/\r\n|\r|\n/g,"<br />"));
+            $("#person3").html(data[0].person3.replace(/\r\n|\r|\n/g,"<br />"));
+            $("#person1_description").html(data[0].person1_description.replace(/\r\n|\r|\n/g,"<br />"));
+            $("#person2_description").html(data[0].person2_description.replace(/\r\n|\r|\n/g,"<br />"));
+            $("#person3_description").html(data[0].person3_description.replace(/\r\n|\r|\n/g,"<br />"));
 
         });
     });
