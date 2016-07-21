@@ -86,6 +86,12 @@ app.config(function ($routeProvider, $locationProvider) {
             templateUrl: 'views/thank-you.html',
             controller: 'DefaultController'
         })
+        .when('/engine/', {
+            templateUrl: 'views/engine.html'
+        })
+        .when('/switchingsite/', {
+            templateUrl: 'views/switchingsite.html'
+        })
         .otherwise({
             redirectTo: '/'
         });

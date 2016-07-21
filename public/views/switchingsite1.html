@@ -1,0 +1,35 @@
+<section>
+    <div class="container text-center" style="color:#17252A;min-height: 1000px">
+        <iframe src="https://genericcore.myutilitygenius.co.uk/?switchFormOption=6&referrerBranch=UA"
+                sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-top-navigation"
+                class="engine"
+                scrolling="no"
+                seamless
+                onload="window.parent.parent.scrollTo(0, 0)"  frameBorder="0" width="100%">
+        </iframe>
+    </div>
+</section>
+<script src="js/iframeResizer.min.js"></script>
+<script>
+    $(document).ready(function () {
+        ensureGenericCoreIframeHasTheLatestContent();
+        $('iframe').iFrameResize({
+            checkOrigin: false,
+            enablePublicMethods: true
+        });
+    });
+
+    function ensureGenericCoreIframeHasTheLatestContent() {
+        $("iframe").each(function (index, value) {
+            if (value.src) {
+                if (value.src.toUpperCase().indexOf("genericCore".toUpperCase()) > 0) {
+                    value.src = value.src
+                            + "&ensureContentWithDateOf="
+                            + new Date().getTime();
+                    return false;
+                }
+            }
+            return true;
+        });
+    }
+</script>
