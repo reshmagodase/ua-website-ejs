@@ -89,8 +89,8 @@ app.config(function ($routeProvider, $locationProvider) {
         .when('/engine/', {
             templateUrl: 'views/engine.html'
         })
-        .when('/switchingsite/', {
-            templateUrl: 'views/switchingsite.html'
+        .when('/energyswitching/', {
+            templateUrl: 'views/energyswitching.html'
         })
         .otherwise({
             redirectTo: '/'
