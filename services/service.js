@@ -930,7 +930,52 @@ exports.sendRequestMail = function (req, res) {
         });
     });
 }
+exports.sendQuestionMail = function (req, res) {
+    var htmlFormat = '<table cellspacing="2" cellpadding="2">';
+    if (req.body.name !=='' && req.body.name !==undefined) {
+        htmlFormat += '<tr><td><b>Name</b> </td><td>' + req.body.name + '</td></tr>'
+    }
+    if (req.body.email !=='' && req.body.email !==undefined) {
+        htmlFormat += '<tr><td><b>Email </b></td><td>' + req.body.email + '</td></tr>'
+    }
+    if (req.body.phone !=='' && req.body.phone !==undefined) {
+        htmlFormat += '<tr><td><b>Phone </b></td><td>' + req.body.phone + '</td></tr>'
+    }
+    if (req.body.questions !=='' && req.body.questions !==undefined) {
+        htmlFormat += '<tr><td><b>Comments/Questions</b></td><td>' + req.body.questions + '</td></tr>'
+    }
 
+    htmlFormat += '</table>'
+    var mailOptions = {
+        from: 'Utility Aid', // sender address
+        to: 'enquiries@utility-aid.co.uk,gary@viva-worldwide.com,mdaly@utility-aid.com,WCampbell@utility-aid.co.uk', // list of receivers
+        //to:'chetan@scriptlanes.com',
+        subject: 'Ask a Question', // Subject line
+        text: '', // plaintext body
+        html: htmlFormat
+    };
+    transporter.sendMail(mailOptions, function (error, info) {
+        if (error) {
+            return console.log(error);
+        }
+        console.log('Message sent: ' + info.response);
+
+    });
+    var info = req.body;
+    info.createdDate = new Date().getTime().toString();
+
+    db.collection('request', function (err, collection) {
+        collection.insert(info, {safe: true}, function (err, result) {
+            if (err) {
+                res.send({'status': 'error', 'message': 'An error has occurred'});
+            }
+            else {
+                console.log(result);
+                res.send({'status': 'success', 'message': 'Data Added successfully'});
+            }
+        });
+    });
+}
 
 exports.getCaseStudiesDetails = function (req, res) {
     db.collection('caseStudies', function (err, collection) {

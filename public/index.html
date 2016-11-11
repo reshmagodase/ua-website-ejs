@@ -185,7 +185,121 @@
     ga('send', 'pageview');
 </script>
 
+<a style="
+    cursor: pointer;
+padding:5px 15px;
+    position: fixed;
+    z-index: 999;
+    left: 30px;
+    bottom: 0px;
+background-color:#3697C2 ;
+    border: 3px solid black;color: white;border-bottom: none" data-toggle="modal" data-target="#myModal">Ask a
+    question</a>
 
 
+<!-- Modal -->
+<div class="modal fade ask" id="myModal" role="dialog" ng-controller="QuestionController">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content text-center" style="background-color: #F2F2F2">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h2 class="modal-title" style="color:#000000">Ask a Question</h2>
+            </div>
+            <div class="modal-body">
+                <div class="control-group" id="questionForm">
+                    <div class="controls ">
+                        <input class="form-control ng-pristine ng-valid" id="name" ng-model="name" name="name"
+                               placeholder="Name" type="text">
+                        <span id="nameID"></span>
+
+                    </div>
+                    <div class="controls ">
+                        <input class="form-control ng-pristine ng-valid" id="phone" ng-model="phone" name="phone"
+                               placeholder="Phone" type="text">
+                        <span id="phoneID"></span>
+                    </div>
+                    <div class="controls ">
+                        <input class="form-control ng-pristine ng-valid" id="email" ng-model="email" name="email"
+                               placeholder="Email" type="text">
+                        <span id="emailID"></span>
+                    </div>
+                    <div class="controls ">
+                                <textarea style="height: 150px" ng-model="questions" class="form-control" cols="25"
+                                          id="questions" name="questions"
+                                          placeholder="Comments/Questions" rows="10"></textarea>
+                        <span id="questionsID"></span>
+                    </div>
+                    <div class="control-group">
+                        <div class="controls">
+                            <button type="submit" class="btnFindOutMore" ng-click="submitQuestion();">Submit</button>
+                        </div>
+                    </div>
+                </div>
+                <div id="stage" class="form-all"><p style="text-align:center;"><img
+                        src="img/check-icon.png" alt="" width="128" height="128"></p>
+
+                    <div style="text-align:center;"><h1 style="text-align: center;">Thank You!</h1>
+
+                        <p style="text-align: center;">We've received your query! Our team will respond as soon as
+                            possible.</p></div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+<style>
+    @media (min-width: 768px) {
+        .ask .modal-dialog {
+            width: 500px;
+        }
+    }
+
+    .ask .modal-header {
+        padding: 0px;
+    }
+
+    #stage {
+        display: none;
+        color: black;
+    }
+
+    .ask .control-group {
+        padding: 0px 30px;
+    }
+
+    .ask .controls {
+        padding: 3px;
+    }
+
+    .ask input {
+        border-radius: 18px;
+    }
+
+    .ask .btnFindOutMore {
+        text-decoration: none;
+        color: #3496C1;
+        padding: 3px 10px;
+        border: 6px solid #3496C1;
+        border-radius: 20px;
+        font-size: 18px;
+    }
+
+    .ask .errorlist {
+        list-style: none;
+        margin: 0;
+        font-size: 16px;
+        text-align: left;
+        border-radius: 18px;
+        padding: 4px 0 0 15px;
+        margin-bottom: 20px;
+        height: 34px;
+        border: none;
+        background-color: #ffd6d6;
+        color: #ff0000;
+    }
+</style>
 </body>
 </html>

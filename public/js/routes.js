@@ -660,6 +660,89 @@ app.controller('HomeCtrl', function ($scope, $location, $http) {
     });
 });
 
+
+app.controller('QuestionController', function ($scope, $location, $http) {
+    $scope.submitQuestion = function () {
+        if (!$scope.validate()) {
+            return false;
+        }
+        else {
+
+            $scope.requestData = {};
+            $scope.requestData.name = $scope.name;
+            $scope.requestData.phone = $scope.phone;
+            $scope.requestData.email = $scope.email;
+            $scope.requestData.questions = $scope.questions;
+
+            $http({
+                url: "/sendQuestionMail",
+                method: "POST",
+                data: $scope.requestData,
+                dataType: "json",
+                contentType: "application/json; charset=utf-8"
+            })
+                .success(function (data, status) {
+
+                    $("#questionForm").css({"display":"none"});
+                    $("#stage").css({"display":"block"});
+                })
+
+                .error(function (data, status) {
+                })
+
+        }
+
+    }
+
+    $scope.makeEmptyValidators = function () {
+        $("#nameID").html("");
+        $("#emailID").html("");
+        $("#phoneID").html("");
+        $("#questionsID").html("");
+    }
+
+    $scope.validate = function () {
+        $scope.makeEmptyValidators();
+        var temp = false;
+        if ($scope.name == "" || $scope.name == undefined) {
+            $("#nameID").html("<ul class='errorlist'>This field is required.<li></li></ul>");
+            temp = true;
+        }
+        if ($scope.email == "" || $scope.email == undefined) {
+            $("#emailID").html("<ul class='errorlist'>This field is required.<li></li></ul>");
+            temp = true;
+        }
+        else if ($scope.email != "") {
+            if (!validateEmail($scope.email)) {
+                $("#emailID").html("<ul class='errorlist'>Please enter correct email id.<li></li></ul>");
+                temp = true;
+            }
+        }
+        if ($scope.phone == "" || $scope.phone == undefined) {
+            $("#phoneID").html("<ul class='errorlist'>This field is required.<li></li></ul>");
+            temp = true;
+        }
+        if ($scope.questions == "" || $scope.questions == undefined) {
+            $("#questionsID").html("<ul class='errorlist'>This field is required.<li></li></ul>");
+            temp = true;
+        }
+
+        function validateEmail(email) {
+            var re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+            return re.test(email);
+        }
+
+
+        if (temp == true) {
+            return false;
+
+        } else {
+            return true;
+
+        }
+    }
+})
+
 app.directive('emitLastRepeaterElement', function () {
     return function (scope) {
         if (scope.$last) {
