@@ -669,10 +669,10 @@ app.controller('QuestionController', function ($scope, $location, $http) {
         else {
 
             $scope.requestData = {};
-            $scope.requestData.name = $scope.name;
-            $scope.requestData.phone = $scope.phone;
-            $scope.requestData.email = $scope.email;
-            $scope.requestData.questions = $scope.questions;
+            $scope.requestData.name = $scope.askname;
+            $scope.requestData.phone = $scope.askphone;
+            $scope.requestData.email = $scope.askemail;
+            $scope.requestData.questions = $scope.askquestions;
 
             $http({
                 url: "/sendQuestionMail",
@@ -682,9 +682,8 @@ app.controller('QuestionController', function ($scope, $location, $http) {
                 contentType: "application/json; charset=utf-8"
             })
                 .success(function (data, status) {
-
-                    $("#questionForm").css({"display":"none"});
-                    $("#stage").css({"display":"block"});
+                    $("#questionForm").css({"display": "none"});
+                    $("#stage").css({"display": "block"});
                 })
 
                 .error(function (data, status) {
@@ -695,35 +694,35 @@ app.controller('QuestionController', function ($scope, $location, $http) {
     }
 
     $scope.makeEmptyValidators = function () {
-        $("#nameID").html("");
-        $("#emailID").html("");
-        $("#phoneID").html("");
-        $("#questionsID").html("");
+        $("#asknameID").html("");
+        $("#askemailID").html("");
+        $("#askphoneID").html("");
+        $("#askquestionsID").html("");
     }
 
     $scope.validate = function () {
         $scope.makeEmptyValidators();
         var temp = false;
-        if ($scope.name == "" || $scope.name == undefined) {
-            $("#nameID").html("<ul class='errorlist'>This field is required.<li></li></ul>");
+        if ($scope.askname == "" || $scope.askname == undefined) {
+            $("#asknameID").html("<ul class='errorlist'>This field is required.<li></li></ul>");
             temp = true;
         }
-        if ($scope.email == "" || $scope.email == undefined) {
-            $("#emailID").html("<ul class='errorlist'>This field is required.<li></li></ul>");
+        if ($scope.askemail == "" || $scope.askemail == undefined) {
+            $("#askemailID").html("<ul class='errorlist'>This field is required.<li></li></ul>");
             temp = true;
         }
-        else if ($scope.email != "") {
-            if (!validateEmail($scope.email)) {
-                $("#emailID").html("<ul class='errorlist'>Please enter correct email id.<li></li></ul>");
+        else if ($scope.askemail != "") {
+            if (!validateEmail($scope.askemail)) {
+                $("#askemailID").html("<ul class='errorlist'>Please enter correct email id.<li></li></ul>");
                 temp = true;
             }
         }
-        if ($scope.phone == "" || $scope.phone == undefined) {
-            $("#phoneID").html("<ul class='errorlist'>This field is required.<li></li></ul>");
+        if ($scope.askphone == "" || $scope.askphone == undefined) {
+            $("#askphoneID").html("<ul class='errorlist'>This field is required.<li></li></ul>");
             temp = true;
         }
-        if ($scope.questions == "" || $scope.questions == undefined) {
-            $("#questionsID").html("<ul class='errorlist'>This field is required.<li></li></ul>");
+        if ($scope.askquestions == "" || $scope.askquestions == undefined) {
+            $("#askquestionsID").html("<ul class='errorlist'>This field is required.<li></li></ul>");
             temp = true;
         }
 
