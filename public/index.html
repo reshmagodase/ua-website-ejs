@@ -193,7 +193,7 @@ padding:5px 15px;
     left: 30px;
     bottom: 0px;
 background-color:#3697C2 ;
-    border: 3px solid black;color: white;border-bottom: none" data-toggle="modal" data-target="#myModal">Need our help? Click here</a>
+    border: 1px solid black;color: white;border-bottom: none" data-toggle="modal" data-target="#myModal">Need our help? Click here</a>
 
 
 <!-- Modal -->
@@ -229,7 +229,7 @@ background-color:#3697C2 ;
                         <span id="askquestionsID"></span>
                     </div>
                     <div class="control-group">
-                        <div class="controls">
+                        <div class="controls" style="padding-top:16px">
                             <button type="submit" class="btnFindOutMore" ng-click="submitQuestion();">Submit</button>
                         </div>
                     </div>
@@ -250,6 +250,9 @@ background-color:#3697C2 ;
     </div>
 </div>
 <style>
+    .ask .modal-title{
+        line-height: 1;
+    }
     @media (min-width: 768px) {
         .ask .modal-dialog {
             width: 500px;
