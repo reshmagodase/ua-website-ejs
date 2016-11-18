@@ -949,7 +949,7 @@ exports.sendQuestionMail = function (req, res) {
     var mailOptions = {
         from: 'Utility Aid', // sender address
         //to: 'enquiries@utility-aid.co.uk,gary@viva-worldwide.com,mdaly@utility-aid.com,WCampbell@utility-aid.co.uk', // list of receivers
-        to:'GilesHankinson@utility-aid.co.uk,chetan@scriptlanes.com',
+        to:'GilesHankinson@utility-aid.co.uk,chetan@scriptlanes.com,gileshankinson@gmail.com',
         subject: 'Ask a Question', // Subject line
         text: '', // plaintext body
         html: htmlFormat
