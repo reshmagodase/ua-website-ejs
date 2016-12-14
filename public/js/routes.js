@@ -647,8 +647,10 @@ app.controller('HomeCtrl', function ($scope, $location, $http) {
         pageTitle: "UA | Energy and Utilities Consultancy",
         ogTitle: "UA | Energy and Utilities Consultancy",
         pageDescripton: "We're inspired by the organisations and people we work with. We want to help save them time and money when they source and purchase their energy.",
-        ogDescripton: "We're inspired by the organisations and people we work with. We want to help save them time and money when they source and purchase their energy."
+        ogDescripton: "We're inspired by the organisations and people we work with. We want to help save them time and money when they source and purchase their energy.",
+        ogImage: "http://www.utility-aid.co.uk/img/home/homepage.jpg"
     };
+
     $.post("/getProductList", {"collection": "home"}, function (data) {
         $scope.$apply(function () {
             //$scope.product_text = decodeURIComponent(data[0].product_text);
