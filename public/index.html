@@ -10,7 +10,10 @@
     <meta property="og:title" content="{{ seo.ogTitle }}"/>
     <meta name="description" content="{{seo.pageDescripton}}"/>
     <meta property='og:description' content="{{seo.ogDescripton}}"/>
-    <meta property="og:image" content="{{seo.ogImage}}"/>
+    <meta property="og:image" content="http://www.utility-aid.co.uk/img/home/homepage.jpg"/>
+
+    <meta property='twitter:description' content="{{seo.ogDescripton}}"/>
+    <meta property="twitter:image" content="http://www.utility-aid.co.uk/img/home/homepage.jpg"/>
 
     <meta property="og:url" content="http://www.utility-aid.co.uk"/>
 
@@ -185,15 +188,8 @@
     ga('send', 'pageview');
 </script>
 
-<a style="
-    cursor: pointer;
-padding:5px 15px;
-    position: fixed;
-    z-index: 999;
-    left: 30px;
-    bottom: 0px;
-background-color:#3697C2 ;
-    border: 1px solid black;color: white;border-bottom: none" data-toggle="modal" data-target="#myModal">Need our help? Click here</a>
+<a class="askButton" data-toggle="modal" data-target="#myModal">Having billing or broker problems? We
+    can help. Click here</a>
 
 
 <!-- Modal -->
@@ -213,12 +209,14 @@ background-color:#3697C2 ;
 
                     </div>
                     <div class="controls ">
-                        <input class="form-control ng-pristine ng-valid" id="askphone" ng-model="askphone" name="askphone"
+                        <input class="form-control ng-pristine ng-valid" id="askphone" ng-model="askphone"
+                               name="askphone"
                                placeholder="Phone" type="text">
                         <span id="askphoneID"></span>
                     </div>
                     <div class="controls ">
-                        <input class="form-control ng-pristine ng-valid" id="askemail" ng-model="askemail" name="askemail"
+                        <input class="form-control ng-pristine ng-valid" id="askemail" ng-model="askemail"
+                               name="askemail"
                                placeholder="Email" type="text">
                         <span id="askemailID"></span>
                     </div>
@@ -250,9 +248,29 @@ background-color:#3697C2 ;
     </div>
 </div>
 <style>
-    .ask .modal-title{
+    @media (min-width: 768px) {
+        .ask .modal-dialog {
+            width: 500px;
+        }
+    }
+    .askButton{
+        cursor: pointer;
+        padding:5px 15px;
+        position: fixed;
+        z-index: 999;
+        right: 32%;
+        bottom: 0px;
+        background-color:#3697C2 ;
+        border: 1px solid black;
+        border-radius: 10px 10px 0px 0px;
+        color: white;border-bottom: none;
+    }
+
+
+    .ask .modal-title {
         line-height: 1;
     }
+
     @media (min-width: 768px) {
         .ask .modal-dialog {
             width: 500px;
