@@ -1,0 +1,96 @@
+<header class="header">
+    <div class="text-vertical-center">
+        <h1 class="heading_text"><span class="fontBold">contact</span>
+        </h1>
+
+    </div>
+</header>
+<section class="contacts" style="background-color: #3697c2;">
+    <div class="container text-center">
+        <h2 style="font-size: 23.5px;color: #17252a">If you would like to discuss ways utiliy aid can help your
+            organisation save money, get in touch on </h2>
+
+        <h3 class="fontBold">0808 1788 170 </h3>
+
+        <div class="row">
+
+            <div class="col-md-4 col-sm-6 contact text-left" ng-repeat="data in items">
+                <div class="title">{{data.title}}</div>
+                <div class="location">{{data.location}}</div>
+                <div class="address">
+                    {{data.address}}
+                </div>
+                <div class="number">
+                    {{data.phone}}
+                </div>
+                <a href="mailto:{{data.mail}}">
+                    <div class="mail"></div>
+                </a>
+            </div>
+            <div class="col-md-4 col-sm-6 contact text-left">
+                <div class="title"> Social Media</div>
+                <div class="location"> &nbsp;</div>
+                <div class="address">
+                </div>
+                <div class="number">
+                    &nbsp;
+                </div>
+                <div class="social">
+                    <a href="https://www.facebook.com/ua.domoregood">
+                        <div class="fb"></div>
+                    </a>
+                    <a href="https://twitter.com/UA_Energy" class="tw">
+                        <div class="tw"></div>
+                    </a>
+                    <a href="https://www.linkedin.com/company/utility-aid-ltd" class="ln">
+                        <div class="ln"></div>
+                    </a>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section style="height: 50%" class="header">
+
+</section>
+<section style="background-color: #17252a">
+    <div class="container-fluid">
+        <div class="text-center">
+            <h2 class="heading_text_inner"><span class="fontBold">let's work together!</span>
+
+                <p style="font-size: 22px"><br>The money we save your organisation can be used to do more good!</p>
+            </h2>
+            <br>
+
+            <div style="display: table;margin: 0 auto" class="btnFindOutMore"><a href="/request/" class=" fontBold"
+                                                                                 style="color: #3697c2;"> Request
+                a <span
+                        style="color: white">FREE</span> energy consultation</a></div>
+
+        </div>
+    </div>
+</section>
+
+<style>
+
+    .header {
+        background: url('../img/contact/contact.jpg') no-repeat center 50% fixed;
+        display: table;
+        position: relative;
+        width: 100%;
+        height: 70%;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        background-size: cover;
+        -o-background-size: cover;
+    }
+
+    @media (max-width: 768px) {
+        .header {
+            background-attachment: scroll;
+        }
+    }
+
+
+</style>

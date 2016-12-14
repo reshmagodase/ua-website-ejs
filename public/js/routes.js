@@ -53,6 +53,10 @@ app.config(function ($routeProvider, $locationProvider) {
             templateUrl: 'views/contact.html',
             controller: 'contactController'
         })
+        .when('/contact-ask/', {
+            templateUrl: 'views/contact-ask.html',
+            controller: 'contactAskController'
+        })
         .when('/bribery-act-statement/', {
             templateUrl: 'views/bribery-act-statement.html',
             controller: 'DefaultController'
@@ -184,6 +188,21 @@ app.controller('contactController', function ($scope, $http) {
         });
     });
 
+
+})
+app.controller('contactAskController', function ($scope, $http) {
+    $(".askButton").click();
+    $scope.$parent.seo = {
+        pageTitle: "UA | Contact",
+        ogTitle: "UA | Contact",
+        pageDescripton: "We're inspired by the organisations and people we work with. We want to help save them time and money when they source and purchase their energy.",
+        ogDescripton: "We're inspired by the organisations and people we work with. We want to help save them time and money when they source and purchase their energy."
+    };
+    $.post("/getProductList", {"collection": "contact"}, function (data) {
+        $scope.$apply(function () {
+            $scope.items = data;
+        });
+    });
 
 })
 app.controller('CaseStudiesController', function ($scope, $http) {
