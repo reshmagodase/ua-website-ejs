@@ -19,7 +19,7 @@ var multer = require('multer');
 var app = express();
 var compression = require('compression');
 app.use(compression());
-app.use(require('prerender-node').set('prerenderToken', 'zTnhoVfplm0FeP4hgDr2'));
+app.use(require('prerender-node').set('prerenderToken', 'Y6QNmA7wunM1YvsiCktL'));
 
 
 // view engine setup
