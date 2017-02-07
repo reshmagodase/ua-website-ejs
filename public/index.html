@@ -195,87 +195,146 @@
 
 <!-- Modal -->
 <div class="modal fade ask" id="myModal" role="dialog" ng-controller="QuestionController">
-    <div class="modal-dialog modal-sm">
-        <div class="modal-content text-center" style="background-color: #F2F2F2">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h2 class="modal-title" style="color:#000000">How can we help?</h2>
-            </div>
-            <div class="modal-body">
-                <div class="control-group" id="questionForm">
-                    <div class="controls ">
-                        <input class="form-control ng-pristine ng-valid" id="askname" ng-model="askname" name="askname"
-                               placeholder="Name" type="text">
-                        <span id="asknameID"></span>
+    <div class="modal-dialog modal-lg">
 
+        <table class="modal-content askTable" style="background-color: #F2F2F2;margin: 0 auto">
+            <tr>
+                <td style="vertical-align: top; color: black;border-right: 1px solid #e5e5e5;font-size: 14.5px;padding: 10px">
+                    <h2 class="modal-title" style="color:#000000">We Offer:</h2>
+                    <ul class="ua">
+                        <li>The lowest rates on energy in the UK - guaranteed!</li>
+                        <li>Exclusive rates to charities and Not-For-Profit organisations</li>
+                        <li>Free Invoice Validation to customers signed up to our 'Simple' product</li>
+                        <li>Your own portal to view your consumption data and historical bills</li>
+                    </ul>
+                    <h2 class="modal-title" style="color:#000000">We are proud to be:</h2>
+                    <ul class="ua">
+                        <li>
+                            The only broker in the UK that deals with 27 suppliers most brokers only work with a handful
+                        </li>
+                        <li>
+                            The UK's only National Broker - having six offices
+
+                            across the country
+                        </li>
+                        <li>
+                            The only Broker in the UK with an Advisory Panel -
+
+                            free to help clients understand key issues
+                        </li>
+                        <li>
+                            We also have our own OJEU Procurement Framework
+                        </li>
+                    </ul>
+                </td>
+                <td style="min-width: 350px;padding: 10px" class="text-center">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h2 class="modal-title" style="color:#000000">How can <span
+                                style="color:#3697C2"> we help?</span></h2>
                     </div>
-                    <div class="controls ">
-                        <input class="form-control ng-pristine ng-valid" id="askphone" ng-model="askphone"
-                               name="askphone"
-                               placeholder="Phone" type="text">
-                        <span id="askphoneID"></span>
-                    </div>
-                    <div class="controls ">
-                        <input class="form-control ng-pristine ng-valid" id="askemail" ng-model="askemail"
-                               name="askemail"
-                               placeholder="Email" type="text">
-                        <span id="askemailID"></span>
-                    </div>
-                    <div class="controls ">
+                    <div class="modal-body">
+                        <div class="control-group" id="questionForm">
+                            <div class="controls ">
+                                <input class="form-control ng-pristine ng-valid" id="askname" ng-model="askname"
+                                       name="askname"
+                                       placeholder="Name" type="text">
+                                <span id="asknameID"></span>
+
+                            </div>
+                            <div class="controls ">
+                                <input class="form-control ng-pristine ng-valid" id="askphone" ng-model="askphone"
+                                       name="askphone"
+                                       placeholder="Phone" type="text">
+                                <span id="askphoneID"></span>
+                            </div>
+                            <div class="controls ">
+                                <input class="form-control ng-pristine ng-valid" id="askemail" ng-model="askemail"
+                                       name="askemail"
+                                       placeholder="Email" type="text">
+                                <span id="askemailID"></span>
+                            </div>
+                            <div class="controls ">
                                 <textarea style="height: 150px" ng-model="askquestions" class="form-control" cols="25"
                                           id="askquestions" name="askquestions"
                                           placeholder="Comments/Questions" rows="10"></textarea>
-                        <span id="askquestionsID"></span>
-                    </div>
-                    <div class="control-group">
-                        <div class="controls" style="padding-top:16px">
-                            <button type="submit" class="btnFindOutMore" ng-click="submitQuestion();">Submit</button>
+                                <span id="askquestionsID"></span>
+                            </div>
+                            <div class="control-group">
+                                <div class="controls" style="padding-top:16px">
+                                    <button type="submit" class="btnFindOutMore" ng-click="submitQuestion();">Submit
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="stage" class="form-all"><p style="text-align:center;"><img
+                                src="img/check-icon.png" alt="" width="128" height="128"></p>
+
+                            <div style="text-align:center;"><h1 style="text-align: center;">Thank You!</h1>
+
+                                <p style="text-align: center;">We've received your query! Our team will respond as soon
+                                    as
+                                    possible.</p></div>
                         </div>
                     </div>
-                </div>
-                <div id="stage" class="form-all"><p style="text-align:center;"><img
-                        src="img/check-icon.png" alt="" width="128" height="128"></p>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
 
-                    <div style="text-align:center;"><h1 style="text-align: center;">Thank You!</h1>
-
-                        <p style="text-align: center;">We've received your query! Our team will respond as soon as
-                            possible.</p></div>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            </div>
-        </div>
+                </td>
+            </tr>
+        </table>
     </div>
 </div>
+
+
 <style>
+    .modaltxt {
+        text-align: center;
+        font-weight: bold;
+        margin-top: 10%;
+        margin-bottom: 10%;
+    }
+
     @media (min-width: 768px) {
         .ask .modal-dialog {
-            width: 500px;
+            min-width: 500px;
+        }
+
+    }
+
+    .askTable td {
+        max-width: 300px;
+    }
+
+    @media (max-width: 800px) {
+        .askTable td {
+            float: left;
+            width: 100%;
+            max-width: 1000px;
         }
     }
-    .askButton{
+
+    .modal-dialog {
+        width: 90%;
+    }
+
+    .askButton {
         cursor: pointer;
-        padding:5px 15px;
+        padding: 5px 15px;
         position: fixed;
         z-index: 999;
         right: 32%;
         bottom: 0px;
-        background-color:#3697C2 ;
+        background-color: #3697C2;
         border: 1px solid black;
         border-radius: 10px 10px 0px 0px;
-        color: white;border-bottom: none;
+        color: white;
+        border-bottom: none;
     }
-
 
     .ask .modal-title {
         line-height: 1;
-    }
-
-    @media (min-width: 768px) {
-        .ask .modal-dialog {
-            width: 500px;
-        }
     }
 
     .ask .modal-header {
@@ -288,7 +347,7 @@
     }
 
     .ask .control-group {
-        padding: 0px 30px;
+        padding: 0px 10px;
     }
 
     .ask .controls {
@@ -321,6 +380,13 @@
         background-color: #ffd6d6;
         color: #ff0000;
     }
+
+    ul.ua {
+        text-align: justify;
+        list-style-image: url('ua.png');
+    }
+
+
 </style>
 </body>
 </html>
