@@ -199,7 +199,7 @@
 
         <table class="modal-content askTable" style="background-color: #F2F2F2;margin: 0 auto">
             <tr>
-                <td style="vertical-align: top; color: black;border-right: 1px solid #e5e5e5;font-size: 14.5px;padding: 10px">
+                <td style="vertical-align: top; color: black;border-right: 1px solid #e5e5e5;font-size: 14.5px;padding: 20px;">
                     <h2 class="modal-title" style="color:#000000">We Offer:</h2>
                     <ul class="ua">
                         <li>The lowest rates on energy in the UK - guaranteed!</li>
@@ -207,7 +207,7 @@
                         <li>Free Invoice Validation to customers signed up to our 'Simple' product</li>
                         <li>Your own portal to view your consumption data and historical bills</li>
                     </ul>
-                    <h2 class="modal-title" style="color:#000000">We are proud to be:</h2>
+                    <h2 class="modal-title" style="color:#000000"><br>We are proud to be:</h2>
                     <ul class="ua">
                         <li>
                             The only broker in the UK that deals with 27 suppliers - most brokers only work with a handful
@@ -227,7 +227,7 @@
                         </li>
                     </ul>
                 </td>
-                <td style="min-width: 350px;padding: 10px" class="text-center">
+                <td style="min-width: 350px;padding: 10px 0px" class="text-center">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
                         <h2 class="modal-title" style="color:#000000">How can <span
@@ -277,9 +277,9 @@
                                     possible.</p></div>
                         </div>
                     </div>
-                    <div class="modal-footer">
+                  <!--  <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    </div>
+                    </div>-->
 
                 </td>
             </tr>
@@ -304,7 +304,7 @@
     }
 
     .askTable td {
-        max-width: 300px;
+        max-width: 500px;
     }
 
     @media (max-width: 800px) {
@@ -382,8 +382,11 @@
     }
 
     ul.ua {
-        text-align: justify;
+        text-align: left;
         list-style-image: url('ua.png');
+    }
+    .ua li{
+        line-height: 2;
     }
 
 
