@@ -142,6 +142,35 @@
             border: 1px solid #3697C2;
         }
     </style>
+    <!-- Facebook Pixel Code -->
+    <script>
+        !function (f, b, e, v, n, t, s) {
+            if (f.fbq)return;
+            n = f.fbq = function () {
+                n.callMethod ?
+                        n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+            };
+            if (!f._fbq)f._fbq = n;
+            n.push = n;
+            n.loaded = !0;
+            n.version = '2.0';
+            n.queue = [];
+            t = b.createElement(e);
+            t.async = !0;
+            t.src = v;
+            s = b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t, s)
+        }(window, document, 'script',
+                'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '1882795675269590');
+        fbq('track', 'PageView');
+    </script>
+    <noscript>
+        <img height="1" width="1"
+             src="https://www.facebook.com/tr?id=1882795675269590&ev=PageView
+&noscript=1"/>
+    </noscript>
+    <!-- End Facebook Pixel Code -->
 </head>
 <body>
 
@@ -210,7 +239,8 @@
                     <h2 class="modal-title" style="color:#000000"><br>We are proud to be:</h2>
                     <ul class="ua">
                         <li>
-                            The only broker in the UK that deals with 27 suppliers - most brokers only work with a handful
+                            The only broker in the UK that deals with 27 suppliers - most brokers only work with a
+                            handful
                         </li>
                         <li>
                             The UK's only National Broker - having six offices
@@ -277,9 +307,9 @@
                                     possible.</p></div>
                         </div>
                     </div>
-                  <!--  <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    </div>-->
+                    <!--  <div class="modal-footer">
+                          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                      </div>-->
 
                 </td>
             </tr>
@@ -300,11 +330,18 @@
         .ask .modal-dialog {
             min-width: 500px;
         }
+    }
 
+    .ask .modal-dialog {
+        margin-top: 100px;
+    }
+
+    .ask .modal-header .close {
+        margin: 10px;
     }
 
     .askTable td {
-        max-width: 500px;
+        max-width: 550px;
     }
 
     @media (max-width: 800px) {
@@ -385,7 +422,8 @@
         text-align: left;
         list-style-image: url('ua.png');
     }
-    .ua li{
+
+    .ua li {
         line-height: 2;
     }
 
