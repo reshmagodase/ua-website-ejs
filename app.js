@@ -110,6 +110,7 @@ app.post('/getPartnerDetails', service.getPartnerDetails);
 
 app.post('/sendRequestMail', service.sendRequestMail);
 app.post('/sendQuestionMail', service.sendQuestionMail);
+app.post('/sendQuestionMailUAEnergy', service.sendQuestionMailUAEnergy);
 app.post('/getCaseStudiesDetails', service.getCaseStudiesDetails);
 app.post('/addCaseStudies', service.addCaseStudies);
 app.post('/editCaseStudies', service.editCaseStudies);
