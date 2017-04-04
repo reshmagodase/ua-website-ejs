@@ -17,6 +17,13 @@ var session = require('client-sessions');
 var multer = require('multer');
 
 var app = express();
+app.use(function (req, res, next) {
+    res.header("Access-Control-Allow-Origin", "https://uaenergy.co.uk/");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+});
+
+
 var compression = require('compression');
 app.use(compression());
 app.use(require('prerender-node').set('prerenderToken', 'mXrYIMEp0p6Hap3Wi2dE'));
