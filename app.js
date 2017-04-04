@@ -18,7 +18,7 @@ var multer = require('multer');
 
 var app = express();
 app.use(function (req, res, next) {
-    res.header("Access-Control-Allow-Origin", "https://uaenergy.co.uk/");
+    res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     next();
 });
