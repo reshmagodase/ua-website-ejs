@@ -12,11 +12,15 @@ var http = require('http');
 var https = require('https');
 var fs = require('fs');
 
-var options = {
-  key: fs.readFileSync('key.pem'),
-  cert: fs.readFileSync('cert.pem')
-};
+/*var options = {
+ key: fs.readFileSync('key.pem'),
+ cert: fs.readFileSync('cert.pem')
+ };*/
 
+var options = {
+  pfx: fs.readFileSync('./certificate_combined.pfx'),
+  passphrase: 'password'
+};
 
 /**
  * Get port from environment and store in Express.
