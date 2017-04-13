@@ -18,10 +18,21 @@ var multer = require('multer');
 
 var app = express();
 app.use(function (req, res, next) {
-    res.header("Access-Control-Allow-Origin", "https://uaenergy.co.uk");
-    res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-    next();
+    /*    res.header("Access-Control-Allow-Origin", "https://uaenergy.co.uk");*/
+    res.header("Access-Control-Allow-Origin", "*");
+    /*    res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');*/
+    res.header('Access-Control-Allow-Methods', 'POST, GET, PUT, DELETE, OPTIONS');
+    res.header("Access-Control-Allow-Headers", "content-type, accept");
+    res.header("Access-Control-Allow-Credentials", "true");
+    res.header("Access-Control-Allow-Headers", "Content-Type, X-Requested-With, X-PINGOTHER, X-File-Name, Cache-Control");
+    if ('OPTIONS' == req.method) {
+        res.writeHead('200');
+        res.end();
+    } else {
+        next();
+    }
+
+
 });
 
 
@@ -154,6 +165,23 @@ app.get('*', function (req, res) {
     res.sendfile('./public/index.html');
 });
 
+/*=====================================
+ * ua-energy API services starts here
+ * =====================================*/
+
+app.post('/uaenergyLogin', service.uaenergyLogin);
+app.post('/uaenergyUpdateData', service.uaenergyUpdateData);
+app.post('/uaenergyGetList', service.uaenergyGetList);
+app.post('/uaenergyInsertData', service.uaenergyInsertData);
+app.post('/uaenergyGetDetailsById', service.uaenergyGetDetailsById);
+app.post('/deleteDataByID', service.deleteDataByID);
+app.post('/uploadSupplierLogo', upMulter.array('file', 10), service.uploadSupplierLogo);
+app.post("/uploadNewsPhoto", upMulter.array('file', 10), service.uploadNewsPhoto);
+
+
+/*======================================
+ * ua-energy API services ends here
+ * =====================================*/
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
     var err = new Error('Not Found');

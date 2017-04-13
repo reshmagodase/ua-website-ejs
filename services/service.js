@@ -1170,3 +1170,205 @@ exports.getProductDetails = function (req, res) {
         });
     });
 }
+
+
+
+
+/*=================================================
+ * ua-energy API calls goes here
+ * =================================================*/
+
+/*login API service for ua-energy*/
+exports.uaenergyLogin = function (req, res) {
+
+    var uName = req.body.username;
+    var pwd = req.body.password;
+
+    console.log('Retrieving data: ' + uName);
+    db.collection('uaenergyAdmin', function (err, collection) {
+        collection.findOne({'userName': uName}, function (err, item) {
+            if (item === null) {
+                var msg = {'error': 'Invalid Username'}
+                var jm = JSON.stringify(msg);
+                res.send(jm);
+            }
+            else {
+                //console.log('else')
+                if (item.password == pwd) {
+
+
+                    //res.send(item);
+                    var data = item;
+                    req.session.user = data;
+                    delete data.password;
+                    data.status = 'success';
+                    res.send(data);
+                    //console.log(item);
+                }
+                else {
+                    var msg = {'error': 'Invalid Password'}
+                    var jm = JSON.stringify(msg);
+                    res.send(jm);
+                }
+            }
+        });
+    });
+};
+
+/*update data in the given collection*/
+exports.uaenergyUpdateData = function (req, res) {
+    var info = req.body;
+    var id = req.body.objectId;
+    console.log(id);
+    var collection = req.body.collection;
+    info.updatedDate = new Date().getTime().toString();
+
+    delete info.objectId;
+    db.collection(collection, function (err, collection) {
+        collection.update({'_id': new ObjectID(id)}, info, {safe: true}, function (err, result) {
+            if (err) {
+                res.send({'status': 'error', 'message': 'An error has occurred'});
+            }
+            else {
+                console.log(result);
+                res.send({'status': 'success', 'message': 'Data Updated successfully'});
+            }
+        });
+    });
+};
+
+/*get all data from given collection*/
+exports.uaenergyGetList = function (req, res) {
+    var collection = req.body.collection;
+    db.collection(collection, function (err, collection) {
+        collection.find({}).toArray(function (err, result) {
+            if (err) {
+                res.send({'status': 'error', 'message': 'An error has occurred'});
+            }
+            if (result == null) {
+                res.send({'status': 'error', 'message': 'Data Not Found'});
+            }
+            if (result !== null) {
+                console.log(result);
+                var data = result;
+                res.send(data);
+            }
+
+        });
+    });
+};
+
+/*insert data into the given collection*/
+exports.uaenergyInsertData = function (req, res) {
+
+    var info = req.body;
+    console.log(info);
+    info.createdDate = new Date().getTime().toString();
+    info.updatedDate = new Date().getTime().toString();
+    var collection = req.body.collection;
+    db.collection(collection, function (err, collection) {
+        collection.insert(info, {safe: true}, function (err, result) {
+            if (err) {
+                res.send({'status': 'error', 'message': 'An error has occurred'});
+            }
+            else {
+                console.log(result);
+                res.send(result);
+            }
+        });
+    });
+};
+
+/*get details of given specific id*/
+exports.uaenergyGetDetailsById = function (req, res) {
+    var id = req.body.objectId;
+    var collection = req.body.collection;
+    db.collection(collection, function (err, collection) {
+        collection.find({'_id': new ObjectID(id)}).toArray(function (err, result) {
+            if (err) {
+                res.send({'status': 'error', 'message': 'An error has occurred'});
+            }
+            if (result == null) {
+                res.send({'status': 'error', 'message': 'Data Not Found'});
+            }
+            if (result !== null) {
+                console.log(result);
+                var data = result[0];
+                res.send(data);
+            }
+
+        });
+    });
+};
+
+/*delete data by id*/
+exports.deleteDataByID = function (req, res) {
+    var id = req.body.objectId;
+    var collection = req.body.collection;
+    db.collection(collection, function (err, collection) {
+        collection.remove({'_id': new ObjectID(id)})(function (err) {
+            res.send((err === null) ? {msg: ''} : {msg: 'error: ' + err});
+
+        });
+    });
+}
+
+/*upload supplier logo*/
+exports.uploadSupplierLogo = function (req, res) {
+    var imageArray = [];
+    var array = [];
+    var arr = parseInt(req.files.length);
+    for (var j = 0; j < arr; j++) {
+        imageArray.push(req.files[j]);
+    }
+    for (var i = 0; i <= imageArray.length - 1; i++) {
+        var np = './public/uaenergy/supplierLogo/' + req.files[i].filename;
+        var directoryPath = 'uaenergy/supplierLogo/' + req.files[i].filename;
+        var tmp = './public/utilityAid/tmp/' + req.files[i].filename;
+        var imagePath = {};
+        fs.rename('./public/utilityAid/tmp/' + req.files[i].filename, np, function (success) {
+            console.log("File uploaded successfully");
+        });
+        imagePath = {
+            path: directoryPath,
+            createdDate: new Date().getTime().toString()
+        };
+        array.push(imagePath);
+        res.send(directoryPath);
+    }
+};
+
+/*upload news photo*/
+exports.uploadNewsPhoto = function (req, res) {
+    console.log("hghjgjh");
+
+    var imageArray = [];
+    var array = [];
+    var arr = parseInt(req.files.length);
+    for (var j = 0; j < arr; j++) {
+        imageArray.push(req.files[j]);
+    }
+    for (var i = 0; i <= imageArray.length - 1; i++) {
+        var np = './public/uaenergy/news/' + req.files[i].filename;
+        var directoryPath = 'uaenergy/news/' + req.files[i].filename;
+        var tmp = './public/utilityAid/tmp/' + req.files[i].filename;
+        var imagePath = {};
+        fs.rename('./public/utilityAid/tmp/' + req.files[i].filename, np, function (success) {
+            console.log("File uploaded successfully");
+        });
+        imagePath = {
+            path: directoryPath,
+            createdDate: new Date().getTime().toString()
+        };
+        array.push(imagePath);
+        //res.header('Access-Control-Allow-Origin', '*');
+        // res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
+        //res.header('Access-Control-Allow-Headers', 'Content-Type');
+        //res.code(200);
+        res.send(directoryPath);
+    }
+};
+
+/*=================================================
+ * ua-energy API calls ends here
+ * =================================================*/
