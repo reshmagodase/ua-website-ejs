@@ -21,6 +21,11 @@ app.config(function ($routeProvider, $locationProvider) {
             templateUrl: 'views/why-ua.html',
             controller: 'whyuaController'
         })
+
+        .when('/ua-blog/', {
+            templateUrl: 'views/ua-blog.html',
+            controller:'DefaultController'
+        })
         .when('/blog/', {
             templateUrl: 'views/why-ua.html',
             controller: 'whyuaController'
