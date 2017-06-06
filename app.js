@@ -149,6 +149,12 @@ app.post('/getProductDetails', service.getProductDetails);
 app.post('/updateProductData', service.updateProductData);
 app.post('/insertProductData', service.insertProductData);
 
+app.post('/getNewsList', service.getNewsList);
+app.post('/addNews', service.addNews);
+app.post('/editNews', service.editNews);
+app.post('/getNewsDetails', service.getNewsDetails);
+app.post("/uploadUANewsPhoto", upMulter.array('file', 10), service.uploadUANewsPhoto);
+
 
 app.post('/getContactData', service.getContactData);
 app.get('/admin/', function (req, res) {
@@ -164,6 +170,7 @@ app.get('/admin/*', requireLogin, function (req, res) {
 app.get('*', function (req, res) {
     res.sendfile('./public/index.html');
 });
+
 
 /*=====================================
  * ua-energy API services starts here

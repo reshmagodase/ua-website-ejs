@@ -1,116 +1,94 @@
-
-
-
-
 <style>
-    #myId {
-        display: none;
+
+
+    .content .form-group label {
+        font-weight: bold;
     }
 
-    #thumbwrap img {
-        border: 1px solid silver;
-        margin: 10px;
-        float: left;
+    .form-horizontal .control-label {
+        text-align: left;
     }
-
 </style>
 <div ng-include src="'viewsAdmin/partials/header.html'"></div>
 <div class="content">
 
 
-    <div class="inner"><h1>News &nbsp; <a href="/list-news-admin"
-                                             class="small gray">Cancel</a></h1></div>
+    <div class="inner"><h1>News &nbsp; <a href="/admin/newslist"
+                                          class="small gray">Cancel</a></h1></div>
 
 
     <div class="clearfix"></div>
+
     <div id="content-main">
-        <form enctype="multipart/form-data" action="" method="post" id="add_edit_translation_form"
-              class="form-horizontal">
-            <input type="hidden" id="createdDate" name="createdDate">
+        <form class="form-horizontal" method="post" role="form" action="#" name="addNewsForm">
             <input type="hidden" id="objectId" name="objectId">
-            <input type="hidden" id="image1" name="image1">
-            <div>
 
-                <div class="inner">
-                    <fieldset class="">
+            <div class="inner">
 
-                        <h2>Partner</h2>
+                <fieldset>
+                    <div class="form-group">
+                        <label class="control-label col-sm-2"></label>
 
-                        <div class="form-row">
-                            <div class="">
-                                <div class="form-group-checkbox">
-                                    <label class="checkbox">
-                                        <input id="active" name="active" type="checkbox">
-                                        <label class="vCheckboxLabel" for="active">Active</label>
-                                    </label>
-                                </div>
-                            </div>
+                        <div class="col-sm-10">
+                            <input id="active" name="active" type="checkbox"> Active
                         </div>
 
-                        <div class="form-row">
-                            <div class="field-box">
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-sm-2" for="heading">Date</label>
 
+                        <div class="col-sm-10">
+                            <input id="newsdate" maxlength="100" name="newsdate" type="date">
+                        </div>
+                    </div>
+                    <!--title-->
+                    <div class="form-group">
+                        <label class="control-label col-sm-2" for="heading">Heading text</label>
 
-                                <div class="form-group">
-                                    <label for="backImage1" class="">Logo</label>
+                        <div class="col-sm-10">
+                    <textarea class="form-control" rows="3" name="heading" id="heading"
+                              placeholder="Enter Heading Text"></textarea>
+                        </div>
+                    </div>
 
-                                    <div class="control-group">
-                                        <a id="uploadImage1"  role="button" class="btn btn-default"
-                                           data-toggle="modal"
-                                           title="Insert Image">Choose / Upload Image</a>
+                    <!--description-->
+                    <div class="form-group">
+                        <label class="control-label col-sm-2" for="description">Description</label>
 
-                                        <div id="backImage1"></div>
+                        <div class="col-sm-10">
+                    <textarea class="form-control" rows="3" name="description" id="description"
+                              placeholder="Enter description" style="height: 200px;"></textarea>
+                        </div>
+                    </div>
+
+                    <!--news image-->
+                    <div class="form-group">
+                        <label class="control-label col-sm-2">News Image</label>
+
+                        <div class="col-sm-10">
+
+                            <div class="row">
+                                <div class="col-lg-6 col-md-6">
+                                    <div class="dropzone" id="myDropzone">
+                                        <div class="dz-message needsclick">
+                                            Drop Image File here <br>
+                                            (width: 595px, height: 344 px)
+                                        </div>
                                     </div>
-
                                 </div>
-
-                            </div>
-                        </div>
-
-
-                        <div class="form-row">
-                            <div class="field-box field-partner_name ">
-
-
-                                <div class="form-group">
-                                    <label for="partner_name" class="">Partner Name</label>
-
-                                    <div class="control-group">
-
-                                        <input id="partner_name" maxlength="250" name="partner_name"
-                                               type="text" value="">
-
-
-                                    </div>
-
+                                <div class="col-lg-6 col-md-6">
+                                    <div id="newsImage"></div>
+                                    <input type="hidden" class="form-control" name="image" id="image"/>
                                 </div>
-
                             </div>
+
+
                         </div>
-                        <div class="form-row">
-                            <div class="field-box field-people_person_1_name ">
+                    </div>
 
+                    <hr>
 
-                                <div class="form-group">
-                                    <label for="link" class="">Website Address</label>
-
-                                    <div class="control-group">
-
-                                        <input id="link" maxlength="250" name="link"
-                                               type="text">
-
-
-                                    </div>
-
-                                </div>
-
-                            </div>
-                        </div>
-
-
-                    </fieldset>
-                </div>
-
+                </fieldset>
                 <div class="form-actions fixed_bottom">
                     <div class="row">
                         <div class="col-md-12">
@@ -119,17 +97,48 @@
                         </div>
                     </div>
                 </div>
-
-
             </div>
+
         </form>
     </div>
-
-
     <div class="clearfix" style="padding-bottom: 50px;"></div>
 </div>
 
 <script>
+    function getQueryStringValue(key) {
+        return unescape(window.location.search.replace(new RegExp("^(?:.*[&\\?]" + escape(key).replace(/[\.\+\*]/g, "\\$&") + "(?:\\=([^&]*))?)?.*$", "i"), "$1"));
+    }
+    var objId = getQueryStringValue("id");
+    var getCallback = function (response) {
+        $.each(response, function (i, item) {
+            if (i == "_id") {
+                $("#objectId").val(objId);
+            }
+            else if (i == "active") {
+                $('#active').prop('checked', item);
+            }
+            else if (i == "image") {
+                $("#newsImage").html("<img src='" + item + "' height=200px/>")
+                $("#image").val(item);
+            }
+            else {
+                $("#" + i).val(item);
+            }
+
+        });
+    };
+
+    if (objId) {
+        $.ajax({
+            url: "/getNewsDetails",
+            type: "POST",
+            data: '{"objectId":"' + objId + '"}',
+            dataType: "json",
+            contentType: "application/json; charset=utf-8",
+            success: getCallback
+        });
+    }
+
 
     var myDropzone = new Dropzone("div#myDropzone", {
 
@@ -140,7 +149,7 @@
         maxFileSize: 2, //MB
         dictDefaultMessage: "<h3>Click or Drop files here to upload</h3>",
         acceptedFiles: "image/jpeg,image/png,image/gif",
-        url: "/uploadNewsPhoto",
+        url: "/uploadUANewsPhoto",
         init: function () {
             this.hiddenFileInput.removeAttribute('multiple');
 
@@ -167,8 +176,8 @@
 
             this.on("success", function (file, responseText) {
                 console.log(responseText);
-                $("#newsImage").html("<img src='" + baseUrl +responseText+"' height=200px/>")
-                $("#image").val(baseUrl +responseText);
+                $("#newsImage").html("<img src='" + responseText + "' height=200px/>")
+                $("#image").val(responseText);
                 // Handle the responseText here. For example, add the text to the preview element:
 
                 //alert("User Image Uploaded Successfully");
@@ -179,4 +188,27 @@
         }
 
     });
+    $('form').submit(function (evt) {
+
+        evt.preventDefault();
+        var formDataAppend = "";
+        var formData = $(this).serialize();
+        console.log(formData);
+        var url;
+        if (objId == '') {
+            url = "/addNews";
+        } else {
+            url = "/editNews";
+        }
+        var getCallback = function (response) {
+            alert("Data added successfully!");
+            window.location = "/admin/newslist/";
+        };
+        $.ajax({
+            url: url,
+            type: "POST",
+            data: formData,
+            success: getCallback
+        });
+    });// form submit end
 </script>

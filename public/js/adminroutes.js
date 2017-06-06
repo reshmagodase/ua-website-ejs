@@ -40,6 +40,13 @@ app.config(function ($routeProvider, $locationProvider) {
             templateUrl: 'viewsAdmin/bloglist.html',
             controller: 'BlogListCtrl'
         })
+        .when('/admin/newslist/', {
+            templateUrl: 'viewsAdmin/newslist.html',
+            controller: 'NewsListCtrl'
+        })
+        .when('/admin/news/', {
+            templateUrl: 'viewsAdmin/news.html'
+        })
         .when('/admin/blog/', {
             templateUrl: 'viewsAdmin/blog.html',
             controller: 'BlogAddCtrl'
@@ -1007,6 +1014,56 @@ app.controller('AuthorListCtrl', function ($scope, $http) {
             }
             var td4 = "<td>" + IsPublished + "</td>"
             var td5 = "<td><a href='/admin/author?id=" + data[i]["_id"] + "'>Edit Content</a> </td></tr>"
+
+
+            $("#mytable").append(td1 + td2 + td3 + td4 + td5);
+
+        }
+        $("#mytable").append("</tbody>");
+
+    });
+
+
+});
+
+app.controller('NewsListCtrl', function ($scope, $http) {
+
+
+    function formatDate(date) {
+        var monthNames = [
+            "January", "February", "March",
+            "April", "May", "June", "July",
+            "August", "September", "October",
+            "November", "December"
+        ];
+        var day = date.getDate();
+        var monthIndex = date.getMonth();
+        var year = date.getFullYear();
+
+        return day + ' ' + monthNames[monthIndex] + ' ' + year;
+    }
+
+
+    $.post("/getNewsList", {}, function (data) {
+        var tbl = $("<table/>").attr("id", "mytable");
+        $("#div1").append(tbl);
+        $("#mytable").append("<tbody>");
+        for (var i = 0; i < data.length; i++) {
+            var img1 = data[i]["heading"];
+
+            var IsPublished;
+            if (data[i]["active"] == 'on') {
+                IsPublished = " <i class='glyphicon glyphicon-ok'></i>"
+
+            }
+            else {
+                IsPublished = " <i class='glyphicon glyphicon-remove'></i>"
+            }
+            var td1 = "<tr><td>" + IsPublished + "</td>"
+            var td2 = "<td>" + formatDate(new Date(data[i]["newsdate"])) + "</td>";
+            var td3 = "<td>" + data[i]["heading"] + "</td>"
+            var td4 = '<td><img src="' + data[i]["image"] + '" style="height:100px"/></td>'
+            var td5 = "<td><a href='/admin/news?id=" + data[i]["_id"] + "'>Edit Content</a> </td></tr>"
 
 
             $("#mytable").append(td1 + td2 + td3 + td4 + td5);

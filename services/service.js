@@ -235,7 +235,6 @@ exports.addBackgroundImages = function (req, res) {
         var thumbDir = 'utilityAid/backgroundImages/thumbnails/' + req.files[i].filename;
 
 
-
         var imagePath = {};
 
 
@@ -794,6 +793,78 @@ exports.getBlogDetails = function (req, res) {
         });
     });
 }
+
+
+exports.getNewsList = function (req, res) {
+    db.collection('uaNews', function (err, collection) {
+        collection.find(req.body).sort({'createdDate': 1}).toArray(function (err, result) {
+
+            if (err) {
+                res.send({'status': 'error', 'message': 'An error has occurred'});
+            }
+            if (result == null) {
+                res.send({'status': 'error', 'message': 'Data Not Found'});
+            }
+            if (result !== null) {
+                res.send(result);
+            }
+        });
+    });
+}
+exports.addNews = function (req, res) {
+    var info = req.body;
+    info.createdDate = new Date().getTime().toString();
+    info.updatedDate = new Date().getTime().toString();
+
+    db.collection('uaNews', function (err, collection) {
+        collection.insert(info, {safe: true}, function (err, result) {
+            if (err) {
+                res.send({'status': 'error', 'message': 'An error has occurred'});
+            }
+            else {
+                console.log(result);
+                res.send({'status': 'success', 'message': 'Data Added successfully'});
+            }
+        });
+    });
+}
+
+exports.editNews = function (req, res) {
+    var info = req.body;
+    var id = req.body.objectId;
+    info.updatedDate = new Date().getTime().toString();
+
+    delete info.objectId;
+    db.collection('uaNews', function (err, collection) {
+        collection.update({'_id': new ObjectID(id)}, info, {safe: true}, function (err, result) {
+            if (err) {
+                res.send({'status': 'error', 'message': 'An error has occurred'});
+            }
+            else {
+                console.log(result);
+                res.send({'status': 'success', 'message': 'Data Updated successfully'});
+            }
+        });
+    });
+}
+exports.getNewsDetails = function (req, res) {
+    db.collection('uaNews', function (err, collection) {
+        console.log(req.body.objectId);
+        collection.findOne({'_id': new ObjectID(req.body.objectId)}, function (err, result) {
+            if (err) {
+                res.send({'status': 'error', 'message': 'An error has occurred'});
+            }
+            if (result == null) {
+                res.send({'status': 'error', 'message': 'Data Not Found'});
+            }
+            if (result !== null) {
+                res.send(result);
+            }
+        });
+    });
+}
+
+
 exports.addAuthor = function (req, res) {
     var info = req.body;
     info.createdDate = new Date().getTime().toString();
@@ -867,37 +938,37 @@ exports.getAuthorList = function (req, res) {
 
 exports.sendRequestMail = function (req, res) {
     var htmlFormat = '<table cellspacing="2" cellpadding="2">';
-    if (req.body.title !=='' && req.body.title !==undefined) {
+    if (req.body.title !== '' && req.body.title !== undefined) {
         htmlFormat += '<tr><td><b>Title</b> </td><td>' + req.body.title + '</td></tr>'
     }
-    if (req.body.fullName !=='' && req.body.fullName !==undefined) {
+    if (req.body.fullName !== '' && req.body.fullName !== undefined) {
         htmlFormat += '<tr><td><b>Full Name </b></td><td>' + req.body.fullName + '</td></tr>'
     }
-    if (req.body.contact_number !=='' && req.body.contact_number !==undefined) {
+    if (req.body.contact_number !== '' && req.body.contact_number !== undefined) {
         htmlFormat += '<tr><td><b>Contact Number </b></td><td>' + req.body.contact_number + '</td></tr>'
     }
-    if (req.body.email !=='' && req.body.email !==undefined) {
+    if (req.body.email !== '' && req.body.email !== undefined) {
         htmlFormat += '<tr><td><b>Email </b></td><td>' + req.body.email + '</td></tr>'
     }
-    if (req.body.company_name !=='' && req.body.company_name !==undefined) {
+    if (req.body.company_name !== '' && req.body.company_name !== undefined) {
         htmlFormat += '<tr><td><b>Company Name</b></td><td>' + req.body.company_name + '</td></tr>'
     }
-    if (req.body.position !=='' && req.body.position !==undefined) {
+    if (req.body.position !== '' && req.body.position !== undefined) {
         htmlFormat += '<tr><td><b>Position</b></td><td>' + req.body.position + '</td></tr>'
     }
-    if (req.body.current_supplier !=='' && req.body.current_supplier !==undefined) {
+    if (req.body.current_supplier !== '' && req.body.current_supplier !== undefined) {
         htmlFormat += '<tr><td><b>Current Supplier</b></td><td>' + req.body.current_supplier + '</td></tr>'
     }
-    if (req.body.annual_energy_costs !=='' && req.body.annual_energy_costs !==undefined) {
+    if (req.body.annual_energy_costs !== '' && req.body.annual_energy_costs !== undefined) {
         htmlFormat += '<tr><td><b>Annual Energy Cost</b></td><td>' + req.body.annual_energy_costs + '</td></tr>'
     }
-    if (req.body.audit !=='' && req.body.audit !==undefined) {
+    if (req.body.audit !== '' && req.body.audit !== undefined) {
         htmlFormat += '<tr><td><b>Do you require a FREE energy audit?</b></td><td>' + req.body.audit + '</td></tr>'
     }
-    if (req.body.hearfrom !=='' && req.body.hearfrom !==undefined) {
+    if (req.body.hearfrom !== '' && req.body.hearfrom !== undefined) {
         htmlFormat += '<tr><td><b>How did you hear about us?</b></td><td>' + req.body.hearfrom + '</td></tr>'
     }
-    if (req.body.msg !=='' && req.body.msg !==undefined) {
+    if (req.body.msg !== '' && req.body.msg !== undefined) {
         htmlFormat += '<tr><td><b>Enquiry</b></td><td>' + req.body.msg + '</td></tr>'
     }
     htmlFormat += '</table>'
@@ -932,16 +1003,16 @@ exports.sendRequestMail = function (req, res) {
 }
 exports.sendQuestionMail = function (req, res) {
     var htmlFormat = '<table cellspacing="2" cellpadding="2">';
-    if (req.body.name !=='' && req.body.name !==undefined) {
+    if (req.body.name !== '' && req.body.name !== undefined) {
         htmlFormat += '<tr><td><b>Name</b> </td><td>' + req.body.name + '</td></tr>'
     }
-    if (req.body.email !=='' && req.body.email !==undefined) {
+    if (req.body.email !== '' && req.body.email !== undefined) {
         htmlFormat += '<tr><td><b>Email </b></td><td>' + req.body.email + '</td></tr>'
     }
-    if (req.body.phone !=='' && req.body.phone !==undefined) {
+    if (req.body.phone !== '' && req.body.phone !== undefined) {
         htmlFormat += '<tr><td><b>Phone </b></td><td>' + req.body.phone + '</td></tr>'
     }
-    if (req.body.questions !=='' && req.body.questions !==undefined) {
+    if (req.body.questions !== '' && req.body.questions !== undefined) {
         htmlFormat += '<tr><td><b>Comments/Questions</b></td><td>' + req.body.questions + '</td></tr>'
     }
 
@@ -949,7 +1020,7 @@ exports.sendQuestionMail = function (req, res) {
     var mailOptions = {
         from: 'Utility Aid', // sender address
         //to: 'enquiries@utility-aid.co.uk,gary@viva-worldwide.com,mdaly@utility-aid.com,WCampbell@utility-aid.co.uk', // list of receivers
-        to:'GilesHankinson@utility-aid.co.uk,chetan@scriptlanes.com,gileshankinson@gmail.com,mneville@utility-aid.co.uk',
+        to: 'GilesHankinson@utility-aid.co.uk,chetan@scriptlanes.com,gileshankinson@gmail.com,mneville@utility-aid.co.uk',
         subject: 'Ask a Question', // Subject line
         text: '', // plaintext body
         html: htmlFormat
@@ -978,16 +1049,16 @@ exports.sendQuestionMail = function (req, res) {
 }
 exports.sendQuestionMailUAEnergy = function (req, res) {
     var htmlFormat = '<table cellspacing="2" cellpadding="2">';
-    if (req.body.name !=='' && req.body.name !==undefined) {
+    if (req.body.name !== '' && req.body.name !== undefined) {
         htmlFormat += '<tr><td><b>Name</b> </td><td>' + req.body.name + '</td></tr>'
     }
-    if (req.body.email !=='' && req.body.email !==undefined) {
+    if (req.body.email !== '' && req.body.email !== undefined) {
         htmlFormat += '<tr><td><b>Email </b></td><td>' + req.body.email + '</td></tr>'
     }
-    if (req.body.phone !=='' && req.body.phone !==undefined) {
+    if (req.body.phone !== '' && req.body.phone !== undefined) {
         htmlFormat += '<tr><td><b>Phone </b></td><td>' + req.body.phone + '</td></tr>'
     }
-    if (req.body.questions !=='' && req.body.questions !==undefined) {
+    if (req.body.questions !== '' && req.body.questions !== undefined) {
         htmlFormat += '<tr><td><b>Comments/Questions</b></td><td>' + req.body.questions + '</td></tr>'
     }
 
@@ -995,7 +1066,7 @@ exports.sendQuestionMailUAEnergy = function (req, res) {
     var mailOptions = {
         from: 'UA Energy', // sender address
         //to: 'enquiries@utility-aid.co.uk,gary@viva-worldwide.com,mdaly@utility-aid.com,WCampbell@utility-aid.co.uk', // list of receivers
-        to:'GilesHankinson@utility-aid.co.uk,chetan@scriptlanes.com,gileshankinson@gmail.com,mneville@utility-aid.co.uk',
+        to: 'GilesHankinson@utility-aid.co.uk,chetan@scriptlanes.com,gileshankinson@gmail.com,mneville@utility-aid.co.uk',
         subject: 'Ask a Question', // Subject line
         text: '', // plaintext body
         html: htmlFormat
@@ -1135,8 +1206,6 @@ exports.updateProductData = function (req, res) {
 }
 
 
-
-
 exports.getContactData = function (req, res) {
     db.collection('contact', function (err, collection) {
         console.log(req.body.objectId);
@@ -1170,8 +1239,34 @@ exports.getProductDetails = function (req, res) {
         });
     });
 }
+exports.uploadUANewsPhoto = function (req, res) {
 
-
+    var imageArray = [];
+    var array = [];
+    var arr = parseInt(req.files.length);
+    for (var j = 0; j < arr; j++) {
+        imageArray.push(req.files[j]);
+    }
+    for (var i = 0; i <= imageArray.length - 1; i++) {
+        var np = './public/utilityAid/news/' + req.files[i].filename;
+        var directoryPath = 'utilityAid/news/' + req.files[i].filename;
+        var tmp = './public/utilityAid/tmp/' + req.files[i].filename;
+        var imagePath = {};
+        fs.rename('./public/utilityAid/tmp/' + req.files[i].filename, np, function (success) {
+            console.log("File uploaded successfully");
+        });
+        imagePath = {
+            path: directoryPath,
+            createdDate: new Date().getTime().toString()
+        };
+        array.push(imagePath);
+        //res.header('Access-Control-Allow-Origin', '*');
+        // res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
+        //res.header('Access-Control-Allow-Headers', 'Content-Type');
+        //res.code(200);
+        res.send(directoryPath);
+    }
+};
 
 
 /*=================================================
@@ -1340,7 +1435,6 @@ exports.uploadSupplierLogo = function (req, res) {
 
 /*upload news photo*/
 exports.uploadNewsPhoto = function (req, res) {
-    console.log("hghjgjh");
 
     var imageArray = [];
     var array = [];
