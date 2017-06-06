@@ -187,7 +187,8 @@
 
     });
     $('form').submit(function (evt) {
-
+        var objId = getQueryStringValue("id");
+        $("#objectId").val(objId);
         evt.preventDefault();
         var formDataAppend = "";
         var formData = $(this).serialize();
