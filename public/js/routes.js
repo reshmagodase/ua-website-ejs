@@ -54,6 +54,9 @@ app.config(function ($routeProvider, $locationProvider) {
             templateUrl: 'views/faq.html',
             controller: 'faqCtrl'
         })
+        .when('/news/', {
+            templateUrl: 'views/news.html'
+        })
         .when('/contact/', {
             templateUrl: 'views/contact.html',
             controller: 'contactController'
