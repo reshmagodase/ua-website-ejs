@@ -21,6 +21,7 @@
     at Object.<anonymous> (d:\Chetan\ua-website\bin\www:40:25)
     at Module._compile (module.js:409:26)
     at Object.Module._extensions..js (module.js:416:10)
+<<<<<<< HEAD
     at Module.load (module.js:343:32)
     at Function.Module._load (module.js:300:12)
 
@@ -35,3 +36,17 @@
     at d:\Chetan\ua-website\node_modules\mongodb\lib\cursor.js:839:22
     at handleCallback (d:\Chetan\ua-website\node_modules\mongodb\lib\utils.js:96:12)
     at d:\Chetan\ua-website\node_modules\mongodb\lib\cursor.js:665:20
+=======
+
+-------Error :------Mon Apr 10 2017 07:13:41 GMT-0400 (EDT)---Error: mac verify failure
+    at Error (native)
+    at Object.createSecureContext (_tls_common.js:174:17)
+    at Server (_tls_wrap.js:596:25)
+    at new Server (https.js:36:14)
+    at Object.exports.createServer (https.js:56:10)
+    at Object.<anonymous> (/home/ec2-user/ua-website/bin/www:40:25)
+    at Module._compile (module.js:460:26)
+    at Object.Module._extensions..js (module.js:478:10)
+    at Module.load (module.js:355:32)
+    at Function.Module._load (module.js:310:12)
+>>>>>>> ca686aabcadd47a2cff621139122da8ba4857486
