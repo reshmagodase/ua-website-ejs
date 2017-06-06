@@ -109,12 +109,10 @@
         return unescape(window.location.search.replace(new RegExp("^(?:.*[&\\?]" + escape(key).replace(/[\.\+\*]/g, "\\$&") + "(?:\\=([^&]*))?)?.*$", "i"), "$1"));
     }
     var objId = getQueryStringValue("id");
+    $("#objectId").val(objId);
     var getCallback = function (response) {
         $.each(response, function (i, item) {
-            if (i == "_id") {
-                $("#objectId").val(objId);
-            }
-            else if (i == "active") {
+            if (i == "active") {
                 $('#active').prop('checked', item);
             }
             else if (i == "image") {
