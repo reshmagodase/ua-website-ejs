@@ -24,7 +24,7 @@ app.config(function ($routeProvider, $locationProvider) {
 
         .when('/ua-blog/', {
             templateUrl: 'views/ua-blog.html',
-            controller:'DefaultController'
+            controller: 'DefaultController'
         })
         .when('/blog/', {
             templateUrl: 'views/why-ua.html',
@@ -55,8 +55,11 @@ app.config(function ($routeProvider, $locationProvider) {
             controller: 'faqCtrl'
         })
         .when('/news/', {
-            templateUrl: 'views/news.html'
+            templateUrl: 'views/news.html',
+            controller: 'newsCtrl'
         })
+
+
         .when('/contact/', {
             templateUrl: 'views/contact.html',
             controller: 'contactController'
@@ -86,6 +89,11 @@ app.config(function ($routeProvider, $locationProvider) {
             templateUrl: 'views/blog/articles.html',
             controller: 'BlogDetailsController'
         })
+        .when('/news-blogs/:group*', {
+            templateUrl: 'views/news-blogs/news-blogs.html',
+            controller: 'NewsDetailsController'
+        })
+
         .when('/request/', {
             templateUrl: 'views/request.html',
             controller: 'RequestController'
@@ -510,6 +518,74 @@ app.controller('BlogDetailsController', function ($scope, $location, $localStora
     });
 
 })
+app.controller('newsCtrl', function ($scope, $location, $localStorage, $http) {
+    $scope.$parent.seo = {
+        pageTitle: 'UA | News',
+        pageDescripton: "We're inspired by the organisations and people we work with. We want to help save them time and money when they source and purchase their energy.",
+        ogTitle: 'UA | News',
+        ogDescripton: "We're inspired by the organisations and people we work with. We want to help save them time and money when they source and purchase their energy."
+    };
+});
+app.controller('NewsDetailsController', function ($scope, $location, $localStorage, $http) {
+    $scope.$parent.seo = {
+        pageTitle: 'UA | News',
+        pageDescripton: "We're inspired by the organisations and people we work with. We want to help save them time and money when they source and purchase their energy.",
+        ogTitle: 'UA | News',
+        ogDescripton: "We're inspired by the organisations and people we work with. We want to help save them time and money when they source and purchase their energy."
+    };
+    $scope.formatDate = function (date) {
+        var dateString = date;
+        var reggie = /(\d{4})-(\d{2})-(\d{2}) (\d{2}):(\d{2}):(\d{2})/;
+        var dateArray = reggie.exec(dateString);
+        var dateObject = new Date(
+            (+dateArray[1]),
+            (+dateArray[2]) - 1, // Careful, month starts at 0!
+            (+dateArray[3]),
+            (+dateArray[4]),
+            (+dateArray[5]),
+            (+dateArray[6])
+        );
+
+        return dateObject;
+    };
+
+    var url = window.location.toString();
+    var parts = url.split("/");
+    var slug = "";
+    if (parts[parts.length - 1] = "") {
+        slug = parts[parts.length - 1];
+    } else {
+        slug = parts[parts.length - 2]
+    }
+
+    function formatDate(date) {
+        var monthNames = [
+            "January", "February", "March",
+            "April", "May", "June", "July",
+            "August", "September", "October",
+            "November", "December"
+        ];
+        var day = date.getDate();
+        var monthIndex = date.getMonth();
+        var year = date.getFullYear();
+
+        return day + ' ' + monthNames[monthIndex] + ' ' + year;
+    }
+
+
+    $.post("/getNewsDetails", {"objectId": slug}, function (data) {
+        $scope.$apply(function () {
+            $scope.image = data.image;
+            $scope.heading = data.heading;
+            $("#description1").html(data.description.replace(/\r?\n/g, '<br/>'));
+            $scope.newsdate = formatDate(new Date(data.newsdate));
+        });
+    });
+
+
+})
+
+
 app.controller('RequestController', function ($scope, $location, $http) {
     $scope.$parent.seo = {
         pageTitle: 'UA | Request your free energy consultation',

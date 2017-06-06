@@ -1,0 +1,47 @@
+<header class="header">
+    <div class="text-vertical-center">
+        <h1 class="heading_text"><span class="fontBold">news</span>
+        </h1>
+    </div>
+</header>
+<section>
+    <div class="container " style="padding-top: 30px;">
+        <div class="row">
+            <div class="col-md-4"><img src="{{image}}"
+                                       style="border: 3px solid #3697c2;    width: 300px;"></div>
+            <div class="col-md-8">
+                <div class="news-title heading1" style="color: #3697c2;font-weight: bold">{{heading}}
+                </div>
+                <p class="pull-right news-date" style="color: #1D282F">{{newsdate}}</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <p id="description1" style="color:black;padding: 20px 0px" >
+                </p>
+            </div>
+        </div>
+
+
+    </div>
+</section>
+<style>
+    .header {
+        background: url('../../img/blog/news.jpg') no-repeat 25% fixed;
+        background-position-y: 40%;
+        display: table;
+        position: relative;
+        width: 100%;
+        height: 70%;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        background-size: cover;
+        -o-background-size: cover;
+    }
+
+    @media (max-width: 768px) {
+        .header {
+            background-attachment: scroll;
+        }
+    }
+</style>
