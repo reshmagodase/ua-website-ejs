@@ -797,7 +797,7 @@ exports.getBlogDetails = function (req, res) {
 
 exports.getNewsList = function (req, res) {
     db.collection('uaNews', function (err, collection) {
-        collection.find(req.body).sort({'createdDate': 1}).toArray(function (err, result) {
+        collection.find(req.body).sort({'newsdate': -1}).toArray(function (err, result) {
 
             if (err) {
                 res.send({'status': 'error', 'message': 'An error has occurred'});
@@ -806,6 +806,7 @@ exports.getNewsList = function (req, res) {
                 res.send({'status': 'error', 'message': 'Data Not Found'});
             }
             if (result !== null) {
+                console.log(result);
                 res.send(result);
             }
         });
