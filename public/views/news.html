@@ -41,6 +41,10 @@
 
 
 <style>
+    .ua-news-wrapper span{
+        font-size: 17px;
+        font-weight: bold;
+    }
     .modal-content {
         max-width: 600px;
         margin: 0 auto;
@@ -164,7 +168,7 @@
                             '<div class="col-lg-7 col-md-7"> <div class="ua-news"> ' +
                             '<a class="ua-expand-link" href="/news-blogs/' + id + '/'+ response[i].newsdate +'" style="text-decoration:none"><h3 class="news-title heading' + i + '">' + response[i].heading + '</h3></a> ' +
                             '<a class="ua-expand-link" href="/news-blogs/' + id + '/'+ response[i].newsdate +'"><p class="news-content description' + i + '">' + response[i].description + ' </p></a> <br> ' +
-                            '</div> <a class="ua-expand-link" href="/news-blogs/' + id + '/'+ response[i].newsdate +'">Expand &gt; </a> </div> ' +
+                            '</div> <div style="width:100%"><a class="ua-expand-link" href="/news-blogs/' + id + '/'+ response[i].newsdate +'">Expand &gt; </a> <span class="pull-right">'+ formatDate(new Date(response[i].newsdate)) +'</span> </div> </div>' +
                             '</div>'
 
                 }
