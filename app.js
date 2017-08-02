@@ -38,7 +38,7 @@ app.use(function (req, res, next) {
 
 var compression = require('compression');
 app.use(compression());
-app.use(require('prerender-node').set('prerenderToken', 'mXrYIMEp0p6Hap3Wi2dE'));
+app.use(require('prerender-node').set('prerenderToken', 'y6923KybwxhQZCCm3ydY'));
 
 
 // view engine setup
