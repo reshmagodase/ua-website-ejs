@@ -571,9 +571,10 @@ app.controller('NewsDetailsController', function ($scope, $location, $localStora
 
 
     $.post("/getNewsDetails", {"objectId": slug}, function (data) {
+        var desc=data.description.toString().substring(0,150);
         $scope.$parent.seo = {
             ogTitle: 'UA | ' +  data.heading,
-            ogDescripton: data.description,
+            ogDescripton: desc,
             ogImage:"http://www.utility-aid.co.uk" + data.image
         };
         $scope.$apply(function () {
