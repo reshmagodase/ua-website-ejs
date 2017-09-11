@@ -474,11 +474,13 @@ app.controller('BlogDetailsController', function ($scope, $location, $localStora
             $("#editor1").find('*').removeAttr("style");
 
 
+
+
             $("#sharer").html('<a class="facebook" href="#"></a> <a class="tweet" href="#" title="' + data[0].title + ' @UA_Energy"></a>');
             var loc = window.location.href;
-            var title = data[0].meta_data_meta_title;
+            var title ='UA | ' + data[0].title;
             var summary = data[0].meta_data_meta_description;
-            var thumbImage = "http://www.utility-aid.co.uk/" + data[0].thumbImage;
+            var thumbImage = "http://www.utility-aid.co.uk/" + data[0].image1;
             $('a.facebook').click(function (e) {
                 e.preventDefault();
                 FB.ui(
@@ -572,7 +574,7 @@ app.controller('NewsDetailsController', function ($scope, $location, $localStora
         $scope.$parent.seo = {
             ogTitle: 'UA | ' +  data.heading,
             ogDescripton: data.description,
-            ogImage:data.image
+            ogImage:"http://www.utility-aid.co.uk" + data.image
         };
         $scope.$apply(function () {
             $scope.image = data.image;
