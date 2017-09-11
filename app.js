@@ -38,8 +38,8 @@ app.use(function (req, res, next) {
 
 var compression = require('compression');
 app.use(compression());
-// app.use(require('prerender-node').set('prerenderToken', 'y6923KybwxhQZCCm3ydY'));
-app.use(require('prerender-node'));
+app.use(require('prerender-node').set('prerenderToken', 'e0JuidllFGOBZKApP33v'));
+// app.use(require('prerender-node'));
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
