@@ -6,16 +6,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale = 1.0">
     <base href="/">
-    <title ng-bind="seo.pageTitle"></title>
+    <title ng-bind="seo.ogTitle"></title>
     <meta property="og:title" content="{{ seo.ogTitle }}"/>
-    <meta name="description" content="{{seo.pageDescripton}}"/>
+    <meta name="description" content="{{seo.ogDescripton}}"/>
     <meta property='og:description' content="{{seo.ogDescripton}}"/>
     <!--<meta property="og:image" content="{{seo.ogImage}}"/>-->
-    <meta property="og:image" content="http://www.utility-aid.co.uk/logoUA.png">
+    <meta property="og:image" content="{{seo.ogImage}}">
 
     <meta property='twitter:description' content="{{seo.ogDescripton}}"/>
     <!--<meta property="twitter:image" content="{{seo.ogImage}}"/>-->
-    <meta property="twitter:image" content="http://www.utility-aid.co.uk/logoUA.png">
+    <meta property="twitter:image" content="{{seo.ogImage}}">
     <meta property="og:url" content="http://www.utility-aid.co.uk"/>
 
     <meta name="keywords"
