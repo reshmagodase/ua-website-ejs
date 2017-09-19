@@ -188,9 +188,11 @@ app.controller('advisoryboardController', function ($scope, $http) {
             $("#person1").html(data[0].person1.replace(/\r\n|\r|\n/g, "<br />"));
             $("#person2").html(data[0].person2.replace(/\r\n|\r|\n/g, "<br />"));
             $("#person3").html(data[0].person3.replace(/\r\n|\r|\n/g, "<br />"));
+            $("#person4").html(data[0].person4.replace(/\r\n|\r|\n/g, "<br />"));
             $("#person1_description").html(data[0].person1_description.replace(/\r\n|\r|\n/g, "<br />"));
             $("#person2_description").html(data[0].person2_description.replace(/\r\n|\r|\n/g, "<br />"));
             $("#person3_description").html(data[0].person3_description.replace(/\r\n|\r|\n/g, "<br />"));
+            $("#person4_description").html(data[0].person4_description.replace(/\r\n|\r|\n/g, "<br />"));
 
         });
     });

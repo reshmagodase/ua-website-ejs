@@ -1364,9 +1364,11 @@ app.controller('ABCtrl', function ($scope, $http) {
             $("#person1").val(data[0].person1);
             $("#person2").val(data[0].person2);
             $("#person3").val(data[0].person3);
+            $("#person4").val(data[0].person4);
             $("#person1_description").val(data[0].person1_description);
             $("#person2_description").val(data[0].person2_description);
             $("#person3_description").val(data[0].person3_description);
+            $("#person4_description").val(data[0].person4_description);
 
         });
     });
