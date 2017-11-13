@@ -66,6 +66,12 @@ footer .inner-form {
     max-width: 300px;
 }
 
+@media (max-width: 1000px) {
+    footer .inner-form {
+        margin-bottom: 70px;
+    }
+}
+
 footer .inner-form h4 {
     font-size: 15px;
 }
@@ -282,12 +288,16 @@ a.btnFindOutMore {
 .savemoney h2 {
     font-size: 23.5px;
 }
-.ourclients p{
-    font-size: 30px;color: #17252b;
+
+.ourclients p {
+    font-size: 30px;
+    color: #17252b;
 }
-.advisory h2{
+
+.advisory h2 {
     font-size: 23.5px;
 }
+
 .advisory {
     line-height: 1.5
 }
@@ -311,9 +321,11 @@ a.btnFindOutMore {
     margin-top: 20px;
 
 }
-.contacts h3{
+
+.contacts h3 {
     font-size: 60px;
 }
+
 .contacts .row {
     line-height: 1.2;
 }
@@ -385,8 +397,6 @@ a.btnFindOutMore {
     height: 50px
 }
 
-
-
 @media (max-width: 768px) {
     .heading_text {
         font-size: 45px;
@@ -403,28 +413,35 @@ a.btnFindOutMore {
     .burner p {
         font-size: 19.5px;
     }
+
     .savemoney h2 {
         font-size: 20px;
     }
-    .savemoney h3{
+
+    .savemoney h3 {
         font-size: 25px;
     }
-    .savemoney p{
-       font-size:  19.5px
+
+    .savemoney p {
+        font-size: 19.5px
     }
-    .blogs h2{
+
+    .blogs h2 {
         line-height: 1.2;
     }
 
-    .ourclients p{
+    .ourclients p {
         font-size: 26px;
     }
-    .advisory h2,.advisory h3,.advisory p{
+
+    .advisory h2, .advisory h3, .advisory p {
         font-size: 19.5px;
     }
-    .contacts h3{
+
+    .contacts h3 {
         font-size: 40px;
     }
+
     .contact .title {
         font-size: 26.5px;
     }
