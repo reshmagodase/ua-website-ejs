@@ -372,27 +372,34 @@ a.btnFindOutMore {
 
 }
 
-.social .fb, .social .tw, .social .ln {
+.social .fb, .social .tw, .social .ln, .social .in {
     float: left;
 }
 
 .social .ln {
-    background: url('../img/social.png');
-    background-position: 68px 0px;
-    width: 68px;
+    background: url('../img/socialicon.png');
+    background-position: 130px 0px;
+    width: 55px;
     height: 50px
 }
 
 .social .tw {
-    background: url('../img/social.png');
-    background-position: 130px 0px;
-    width: 60px;
+    background: url('../img/socialicon.png');
+    background-position: 210px 0px;
+    width: 68px;
     height: 50px
 }
 
 .social .fb {
-    background: url('../img/social.png');
-    background-position: 206px 0px;
+    background: url('../img/socialicon.png');
+    background-position: 0px 0px;
+    width: 68px;
+    height: 50px
+}
+
+.social .in {
+    background: url('../img/socialicon.png');
+    background-position: 67px 0px;
     width: 68px;
     height: 50px
 }
