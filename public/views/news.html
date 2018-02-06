@@ -1,6 +1,6 @@
 <header class="header">
     <div class="text-vertical-center">
-        <h1 class="heading_text"><span class="fontBold">news</span>
+        <h1 class="heading_text"><span class="fontBold">media</span>
         </h1>
     </div>
 </header>
@@ -51,8 +51,7 @@
     }
 
     .header {
-        background: url('../img/advisoryboard/advisoryboard.jpg') no-repeat 25% fixed;
-        background-position-y: 40%;
+        background: url('../media/media.jpg') no-repeat center 70% fixed;
         display: table;
         position: relative;
         width: 100%;
@@ -164,11 +163,11 @@
                     var id = response[i]._id;
                     var date = response[i].newsdate;
                     htmlText += '<div class="row ua-energy-row"><div style="display: none" class="newsdate' + i + '">' + formatDate(new Date(response[i].newsdate)) + '</div> ' +
-                            '<div class="col-lg-5 col-md-5"> <div class="ua-news-right-background"> <a class="ua-expand-link" href="/news-blogs/' + id + '/'+ response[i].newsdate +'"><img class="image' + i + '" src="' + response[i].image + '" alt="news"/> </a></div>  </div>' +
+                            '<div class="col-lg-5 col-md-5"> <div class="ua-news-right-background"> <a class="ua-expand-link" href="/news-media/' + id + '/'+ response[i].newsdate +'"><img class="image' + i + '" src="' + response[i].image + '" alt="news"/> </a></div>  </div>' +
                             '<div class="col-lg-7 col-md-7"> <div class="ua-news"> ' +
-                            '<a class="ua-expand-link" href="/news-blogs/' + id + '/'+ response[i].newsdate +'" style="text-decoration:none"><h3 class="news-title heading' + i + '">' + response[i].heading + '</h3></a> ' +
-                            '<a class="ua-expand-link" href="/news-blogs/' + id + '/'+ response[i].newsdate +'"><p class="news-content description' + i + '">' + response[i].description + ' </p></a> <br> ' +
-                            '</div> <div style="width:100%"><a class="ua-expand-link" href="/news-blogs/' + id + '/'+ response[i].newsdate +'">Expand &gt; </a> <span class="pull-right">'+ formatDate(new Date(response[i].newsdate)) +'</span> </div> </div>' +
+                            '<a class="ua-expand-link" href="/news-media/' + id + '/'+ response[i].newsdate +'" style="text-decoration:none"><h3 class="news-title heading' + i + '">' + response[i].heading + '</h3></a> ' +
+                            '<a class="ua-expand-link" href="/news-media/' + id + '/'+ response[i].newsdate +'"><p class="news-content description' + i + '">' + response[i].description + ' </p></a> <br> ' +
+                            '</div> <div style="width:100%"><a class="ua-expand-link" href="/news-media/' + id + '/'+ response[i].newsdate +'">Expand &gt; </a> <span class="pull-right">'+ formatDate(new Date(response[i].newsdate)) +'</span> </div> </div>' +
                             '</div>'
 
                 }

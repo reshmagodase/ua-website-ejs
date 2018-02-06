@@ -20,23 +20,42 @@
                 </ul>
             </li>
             <li><a href="/our-clients-say/">our clients say</a></li>
+            <li><a href="/case-studies/">case studies</a></li>
             <li><a href="/advisory-board/">advisory board</a></li>
 
-          <!--  <li class="dropdown">
-                <a class="dropdown-toggle" data-toggle="dropdown" style="cursor: pointer">advisory board
-                    <span class="caret"></span></a>
-                <ul class="dropdown-menu">
-                    <li><a href="/advisory-board/">advisory board</a></li>
-                    <li><a href="/ua-blog/">blog</a></li>
-                </ul>
-            </li>-->
+            <!--  <li class="dropdown">
+                  <a class="dropdown-toggle" data-toggle="dropdown" style="cursor: pointer">advisory board
+                      <span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                      <li><a href="/advisory-board/">advisory board</a></li>
+                      <li><a href="/ua-blog/">blog</a></li>
+                  </ul>
+              </li>-->
 
-            <li><a href="/news/">news</a></li>
+            <li><a href="/media/">media</a></li>
 
 
             <li><a href="/faq/">FAQ's</a></li>
             <li><a href="/contact/">contact</a></li>
-            <li class="fontBold freephone">freephone: <span style="color: #3697c2">0808 1788 170</span></li>
+            <li class="fontBold freephone">freephone:
+                <span style="color: #3697c2">0808 1788 170&nbsp;
+
+                <a href="https://www.facebook.com/ua.domoregood">
+                    <img src="img/socialIcons/fb.png" style="height: 20px">
+                </a>
+                <a href="https://twitter.com/UA_Energy" class="tw">
+                    <img src="img/socialIcons/tw.png" style="height: 20px">
+                </a>
+                <a href="https://www.linkedin.com/company/utility-aid-ltd" class="ln">
+                    <img src="img/socialIcons/ln.png" style="height: 20px">
+                </a>
+                <a href="https://www.instagram.com/ua_energy/" class="in">
+                    <img src="img/socialIcons/insta.png" style="height: 20px">
+                </a>
+                </span>
+
+
+            </li>
 
         </ul>
 
@@ -44,25 +63,45 @@
 
 </nav>
 <style>
-    .dropdown-menu{
+    .dropdown-menu {
         background-color: #17252A;
 
     }
-    @media (max-width: 767px){
-        .navbar-nav .open .dropdown-menu{
+
+    @media (min-width: 768px) {
+        .freephone {
+            position: absolute !important;
+            top: 5px;
+            right: 1.5%;
+        }
+
+        .navbar-nav > li > a {
+            margin-top: 20px;
+            padding-bottom: 5px;
+        }
+
+    }
+
+    @media (max-width: 767px) {
+
+        .navbar-nav .open .dropdown-menu {
             background-color: #17252A;
 
         }
-        .navbar-nav .open .dropdown-menu>li>a {
+
+        .navbar-nav .open .dropdown-menu > li > a {
             color: white !important;
         }
     }
-    .dropdown-menu>li{
+
+    .dropdown-menu > li {
     }
-    .dropdown-menu>li>a {
+
+    .dropdown-menu > li > a {
         color: white;
-      font-size: 20.5px;
+        font-size: 20.5px;
     }
+
     .container-fluid, .container {
         padding: 70px 20px;
     }

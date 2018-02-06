@@ -17,37 +17,7 @@
         </div>
     </div>
 </section>
-<section id="case-studies" class="blogs" ng-controller="CaseStudiesController">
-    <div class="container text-center">
-        <h2 class="heading_text_inner fontBold">Case Studies</h2>
-        <br> <br>
 
-        <div class="row">
-            <div class="col-md-4 col-sm-6" ng-repeat="data in CaseStudies">
-                <a href="/case-studies/{{data.slug}}/">
-                    <div class="innerblog">
-                        <div class="pic"
-                             style="background: url('http://www.utility-aid.co.uk/{{data.thumbImage}}') no-repeat center center scroll;">
-                        </div>
-                        <div class="details">
-                            <h2>{{data.title}}
-                                <!--St Vincent de Paul Society-->
-                            </h2>
-
-
-                            <p class="four-lines">
-                                <!--The St Vincent de Paul Society is helping to tackle issues of poverty and disadvantage in society.-->
-                                {{data.home_page_listing_excerpt}}
-                            </p>
-
-                        </div>
-                    </div>
-                </a>
-            </div>
-
-        </div>
-    </div>
-</section>
 <section class="clients" ng-controller="PartnersController">
     <div class="container text-center">
         <h2 class="heading_text_inner fontBold">Partners</h2>

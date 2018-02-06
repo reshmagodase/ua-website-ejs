@@ -39,8 +39,8 @@ app.config(function ($routeProvider, $locationProvider) {
             controller: 'ourclientssayController'
         })
         .when('/case-studies/', {
-            templateUrl: 'views/our-clients-say.html',
-            controller: 'ourclientssayController'
+            templateUrl: 'views/case-studies.html',
+            controller: 'caseStudiesController'
         })
         .when('/advisory-board/', {
             templateUrl: 'views/advisory-board.html',
@@ -54,7 +54,7 @@ app.config(function ($routeProvider, $locationProvider) {
             templateUrl: 'views/faq.html',
             controller: 'faqCtrl'
         })
-        .when('/news/', {
+        .when('/media/', {
             templateUrl: 'views/news.html',
             controller: 'newsCtrl'
         })
@@ -89,7 +89,7 @@ app.config(function ($routeProvider, $locationProvider) {
             templateUrl: 'views/blog/articles.html',
             controller: 'BlogDetailsController'
         })
-        .when('/news-blogs/:group*', {
+        .when('/news-media/:group*', {
             templateUrl: 'views/news-blogs/news-blogs.html',
             controller: 'NewsDetailsController'
         })
@@ -175,6 +175,14 @@ app.controller('EnergyController', function ($scope, $http) {
 app.controller('ourclientssayController', function ($scope, $http) {
     $scope.$parent.seo = {
         ogTitle: "UA | Our Clients Say",
+        ogDescripton: "Going through the energy audit process with ua has been extremely useful. It not only highlighted the savings to be made but saved us valuable time.",
+        ogImage: "http://www.utility-aid.co.uk/img/clients/clients.jpg",
+        ogurl: "http://www.utility-aid.co.uk/our-clients-say/"
+    };
+})
+app.controller('caseStudiesController', function ($scope, $http) {
+    $scope.$parent.seo = {
+        ogTitle: "UA | Case Studies",
         ogDescripton: "Going through the energy audit process with ua has been extremely useful. It not only highlighted the savings to be made but saved us valuable time.",
         ogImage: "http://www.utility-aid.co.uk/img/clients/clients.jpg",
         ogurl: "http://www.utility-aid.co.uk/our-clients-say/"
@@ -533,7 +541,7 @@ app.controller('newsCtrl', function ($scope, $location, $localStorage, $http) {
 
 
     $scope.$parent.seo = {
-        ogTitle: "UA | News",
+        ogTitle: "UA | Media",
         ogDescripton: "We're inspired by the organisations and people we work with. We want to help save them time and money when they source and purchase their energy.",
         ogImage: "http://www.utility-aid.co.uk/img/blog/news.jpg",
         ogurl: "http://www.utility-aid.co.uk/news/"

@@ -1,0 +1,89 @@
+<header class="header">
+    <div class="text-vertical-center">
+        <h1 class="heading_text"><span class="fontBold">case studies</span>
+        </h1>
+    </div>
+</header>
+<section id="case-studies" class="blogs" ng-controller="CaseStudiesController">
+    <div class="container text-center">
+        <h2 class="heading_text_inner fontBold">Case Studies</h2>
+        <br> <br>
+
+        <div class="row">
+            <div class="col-md-4 col-sm-6" ng-repeat="data in CaseStudies">
+                <a href="/case-studies/{{data.slug}}/">
+                    <div class="innerblog">
+                        <div class="pic"
+                             style="background: url('http://www.utility-aid.co.uk/{{data.thumbImage}}') no-repeat center center scroll;">
+                        </div>
+                        <div class="details">
+                            <h2>{{data.title}}
+                                <!--St Vincent de Paul Society-->
+                            </h2>
+
+
+                            <p class="four-lines">
+                                <!--The St Vincent de Paul Society is helping to tackle issues of poverty and disadvantage in society.-->
+                                {{data.home_page_listing_excerpt}}
+                            </p>
+
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+        </div>
+    </div>
+</section>
+<style>
+
+    .header {
+        background: url('../media/case_study.jpg') no-repeat center 25% fixed;
+        display: table;
+        position: relative;
+        width: 100%;
+        height: 70%;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        background-size: cover;
+        -o-background-size: cover;
+    }
+
+    @media (max-width: 768px) {
+        .header {
+            background-attachment: scroll;
+        }
+    }
+
+    .col-md-3:nth-child(5n+0) {
+        clear: left;
+    }
+
+    .clients a {
+        text-decoration: none;
+        color: #23527c;
+        font-size: 16.5px
+    }
+
+    .clients span {
+        display: table;
+        margin: 0 auto;
+        max-width: 150px;
+    }
+
+    .blogs a {
+        text-decoration: none;
+    }
+
+    .blogs a:hover .details p {
+        color: white !important;
+    }
+
+    .blogs a:hover .innerblog {
+        background-color: #3697C2;
+    }
+
+    .blogs a:hover h2 {
+        color: white !important;
+    }
+</style>
