@@ -635,7 +635,7 @@ exports.getAllBackgroundImages = function (req, res) {
 exports.getCaseStudyList = function (req, res) {
     //console.log(req.body);
     db.collection('caseStudies', function (err, collection) {
-        collection.find().toArray(function (err, result) {
+        collection.find(req.body).toArray(function (err, result) {
 
             if (err) {
                 res.send({'status': 'error', 'message': 'An error has occurred'});
