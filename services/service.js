@@ -1119,6 +1119,7 @@ exports.addCaseStudies = function (req, res) {
     var info = req.body;
     info.createdDate = new Date().getTime().toString();
     info.updatedDate = new Date().getTime().toString();
+    delete info.objectId;
 
     db.collection('caseStudies', function (err, collection) {
         collection.insert(info, {safe: true}, function (err, result) {
@@ -1134,8 +1135,10 @@ exports.addCaseStudies = function (req, res) {
 }
 
 exports.editCaseStudies = function (req, res) {
+    console.log(req.body);
     var info = req.body;
     var id = req.body.objectId;
+    console.log('objectid',id);
     info.updatedDate = new Date().getTime().toString();
 
     delete info.objectId;
