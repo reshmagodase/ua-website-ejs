@@ -306,13 +306,14 @@ app.controller('PartnerListCtrl', function ($scope, $http) {
 })
 app.controller('CaseStudyListCtrl', function ($scope, $http) {
 
-    $.post("/getCaseStudyList", {"active": "on"}, function (data) {
+    $.post("/getCaseStudyList", function (data) {
         var tbl = $("<table/>").attr("id", "mytable");
         $("#div1").append(tbl);
         $("#mytable").append("<tbody>");
 
         for (var i = 0; i < data.length; i++) {
             var td1 = "<tr><td>" + data[i]["title"] + "</td>";
+            console.log(data);
             var IsPublished;
             if (data[i]["active"] == 'on') {
                 IsPublished = " <i class='glyphicon glyphicon-ok'></i>"
@@ -431,12 +432,15 @@ app.controller('CaseStudyAddCtrl', function ($scope, $http) {
         for (var i = 1; i < 11; i++) {
             formDataAppend += '&editor' + i + '=' + encodeURIComponent($('#editor' + i + ' .Editor-editor').html());
         }
+
         formData = formData + formDataAppend;
+        console.log('formData',formData);
         var url;
         if (getQueryStringValue("id") == '') {
             url = "/addCaseStudies";
         }
         else {
+
             url = "/editCaseStudies";
         }
         var getCallback = function (response) {
@@ -447,7 +451,10 @@ app.controller('CaseStudyAddCtrl', function ($scope, $http) {
             url: url,
             type: "POST",
             data: formData,
-            success: getCallback
+            success: getCallback,
+            error: function (err) {
+                console.log(err);
+            }
         });
     });// form submit end
 
