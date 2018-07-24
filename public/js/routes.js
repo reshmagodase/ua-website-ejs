@@ -319,8 +319,7 @@ app.controller('CaseStudiesDetailsController', function ($scope, $location, $htt
         $scope.$apply(function () {
             var result = JSON.stringify(data[0]).replace(/“/g, '"')
                 .replace(/”/g, '"').replace(/:/g, ':')
-                .replace(/,/g, ',').replace(/./g, '.')
-                .replace(/?/g, '?').replace(/;/g, ';')
+                .replace(/,/g, ',').replace(/./g, '.').replace(/;/g, ';')
                 .replace(/‘/g, "'").replace(/’/g, "'")
                 .replace(/-/g, "-");
 
