@@ -322,7 +322,7 @@ app.controller('CaseStudiesDetailsController', function ($scope, $location, $htt
                 .replace(/,/g, ',').replace(/./g, '.').replace(/;/g, ';')
                 .replace(/‘/g, "'").replace(/’/g, "'")
                 .replace(/-/g, "-");
-
+            console.log(result);
             result = JSON.parse(result);
             $scope.$parent.seo = {
                 ogTitle: "UA | " + data[0].title,
