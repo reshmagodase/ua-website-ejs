@@ -1,45 +1,47 @@
 ﻿<!DOCTYPE html>
 <html ng-app="myApp" class="no-js" lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="fragment" content="!">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale = 1.0">
     <base href="/">
 
 
     <title ng-bind="seo.ogTitle"></title>
-    <meta name="description" content="{{seo.ogDescripton}}"/>
+    <meta name="description" content="{{seo.ogDescripton}}" />
 
 
 
-    <meta property="og:title" content="{{ seo.ogTitle }}"/>
-    <meta property='og:description' content="{{seo.ogDescripton}}"/>
+    <meta property="og:title" content="{{ seo.ogTitle }}" />
+    <meta property='og:description' content="{{seo.ogDescripton}}" />
     <meta property="og:image" content="{{seo.ogImage}}">
-    <meta property="og:url" content="{{seo.ogurl}}"/>
+    <meta property="og:url" content="{{seo.ogurl}}" />
     <meta property="og:type" content="website" />
 
-    <meta property='twitter:description' content="{{seo.ogDescripton}}"/>
+    <meta property='twitter:description' content="{{seo.ogDescripton}}" />
     <meta property="twitter:image" content="{{seo.ogImage}}">
     <meta name="twitter:card" content="summary" />
 
 
 
 
-    <meta name="keywords"
-          content="Utility, Aid Utility, service, utility, consultancy, energy, not for profit, saving, charities, charity">
+    <meta name="keywords" content="Utility, Aid Utility, service, utility, consultancy, energy, not for profit, saving, charities, charity">
 
     <link rel="shortcut icon" href="img/favicon.ico">
 
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <link href="css/style.css?16" rel="stylesheet" type="text/css">
     <script type="text/javascript" src="http://www.chrs-mln-krs.com/js/30390.js"></script>
-    <noscript><img src="http://www.chrs-mln-krs.com/30390.png" style="display:none;"/></noscript>
+    <noscript>
+        <img src="http://www.chrs-mln-krs.com/30390.png" style="display:none;" />
+    </noscript>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css"/>
-    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick-theme.css"/>
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css" />
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick-theme.css" />
 
     <style>
         .slick-next {
@@ -105,7 +107,12 @@
             height: 100%;
         }
 
-        .h1, .h2, .h3, h1, h2, h3 {
+        .h1,
+        .h2,
+        .h3,
+        h1,
+        h2,
+        h3 {
             margin-top: 10px;
             margin-bottom: 10px;
             padding-top: 10px;
@@ -153,12 +160,12 @@
     <!-- Facebook Pixel Code -->
     <script>
         !function (f, b, e, v, n, t, s) {
-            if (f.fbq)return;
+            if (f.fbq) return;
             n = f.fbq = function () {
                 n.callMethod ?
-                        n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+                    n.callMethod.apply(n, arguments) : n.queue.push(arguments)
             };
-            if (!f._fbq)f._fbq = n;
+            if (!f._fbq) f._fbq = n;
             n.push = n;
             n.loaded = !0;
             n.version = '2.0';
@@ -169,273 +176,281 @@
             s = b.getElementsByTagName(e)[0];
             s.parentNode.insertBefore(t, s)
         }(window, document, 'script',
-                'https://connect.facebook.net/en_US/fbevents.js');
+            'https://connect.facebook.net/en_US/fbevents.js');
         fbq('init', '1882795675269590');
         fbq('track', 'PageView');
     </script>
     <noscript>
-        <img height="1" width="1"
-             src="https://www.facebook.com/tr?id=1882795675269590&ev=PageView
-&noscript=1"/>
+        <img height="1" width="1" src="https://www.facebook.com/tr?id=1882795675269590&ev=PageView
+&noscript=1" />
     </noscript>
     <!-- End Facebook Pixel Code -->
 </head>
+
 <body>
 
-<div ng-include src="'views/partials/header.html'"></div>
-<ng-view autoscroll="true"></ng-view>
-<div ng-include src="'views/partials/footer.html?23'"></div>
-<script src="https://code.angularjs.org/1.2.28/angular.min.js"></script>
-<script src="https://code.angularjs.org/1.2.28/angular-route.min.js"></script>
-<script src="https://code.angularjs.org/1.2.28/angular-sanitize.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/ngStorage/0.3.10/ngStorage.min.js"></script>
-<script src="js/routes.js?2113"></script>
-<script>
-    $('body').prepend('<a  class="back-to-top"></a>');
-    var amountScrolled = 300;
-    $(window).scroll(function () {
-        if ($(window).scrollTop() > amountScrolled) {
-            $('a.back-to-top').fadeIn('slow');
-        } else {
-            $('a.back-to-top').fadeOut('slow');
-        }
-    });
+    <div ng-include src="'views/partials/header.html'"></div>
+    <ng-view autoscroll="true"></ng-view>
+    <div ng-include src="'views/partials/footer.html?23'"></div>
+    <script src="https://code.angularjs.org/1.2.28/angular.min.js"></script>
+    <script src="https://code.angularjs.org/1.2.28/angular-route.min.js"></script>
+    <script src="https://code.angularjs.org/1.2.28/angular-sanitize.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ngStorage/0.3.10/ngStorage.min.js"></script>
+    <script src="js/routes.js?2113"></script>
+    <script>
+        $('body').prepend('<a  class="back-to-top"></a>');
+        var amountScrolled = 300;
+        $(window).scroll(function () {
+            if ($(window).scrollTop() > amountScrolled) {
+                $('a.back-to-top').fadeIn('slow');
+            } else {
+                $('a.back-to-top').fadeOut('slow');
+            }
+        });
 
-    $('a.back-to-top').click(function () {
-        $('html, body').animate({
-            scrollTop: 0
-        }, 900);
-        return false;
-    });
-    $(document).on("click", ".in,.navbar-brand", function () {
-        $(".navbar-collapse").removeClass('in');
-    });
-    (function (i, s, o, g, r, a, m) {
-        i['GoogleAnalyticsObject'] = r;
-        i[r] = i[r] || function () {
-                    (i[r].q = i[r].q || []).push(arguments)
-                }, i[r].l = 1 * new Date();
-        a = s.createElement(o),
+
+        $("body *").text(function () {
+            return $(this).text().replace(/“/g, '"')
+                .replace(/”/g, '"').replace(/:/g, ':')
+                .replace(/,/g, ',').replace(/./g, '.')
+                .replace(/;/g, ';').replace(/‘/g, "'")
+                .replace(/’/g, "'").replace(/-/g, "-");
+        });
+
+
+        $("body *").text(function () {
+            return $(this).text().replace("x", "xy");
+        });
+
+
+
+
+        $('a.back-to-top').click(function () {
+            $('html, body').animate({
+                scrollTop: 0
+            }, 900);
+            return false;
+        });
+        $(document).on("click", ".in,.navbar-brand", function () {
+            $(".navbar-collapse").removeClass('in');
+        });
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r;
+            i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date();
+            a = s.createElement(o),
                 m = s.getElementsByTagName(o)[0];
-        a.async = 1;
-        a.src = g;
-        m.parentNode.insertBefore(a, m)
-    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+            a.async = 1;
+            a.src = g;
+            m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
 
-    ga('create', 'UA-103779998-1', 'auto');
-    ga('send', 'pageview');
-</script>
+        ga('create', 'UA-103779998-1', 'auto');
+        ga('send', 'pageview');
+    </script>
 
-<a class="askButton" data-toggle="modal" data-target="#myModal">Having billing or broker problems? We
-    can help. Click here</a>
+    <a class="askButton" data-toggle="modal" data-target="#myModal">Having billing or broker problems? We can help. Click here</a>
 
 
-<!-- Modal -->
-<div class="modal fade ask" id="myModal" role="dialog" ng-controller="QuestionController">
-    <div class="modal-dialog modal-lg">
+    <!-- Modal -->
+    <div class="modal fade ask" id="myModal" role="dialog" ng-controller="QuestionController">
+        <div class="modal-dialog modal-lg">
 
-        <table class="modal-content askTable" style="background-color: #F2F2F2;margin: 0 auto">
-            <tr>
-                <td style="vertical-align: top; color: black;border-right: 1px solid #e5e5e5;font-size: 14.5px;padding: 20px;">
-                    <h2 class="modal-title" style="color:#000000">We offer:</h2>
-                    <ul class="ua">
-                        <li>The lowest rates on energy in the UK - guaranteed!</li>
-                        <li>Exclusive rates for charities and Not-For-Profit organisations</li>
-                        <li>Invoice Validation; we reclaim over £250K for clients every year!</li>
-                        <li>Your own portal to view your consumption data and historical bills</li>
-                    </ul>
-                    <h2 class="modal-title" style="color:#000000"><br>We are proud to be:</h2>
-                    <ul class="ua">
-                        <li>
-                            The only broker in the UK that deals with 27 suppliers - most brokers only work with a
-                            handful
-                        </li>
-                        <li>
-                            The UK's only National Broker - having six offices
+            <table class="modal-content askTable" style="background-color: #F2F2F2;margin: 0 auto">
+                <tr>
+                    <td style="vertical-align: top; color: black;border-right: 1px solid #e5e5e5;font-size: 14.5px;padding: 20px;">
+                        <h2 class="modal-title" style="color:#000000">We offer:</h2>
+                        <ul class="ua">
+                            <li>The lowest rates on energy in the UK - guaranteed!</li>
+                            <li>Exclusive rates for charities and Not-For-Profit organisations</li>
+                            <li>Invoice Validation; we reclaim over £250K for clients every year!</li>
+                            <li>Your own portal to view your consumption data and historical bills</li>
+                        </ul>
+                        <h2 class="modal-title" style="color:#000000">
+                            <br>We are proud to be:</h2>
+                        <ul class="ua">
+                            <li>
+                                The only broker in the UK that deals with 27 suppliers - most brokers only work with a handful
+                            </li>
+                            <li>
+                                The UK's only National Broker - having six offices across the country
+                            </li>
+                            <li>
+                                The only Broker in the UK with an Advisory Panel - free to help clients understand key issues
+                            </li>
+                            <li>
+                                We also have our own OJEU Procurement Framework
+                            </li>
+                        </ul>
+                    </td>
+                    <td style="min-width: 350px;padding: 10px 0px" class="text-center">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h2 class="modal-title" style="color:#000000">How can
+                                <span style="color:#3697C2"> we help?</span>
+                            </h2>
+                        </div>
+                        <div class="modal-body">
+                            <div class="control-group" id="questionForm">
+                                <div class="controls ">
+                                    <input class="form-control ng-pristine ng-valid" id="askname" ng-model="askname" name="askname" placeholder="Name" type="text">
+                                    <span id="asknameID"></span>
 
-                            across the country
-                        </li>
-                        <li>
-                            The only Broker in the UK with an Advisory Panel -
-
-                            free to help clients understand key issues
-                        </li>
-                        <li>
-                            We also have our own OJEU Procurement Framework
-                        </li>
-                    </ul>
-                </td>
-                <td style="min-width: 350px;padding: 10px 0px" class="text-center">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        <h2 class="modal-title" style="color:#000000">How can <span
-                                style="color:#3697C2"> we help?</span></h2>
-                    </div>
-                    <div class="modal-body">
-                        <div class="control-group" id="questionForm">
-                            <div class="controls ">
-                                <input class="form-control ng-pristine ng-valid" id="askname" ng-model="askname"
-                                       name="askname"
-                                       placeholder="Name" type="text">
-                                <span id="asknameID"></span>
-
+                                </div>
+                                <div class="controls ">
+                                    <input class="form-control ng-pristine ng-valid" id="askphone" ng-model="askphone" name="askphone" placeholder="Phone" type="text">
+                                    <span id="askphoneID"></span>
+                                </div>
+                                <div class="controls ">
+                                    <input class="form-control ng-pristine ng-valid" id="askemail" ng-model="askemail" name="askemail" placeholder="Email" type="text">
+                                    <span id="askemailID"></span>
+                                </div>
+                                <div class="controls ">
+                                    <textarea style="height: 150px" ng-model="askquestions" class="form-control" cols="25" id="askquestions" name="askquestions"
+                                        placeholder="Comments/Questions" rows="10"></textarea>
+                                    <span id="askquestionsID"></span>
+                                </div>
+                                <div class="control-group">
+                                    <div class="controls" style="padding-top:16px">
+                                        <button type="submit" class="btnFindOutMore" ng-click="submitQuestion();">Submit
+                                        </button>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="controls ">
-                                <input class="form-control ng-pristine ng-valid" id="askphone" ng-model="askphone"
-                                       name="askphone"
-                                       placeholder="Phone" type="text">
-                                <span id="askphoneID"></span>
-                            </div>
-                            <div class="controls ">
-                                <input class="form-control ng-pristine ng-valid" id="askemail" ng-model="askemail"
-                                       name="askemail"
-                                       placeholder="Email" type="text">
-                                <span id="askemailID"></span>
-                            </div>
-                            <div class="controls ">
-                                <textarea style="height: 150px" ng-model="askquestions" class="form-control" cols="25"
-                                          id="askquestions" name="askquestions"
-                                          placeholder="Comments/Questions" rows="10"></textarea>
-                                <span id="askquestionsID"></span>
-                            </div>
-                            <div class="control-group">
-                                <div class="controls" style="padding-top:16px">
-                                    <button type="submit" class="btnFindOutMore" ng-click="submitQuestion();">Submit
-                                    </button>
+                            <div id="stage" class="form-all">
+                                <p style="text-align:center;">
+                                    <img src="img/check-icon.png" alt="" width="128" height="128">
+                                </p>
+
+                                <div style="text-align:center;">
+                                    <h1 style="text-align: center;">Thank You!</h1>
+
+                                    <p style="text-align: center;">We've received your query! Our team will respond as soon as possible.
+                                    </p>
                                 </div>
                             </div>
                         </div>
-                        <div id="stage" class="form-all"><p style="text-align:center;"><img
-                                src="img/check-icon.png" alt="" width="128" height="128"></p>
-
-                            <div style="text-align:center;"><h1 style="text-align: center;">Thank You!</h1>
-
-                                <p style="text-align: center;">We've received your query! Our team will respond as soon
-                                    as
-                                    possible.</p></div>
-                        </div>
-                    </div>
-                    <!--  <div class="modal-footer">
+                        <!--  <div class="modal-footer">
                           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                       </div>-->
 
-                </td>
-            </tr>
-        </table>
+                    </td>
+                </tr>
+            </table>
+        </div>
     </div>
-</div>
 
 
-<style>
-    .modaltxt {
-        text-align: center;
-        font-weight: bold;
-        margin-top: 10%;
-        margin-bottom: 10%;
-    }
+    <style>
+        .modaltxt {
+            text-align: center;
+            font-weight: bold;
+            margin-top: 10%;
+            margin-bottom: 10%;
+        }
 
-    @media (min-width: 768px) {
+        @media (min-width: 768px) {
+            .ask .modal-dialog {
+                min-width: 500px;
+            }
+        }
+
         .ask .modal-dialog {
-            min-width: 500px;
+            margin-top: 100px;
         }
-    }
 
-    .ask .modal-dialog {
-        margin-top: 100px;
-    }
+        .ask .modal-header .close {
+            margin: 10px;
+        }
 
-    .ask .modal-header .close {
-        margin: 10px;
-    }
-
-    .askTable td {
-        max-width: 550px;
-    }
-
-    @media (max-width: 800px) {
         .askTable td {
-            float: left;
-            width: 100%;
-            max-width: 1000px;
+            max-width: 550px;
         }
-    }
 
-    .modal-dialog {
-        width: 90%;
-    }
+        @media (max-width: 800px) {
+            .askTable td {
+                float: left;
+                width: 100%;
+                max-width: 1000px;
+            }
+        }
 
-    .askButton {
-        cursor: pointer;
-        padding: 5px 15px;
-        position: fixed;
-        z-index: 999;
-        right: 32%;
-        bottom: 0px;
-        background-color: #3697C2;
-        border: 1px solid black;
-        border-radius: 10px 10px 0px 0px;
-        color: white;
-        border-bottom: none;
-    }
+        .modal-dialog {
+            width: 90%;
+        }
 
-    .ask .modal-title {
-        line-height: 1;
-    }
+        .askButton {
+            cursor: pointer;
+            padding: 5px 15px;
+            position: fixed;
+            z-index: 999;
+            right: 32%;
+            bottom: 0px;
+            background-color: #3697C2;
+            border: 1px solid black;
+            border-radius: 10px 10px 0px 0px;
+            color: white;
+            border-bottom: none;
+        }
 
-    .ask .modal-header {
-        padding: 0px;
-    }
+        .ask .modal-title {
+            line-height: 1;
+        }
 
-    #stage {
-        display: none;
-        color: black;
-    }
+        .ask .modal-header {
+            padding: 0px;
+        }
 
-    .ask .control-group {
-        padding: 0px 10px;
-    }
+        #stage {
+            display: none;
+            color: black;
+        }
 
-    .ask .controls {
-        padding: 3px;
-    }
+        .ask .control-group {
+            padding: 0px 10px;
+        }
 
-    .ask input {
-        border-radius: 18px;
-    }
+        .ask .controls {
+            padding: 3px;
+        }
 
-    .ask .btnFindOutMore {
-        text-decoration: none;
-        color: #3496C1;
-        padding: 3px 10px;
-        border: 6px solid #3496C1;
-        border-radius: 20px;
-        font-size: 18px;
-    }
+        .ask input {
+            border-radius: 18px;
+        }
 
-    .ask .errorlist {
-        list-style: none;
-        margin: 0;
-        font-size: 16px;
-        text-align: left;
-        border-radius: 18px;
-        padding: 4px 0 0 15px;
-        margin-bottom: 20px;
-        height: 34px;
-        border: none;
-        background-color: #ffd6d6;
-        color: #ff0000;
-    }
+        .ask .btnFindOutMore {
+            text-decoration: none;
+            color: #3496C1;
+            padding: 3px 10px;
+            border: 6px solid #3496C1;
+            border-radius: 20px;
+            font-size: 18px;
+        }
 
-    ul.ua {
-        text-align: left;
-        list-style-image: url('ua.png');
-    }
+        .ask .errorlist {
+            list-style: none;
+            margin: 0;
+            font-size: 16px;
+            text-align: left;
+            border-radius: 18px;
+            padding: 4px 0 0 15px;
+            margin-bottom: 20px;
+            height: 34px;
+            border: none;
+            background-color: #ffd6d6;
+            color: #ff0000;
+        }
 
-    .ua li {
-        line-height: 2;
-    }
+        ul.ua {
+            text-align: left;
+            list-style-image: url('ua.png');
+        }
 
-
-</style>
+        .ua li {
+            line-height: 2;
+        }
+    </style>
 </body>
+
 </html>
