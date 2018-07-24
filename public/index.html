@@ -208,21 +208,17 @@
             }
         });
 
-      /*   setTimeout(function () {
-            $("body *").text(function () {
-                return $(this).text().replace(/“/g, '"')
-                    .replace(/”/g, '"').replace(/:/g, ':')
-                    .replace(/,/g, ',').replace(/./g, '.')
-                    .replace(/;/g, ';').replace(/‘/g, "'")
-                    .replace(/’/g, "'").replace(/-/g, "-");
-            });
-        }, 2000); */
+        setTimeout(function () {
+
+            document.body.innerHTML = document.body.innerHTML.replace(/“/g, '"')
+                .replace(/”/g, '"').replace(/:/g, ':')
+                .replace(/,/g, ',').replace(/./g, '.')
+                .replace(/;/g, ';').replace(/‘/g, "'")
+                .replace(/’/g, "'").replace(/-/g, "-");;
+        }, 2000);
 
 
 
-        $("body *").text(function () {
-            return $(this).text().replace("x", "xy");
-        });
 
 
 
