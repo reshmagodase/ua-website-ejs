@@ -135,7 +135,7 @@ app.controller('whyuaController', function ($scope, $http) {
         ogurl: 'http://www.utility-aid.co.uk/why-ua/'
     };
 
-    $.post("/getProductList", {"collection": "whyua"}, function (data) {
+    $.post("/getProductList", { "collection": "whyua" }, function (data) {
         $scope.$apply(function () {
             //$scope.product_text = decodeURIComponent(data[0].product_text);
             $("#titletext").html(data[0].titletext.replace(/\r\n|\r|\n/g, "<br />"));
@@ -195,7 +195,7 @@ app.controller('advisoryboardController', function ($scope, $http) {
         ogImage: "http://www.utility-aid.co.uk/img/advisoryboard/advisoryboard.jpg",
         ogurl: "http://www.utility-aid.co.uk/advisory-board/"
     };
-    $.post("/getProductList", {"collection": "advisory"}, function (data) {
+    $.post("/getProductList", { "collection": "advisory" }, function (data) {
         $scope.$apply(function () {
             //$scope.product_text = decodeURIComponent(data[0].product_text);
             $("#titletext").html(data[0].titletext.replace(/\r\n|\r|\n/g, "<br />"));
@@ -219,7 +219,7 @@ app.controller('contactController', function ($scope, $http) {
         ogImage: "http://www.utility-aid.co.uk/logoUA.png",
         ogurl: "http://www.utility-aid.co.uk/contact/"
     };
-    $.post("/getProductList", {"collection": "contact"}, function (data) {
+    $.post("/getProductList", { "collection": "contact" }, function (data) {
         $scope.$apply(function () {
             $scope.items = data;
         });
@@ -235,7 +235,7 @@ app.controller('contactAskController', function ($scope, $http) {
         ogImage: "http://www.utility-aid.co.uk/logoUA.png",
         ogurl: "http://www.utility-aid.co.uk/contact/"
     };
-    $.post("/getProductList", {"collection": "contact"}, function (data) {
+    $.post("/getProductList", { "collection": "contact" }, function (data) {
         $scope.$apply(function () {
             $scope.items = data;
         });
@@ -244,7 +244,7 @@ app.controller('contactAskController', function ($scope, $http) {
 })
 app.controller('CaseStudiesController', function ($scope, $http) {
     $scope.CaseStudies = [];
-    $.post("/getCaseStudyList", {"active": "on"}, function (data) {
+    $.post("/getCaseStudyList", { "active": "on" }, function (data) {
         $scope.$apply(function () {
             $scope.CaseStudies = data;
         });
@@ -253,7 +253,7 @@ app.controller('CaseStudiesController', function ($scope, $http) {
 app.controller('PartnersController', function ($scope, $http) {
 
     $scope.Partners = [];
-    $.post("/getPartnerList", {"active": "on"}, function (data) {
+    $.post("/getPartnerList", { "active": "on" }, function (data) {
         $scope.$apply(function () {
             $scope.Partners = data;
         });
@@ -263,7 +263,7 @@ app.controller('PartnersController', function ($scope, $http) {
 app.controller('productsCtrl', function ($scope, $http) {
 
     $scope.Products = [];
-    $.post("/getProductList", {"collection": "products"}, function (data) {
+    $.post("/getProductList", { "collection": "products" }, function (data) {
 
         var html = '<div class="responsive-tabs">'
 
@@ -298,7 +298,7 @@ app.controller('BlogsController', function ($scope, $http) {
         return dateObject;
     };
 
-    $.post("/getBlogList", {"active": "on"}, function (data) {
+    $.post("/getBlogList", { "active": "on" }, function (data) {
         $scope.$apply(function () {
             $scope.Blogs = data;
         });
@@ -314,9 +314,15 @@ app.controller('CaseStudiesDetailsController', function ($scope, $location, $htt
     } else {
         slug = parts[parts.length - 2]
     }
-    $.post("/getCaseStudyList", {"slug": slug}, function (data) {
+    $.post("/getCaseStudyList", { "slug": slug }, function (data) {
 
         $scope.$apply(function () {
+            var result = data[0].replace(/“/g, '"')
+            .replace(/”/g, '"').replace(/:/g, ':')
+            .replace(/,/g, ',').replace(/./g, '.')
+            .replace(/?/g, '?').replace(/;/g, ';')
+            .replace(/‘/g, "'").replace(/’/g, "'")
+            .replace(/-/g, "-");
 
             $scope.$parent.seo = {
                 ogTitle: "UA | " + data[0].title,
@@ -326,74 +332,74 @@ app.controller('CaseStudiesDetailsController', function ($scope, $location, $htt
             };
 
 
-            $scope.banner_col_1_title = data[0].banner_col_1_title;
-            $scope.banner_col_1_text = data[0].banner_col_1_text;
-            $scope.banner_col_2_title = data[0].banner_col_2_title;
-            $scope.banner_col_2_text = data[0].banner_col_2_text;
-            $scope.banner_col_3_title = data[0].banner_col_3_title;
-            $scope.banner_col_3_text = data[0].banner_col_3_text;
-            $scope.banner_title = data[0].banner_title;
+            $scope.banner_col_1_title = result.banner_col_1_title;
+            $scope.banner_col_1_text = result.banner_col_1_text;
+            $scope.banner_col_2_title = result.banner_col_2_title;
+            $scope.banner_col_2_text = result.banner_col_2_text;
+            $scope.banner_col_3_title = result.banner_col_3_title;
+            $scope.banner_col_3_text = result.banner_col_3_text;
+            $scope.banner_title = result.banner_title;
 
 
-            $scope.block_1_title = data[0].block_1_title;
-            $scope.block_1_sub_title = data[0].block_1_sub_title;
-            $scope.block_1_col_1_title = data[0].block_1_col_1_title;
-            $scope.block_1_col_2_title = data[0].block_1_col_2_title;
-            $scope.block_1_col_3_title = data[0].block_1_col_3_title;
+            $scope.block_1_title = result.block_1_title;
+            $scope.block_1_sub_title = result.block_1_sub_title;
+            $scope.block_1_col_1_title = result.block_1_col_1_title;
+            $scope.block_1_col_2_title = result.block_1_col_2_title;
+            $scope.block_1_col_3_title = result.block_1_col_3_title;
 
 
-            $scope.block_2_quote = data[0].block_2_quote;
-            $scope.block_2_author = data[0].block_2_author;
-            $scope.block_2_city = data[0].block_2_city;
+            $scope.block_2_quote = result.block_2_quote;
+            $scope.block_2_author = result.block_2_author;
+            $scope.block_2_city = result.block_2_city;
 
 
-            $scope.block_3_title = data[0].block_3_title;
-            $scope.block_3_sub_title = data[0].block_3_sub_title;
-            $scope.block_3_col_1_title = data[0].block_3_col_1_title;
-            $scope.block_3_col_2_title = data[0].block_3_col_2_title;
-            $scope.block_3_col_3_title = data[0].block_3_col_3_title;
+            $scope.block_3_title = result.block_3_title;
+            $scope.block_3_sub_title = result.block_3_sub_title;
+            $scope.block_3_col_1_title = result.block_3_col_1_title;
+            $scope.block_3_col_2_title = result.block_3_col_2_title;
+            $scope.block_3_col_3_title = result.block_3_col_3_title;
 
 
-            $scope.block_4_quote = data[0].block_4_quote;
-            $scope.block_4_author = data[0].block_4_author;
-            $scope.block_4_city = data[0].block_4_city;
+            $scope.block_4_quote = result.block_4_quote;
+            $scope.block_4_author = result.block_4_author;
+            $scope.block_4_city = result.block_4_city;
 
-            $scope.block_5_title = data[0].block_5_title;
-            $scope.block_5_sub_title = data[0].block_5_sub_title;
-            $scope.block_5_col_1_title = data[0].block_5_col_1_title;
-            $scope.block_5_col_2_title = data[0].block_5_col_2_title;
-            $scope.block_5_col_3_title = data[0].block_5_col_3_title;
+            $scope.block_5_title = result.block_5_title;
+            $scope.block_5_sub_title = result.block_5_sub_title;
+            $scope.block_5_col_1_title = result.block_5_col_1_title;
+            $scope.block_5_col_2_title = result.block_5_col_2_title;
+            $scope.block_5_col_3_title = result.block_5_col_3_title;
 
             $scope.image1 = data[0].image1;
             $scope.image2 = data[0].image2;
             $scope.image3 = data[0].image3;
 
 
-            var value = data[0].editor1;
+            var value = result.editor1;
             value = value.replace(/&nbsp;/g, ' ');
             $scope.editor1 = value;
-            var value = data[0].editor2;
+            var value = result.editor2;
             value = value.replace(/&nbsp;/g, ' ');
             $scope.editor2 = value;
-            var value = data[0].editor3;
+            var value = result.editor3;
             value = value.replace(/&nbsp;/g, ' ');
             $scope.editor3 = value;
-            var value = data[0].editor4;
+            var value = result.editor4;
             value = value.replace(/&nbsp;/g, ' ');
             $scope.editor4 = value;
-            var value = data[0].editor5;
+            var value = result.editor5;
             value = value.replace(/&nbsp;/g, ' ');
             $scope.editor5 = value;
-            var value = data[0].editor6;
+            var value = result.editor6;
             value = value.replace(/&nbsp;/g, ' ');
             $scope.editor6 = value;
-            var value = data[0].editor7;
+            var value = result.editor7;
             value = value.replace(/&nbsp;/g, ' ');
             $scope.editor7 = value;
-            var value = data[0].editor8;
+            var value = result.editor8;
             value = value.replace(/&nbsp;/g, ' ');
             $scope.editor8 = value;
-            var value = data[0].editor9;
+            var value = result.editor9;
             value = value.replace(/&nbsp;/g, ' ');
             $scope.editor9 = value;
         });
@@ -425,7 +431,7 @@ app.controller('BlogDetailsController', function ($scope, $location, $localStora
         slug = parts[parts.length - 2]
     }
 
-    $.post("/getBlogList", {"slug": slug}, function (data) {
+    $.post("/getBlogList", { "slug": slug }, function (data) {
         $scope.$apply(function () {
             $scope.$parent.seo = {
                 ogTitle: "UA | " + data[0].title,
@@ -444,13 +450,13 @@ app.controller('BlogDetailsController', function ($scope, $location, $localStora
                         contentType: "application/json; charset=utf-8"
                     }).success(function (response) {
 
-                            for (var j = 0; j < response.length; j++) {
-                                if (response[j]._id == authorList[k]) {
-                                    $scope.Author.push(response[j]);
+                        for (var j = 0; j < response.length; j++) {
+                            if (response[j]._id == authorList[k]) {
+                                $scope.Author.push(response[j]);
 
-                                }
                             }
                         }
+                    }
                     );
                 }
             }
@@ -461,14 +467,14 @@ app.controller('BlogDetailsController', function ($scope, $location, $localStora
                     dataType: "json",
                     contentType: "application/json; charset=utf-8"
                 }).success(function (response) {
-                        console.log(response);
-                        for (var j = 0; j < response.length; j++) {
-                            if (response[j]._id == authorList) {
-                                $scope.Author.push(response[j]);
+                    console.log(response);
+                    for (var j = 0; j < response.length; j++) {
+                        if (response[j]._id == authorList) {
+                            $scope.Author.push(response[j]);
 
-                            }
                         }
                     }
+                }
                 );
             }
 
@@ -521,7 +527,7 @@ app.controller('BlogDetailsController', function ($scope, $location, $localStora
             });
         });
     });
-    $.post("/getBlogList", {"active": "on"}, function (data) {
+    $.post("/getBlogList", { "active": "on" }, function (data) {
         $scope.$apply(function () {
             $scope.Article = data.slice(0, 3);
             for (var k = 0; k < $scope.Article.length; k++) {
@@ -589,7 +595,7 @@ app.controller('NewsDetailsController', function ($scope, $location, $localStora
     }
 
 
-    $.post("/getNewsDetails", {"objectId": slug}, function (data) {
+    $.post("/getNewsDetails", { "objectId": slug }, function (data) {
         var desc = data.description.toString().substring(0, 150);
         $scope.$parent.seo = {
             ogTitle: 'UA | ' + data.heading,
@@ -712,7 +718,7 @@ app.controller('RequestController', function ($scope, $location, $http) {
     }
 })
 app.controller('fpsCtrl', function ($scope, $location, $http) {
-    $.post("/getProductList", {"collection": "fps"}, function (data) {
+    $.post("/getProductList", { "collection": "fps" }, function (data) {
         $scope.$apply(function () {
             //$scope.product_text = decodeURIComponent(data[0].product_text);
             $("#fps").html(decodeURIComponent(data[0].product_text).replace(/(?:&nbsp;)/g, ' '));
@@ -721,7 +727,7 @@ app.controller('fpsCtrl', function ($scope, $location, $http) {
 
 });
 app.controller('mtsCtrl', function ($scope, $location, $http) {
-    $.post("/getProductList", {"collection": "mts"}, function (data) {
+    $.post("/getProductList", { "collection": "mts" }, function (data) {
         $scope.$apply(function () {
             //$scope.product_text = decodeURIComponent(data[0].product_text);
             $("#mts").html(decodeURIComponent(data[0].product_text).replace(/(?:&nbsp;)/g, ' '));
@@ -730,7 +736,7 @@ app.controller('mtsCtrl', function ($scope, $location, $http) {
 
 });
 app.controller('pmsCtrl', function ($scope, $location, $http) {
-    $.post("/getProductList", {"collection": "pms"}, function (data) {
+    $.post("/getProductList", { "collection": "pms" }, function (data) {
         $scope.$apply(function () {
             //$scope.product_text = decodeURIComponent(data[0].product_text);
             $("#pms").html(decodeURIComponent(data[0].product_text).replace(/(?:&nbsp;)/g, ' '));
@@ -739,7 +745,7 @@ app.controller('pmsCtrl', function ($scope, $location, $http) {
 
 });
 app.controller('busCtrl', function ($scope, $location, $http) {
-    $.post("/getProductList", {"collection": "bus"}, function (data) {
+    $.post("/getProductList", { "collection": "bus" }, function (data) {
         $scope.$apply(function () {
             //$scope.product_text = decodeURIComponent(data[0].product_text);
             $("#bus").html(decodeURIComponent(data[0].product_text).replace(/(?:&nbsp;)/g, ' '));
@@ -748,7 +754,7 @@ app.controller('busCtrl', function ($scope, $location, $http) {
 
 });
 app.controller('besCtrl', function ($scope, $location, $http) {
-    $.post("/getProductList", {"collection": "bes"}, function (data) {
+    $.post("/getProductList", { "collection": "bes" }, function (data) {
         $scope.$apply(function () {
             //$scope.product_text = decodeURIComponent(data[0].product_text);
             $("#bes").html(decodeURIComponent(data[0].product_text).replace(/(?:&nbsp;)/g, ' '));
@@ -761,11 +767,11 @@ app.controller('faqCtrl', function ($scope, $location, $http) {
         ogTitle: "UA | FAQ",
         ogImage: "http://www.utility-aid.co.uk/logoUA.png",
         ogDescripton: "We're inspired by the organisations and people we work with. We want to help save them time and money when they source and purchase their energy.",
-        ogurl:"http://www.utility-aid.co.uk/faq/"
+        ogurl: "http://www.utility-aid.co.uk/faq/"
     };
 
 
-    $.post("/getProductList", {"collection": "faq"}, function (data) {
+    $.post("/getProductList", { "collection": "faq" }, function (data) {
         $scope.$apply(function () {
             //$scope.product_text = decodeURIComponent(data[0].product_text);
             $("#faq").html(decodeURIComponent(data[0].product_text).replace(/(?:&nbsp;)/g, ' '));
@@ -778,11 +784,11 @@ app.controller('HomeCtrl', function ($scope, $location, $http) {
         ogTitle: "UA | Energy and Utilities Consultancy",
         ogDescripton: "We're inspired by the organisations and people we work with. We want to help save them time and money when they source and purchase their energy.",
         ogImage: "http://www.utility-aid.co.uk/img/home/homepage.jpg",
-        ogurl:"http://www.utility-aid.co.uk/"
+        ogurl: "http://www.utility-aid.co.uk/"
     };
 
 
-    $.post("/getProductList", {"collection": "home"}, function (data) {
+    $.post("/getProductList", { "collection": "home" }, function (data) {
         $scope.$apply(function () {
             //$scope.product_text = decodeURIComponent(data[0].product_text);
             $("#text1").html(data[0].text1);
@@ -815,8 +821,8 @@ app.controller('QuestionController', function ($scope, $location, $http) {
                 contentType: "application/json; charset=utf-8"
             })
                 .success(function (data, status) {
-                    $("#questionForm").css({"display": "none"});
-                    $("#stage").css({"display": "block"});
+                    $("#questionForm").css({ "display": "none" });
+                    $("#stage").css({ "display": "block" });
                 })
 
                 .error(function (data, status) {
