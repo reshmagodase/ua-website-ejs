@@ -208,14 +208,16 @@
             }
         });
 
+        setTimeout(function () {
+            $("body *").text(function () {
+                return $(this).text().replace(/“/g, '"')
+                    .replace(/”/g, '"').replace(/:/g, ':')
+                    .replace(/,/g, ',').replace(/./g, '.')
+                    .replace(/;/g, ';').replace(/‘/g, "'")
+                    .replace(/’/g, "'").replace(/-/g, "-");
+            });
+        }, 2000);
 
-        $("body *").text(function () {
-            return $(this).text().replace(/“/g, '"')
-                .replace(/”/g, '"').replace(/:/g, ':')
-                .replace(/,/g, ',').replace(/./g, '.')
-                .replace(/;/g, ';').replace(/‘/g, "'")
-                .replace(/’/g, "'").replace(/-/g, "-");
-        });
 
 
         $("body *").text(function () {
