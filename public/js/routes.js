@@ -317,13 +317,14 @@ app.controller('CaseStudiesDetailsController', function ($scope, $location, $htt
     $.post("/getCaseStudyList", { "slug": slug }, function (data) {
 
         $scope.$apply(function () {
-            var result = data[0].replace(/“/g, '"')
-            .replace(/”/g, '"').replace(/:/g, ':')
-            .replace(/,/g, ',').replace(/./g, '.')
-            .replace(/?/g, '?').replace(/;/g, ';')
-            .replace(/‘/g, "'").replace(/’/g, "'")
-            .replace(/-/g, "-");
+            var result = JSON.stringify(data[0]).replace(/“/g, '"')
+                .replace(/”/g, '"').replace(/:/g, ':')
+                .replace(/,/g, ',').replace(/./g, '.')
+                .replace(/?/g, '?').replace(/;/g, ';')
+                .replace(/‘/g, "'").replace(/’/g, "'")
+                .replace(/-/g, "-");
 
+            result = JSON.parse(result);
             $scope.$parent.seo = {
                 ogTitle: "UA | " + data[0].title,
                 ogDescripton: data[0].meta_data_meta_description,
