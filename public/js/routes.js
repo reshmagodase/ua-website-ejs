@@ -317,13 +317,7 @@ app.controller('CaseStudiesDetailsController', function ($scope, $location, $htt
     $.post("/getCaseStudyList", { "slug": slug }, function (data) {
 
         $scope.$apply(function () {
-            var result = JSON.stringify(data[0]).replace(/“/g, '"')
-                .replace(/”/g, '"').replace(/:/g, ':')
-                .replace(/,/g, ',').replace(/./g, '.').replace(/;/g, ';')
-                .replace(/‘/g, "'").replace(/’/g, "'")
-                .replace(/-/g, "-");
-            console.log(result);
-            result = JSON.parse(result);
+            var result = data[0]; 
             $scope.$parent.seo = {
                 ogTitle: "UA | " + data[0].title,
                 ogDescripton: data[0].meta_data_meta_description,
