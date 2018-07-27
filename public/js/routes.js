@@ -598,6 +598,7 @@ app.controller('NewsDetailsController', function ($scope, $location, $localStora
             ogurl: url
         };
         $scope.$apply(function () {
+            console.log(data);
             $scope.image = data.image;
             $scope.heading = data.heading;
             $("#description1").html(data.description.replace(/\r?\n/g, '<br/>'));

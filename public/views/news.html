@@ -1,6 +1,7 @@
 <header class="header">
     <div class="text-vertical-center">
-        <h1 class="heading_text"><span class="fontBold">media</span>
+        <h1 class="heading_text">
+            <span class="fontBold">media</span>
         </h1>
     </div>
 </header>
@@ -41,10 +42,11 @@
 
 
 <style>
-    .ua-news-wrapper span{
+    .ua-news-wrapper span {
         font-size: 17px;
         font-weight: bold;
     }
+
     .modal-content {
         max-width: 600px;
         margin: 0 auto;
@@ -82,8 +84,10 @@
         margin-bottom: 80px;
     }
 
-    .ua-news {
-
+    .ua-news p,
+    .ua-news span {
+        font-family: vag_roundedregular !important;
+        font-weight: normal;
     }
 
     .ua-news .news-title {
@@ -93,13 +97,20 @@
 
     }
 
-    .ua-news .news-content {
+    .ua-news .news-content
+        {
 
         max-height: 70px;
         word-wrap: break-word;
         overflow: hidden;
         color: black;
 
+    }
+
+    .ua-news {
+        max-height: 270px;
+        overflow: hidden;
+        color: black;
     }
 
     .ua-news-right-background {
@@ -123,7 +134,6 @@
     .modal {
         color: #1D282F;
     }
-
 </style>
 
 
@@ -135,7 +145,7 @@
         $(".news-date").html($(".newsdate" + i + "").html());
         $("#myModal1").modal("show");
         var id = i.substr(-5);
-        alert(id);
+
     }
 
 
@@ -163,12 +173,12 @@
                     var id = response[i]._id;
                     var date = response[i].newsdate;
                     htmlText += '<div class="row ua-energy-row"><div style="display: none" class="newsdate' + i + '">' + formatDate(new Date(response[i].newsdate)) + '</div> ' +
-                            '<div class="col-lg-5 col-md-5"> <div class="ua-news-right-background"> <a class="ua-expand-link" href="/news-media/' + id + '/'+ response[i].newsdate +'"><img class="image' + i + '" src="' + response[i].image + '" alt="news"/> </a></div>  </div>' +
-                            '<div class="col-lg-7 col-md-7"> <div class="ua-news"> ' +
-                            '<a class="ua-expand-link" href="/news-media/' + id + '/'+ response[i].newsdate +'" style="text-decoration:none"><h3 class="news-title heading' + i + '">' + response[i].heading + '</h3></a> ' +
-                            '<a class="ua-expand-link" href="/news-media/' + id + '/'+ response[i].newsdate +'"><p class="news-content description' + i + '">' + response[i].description + ' </p></a> <br> ' +
-                            '</div> <div style="width:100%"><a class="ua-expand-link" href="/news-media/' + id + '/'+ response[i].newsdate +'">Expand &gt; </a> <span class="pull-right">'+ formatDate(new Date(response[i].newsdate)) +'</span> </div> </div>' +
-                            '</div>'
+                        '<div class="col-lg-5 col-md-5"> <div class="ua-news-right-background"> <a class="ua-expand-link" href="/news-media/' + id + '/' + response[i].newsdate + '"><img class="image' + i + '" src="' + response[i].image + '" alt="news"/> </a></div>  </div>' +
+                        '<div class="col-lg-7 col-md-7"> <div class="ua-news"> ' +
+                        '<a class="ua-expand-link" href="/news-media/' + id + '/' + response[i].newsdate + '" style="text-decoration:none"><h3 class="news-title heading' + i + '">' + response[i].heading + '</h3></a> ' +
+                        '<a class="ua-expand-link" href="/news-media/' + id + '/' + response[i].newsdate + '"><p class="news-content description' + i + '">' + response[i].description + ' </p></a> <br> ' +
+                        '</div> <div style="width:100%"><a class="ua-expand-link" href="/news-media/' + id + '/' + response[i].newsdate + '">Expand &gt; </a> <span class="pull-right">' + formatDate(new Date(response[i].newsdate)) + '</span> </div> </div>' +
+                        '</div>'
 
                 }
             }
