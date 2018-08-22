@@ -793,6 +793,7 @@ app.controller('BlogAddCtrl', function ($scope, $http) {
 
     $('form').submit(function (evt) {
         evt.preventDefault();
+        $("#objectId").val(getQueryStringValue("id"));
         var formDataAppend = "";
         var formData = $(this).serialize();
         formData = formData + '&editor1=' + encodeURIComponent($('.Editor-editor').html());
