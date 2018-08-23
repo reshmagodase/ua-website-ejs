@@ -1,14 +1,16 @@
 <header class="header">
     <div class="text-vertical-center">
-        <h1 class="heading_text"><span class="fontBold">media</span>
+        <h1 class="heading_text">
+            <span class="fontBold">media</span>
         </h1>
     </div>
 </header>
 <section>
     <div class="container " style="padding-top: 30px;">
         <div class="row">
-            <div class="col-md-4"><img src="{{image}}"
-                                       style="border: 3px solid #3697c2;    width: 300px;"></div>
+            <div class="col-md-4">
+                <img src="{{image}}" style="border: 3px solid #3697c2;    width: 300px;">
+            </div>
             <div class="col-md-8">
                 <div class="news-title heading1" style="color: #3697c2;font-weight: bold">{{heading}}
                 </div>
@@ -17,7 +19,7 @@
         </div>
         <div class="row">
             <div class="col-md-12">
-                <p id="description1" style="color:black;padding: 20px 0px" >
+                <p id="description1" style="color:black;padding: 20px 0px">
                 </p>
             </div>
         </div>
@@ -43,6 +45,7 @@
             background-attachment: scroll;
         }
     }
+
     p,
     span {
         font-family: vag_roundedregular !important;
@@ -50,4 +53,7 @@
         font-size: 16.5px !important;
     }
 
+    .description1 img {
+        max-width: 100%;
+    }
 </style>
