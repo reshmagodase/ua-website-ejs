@@ -850,13 +850,12 @@ exports.editNews = function (req, res) {
 }
 exports.getNewsDetails = function (req, res) {
     db.collection('uaNews', function (err, collection) {
-        console.log(req.body.objectId);
         var json = {};
         if (req.body.objectId) {
             json = { '_id': new ObjectID(req.body.objectId) };
         }
         else {
-            var heading=eq.body.heading;
+            var heading=req.body.heading;
             heading=heading.split('-').join(' ');
             heading=heading.split('*').join('?');
             console.log(heading);
