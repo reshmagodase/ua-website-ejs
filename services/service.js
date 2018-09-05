@@ -848,6 +848,9 @@ exports.editNews = function (req, res) {
         });
     });
 }
+
+
+
 exports.getNewsDetails = function (req, res) {
     db.collection('uaNews', function (err, collection) {
         var json = {};
@@ -856,9 +859,8 @@ exports.getNewsDetails = function (req, res) {
         }
         else {
             var heading=req.body.heading;
-            heading=heading.split('-').join(' ');
+            heading=heading.split('_').join(' ');
             heading=heading.split('*').join('?');
-            console.log(heading);
             json = { 'heading': heading };
         }
         collection.findOne(json, function (err, result) {
