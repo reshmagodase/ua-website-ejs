@@ -856,7 +856,10 @@ exports.getNewsDetails = function (req, res) {
             json = { '_id': new ObjectID(req.body.objectId) };
         }
         else {
-            json = { 'heading': req.body.heading.split('-').join(' ') };
+            var heading=eq.body.heading;
+            heading=heading.split('-').join(' ');
+            heading=heading.split('*').join('?');
+            json = { 'heading': heading };
         }
         collection.findOne(json, function (err, result) {
             if (err) {
