@@ -97,8 +97,7 @@
 
     }
 
-    .ua-news .news-content
-        {
+    .ua-news .news-content {
 
         max-height: 70px;
         word-wrap: break-word;
@@ -112,7 +111,8 @@
         overflow: hidden;
         color: black;
     }
-    .ua-news img{
+
+    .ua-news img {
         visibility: hidden;
     }
 
@@ -175,12 +175,13 @@
                 if (response[i].active !== undefined) {
                     var id = response[i]._id;
                     var date = response[i].newsdate;
+                    var heading = response[i].heading.split(' ').join('-');
                     htmlText += '<div class="row ua-energy-row"><div style="display: none" class="newsdate' + i + '">' + formatDate(new Date(response[i].newsdate)) + '</div> ' +
                         '<div class="col-lg-5 col-md-5"> <div class="ua-news-right-background"> <a class="ua-expand-link" href="/news-media/' + id + '/' + response[i].newsdate + '"><img class="image' + i + '" src="' + response[i].image + '" alt="news"/> </a></div>  </div>' +
                         '<div class="col-lg-7 col-md-7"> <div class="ua-news"> ' +
-                        '<a class="ua-expand-link" href="/news-media/' + id + '/' + response[i].newsdate + '" style="text-decoration:none"><h3 class="news-title heading' + i + '">' + response[i].heading + '</h3></a> ' +
-                        '<a class="ua-expand-link" href="/news-media/' + id + '/' + response[i].newsdate + '"><p class="news-content description' + i + '">' + response[i].description + ' </p></a> <br> ' +
-                        '</div> <div style="width:100%"><a class="ua-expand-link" href="/news-media/' + id + '/' + response[i].newsdate + '">Expand &gt; </a> <span class="pull-right">' + formatDate(new Date(response[i].newsdate)) + '</span> </div> </div>' +
+                        '<a class="ua-expand-link" href="/news-media/' + heading + '/' + response[i].newsdate + '" style="text-decoration:none"><h3 class="news-title heading' + i + '">' + response[i].heading + '</h3></a> ' +
+                        '<a class="ua-expand-link" href="/news-media/' + heading + '/' + response[i].newsdate + '"><p class="news-content description' + i + '">' + response[i].description + ' </p></a> <br> ' +
+                        '</div> <div style="width:100%"><a class="ua-expand-link" href="/news-media/' + heading + '/' + response[i].newsdate + '">Expand &gt; </a> <span class="pull-right">' + formatDate(new Date(response[i].newsdate)) + '</span> </div> </div>' +
                         '</div>'
 
                 }

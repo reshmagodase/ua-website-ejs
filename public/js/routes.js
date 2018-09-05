@@ -589,7 +589,7 @@ app.controller('NewsDetailsController', function ($scope, $location, $localStora
     }
 
 
-    $.post("/getNewsDetails", { "objectId": slug }, function (data) {
+    $.post("/getNewsDetails", { "heading": slug }, function (data) {
         var desc = data.description.toString().substring(0, 150);
         $scope.$parent.seo = {
             ogTitle: 'UA | ' + data.heading,

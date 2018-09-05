@@ -9,11 +9,8 @@
             <p class="heading_text_inner" id="text1"></p>
         </h1>
         <img class="OJEUlogo" src="img/OJEULogo.png?2">
-        <br>
-        <img src="img/ua_banner.jpg" style="max-width: 800px;
-        display: block;
-        width: 100%;margin: 0 auto;
-        margin-bottom: -20px;" />
+
+
 
     </div>
 </header>
@@ -27,7 +24,37 @@
             width: 150px;
         }
     }
+
+    @media (max-width:800px) {
+        .banner-img {
+           /*  background: url(img/uaMobile.png) !important;
+            width: 100% !important;
+            background-position: center !important;
+            background-repeat: no-repeat !important */
+            display: none !important;
+        }
+        .mobileBannerImg{
+            display: block !important;
+        }
+    }
+
+    .banner-img {
+        height: 70px;
+        display: table;
+        width: 100%;
+        background: url(img/uaBanner.png);
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+    .mobileBannerImg{
+        display: none;
+    }
 </style>
+
+<div style="background: url(img/uaBanner.png);background-size: contain">
+    <div class="banner-img">&nbsp;</div>
+    <img class="mobileBannerImg" src="img/uaMobile.png" width="100%">
+</div>
 <section class="home" style="background-color: #17252a">
     <div class="container-fluid" style="padding: 20px">
         <div class="text-center">

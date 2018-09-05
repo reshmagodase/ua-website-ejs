@@ -20,7 +20,7 @@ var session = require('client-sessions');
 var nodemailer = require('nodemailer');
 
 
-var server = new Server('localhost', 27017, {auto_reconnect: true});
+var server = new Server('localhost', 27017, { auto_reconnect: true });
 db = new Db('utilityAid', server);
 
 //Connect to Database
@@ -28,7 +28,7 @@ db = new Db('utilityAid', server);
 db.open(function (err, db) {
     if (!err) {
         console.log("Connected to 'utilityAid' database");
-        db.collection('images', {strict: true}, function (err, collection) {
+        db.collection('images', { strict: true }, function (err, collection) {
             if (err) {
                 console.log("The 'images' collection doesn't exist. Creating it with sample data...");
             }
@@ -47,11 +47,11 @@ exports.login = function (req, res) {
 
     console.log('Retrieving data: ' + uName);
     db.collection('adminDetails', function (err, collection) {
-        collection.findOne({'userName': uName}, function (err, item) {
+        collection.findOne({ 'userName': uName }, function (err, item) {
 
 
             if (item === null) {
-                var msg = {'error': 'Invalid Username'}
+                var msg = { 'error': 'Invalid Username' }
                 var jm = JSON.stringify(msg);
                 res.send(jm);
             }
@@ -69,7 +69,7 @@ exports.login = function (req, res) {
                     //console.log(item);
                 }
                 else {
-                    var msg = {'error': 'Invalid Password'}
+                    var msg = { 'error': 'Invalid Password' }
                     var jm = JSON.stringify(msg);
                     res.send(jm);
                 }
@@ -141,7 +141,7 @@ exports.uploadImages = function (req, res) {
     console.log(array)
 
     db.collection('images', function (err, collection) {
-        collection.insert(array, {safe: true}, function (err, result) {
+        collection.insert(array, { safe: true }, function (err, result) {
             if (err) {
                 /*res.send({
                  'status': 'error',
@@ -151,7 +151,7 @@ exports.uploadImages = function (req, res) {
             } else {
                 if (count == 0) {
                     console.log('Success: ' + JSON.stringify(result));
-                    res.send({'status': 'success', 'message': "Data Uploaded Successfully"});
+                    res.send({ 'status': 'success', 'message': "Data Uploaded Successfully" });
                     count++;
                     console.log(count);
                     imagePath = {}
@@ -170,10 +170,10 @@ exports.uploadImages = function (req, res) {
 //Service to get images
 exports.getImages = function (req, res) {
     db.collection('images', function (err, collection) {
-        collection.find().limit(20).sort({'createdDate': -1}).toArray(function (err, items) {
+        collection.find().limit(20).sort({ 'createdDate': -1 }).toArray(function (err, items) {
 
             if (err) {
-                res.send({'error': 'An error has occurred'})
+                res.send({ 'error': 'An error has occurred' })
             }
             else if (items.length == 0) {
                 var msg = [{
@@ -192,10 +192,10 @@ exports.getImages = function (req, res) {
 }
 exports.getAllImages = function (req, res) {
     db.collection('images', function (err, collection) {
-        collection.find().sort({'createdDate': -1}).toArray(function (err, items) {
+        collection.find().sort({ 'createdDate': -1 }).toArray(function (err, items) {
 
             if (err) {
-                res.send({'error': 'An error has occurred'})
+                res.send({ 'error': 'An error has occurred' })
             }
             else if (items.length == 0) {
                 var msg = [{
@@ -270,7 +270,7 @@ exports.addBackgroundImages = function (req, res) {
     console.log(array)
 
     db.collection('backgroundImages', function (err, collection) {
-        collection.insert(array, {safe: true}, function (err, result) {
+        collection.insert(array, { safe: true }, function (err, result) {
             if (err) {
                 /*res.send({
                  'status': 'error',
@@ -280,7 +280,7 @@ exports.addBackgroundImages = function (req, res) {
             } else {
                 /*if (count == 0) {*/
                 console.log('Success: ' + JSON.stringify(result));
-                res.send({'status': 'success', 'message': "Data Uploaded Successfully"});
+                res.send({ 'status': 'success', 'message': "Data Uploaded Successfully" });
                 count++;
                 console.log(count);
                 imagePath = {}
@@ -342,7 +342,7 @@ exports.uploadPeopleImages = function (req, res) {
     console.log(array)
 
     db.collection('peopleImages', function (err, collection) {
-        collection.insert(array, {safe: true}, function (err, result) {
+        collection.insert(array, { safe: true }, function (err, result) {
             if (err) {
                 /*res.send({
                  'status': 'error',
@@ -352,7 +352,7 @@ exports.uploadPeopleImages = function (req, res) {
             } else {
                 if (count == 0) {
                     console.log('Success: ' + JSON.stringify(result));
-                    res.send({'status': 'success', 'message': "Data Uploaded Successfully"});
+                    res.send({ 'status': 'success', 'message': "Data Uploaded Successfully" });
                     count++;
                     console.log(count);
                     imagePath = {}
@@ -371,10 +371,10 @@ exports.uploadPeopleImages = function (req, res) {
 //Service to get People images
 exports.getPeopleImages = function (req, res) {
     db.collection('peopleImages', function (err, collection) {
-        collection.find().sort({'createdDate': -1}).toArray(function (err, items) {
+        collection.find().sort({ 'createdDate': -1 }).toArray(function (err, items) {
 
             if (err) {
-                res.send({'error': 'An error has occurred'})
+                res.send({ 'error': 'An error has occurred' })
             }
             else if (items.length == 0) {
                 var msg = [{
@@ -437,7 +437,7 @@ exports.uploadAuthorImages = function (req, res) {
     console.log(array)
 
     db.collection('authorImages', function (err, collection) {
-        collection.insert(array, {safe: true}, function (err, result) {
+        collection.insert(array, { safe: true }, function (err, result) {
             if (err) {
                 /*res.send({
                  'status': 'error',
@@ -447,7 +447,7 @@ exports.uploadAuthorImages = function (req, res) {
             } else {
                 if (count == 0) {
                     console.log('Success: ' + JSON.stringify(result));
-                    res.send({'status': 'success', 'message': "Data Uploaded Successfully"});
+                    res.send({ 'status': 'success', 'message': "Data Uploaded Successfully" });
                     count++;
                     console.log(count);
                     imagePath = {}
@@ -466,10 +466,10 @@ exports.uploadAuthorImages = function (req, res) {
 //Service to get Author images
 exports.getAuthorImages = function (req, res) {
     db.collection('authorImages', function (err, collection) {
-        collection.find().sort({'createdDate': -1}).toArray(function (err, items) {
+        collection.find().sort({ 'createdDate': -1 }).toArray(function (err, items) {
 
             if (err) {
-                res.send({'error': 'An error has occurred'})
+                res.send({ 'error': 'An error has occurred' })
             }
             else if (items.length == 0) {
                 var msg = [{
@@ -535,7 +535,7 @@ exports.uploadPartnerImages = function (req, res) {
     console.log(array)
 
     db.collection('partnerImages', function (err, collection) {
-        collection.insert(array, {safe: true}, function (err, result) {
+        collection.insert(array, { safe: true }, function (err, result) {
             if (err) {
                 /*res.send({
                  'status': 'error',
@@ -545,7 +545,7 @@ exports.uploadPartnerImages = function (req, res) {
             } else {
                 if (count == 0) {
                     console.log('Success: ' + JSON.stringify(result));
-                    res.send({'status': 'success', 'message': "Data Uploaded Successfully"});
+                    res.send({ 'status': 'success', 'message': "Data Uploaded Successfully" });
                     count++;
                     console.log(count);
                     imagePath = {}
@@ -564,10 +564,10 @@ exports.uploadPartnerImages = function (req, res) {
 //Service to get Partenr images
 exports.getPartnerImages = function (req, res) {
     db.collection('partnerImages', function (err, collection) {
-        collection.find().sort({'createdDate': -1}).toArray(function (err, items) {
+        collection.find().sort({ 'createdDate': -1 }).toArray(function (err, items) {
 
             if (err) {
-                res.send({'error': 'An error has occurred'})
+                res.send({ 'error': 'An error has occurred' })
             }
             else if (items.length == 0) {
                 var msg = [{
@@ -587,10 +587,10 @@ exports.getPartnerImages = function (req, res) {
 //Service to get background images
 exports.getBackgroundImages = function (req, res) {
     db.collection('backgroundImages', function (err, collection) {
-        collection.find().limit(20).sort({'createdDate': -1}).toArray(function (err, items) {
+        collection.find().limit(20).sort({ 'createdDate': -1 }).toArray(function (err, items) {
 
             if (err) {
-                res.send({'error': 'An error has occurred'})
+                res.send({ 'error': 'An error has occurred' })
             }
             else if (items.length == 0) {
                 var msg = [{
@@ -609,10 +609,10 @@ exports.getBackgroundImages = function (req, res) {
 }
 exports.getAllBackgroundImages = function (req, res) {
     db.collection('backgroundImages', function (err, collection) {
-        collection.find().sort({'createdDate': -1}).toArray(function (err, items) {
+        collection.find().sort({ 'createdDate': -1 }).toArray(function (err, items) {
 
             if (err) {
-                res.send({'error': 'An error has occurred'})
+                res.send({ 'error': 'An error has occurred' })
             }
             else if (items.length == 0) {
                 var msg = [{
@@ -638,10 +638,10 @@ exports.getCaseStudyList = function (req, res) {
         collection.find(req.body).toArray(function (err, result) {
 
             if (err) {
-                res.send({'status': 'error', 'message': 'An error has occurred'});
+                res.send({ 'status': 'error', 'message': 'An error has occurred' });
             }
             if (result == null) {
-                res.send({'status': 'error', 'message': 'Data Not Found'});
+                res.send({ 'status': 'error', 'message': 'Data Not Found' });
             }
             if (result !== null) {
 
@@ -653,13 +653,13 @@ exports.getCaseStudyList = function (req, res) {
 
 exports.getPartnerList = function (req, res) {
     db.collection('partners', function (err, collection) {
-        collection.find(req.body).sort({'createdDate': -1}).toArray(function (err, result) {
+        collection.find(req.body).sort({ 'createdDate': -1 }).toArray(function (err, result) {
 
             if (err) {
-                res.send({'status': 'error', 'message': 'An error has occurred'});
+                res.send({ 'status': 'error', 'message': 'An error has occurred' });
             }
             if (result == null) {
-                res.send({'status': 'error', 'message': 'Data Not Found'});
+                res.send({ 'status': 'error', 'message': 'Data Not Found' });
             }
             if (result !== null) {
                 res.send(result);
@@ -673,13 +673,13 @@ exports.addPartners = function (req, res) {
     info.updatedDate = new Date().getTime().toString();
 
     db.collection('partners', function (err, collection) {
-        collection.insert(info, {safe: true}, function (err, result) {
+        collection.insert(info, { safe: true }, function (err, result) {
             if (err) {
-                res.send({'status': 'error', 'message': 'An error has occurred'});
+                res.send({ 'status': 'error', 'message': 'An error has occurred' });
             }
             else {
                 console.log(result);
-                res.send({'status': 'success', 'message': 'Data Added successfully'});
+                res.send({ 'status': 'success', 'message': 'Data Added successfully' });
             }
         });
     });
@@ -691,13 +691,13 @@ exports.editPartners = function (req, res) {
 
     delete info.objectId;
     db.collection('partners', function (err, collection) {
-        collection.update({'_id': new ObjectID(id)}, info, {safe: true}, function (err, result) {
+        collection.update({ '_id': new ObjectID(id) }, info, { safe: true }, function (err, result) {
             if (err) {
-                res.send({'status': 'error', 'message': 'An error has occurred'});
+                res.send({ 'status': 'error', 'message': 'An error has occurred' });
             }
             else {
                 console.log(result);
-                res.send({'status': 'success', 'message': 'Data Updated successfully'});
+                res.send({ 'status': 'success', 'message': 'Data Updated successfully' });
             }
         });
     });
@@ -706,12 +706,12 @@ exports.editPartners = function (req, res) {
 exports.getPartnerDetails = function (req, res) {
     db.collection('partners', function (err, collection) {
         console.log(req.body.objectId);
-        collection.findOne({'_id': new ObjectID(req.body.objectId)}, function (err, result) {
+        collection.findOne({ '_id': new ObjectID(req.body.objectId) }, function (err, result) {
             if (err) {
-                res.send({'status': 'error', 'message': 'An error has occurred'});
+                res.send({ 'status': 'error', 'message': 'An error has occurred' });
             }
             if (result == null) {
-                res.send({'status': 'error', 'message': 'Data Not Found'});
+                res.send({ 'status': 'error', 'message': 'Data Not Found' });
             }
             if (result !== null) {
                 res.send(result);
@@ -726,13 +726,13 @@ exports.addBlog = function (req, res) {
     info.updatedDate = new Date().getTime().toString();
 
     db.collection('blog', function (err, collection) {
-        collection.insert(info, {safe: true}, function (err, result) {
+        collection.insert(info, { safe: true }, function (err, result) {
             if (err) {
-                res.send({'status': 'error', 'message': 'An error has occurred'});
+                res.send({ 'status': 'error', 'message': 'An error has occurred' });
             }
             else {
                 console.log(result);
-                res.send({'status': 'success', 'message': 'Data Added successfully'});
+                res.send({ 'status': 'success', 'message': 'Data Added successfully' });
             }
         });
     });
@@ -745,26 +745,26 @@ exports.editBlog = function (req, res) {
 
     delete info.objectId;
     db.collection('blog', function (err, collection) {
-        collection.update({'_id': new ObjectID(id)}, info, {safe: true}, function (err, result) {
+        collection.update({ '_id': new ObjectID(id) }, info, { safe: true }, function (err, result) {
             if (err) {
-                res.send({'status': 'error', 'message': 'An error has occurred'});
+                res.send({ 'status': 'error', 'message': 'An error has occurred' });
             }
             else {
                 console.log(result);
-                res.send({'status': 'success', 'message': 'Data Updated successfully'});
+                res.send({ 'status': 'success', 'message': 'Data Updated successfully' });
             }
         });
     });
 }
 exports.getBlogList = function (req, res) {
     db.collection('blog', function (err, collection) {
-        collection.find(req.body).sort({'createdDate': -1}).toArray(function (err, result) {
+        collection.find(req.body).sort({ 'createdDate': -1 }).toArray(function (err, result) {
 
             if (err) {
-                res.send({'status': 'error', 'message': 'An error has occurred'});
+                res.send({ 'status': 'error', 'message': 'An error has occurred' });
             }
             if (result == null) {
-                res.send({'status': 'error', 'message': 'Data Not Found'});
+                res.send({ 'status': 'error', 'message': 'Data Not Found' });
             }
             if (result !== null) {
                 result.sort(function (a, b) {
@@ -780,12 +780,12 @@ exports.getBlogList = function (req, res) {
 exports.getBlogDetails = function (req, res) {
     db.collection('blog', function (err, collection) {
         console.log(req.body.objectId);
-        collection.findOne({'_id': new ObjectID(req.body.objectId)}, function (err, result) {
+        collection.findOne({ '_id': new ObjectID(req.body.objectId) }, function (err, result) {
             if (err) {
-                res.send({'status': 'error', 'message': 'An error has occurred'});
+                res.send({ 'status': 'error', 'message': 'An error has occurred' });
             }
             if (result == null) {
-                res.send({'status': 'error', 'message': 'Data Not Found'});
+                res.send({ 'status': 'error', 'message': 'Data Not Found' });
             }
             if (result !== null) {
                 res.send(result);
@@ -797,13 +797,13 @@ exports.getBlogDetails = function (req, res) {
 
 exports.getNewsList = function (req, res) {
     db.collection('uaNews', function (err, collection) {
-        collection.find(req.body).sort({'newsdate': -1}).toArray(function (err, result) {
+        collection.find(req.body).sort({ 'newsdate': -1 }).toArray(function (err, result) {
 
             if (err) {
-                res.send({'status': 'error', 'message': 'An error has occurred'});
+                res.send({ 'status': 'error', 'message': 'An error has occurred' });
             }
             if (result == null) {
-                res.send({'status': 'error', 'message': 'Data Not Found'});
+                res.send({ 'status': 'error', 'message': 'Data Not Found' });
             }
             if (result !== null) {
                 console.log(result);
@@ -818,13 +818,13 @@ exports.addNews = function (req, res) {
     info.updatedDate = new Date().getTime().toString();
 
     db.collection('uaNews', function (err, collection) {
-        collection.insert(info, {safe: true}, function (err, result) {
+        collection.insert(info, { safe: true }, function (err, result) {
             if (err) {
-                res.send({'status': 'error', 'message': 'An error has occurred'});
+                res.send({ 'status': 'error', 'message': 'An error has occurred' });
             }
             else {
                 console.log(result);
-                res.send({'status': 'success', 'message': 'Data Added successfully'});
+                res.send({ 'status': 'success', 'message': 'Data Added successfully' });
             }
         });
     });
@@ -837,13 +837,13 @@ exports.editNews = function (req, res) {
 
     delete info.objectId;
     db.collection('uaNews', function (err, collection) {
-        collection.update({'_id': new ObjectID(id)}, info, {safe: true}, function (err, result) {
+        collection.update({ '_id': new ObjectID(id) }, info, { safe: true }, function (err, result) {
             if (err) {
-                res.send({'status': 'error', 'message': 'An error has occurred'});
+                res.send({ 'status': 'error', 'message': 'An error has occurred' });
             }
             else {
                 console.log(result);
-                res.send({'status': 'success', 'message': 'Data Updated successfully'});
+                res.send({ 'status': 'success', 'message': 'Data Updated successfully' });
             }
         });
     });
@@ -851,12 +851,19 @@ exports.editNews = function (req, res) {
 exports.getNewsDetails = function (req, res) {
     db.collection('uaNews', function (err, collection) {
         console.log(req.body.objectId);
-        collection.findOne({'_id': new ObjectID(req.body.objectId)}, function (err, result) {
+        var json = {};
+        if (req.body.objectId) {
+            json = { '_id': new ObjectID(req.body.objectId) };
+        }
+        else {
+            json = { 'heading': req.body.heading.split('-').join(' ') };
+        }
+        collection.findOne(json, function (err, result) {
             if (err) {
-                res.send({'status': 'error', 'message': 'An error has occurred'});
+                res.send({ 'status': 'error', 'message': 'An error has occurred' });
             }
             if (result == null) {
-                res.send({'status': 'error', 'message': 'Data Not Found'});
+                res.send({ 'status': 'error', 'message': 'Data Not Found' });
             }
             if (result !== null) {
                 res.send(result);
@@ -872,13 +879,13 @@ exports.addAuthor = function (req, res) {
     info.updatedDate = new Date().getTime().toString();
 
     db.collection('author', function (err, collection) {
-        collection.insert(info, {safe: true}, function (err, result) {
+        collection.insert(info, { safe: true }, function (err, result) {
             if (err) {
-                res.send({'status': 'error', 'message': 'An error has occurred'});
+                res.send({ 'status': 'error', 'message': 'An error has occurred' });
             }
             else {
                 console.log(result);
-                res.send({'status': 'success', 'message': 'Data Added successfully'});
+                res.send({ 'status': 'success', 'message': 'Data Added successfully' });
             }
         });
     });
@@ -892,13 +899,13 @@ exports.editAuthor = function (req, res) {
 
     delete info.objectId;
     db.collection('author', function (err, collection) {
-        collection.update({'_id': new ObjectID(id)}, info, {safe: true}, function (err, result) {
+        collection.update({ '_id': new ObjectID(id) }, info, { safe: true }, function (err, result) {
             if (err) {
-                res.send({'status': 'error', 'message': 'An error has occurred'});
+                res.send({ 'status': 'error', 'message': 'An error has occurred' });
             }
             else {
                 console.log(result);
-                res.send({'status': 'success', 'message': 'Data Updated successfully'});
+                res.send({ 'status': 'success', 'message': 'Data Updated successfully' });
             }
         });
     });
@@ -907,12 +914,12 @@ exports.editAuthor = function (req, res) {
 exports.getAuthorDetails = function (req, res) {
     db.collection('author', function (err, collection) {
         console.log(req.body.objectId);
-        collection.findOne({'_id': new ObjectID(req.body.objectId)}, function (err, result) {
+        collection.findOne({ '_id': new ObjectID(req.body.objectId) }, function (err, result) {
             if (err) {
-                res.send({'status': 'error', 'message': 'An error has occurred'});
+                res.send({ 'status': 'error', 'message': 'An error has occurred' });
             }
             if (result == null) {
-                res.send({'status': 'error', 'message': 'Data Not Found'});
+                res.send({ 'status': 'error', 'message': 'Data Not Found' });
             }
             if (result !== null) {
                 res.send(result);
@@ -922,12 +929,12 @@ exports.getAuthorDetails = function (req, res) {
 }
 exports.getAuthorList = function (req, res) {
     db.collection('author', function (err, collection) {
-        collection.find({}).sort({'order_id': 1}).toArray(function (err, result) {
+        collection.find({}).sort({ 'order_id': 1 }).toArray(function (err, result) {
             if (err) {
-                res.send({'status': 'error', 'message': 'An error has occurred'});
+                res.send({ 'status': 'error', 'message': 'An error has occurred' });
             }
             if (result == null) {
-                res.send({'status': 'error', 'message': 'Data Not Found'});
+                res.send({ 'status': 'error', 'message': 'Data Not Found' });
             }
             if (result !== null) {
                 res.send(result);
@@ -994,13 +1001,13 @@ exports.sendRequestMail = function (req, res) {
     info.createdDate = new Date().getTime().toString();
 
     db.collection('request', function (err, collection) {
-        collection.insert(info, {safe: true}, function (err, result) {
+        collection.insert(info, { safe: true }, function (err, result) {
             if (err) {
-                res.send({'status': 'error', 'message': 'An error has occurred'});
+                res.send({ 'status': 'error', 'message': 'An error has occurred' });
             }
             else {
                 console.log(result);
-                res.send({'status': 'success', 'message': 'Data Added successfully'});
+                res.send({ 'status': 'success', 'message': 'Data Added successfully' });
             }
         });
     });
@@ -1040,13 +1047,13 @@ exports.sendQuestionMail = function (req, res) {
     info.createdDate = new Date().getTime().toString();
 
     db.collection('request', function (err, collection) {
-        collection.insert(info, {safe: true}, function (err, result) {
+        collection.insert(info, { safe: true }, function (err, result) {
             if (err) {
-                res.send({'status': 'error', 'message': 'An error has occurred'});
+                res.send({ 'status': 'error', 'message': 'An error has occurred' });
             }
             else {
                 console.log(result);
-                res.send({'status': 'success', 'message': 'Data Added successfully'});
+                res.send({ 'status': 'success', 'message': 'Data Added successfully' });
             }
         });
     });
@@ -1087,13 +1094,13 @@ exports.sendQuestionMailUAEnergy = function (req, res) {
     info.createdDate = new Date().getTime().toString();
 
     db.collection('request', function (err, collection) {
-        collection.insert(info, {safe: true}, function (err, result) {
+        collection.insert(info, { safe: true }, function (err, result) {
             if (err) {
-                res.send({'status': 'error', 'message': 'An error has occurred'});
+                res.send({ 'status': 'error', 'message': 'An error has occurred' });
             }
             else {
                 console.log(result);
-                res.send({'status': 'success', 'message': 'Data Added successfully'});
+                res.send({ 'status': 'success', 'message': 'Data Added successfully' });
             }
         });
     });
@@ -1101,12 +1108,12 @@ exports.sendQuestionMailUAEnergy = function (req, res) {
 exports.getCaseStudiesDetails = function (req, res) {
     db.collection('caseStudies', function (err, collection) {
         console.log(req.body.objectId);
-        collection.findOne({'_id': new ObjectID(req.body.objectId)}, function (err, result) {
+        collection.findOne({ '_id': new ObjectID(req.body.objectId) }, function (err, result) {
             if (err) {
-                res.send({'status': 'error', 'message': 'An error has occurred'});
+                res.send({ 'status': 'error', 'message': 'An error has occurred' });
             }
             if (result == null) {
-                res.send({'status': 'error', 'message': 'Data Not Found'});
+                res.send({ 'status': 'error', 'message': 'Data Not Found' });
             }
             if (result !== null) {
                 res.send(result);
@@ -1122,13 +1129,13 @@ exports.addCaseStudies = function (req, res) {
     delete info.objectId;
 
     db.collection('caseStudies', function (err, collection) {
-        collection.insert(info, {safe: true}, function (err, result) {
+        collection.insert(info, { safe: true }, function (err, result) {
             if (err) {
-                res.send({'status': 'error', 'message': 'An error has occurred'});
+                res.send({ 'status': 'error', 'message': 'An error has occurred' });
             }
             else {
                 console.log(result);
-                res.send({'status': 'success', 'message': 'Data Added successfully'});
+                res.send({ 'status': 'success', 'message': 'Data Added successfully' });
             }
         });
     });
@@ -1138,18 +1145,18 @@ exports.editCaseStudies = function (req, res) {
     console.log(req.body);
     var info = req.body;
     var id = req.body.objectId;
-    console.log('objectid',id);
+    console.log('objectid', id);
     info.updatedDate = new Date().getTime().toString();
 
     delete info.objectId;
     db.collection('caseStudies', function (err, collection) {
-        collection.update({'_id': new ObjectID(id)}, info, {safe: true}, function (err, result) {
+        collection.update({ '_id': new ObjectID(id) }, info, { safe: true }, function (err, result) {
             if (err) {
-                res.send({'status': 'error', 'message': 'An error has occurred'});
+                res.send({ 'status': 'error', 'message': 'An error has occurred' });
             }
             else {
                 console.log(result);
-                res.send({'status': 'success', 'message': 'Data Updated successfully'});
+                res.send({ 'status': 'success', 'message': 'Data Updated successfully' });
             }
         });
     });
@@ -1160,10 +1167,10 @@ exports.getProductList = function (req, res) {
     db.collection(collection, function (err, collection) {
         collection.find({}).toArray(function (err, result) {
             if (err) {
-                res.send({'status': 'error', 'message': 'An error has occurred'});
+                res.send({ 'status': 'error', 'message': 'An error has occurred' });
             }
             if (result == null) {
-                res.send({'status': 'error', 'message': 'Data Not Found'});
+                res.send({ 'status': 'error', 'message': 'Data Not Found' });
             }
             if (result !== null) {
                 console.log(result);
@@ -1181,13 +1188,13 @@ exports.insertProductData = function (req, res) {
     info.updatedDate = new Date().getTime().toString();
 
     db.collection("products", function (err, collection) {
-        collection.insert(info, {safe: true}, function (err, result) {
+        collection.insert(info, { safe: true }, function (err, result) {
             if (err) {
-                res.send({'status': 'error', 'message': 'An error has occurred'});
+                res.send({ 'status': 'error', 'message': 'An error has occurred' });
             }
             else {
                 console.log(result);
-                res.send({'status': 'success', 'message': 'Data Added successfully'});
+                res.send({ 'status': 'success', 'message': 'Data Added successfully' });
             }
         });
     });
@@ -1201,13 +1208,13 @@ exports.updateProductData = function (req, res) {
 
     delete info.objectId;
     db.collection(collection, function (err, collection) {
-        collection.update({'_id': new ObjectID(id)}, info, {safe: true}, function (err, result) {
+        collection.update({ '_id': new ObjectID(id) }, info, { safe: true }, function (err, result) {
             if (err) {
-                res.send({'status': 'error', 'message': 'An error has occurred'});
+                res.send({ 'status': 'error', 'message': 'An error has occurred' });
             }
             else {
                 console.log(result);
-                res.send({'status': 'success', 'message': 'Data Updated successfully'});
+                res.send({ 'status': 'success', 'message': 'Data Updated successfully' });
             }
         });
     });
@@ -1217,12 +1224,12 @@ exports.updateProductData = function (req, res) {
 exports.getContactData = function (req, res) {
     db.collection('contact', function (err, collection) {
         console.log(req.body.objectId);
-        collection.findOne({'_id': new ObjectID(req.body.objectId)}, function (err, result) {
+        collection.findOne({ '_id': new ObjectID(req.body.objectId) }, function (err, result) {
             if (err) {
-                res.send({'status': 'error', 'message': 'An error has occurred'});
+                res.send({ 'status': 'error', 'message': 'An error has occurred' });
             }
             if (result == null) {
-                res.send({'status': 'error', 'message': 'Data Not Found'});
+                res.send({ 'status': 'error', 'message': 'Data Not Found' });
             }
             if (result !== null) {
                 res.send(result);
@@ -1234,12 +1241,12 @@ exports.getContactData = function (req, res) {
 exports.getProductDetails = function (req, res) {
     db.collection('products', function (err, collection) {
         console.log(req.body.objectId);
-        collection.findOne({'_id': new ObjectID(req.body.objectId)}, function (err, result) {
+        collection.findOne({ '_id': new ObjectID(req.body.objectId) }, function (err, result) {
             if (err) {
-                res.send({'status': 'error', 'message': 'An error has occurred'});
+                res.send({ 'status': 'error', 'message': 'An error has occurred' });
             }
             if (result == null) {
-                res.send({'status': 'error', 'message': 'Data Not Found'});
+                res.send({ 'status': 'error', 'message': 'Data Not Found' });
             }
             if (result !== null) {
                 res.send(result);
@@ -1289,9 +1296,9 @@ exports.uaenergyLogin = function (req, res) {
 
     console.log('Retrieving data: ' + uName);
     db.collection('uaenergyAdmin', function (err, collection) {
-        collection.findOne({'userName': uName}, function (err, item) {
+        collection.findOne({ 'userName': uName }, function (err, item) {
             if (item === null) {
-                var msg = {'error': 'Invalid Username'}
+                var msg = { 'error': 'Invalid Username' }
                 var jm = JSON.stringify(msg);
                 res.send(jm);
             }
@@ -1309,7 +1316,7 @@ exports.uaenergyLogin = function (req, res) {
                     //console.log(item);
                 }
                 else {
-                    var msg = {'error': 'Invalid Password'}
+                    var msg = { 'error': 'Invalid Password' }
                     var jm = JSON.stringify(msg);
                     res.send(jm);
                 }
@@ -1328,13 +1335,13 @@ exports.uaenergyUpdateData = function (req, res) {
 
     delete info.objectId;
     db.collection(collection, function (err, collection) {
-        collection.update({'_id': new ObjectID(id)}, info, {safe: true}, function (err, result) {
+        collection.update({ '_id': new ObjectID(id) }, info, { safe: true }, function (err, result) {
             if (err) {
-                res.send({'status': 'error', 'message': 'An error has occurred'});
+                res.send({ 'status': 'error', 'message': 'An error has occurred' });
             }
             else {
                 console.log(result);
-                res.send({'status': 'success', 'message': 'Data Updated successfully'});
+                res.send({ 'status': 'success', 'message': 'Data Updated successfully' });
             }
         });
     });
@@ -1346,10 +1353,10 @@ exports.uaenergyGetList = function (req, res) {
     db.collection(collection, function (err, collection) {
         collection.find({}).toArray(function (err, result) {
             if (err) {
-                res.send({'status': 'error', 'message': 'An error has occurred'});
+                res.send({ 'status': 'error', 'message': 'An error has occurred' });
             }
             if (result == null) {
-                res.send({'status': 'error', 'message': 'Data Not Found'});
+                res.send({ 'status': 'error', 'message': 'Data Not Found' });
             }
             if (result !== null) {
                 console.log(result);
@@ -1370,9 +1377,9 @@ exports.uaenergyInsertData = function (req, res) {
     info.updatedDate = new Date().getTime().toString();
     var collection = req.body.collection;
     db.collection(collection, function (err, collection) {
-        collection.insert(info, {safe: true}, function (err, result) {
+        collection.insert(info, { safe: true }, function (err, result) {
             if (err) {
-                res.send({'status': 'error', 'message': 'An error has occurred'});
+                res.send({ 'status': 'error', 'message': 'An error has occurred' });
             }
             else {
                 console.log(result);
@@ -1387,12 +1394,12 @@ exports.uaenergyGetDetailsById = function (req, res) {
     var id = req.body.objectId;
     var collection = req.body.collection;
     db.collection(collection, function (err, collection) {
-        collection.find({'_id': new ObjectID(id)}).toArray(function (err, result) {
+        collection.find({ '_id': new ObjectID(id) }).toArray(function (err, result) {
             if (err) {
-                res.send({'status': 'error', 'message': 'An error has occurred'});
+                res.send({ 'status': 'error', 'message': 'An error has occurred' });
             }
             if (result == null) {
-                res.send({'status': 'error', 'message': 'Data Not Found'});
+                res.send({ 'status': 'error', 'message': 'Data Not Found' });
             }
             if (result !== null) {
                 console.log(result);
@@ -1409,8 +1416,8 @@ exports.deleteDataByID = function (req, res) {
     var id = req.body.objectId;
     var collection = req.body.collection;
     db.collection(collection, function (err, collection) {
-        collection.remove({'_id': new ObjectID(id)})(function (err) {
-            res.send((err === null) ? {msg: ''} : {msg: 'error: ' + err});
+        collection.remove({ '_id': new ObjectID(id) })(function (err) {
+            res.send((err === null) ? { msg: '' } : { msg: 'error: ' + err });
 
         });
     });
