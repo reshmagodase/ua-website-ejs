@@ -859,6 +859,7 @@ exports.getNewsDetails = function (req, res) {
             var heading=eq.body.heading;
             heading=heading.split('-').join(' ');
             heading=heading.split('*').join('?');
+            console.log(heading);
             json = { 'heading': heading };
         }
         collection.findOne(json, function (err, result) {
