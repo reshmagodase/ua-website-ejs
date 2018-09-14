@@ -123,16 +123,16 @@ app.controller('DefaultController', function ($scope, $http) {
     $scope.$parent.seo = {
         ogTitle: "UA | Energy and Utilities Consultancy",
         ogDescripton: "We're inspired by the organisations and people we work with. We want to help save them time and money when they source and purchase their energy.",
-        ogImage: "http://www.utility-aid.co.uk/logoUA.png",
-        ogurl: "http://www.utility-aid.co.uk/"
+        ogImage: "https://www.utility-aid.co.uk/logoUA.png",
+        ogurl: "https://www.utility-aid.co.uk/"
     };
 })
 app.controller('whyuaController', function ($scope, $http) {
     $scope.$parent.seo = {
         ogTitle: "UA | Why UA?",
         ogDescripton: "We primarily work in the Not-for-Profit sector. So, suppliers give us the lowest prices in the UK - guaranteed.",
-        ogImage: "http://www.utility-aid.co.uk/img/whyua/whyua.jpg",
-        ogurl: 'http://www.utility-aid.co.uk/why-ua/'
+        ogImage: "https://www.utility-aid.co.uk/img/whyua/whyua.jpg",
+        ogurl: 'https://www.utility-aid.co.uk/why-ua/'
     };
 
     $.post("/getProductList", { "collection": "whyua" }, function (data) {
@@ -158,8 +158,8 @@ app.controller('ourproductsController', function ($scope, $http) {
     $scope.$parent.seo = {
         ogTitle: "UA | Our Products",
         ogDescripton: "Fixed Price Strategy, Market Trigger Strategy, Portfolio Managed Strategy, Bespoke Strategy, Bureau Services",
-        ogImage: "http://www.utility-aid.co.uk/img/products/products.jpg",
-        ogurl: "http://www.utility-aid.co.uk/our-products/"
+        ogImage: "https://www.utility-aid.co.uk/img/products/products.jpg",
+        ogurl: "https://www.utility-aid.co.uk/our-products/"
     };
 })
 
@@ -167,8 +167,8 @@ app.controller('EnergyController', function ($scope, $http) {
     $scope.$parent.seo = {
         ogTitle: "UA | Energy Switching",
         ogDescripton: "Compare your gas and electricity",
-        ogImage: "http://www.utility-aid.co.uk/logoUA.png",
-        ogurl: "http://www.utility-aid.co.uk/energyswitching/"
+        ogImage: "https://www.utility-aid.co.uk/logoUA.png",
+        ogurl: "https://www.utility-aid.co.uk/energyswitching/"
     };
 })
 
@@ -176,24 +176,24 @@ app.controller('ourclientssayController', function ($scope, $http) {
     $scope.$parent.seo = {
         ogTitle: "UA | Our Clients Say",
         ogDescripton: "Going through the energy audit process with ua has been extremely useful. It not only highlighted the savings to be made but saved us valuable time.",
-        ogImage: "http://www.utility-aid.co.uk/img/clients/clients.jpg",
-        ogurl: "http://www.utility-aid.co.uk/our-clients-say/"
+        ogImage: "https://www.utility-aid.co.uk/img/clients/clients.jpg",
+        ogurl: "https://www.utility-aid.co.uk/our-clients-say/"
     };
 })
 app.controller('caseStudiesController', function ($scope, $http) {
     $scope.$parent.seo = {
         ogTitle: "UA | Case Studies",
         ogDescripton: "Going through the energy audit process with ua has been extremely useful. It not only highlighted the savings to be made but saved us valuable time.",
-        ogImage: "http://www.utility-aid.co.uk/img/clients/clients.jpg",
-        ogurl: "http://www.utility-aid.co.uk/our-clients-say/"
+        ogImage: "https://www.utility-aid.co.uk/img/clients/clients.jpg",
+        ogurl: "https://www.utility-aid.co.uk/our-clients-say/"
     };
 })
 app.controller('advisoryboardController', function ($scope, $http) {
     $scope.$parent.seo = {
         ogTitle: "UA | Advisory Board",
         ogDescripton: "UA is proud to be the only energy broker in the UK that employs an Independent Advisory Panel. The panel is there for the benefit of customers requiring advisory services relating to a range of topics including Ethics, Regulation, Lobbying, Trading, Volume Purchasing, Fixed and Flexible products and Exotic Instruments.",
-        ogImage: "http://www.utility-aid.co.uk/img/advisoryboard/advisoryboard.jpg",
-        ogurl: "http://www.utility-aid.co.uk/advisory-board/"
+        ogImage: "https://www.utility-aid.co.uk/img/advisoryboard/advisoryboard.jpg",
+        ogurl: "https://www.utility-aid.co.uk/advisory-board/"
     };
     $.post("/getProductList", { "collection": "advisory" }, function (data) {
         $scope.$apply(function () {
@@ -216,8 +216,8 @@ app.controller('contactController', function ($scope, $http) {
     $scope.$parent.seo = {
         ogTitle: "UA | Contact",
         ogDescripton: "We're inspired by the organisations and people we work with. We want to help save them time and money when they source and purchase their energy.",
-        ogImage: "http://www.utility-aid.co.uk/logoUA.png",
-        ogurl: "http://www.utility-aid.co.uk/contact/"
+        ogImage: "https://www.utility-aid.co.uk/logoUA.png",
+        ogurl: "https://www.utility-aid.co.uk/contact/"
     };
     $.post("/getProductList", { "collection": "contact" }, function (data) {
         $scope.$apply(function () {
@@ -232,8 +232,8 @@ app.controller('contactAskController', function ($scope, $http) {
     $scope.$parent.seo = {
         ogTitle: "UA | Contact",
         ogDescripton: "We're inspired by the organisations and people we work with. We want to help save them time and money when they source and purchase their energy.",
-        ogImage: "http://www.utility-aid.co.uk/logoUA.png",
-        ogurl: "http://www.utility-aid.co.uk/contact/"
+        ogImage: "https://www.utility-aid.co.uk/logoUA.png",
+        ogurl: "https://www.utility-aid.co.uk/contact/"
     };
     $.post("/getProductList", { "collection": "contact" }, function (data) {
         $scope.$apply(function () {
@@ -321,7 +321,7 @@ app.controller('CaseStudiesDetailsController', function ($scope, $location, $htt
             $scope.$parent.seo = {
                 ogTitle: "UA | " + data[0].title,
                 ogDescripton: data[0].meta_data_meta_description,
-                ogImage: "http://www.utility-aid.co.uk/" + data[0].image1,
+                ogImage: "https://www.utility-aid.co.uk/" + data[0].image1,
                 ogurl: url
             };
 
@@ -430,7 +430,7 @@ app.controller('BlogDetailsController', function ($scope, $location, $localStora
             $scope.$parent.seo = {
                 ogTitle: "UA | " + data[0].title,
                 ogDescripton: data[0].meta_data_meta_description,
-                ogImage: "http://www.utility-aid.co.uk/" + data[0].image1,
+                ogImage: "https://www.utility-aid.co.uk/" + data[0].image1,
                 ogurl: url
             };
             var authorList = data[0].author;
@@ -498,7 +498,7 @@ app.controller('BlogDetailsController', function ($scope, $location, $localStora
             var loc = window.location.href;
             var title = 'UA | ' + data[0].title;
             var summary = data[0].meta_data_meta_description;
-            var thumbImage = "http://www.utility-aid.co.uk/" + data[0].image1;
+            var thumbImage = "https://www.utility-aid.co.uk/" + data[0].image1;
             $('a.facebook').click(function (e) {
                 e.preventDefault();
                 FB.ui(
@@ -543,8 +543,8 @@ app.controller('newsCtrl', function ($scope, $location, $localStorage, $http) {
     $scope.$parent.seo = {
         ogTitle: "UA | Media",
         ogDescripton: "We're inspired by the organisations and people we work with. We want to help save them time and money when they source and purchase their energy.",
-        ogImage: "http://www.utility-aid.co.uk/img/blog/news.jpg",
-        ogurl: "http://www.utility-aid.co.uk/news/"
+        ogImage: "https://www.utility-aid.co.uk/img/blog/news.jpg",
+        ogurl: "https://www.utility-aid.co.uk/news/"
     };
 });
 app.controller('NewsDetailsController', function ($scope, $location, $localStorage, $http) {
@@ -594,7 +594,7 @@ app.controller('NewsDetailsController', function ($scope, $location, $localStora
         $scope.$parent.seo = {
             ogTitle: 'UA | ' + data.heading,
             ogDescripton: desc,
-            ogImage: "http://www.utility-aid.co.uk" + data.image,
+            ogImage: "https://www.utility-aid.co.uk" + data.image,
             ogurl: url
         };
         $scope.$apply(function () {
@@ -616,7 +616,7 @@ app.controller('RequestController', function ($scope, $location, $http) {
     $scope.$parent.seo = {
         ogTitle: "UA | Request your free energy consultation",
         ogDescripton: "We're inspired by the organisations and people we work with. We want to help save them time and money when they source and purchase their energy.",
-        ogImage: "http://www.utility-aid.co.uk/logoUA.png",
+        ogImage: "https://www.utility-aid.co.uk/logoUA.png",
         ogurl: window.location.href
     };
     $scope.addUser = function () {
@@ -760,9 +760,9 @@ app.controller('besCtrl', function ($scope, $location, $http) {
 app.controller('faqCtrl', function ($scope, $location, $http) {
     $scope.$parent.seo = {
         ogTitle: "UA | FAQ",
-        ogImage: "http://www.utility-aid.co.uk/logoUA.png",
+        ogImage: "https://www.utility-aid.co.uk/logoUA.png",
         ogDescripton: "We're inspired by the organisations and people we work with. We want to help save them time and money when they source and purchase their energy.",
-        ogurl: "http://www.utility-aid.co.uk/faq/"
+        ogurl: "https://www.utility-aid.co.uk/faq/"
     };
 
 
@@ -778,8 +778,8 @@ app.controller('HomeCtrl', function ($scope, $location, $http) {
     $scope.$parent.seo = {
         ogTitle: "UA | Energy and Utilities Consultancy",
         ogDescripton: "We're inspired by the organisations and people we work with. We want to help save them time and money when they source and purchase their energy.",
-        ogImage: "http://www.utility-aid.co.uk/img/home/homepage.jpg",
-        ogurl: "http://www.utility-aid.co.uk/"
+        ogImage: "https://www.utility-aid.co.uk/img/home/homepage.jpg",
+        ogurl: "https://www.utility-aid.co.uk/"
     };
 
 
