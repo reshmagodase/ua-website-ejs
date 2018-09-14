@@ -173,6 +173,7 @@
             var htmlText = "";
             for (var i = 0; i < response.length; i++) {
                 if (response[i].active !== undefined) {
+                    response[i].description=response[i].description.replace(/http://utility-aid.co.uk/g,"https://utility-aid.co.uk/")
                     var id = response[i]._id;
                     var date = response[i].newsdate;
                     var heading = response[i].heading.split(' ').join('_');
