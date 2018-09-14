@@ -87,3 +87,15 @@
     at Object.Module._extensions..js (module.js:478:10)
     at Module.load (module.js:355:32)
     at Function.Module._load (module.js:310:12)
+
+-------Error :------Fri Sep 14 2018 16:52:20 GMT+0530 (IST)---Error: ENOENT: no such file or directory, open './SSL/ua.crt'
+    at Object.fs.openSync (fs.js:577:3)
+    at fs.readFileSync (fs.js:483:33)
+    at Object.<anonymous> (/home/chetan/Desktop/Chetan Git Folder/ua-website/bin/www:14:11)
+    at Module._compile (internal/modules/cjs/loader.js:702:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:713:10)
+    at Module.load (internal/modules/cjs/loader.js:612:32)
+    at tryModuleLoad (internal/modules/cjs/loader.js:551:12)
+    at Function.Module._load (internal/modules/cjs/loader.js:543:3)
+    at Function.Module.runMain (internal/modules/cjs/loader.js:744:10)
+    at startup (internal/bootstrap/node.js:238:19)
