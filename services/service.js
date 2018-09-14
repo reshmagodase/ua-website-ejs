@@ -88,7 +88,7 @@ var transporter = nodemailer.createTransport({
 });
 
 
-/*Jimp.read("http://www.utility-aid.co.uk/utilityAid/backgroundImages/thumbnails/1450768341396-Resources.jpg", function (err, lenna) {
+/*Jimp.read("https://www.utility-aid.co.uk/utilityAid/backgroundImages/thumbnails/1450768341396-Resources.jpg", function (err, lenna) {
  if (err) throw err;
  lenna.resize(Jimp.AUTO,180)            // resize
  .quality(60)                 // set JPEG quality
