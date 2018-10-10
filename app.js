@@ -3,7 +3,7 @@ var fs = require('fs');
 process.on('uncaughtException', function (error) {
     fs.appendFile('debug.txt', "\n\r\n\r-------Error :------" + new Date() + "---" + error.stack, function (err) {
         if (err) throw err;
-        console.log('The error was appended to file!',err);
+        console.log('The error was appended to file!', err);
     });
 });
 
@@ -62,9 +62,12 @@ app.set('view engine', 'ejs');
 
 app.use(logger('dev'));
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'public/switch/website')));
+app.use(express.static(path.join(__dirname, 'public/switch/admin')));
+
 
 
 app.use(session({
@@ -84,7 +87,7 @@ app.use(session({
 app.use(function (req, res, next) {
     if (req.session && req.session.user) {
         db.collection('adminDetails', function (err, collection) {
-            collection.findOne({userName: req.session.user.userName}, function (err, user) {
+            collection.findOne({ userName: req.session.user.userName }, function (err, user) {
                 if (user) {
 
                     req.user = user;
@@ -119,7 +122,7 @@ var storage = multer.diskStorage({
     }
 })
 
-var upMulter = multer({storage: storage});
+var upMulter = multer({ storage: storage });
 app.post('/login', service.login);
 app.post('/uploadImages', upMulter.array('file', 10), service.uploadImages);
 app.get('/getImages', service.getImages);
@@ -171,14 +174,33 @@ app.post("/uploadUANewsPhoto", upMulter.array('file', 10), service.uploadUANewsP
 
 
 app.post('/getContactData', service.getContactData);
+
+
+
+
 app.get('/admin/', function (req, res) {
     req.session.reset();
     res.sendfile('./public/indexAdmin.html');
 });
-
 app.get('/admin/*', requireLogin, function (req, res) {
     res.sendfile('./public/indexAdmin.html');
 });
+
+app.get('/switch/admin/*', function (req, res) {
+    res.sendfile('./public/switch/admin/index.html');
+});
+
+app.get('/switch/*', function (req, res) {
+    res.sendfile('./public/switch/website/index.html');
+});
+
+
+
+
+
+
+
+
 
 
 app.get('*', function (req, res) {

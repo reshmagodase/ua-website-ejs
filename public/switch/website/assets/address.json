@@ -1,0 +1,1311 @@
+{
+    "GetAddressesResult": {
+        "AddressLines": null,
+        "Addresses": [
+            [
+                {
+                    "Key": "AddressAsLine",
+                    "Value": "HARRP2ZZ HARROW-ON-THE-HILL SPS LOWLANDS ROAD LOWLANDS ROAD MIDDLESEX HA1 3AW"
+                },
+                {
+                    "Key": "currentgspgroupid",
+                    "Value": "_A"
+                },
+                {
+                    "Key": "AddressLine1",
+                    "Value": "HARRP2ZZ"
+                },
+                {
+                    "Key": "linelossfactor",
+                    "Value": "205"
+                },
+                {
+                    "Key": "amrMeter",
+                    "Value": true
+                },
+                {
+                    "Key": "AddressLine3",
+                    "Value": "LOWLANDS ROAD"
+                },
+                {
+                    "Key": "MPANCore",
+                    "Value": "1023538759594"
+                },
+                {
+                    "Key": "Postcode",
+                    "Value": "HA1 3AW"
+                },
+                {
+                    "Key": "energisationstatus",
+                    "Value": "E"
+                },
+                {
+                    "Key": "meterserialnumber",
+                    "Value": "E08BG05227"
+                },
+                {
+                    "Key": "elecmeterserialnumber",
+                    "Value": "E08BG05227"
+                },
+                {
+                    "Key": "profileclass",
+                    "Value": "04"
+                },
+                {
+                    "Key": "keyMeter",
+                    "Value": false
+                },
+                {
+                    "Key": "AddressLine8",
+                    "Value": "MIDDLESEX"
+                },
+                {
+                    "Key": "AddressLine2",
+                    "Value": "HARROW-ON-THE-HILL SPS"
+                },
+                {
+                    "Key": "AddressLine5",
+                    "Value": "LOWLANDS ROAD"
+                },
+                {
+                    "Key": "stdsettlementconfig",
+                    "Value": "0244"
+                },
+                {
+                    "Key": "mpantradingstatus",
+                    "Value": "T"
+                },
+                {
+                    "Key": "metertype",
+                    "Value": "RCAMR"
+                },
+                {
+                    "Key": "metertimeswitchclass",
+                    "Value": "807"
+                }
+            ],
+            [
+                {
+                    "Key": "AddressAsLine",
+                    "Value": "SECOND FLOOR GROVE HOUSE LOWLANDS ROAD HARROW MIDDLESEX HA1 3AW"
+                },
+                {
+                    "Key": "currentgspgroupid",
+                    "Value": "_A"
+                },
+                {
+                    "Key": "AddressLine1",
+                    "Value": "SECOND FLOOR"
+                },
+                {
+                    "Key": "linelossfactor",
+                    "Value": "239"
+                },
+                {
+                    "Key": "amrMeter",
+                    "Value": true
+                },
+                {
+                    "Key": "AddressLine3",
+                    "Value": "GROVE HOUSE"
+                },
+                {
+                    "Key": "MPANCore",
+                    "Value": "1012853996435"
+                },
+                {
+                    "Key": "Postcode",
+                    "Value": "HA1 3AW"
+                },
+                {
+                    "Key": "AddressLine9",
+                    "Value": "MIDDLESEX"
+                },
+                {
+                    "Key": "energisationstatus",
+                    "Value": "E"
+                },
+                {
+                    "Key": "meterserialnumber",
+                    "Value": "E10BG29256"
+                },
+                {
+                    "Key": "elecmeterserialnumber",
+                    "Value": "E10BG29256"
+                },
+                {
+                    "Key": "profileclass",
+                    "Value": "03"
+                },
+                {
+                    "Key": "keyMeter",
+                    "Value": false
+                },
+                {
+                    "Key": "AddressLine8",
+                    "Value": "HARROW"
+                },
+                {
+                    "Key": "mpantradingstatus",
+                    "Value": "T"
+                },
+                {
+                    "Key": "AddressLine5",
+                    "Value": "LOWLANDS ROAD"
+                },
+                {
+                    "Key": "stdsettlementconfig",
+                    "Value": "0393"
+                },
+                {
+                    "Key": "metertype",
+                    "Value": "RCAMY"
+                },
+                {
+                    "Key": "metertimeswitchclass",
+                    "Value": "801"
+                }
+            ],
+            [
+                {
+                    "Key": "AddressAsLine",
+                    "Value": "THIRD FLOOR GROVE HOUSE LOWLANDS ROAD HARROW MIDDLESEX HA1 3AW"
+                },
+                {
+                    "Key": "currentgspgroupid",
+                    "Value": "_A"
+                },
+                {
+                    "Key": "AddressLine1",
+                    "Value": "THIRD FLOOR"
+                },
+                {
+                    "Key": "linelossfactor",
+                    "Value": "201"
+                },
+                {
+                    "Key": "amrMeter",
+                    "Value": true
+                },
+                {
+                    "Key": "AddressLine3",
+                    "Value": "GROVE HOUSE"
+                },
+                {
+                    "Key": "MPANCore",
+                    "Value": "1012853996667"
+                },
+                {
+                    "Key": "Postcode",
+                    "Value": "HA1 3AW"
+                },
+                {
+                    "Key": "AddressLine9",
+                    "Value": "MIDDLESEX"
+                },
+                {
+                    "Key": "energisationstatus",
+                    "Value": "E"
+                },
+                {
+                    "Key": "meterserialnumber",
+                    "Value": "E12Z008938"
+                },
+                {
+                    "Key": "elecmeterserialnumber",
+                    "Value": "E12Z008938"
+                },
+                {
+                    "Key": "profileclass",
+                    "Value": "03"
+                },
+                {
+                    "Key": "keyMeter",
+                    "Value": false
+                },
+                {
+                    "Key": "AddressLine8",
+                    "Value": "HARROW"
+                },
+                {
+                    "Key": "mpantradingstatus",
+                    "Value": "T"
+                },
+                {
+                    "Key": "AddressLine5",
+                    "Value": "LOWLANDS ROAD"
+                },
+                {
+                    "Key": "stdsettlementconfig",
+                    "Value": "0393"
+                },
+                {
+                    "Key": "metertype",
+                    "Value": "RCAMY"
+                },
+                {
+                    "Key": "metertimeswitchclass",
+                    "Value": "801"
+                }
+            ],
+            [
+                {
+                    "Key": "AddressAsLine",
+                    "Value": "NON POSTAL TELECOMMUNICATIONS MAST ORANGE GLN7423 35 LOWLANDS ROAD HARROW HA1 3AW"
+                },
+                {
+                    "Key": "currentgspgroupid",
+                    "Value": "_A"
+                },
+                {
+                    "Key": "AddressLine1",
+                    "Value": "NON POSTAL"
+                },
+                {
+                    "Key": "linelossfactor",
+                    "Value": "205"
+                },
+                {
+                    "Key": "amrMeter",
+                    "Value": true
+                },
+                {
+                    "Key": "AddressLine3",
+                    "Value": "35"
+                },
+                {
+                    "Key": "MPANCore",
+                    "Value": "1050000768727"
+                },
+                {
+                    "Key": "Postcode",
+                    "Value": "HA1 3AW"
+                },
+                {
+                    "Key": "energisationstatus",
+                    "Value": "E"
+                },
+                {
+                    "Key": "meterserialnumber",
+                    "Value": "214062010"
+                },
+                {
+                    "Key": "elecmeterserialnumber",
+                    "Value": "214062010"
+                },
+                {
+                    "Key": "profileclass",
+                    "Value": "04"
+                },
+                {
+                    "Key": "keyMeter",
+                    "Value": false
+                },
+                {
+                    "Key": "AddressLine8",
+                    "Value": "HARROW"
+                },
+                {
+                    "Key": "AddressLine2",
+                    "Value": "TELECOMMUNICATIONS MAST ORANGE GLN7423"
+                },
+                {
+                    "Key": "AddressLine5",
+                    "Value": "LOWLANDS ROAD"
+                },
+                {
+                    "Key": "stdsettlementconfig",
+                    "Value": "0151"
+                },
+                {
+                    "Key": "mpantradingstatus",
+                    "Value": "T"
+                },
+                {
+                    "Key": "metertype",
+                    "Value": "RCAMY"
+                },
+                {
+                    "Key": "metertimeswitchclass",
+                    "Value": "811"
+                }
+            ],
+            [
+                {
+                    "Key": "AddressAsLine",
+                    "Value": "KIOSK AT 37 LOWLANDS ROAD HARROW HA1 3AW"
+                },
+                {
+                    "Key": "AddressLine2",
+                    "Value": "KIOSK AT"
+                },
+                {
+                    "Key": "currentgspgroupid",
+                    "Value": "_A"
+                },
+                {
+                    "Key": "linelossfactor",
+                    "Value": "205"
+                },
+                {
+                    "Key": "amrMeter",
+                    "Value": true
+                },
+                {
+                    "Key": "AddressLine3",
+                    "Value": "37"
+                },
+                {
+                    "Key": "MPANCore",
+                    "Value": "1050001153175"
+                },
+                {
+                    "Key": "Postcode",
+                    "Value": "HA1 3AW"
+                },
+                {
+                    "Key": "energisationstatus",
+                    "Value": "E"
+                },
+                {
+                    "Key": "meterserialnumber",
+                    "Value": "E16UP08190"
+                },
+                {
+                    "Key": "elecmeterserialnumber",
+                    "Value": "E16UP08190"
+                },
+                {
+                    "Key": "profileclass",
+                    "Value": "04"
+                },
+                {
+                    "Key": "keyMeter",
+                    "Value": false
+                },
+                {
+                    "Key": "AddressLine8",
+                    "Value": "HARROW"
+                },
+                {
+                    "Key": "mpantradingstatus",
+                    "Value": "T"
+                },
+                {
+                    "Key": "AddressLine5",
+                    "Value": "LOWLANDS ROAD"
+                },
+                {
+                    "Key": "stdsettlementconfig",
+                    "Value": "0244"
+                },
+                {
+                    "Key": "metertype",
+                    "Value": "RCAMY"
+                },
+                {
+                    "Key": "metertimeswitchclass",
+                    "Value": "807"
+                }
+            ],
+            [
+                {
+                    "Key": "AddressAsLine",
+                    "Value": "37 LOWLANDS ROAD HARROW HA1 3AW"
+                },
+                {
+                    "Key": "currentgspgroupid",
+                    "Value": "_A"
+                },
+                {
+                    "Key": "linelossfactor",
+                    "Value": "239"
+                },
+                {
+                    "Key": "amrMeter",
+                    "Value": false
+                },
+                {
+                    "Key": "AddressLine3",
+                    "Value": "37"
+                },
+                {
+                    "Key": "MPANCore",
+                    "Value": "1012853992750"
+                },
+                {
+                    "Key": "Postcode",
+                    "Value": "HA1 3AW"
+                },
+                {
+                    "Key": "energisationstatus",
+                    "Value": "E"
+                },
+                {
+                    "Key": "meterserialnumber",
+                    "Value": "L77E002687"
+                },
+                {
+                    "Key": "elecmeterserialnumber",
+                    "Value": "L77E002687"
+                },
+                {
+                    "Key": "profileclass",
+                    "Value": "03"
+                },
+                {
+                    "Key": "keyMeter",
+                    "Value": false
+                },
+                {
+                    "Key": "AddressLine8",
+                    "Value": "HARROW"
+                },
+                {
+                    "Key": "mpantradingstatus",
+                    "Value": "T"
+                },
+                {
+                    "Key": "AddressLine5",
+                    "Value": "LOWLANDS ROAD"
+                },
+                {
+                    "Key": "stdsettlementconfig",
+                    "Value": "0393"
+                },
+                {
+                    "Key": "metertype",
+                    "Value": "N"
+                },
+                {
+                    "Key": "metertimeswitchclass",
+                    "Value": "801"
+                }
+            ],
+            [
+                {
+                    "Key": "AddressAsLine",
+                    "Value": "39 LOWLANDS ROAD HARROW HA1 3AW"
+                },
+                {
+                    "Key": "currentgspgroupid",
+                    "Value": "_A"
+                },
+                {
+                    "Key": "linelossfactor",
+                    "Value": "201"
+                },
+                {
+                    "Key": "amrMeter",
+                    "Value": true
+                },
+                {
+                    "Key": "AddressLine3",
+                    "Value": "39"
+                },
+                {
+                    "Key": "MPANCore",
+                    "Value": "1023536839324"
+                },
+                {
+                    "Key": "Postcode",
+                    "Value": "HA1 3AW"
+                },
+                {
+                    "Key": "energisationstatus",
+                    "Value": "E"
+                },
+                {
+                    "Key": "meterserialnumber",
+                    "Value": "K10UP03465"
+                },
+                {
+                    "Key": "elecmeterserialnumber",
+                    "Value": "K10UP03465"
+                },
+                {
+                    "Key": "profileclass",
+                    "Value": "03"
+                },
+                {
+                    "Key": "keyMeter",
+                    "Value": false
+                },
+                {
+                    "Key": "AddressLine8",
+                    "Value": "HARROW"
+                },
+                {
+                    "Key": "mpantradingstatus",
+                    "Value": "T"
+                },
+                {
+                    "Key": "AddressLine5",
+                    "Value": "LOWLANDS ROAD"
+                },
+                {
+                    "Key": "stdsettlementconfig",
+                    "Value": "0393"
+                },
+                {
+                    "Key": "metertype",
+                    "Value": "RCAMY"
+                },
+                {
+                    "Key": "metertimeswitchclass",
+                    "Value": "801"
+                }
+            ],
+            [
+                {
+                    "Key": "AddressAsLine",
+                    "Value": "LOWLANDS HOUSE 51 45 LOWLANDS ROAD HARROW MIDDLESEX HA1 3AW"
+                },
+                {
+                    "Key": "currentgspgroupid",
+                    "Value": "_A"
+                },
+                {
+                    "Key": "AddressLine1",
+                    "Value": "LOWLANDS HOUSE 51"
+                },
+                {
+                    "Key": "linelossfactor",
+                    "Value": "086"
+                },
+                {
+                    "Key": "amrMeter",
+                    "Value": false
+                },
+                {
+                    "Key": "AddressLine3",
+                    "Value": "45"
+                },
+                {
+                    "Key": "MPANCore",
+                    "Value": "1014568593075"
+                },
+                {
+                    "Key": "Postcode",
+                    "Value": "HA1 3AW"
+                },
+                {
+                    "Key": "energisationstatus",
+                    "Value": "E"
+                },
+                {
+                    "Key": "meterserialnumber",
+                    "Value": "213552003"
+                },
+                {
+                    "Key": "elecmeterserialnumber",
+                    "Value": "213552003"
+                },
+                {
+                    "Key": "profileclass",
+                    "Value": "00"
+                },
+                {
+                    "Key": "keyMeter",
+                    "Value": false
+                },
+                {
+                    "Key": "AddressLine8",
+                    "Value": "HARROW"
+                },
+                {
+                    "Key": "mpantradingstatus",
+                    "Value": "T"
+                },
+                {
+                    "Key": "AddressLine5",
+                    "Value": "LOWLANDS ROAD"
+                },
+                {
+                    "Key": "AddressLine9",
+                    "Value": "MIDDLESEX"
+                },
+                {
+                    "Key": "metertype",
+                    "Value": "H"
+                },
+                {
+                    "Key": "metertimeswitchclass",
+                    "Value": "900"
+                }
+            ],
+            [
+                {
+                    "Key": "AddressAsLine",
+                    "Value": "GAMCOM SOLUTIONS LTD GROVE HOUSE;55 LOWLANDS ROAD HARROW HA1 3AW"
+                },
+                {
+                    "Key": "currentgspgroupid",
+                    "Value": "_A"
+                },
+                {
+                    "Key": "AddressLine1",
+                    "Value": "GAMCOM SOLUTIONS LTD"
+                },
+                {
+                    "Key": "linelossfactor",
+                    "Value": "201"
+                },
+                {
+                    "Key": "amrMeter",
+                    "Value": true
+                },
+                {
+                    "Key": "AddressLine3",
+                    "Value": "GROVE HOUSE;55"
+                },
+                {
+                    "Key": "MPANCore",
+                    "Value": "1012853996899"
+                },
+                {
+                    "Key": "Postcode",
+                    "Value": "HA1 3AW"
+                },
+                {
+                    "Key": "energisationstatus",
+                    "Value": "E"
+                },
+                {
+                    "Key": "meterserialnumber",
+                    "Value": "E12Z009577"
+                },
+                {
+                    "Key": "elecmeterserialnumber",
+                    "Value": "E12Z009577"
+                },
+                {
+                    "Key": "profileclass",
+                    "Value": "03"
+                },
+                {
+                    "Key": "keyMeter",
+                    "Value": false
+                },
+                {
+                    "Key": "AddressLine8",
+                    "Value": "HARROW"
+                },
+                {
+                    "Key": "mpantradingstatus",
+                    "Value": "T"
+                },
+                {
+                    "Key": "AddressLine5",
+                    "Value": "LOWLANDS ROAD"
+                },
+                {
+                    "Key": "stdsettlementconfig",
+                    "Value": "0393"
+                },
+                {
+                    "Key": "metertype",
+                    "Value": "RCAMY"
+                },
+                {
+                    "Key": "metertimeswitchclass",
+                    "Value": "801"
+                }
+            ],
+            [
+                {
+                    "Key": "AddressAsLine",
+                    "Value": "GLOBAL METCORP LTD GROVE HOUSE;55 LOWLANDS ROAD HARROW HA1 3AW"
+                },
+                {
+                    "Key": "currentgspgroupid",
+                    "Value": "_A"
+                },
+                {
+                    "Key": "AddressLine1",
+                    "Value": "GLOBAL METCORP LTD"
+                },
+                {
+                    "Key": "linelossfactor",
+                    "Value": "239"
+                },
+                {
+                    "Key": "amrMeter",
+                    "Value": false
+                },
+                {
+                    "Key": "AddressLine3",
+                    "Value": "GROVE HOUSE;55"
+                },
+                {
+                    "Key": "MPANCore",
+                    "Value": "1012853996203"
+                },
+                {
+                    "Key": "Postcode",
+                    "Value": "HA1 3AW"
+                },
+                {
+                    "Key": "energisationstatus",
+                    "Value": "E"
+                },
+                {
+                    "Key": "meterserialnumber",
+                    "Value": "L66E013502"
+                },
+                {
+                    "Key": "elecmeterserialnumber",
+                    "Value": "L66E013502"
+                },
+                {
+                    "Key": "profileclass",
+                    "Value": "03"
+                },
+                {
+                    "Key": "keyMeter",
+                    "Value": false
+                },
+                {
+                    "Key": "AddressLine8",
+                    "Value": "HARROW"
+                },
+                {
+                    "Key": "mpantradingstatus",
+                    "Value": "T"
+                },
+                {
+                    "Key": "AddressLine5",
+                    "Value": "LOWLANDS ROAD"
+                },
+                {
+                    "Key": "stdsettlementconfig",
+                    "Value": "0393"
+                },
+                {
+                    "Key": "metertype",
+                    "Value": "N"
+                },
+                {
+                    "Key": "metertimeswitchclass",
+                    "Value": "801"
+                }
+            ],
+            [
+                {
+                    "Key": "AddressAsLine",
+                    "Value": "ALLIED DUNBAR 67-71 LOWLANDS ROAD HARROW MIDDLESEX HA1 3AW"
+                },
+                {
+                    "Key": "currentgspgroupid",
+                    "Value": "_A"
+                },
+                {
+                    "Key": "AddressLine1",
+                    "Value": "ALLIED DUNBAR"
+                },
+                {
+                    "Key": "linelossfactor",
+                    "Value": "084"
+                },
+                {
+                    "Key": "amrMeter",
+                    "Value": false
+                },
+                {
+                    "Key": "AddressLine3",
+                    "Value": "67-71"
+                },
+                {
+                    "Key": "MPANCore",
+                    "Value": "1014570203532"
+                },
+                {
+                    "Key": "Postcode",
+                    "Value": "HA1 3AW"
+                },
+                {
+                    "Key": "energisationstatus",
+                    "Value": "E"
+                },
+                {
+                    "Key": "meterserialnumber",
+                    "Value": "K97E61173"
+                },
+                {
+                    "Key": "elecmeterserialnumber",
+                    "Value": "K97E61173"
+                },
+                {
+                    "Key": "profileclass",
+                    "Value": "00"
+                },
+                {
+                    "Key": "keyMeter",
+                    "Value": false
+                },
+                {
+                    "Key": "AddressLine8",
+                    "Value": "HARROW"
+                },
+                {
+                    "Key": "mpantradingstatus",
+                    "Value": "T"
+                },
+                {
+                    "Key": "AddressLine5",
+                    "Value": "LOWLANDS ROAD"
+                },
+                {
+                    "Key": "AddressLine9",
+                    "Value": "MIDDLESEX"
+                },
+                {
+                    "Key": "metertype",
+                    "Value": "H"
+                },
+                {
+                    "Key": "metertimeswitchclass",
+                    "Value": "845"
+                }
+            ],
+            [
+                {
+                    "Key": "AddressAsLine",
+                    "Value": "F/P, LONDON BOROUGH OF HARROW O/S LOWLANDS RECREATION GROUND TECHNOLOGY HOUSE 73-77 LOWLANDS ROAD OUTSIDE LOWLANDS RECREATION GROUND HARROW HA1 3AW"
+                },
+                {
+                    "Key": "currentgspgroupid",
+                    "Value": "_A"
+                },
+                {
+                    "Key": "AddressLine1",
+                    "Value": "F/P, LONDON BOROUGH OF HARROW"
+                },
+                {
+                    "Key": "linelossfactor",
+                    "Value": "201"
+                },
+                {
+                    "Key": "amrMeter",
+                    "Value": true
+                },
+                {
+                    "Key": "AddressLine3",
+                    "Value": "TECHNOLOGY HOUSE 73-77"
+                },
+                {
+                    "Key": "MPANCore",
+                    "Value": "1050000607151"
+                },
+                {
+                    "Key": "Postcode",
+                    "Value": "HA1 3AW"
+                },
+                {
+                    "Key": "energisationstatus",
+                    "Value": "E"
+                },
+                {
+                    "Key": "meterserialnumber",
+                    "Value": "E14Z009077"
+                },
+                {
+                    "Key": "elecmeterserialnumber",
+                    "Value": "E14Z009077"
+                },
+                {
+                    "Key": "profileclass",
+                    "Value": "03"
+                },
+                {
+                    "Key": "keyMeter",
+                    "Value": false
+                },
+                {
+                    "Key": "AddressLine8",
+                    "Value": "HARROW"
+                },
+                {
+                    "Key": "AddressLine2",
+                    "Value": "O/S LOWLANDS RECREATION GROUND"
+                },
+                {
+                    "Key": "AddressLine7",
+                    "Value": "OUTSIDE LOWLANDS RECREATION GROUND"
+                },
+                {
+                    "Key": "AddressLine5",
+                    "Value": "LOWLANDS ROAD"
+                },
+                {
+                    "Key": "stdsettlementconfig",
+                    "Value": "0393"
+                },
+                {
+                    "Key": "mpantradingstatus",
+                    "Value": "T"
+                },
+                {
+                    "Key": "metertype",
+                    "Value": "RCAMR"
+                },
+                {
+                    "Key": "metertimeswitchclass",
+                    "Value": "801"
+                }
+            ],
+            [
+                {
+                    "Key": "AddressAsLine",
+                    "Value": "73-77 LOWLANDS ROAD HARROW MIDDLESEX HA1 3AW"
+                },
+                {
+                    "Key": "currentgspgroupid",
+                    "Value": "_A"
+                },
+                {
+                    "Key": "linelossfactor",
+                    "Value": "086"
+                },
+                {
+                    "Key": "amrMeter",
+                    "Value": false
+                },
+                {
+                    "Key": "AddressLine3",
+                    "Value": "73-77"
+                },
+                {
+                    "Key": "MPANCore",
+                    "Value": "1015681952460"
+                },
+                {
+                    "Key": "Postcode",
+                    "Value": "HA1 3AW"
+                },
+                {
+                    "Key": "energisationstatus",
+                    "Value": "E"
+                },
+                {
+                    "Key": "meterserialnumber",
+                    "Value": "E10BG79056"
+                },
+                {
+                    "Key": "elecmeterserialnumber",
+                    "Value": "E10BG79056"
+                },
+                {
+                    "Key": "profileclass",
+                    "Value": "00"
+                },
+                {
+                    "Key": "keyMeter",
+                    "Value": false
+                },
+                {
+                    "Key": "AddressLine8",
+                    "Value": "HARROW"
+                },
+                {
+                    "Key": "mpantradingstatus",
+                    "Value": "T"
+                },
+                {
+                    "Key": "AddressLine5",
+                    "Value": "LOWLANDS ROAD"
+                },
+                {
+                    "Key": "AddressLine9",
+                    "Value": "MIDDLESEX"
+                },
+                {
+                    "Key": "metertype",
+                    "Value": "H"
+                },
+                {
+                    "Key": "metertimeswitchclass",
+                    "Value": "845"
+                }
+            ],
+            [
+                {
+                    "Key": "IGTIndicator",
+                    "Value": "False"
+                },
+                {
+                    "Key": "AddressAsLine",
+                    "Value": "LOWLANDS RECREATION GROUND LOWLANDS ROAD HARROW HA1 3AW"
+                },
+                {
+                    "Key": "GasTransporter",
+                    "Value": "National Grid Gas"
+                },
+                {
+                    "Key": "amrMeter",
+                    "Value": false
+                },
+                {
+                    "Key": "Thoroughfare",
+                    "Value": "LOWLANDS ROAD"
+                },
+                {
+                    "Key": "Postcode",
+                    "Value": "HA1 3AW"
+                },
+                {
+                    "Key": "BuildingName",
+                    "Value": "LOWLANDS RECREATION GROUND"
+                },
+                {
+                    "Key": "MeterSerialNumber",
+                    "Value": "G4K00344211401"
+                },
+                {
+                    "Key": "MPRN",
+                    "Value": "9338067108"
+                },
+                {
+                    "Key": "LargeSiteIndicator",
+                    "Value": "False"
+                },
+                {
+                    "Key": "keyMeter",
+                    "Value": false
+                },
+                {
+                    "Key": "PostOutCode",
+                    "Value": "HA1"
+                },
+                {
+                    "Key": "PostTown",
+                    "Value": "HARROW"
+                },
+                {
+                    "Key": "PostInCode",
+                    "Value": "3AW"
+                },
+                {
+                    "Key": "gasmeterserialnumber",
+                    "Value": "G4K00344211401"
+                },
+                {
+                    "Key": "LDZ",
+                    "Value": "NT"
+                }
+            ],
+            [
+                {
+                    "Key": "IGTIndicator",
+                    "Value": "False"
+                },
+                {
+                    "Key": "County",
+                    "Value": "MIDDLESEX"
+                },
+                {
+                    "Key": "GasTransporter",
+                    "Value": "National Grid Gas"
+                },
+                {
+                    "Key": "amrMeter",
+                    "Value": false
+                },
+                {
+                    "Key": "Thoroughfare",
+                    "Value": "LOWLANDS ROAD"
+                },
+                {
+                    "Key": "Postcode",
+                    "Value": "HA1 3AW"
+                },
+                {
+                    "Key": "BuildingName",
+                    "Value": "1 LOWLANDS COURT"
+                },
+                {
+                    "Key": "MeterSerialNumber",
+                    "Value": "G4A02339389901"
+                },
+                {
+                    "Key": "MPRN",
+                    "Value": "3295663303"
+                },
+                {
+                    "Key": "LargeSiteIndicator",
+                    "Value": "False"
+                },
+                {
+                    "Key": "AddressAsLine",
+                    "Value": "1 LOWLANDS COURT LOWLANDS ROAD HARROW HA1 3AW"
+                },
+                {
+                    "Key": "keyMeter",
+                    "Value": false
+                },
+                {
+                    "Key": "PostOutCode",
+                    "Value": "HA1"
+                },
+                {
+                    "Key": "PostTown",
+                    "Value": "HARROW"
+                },
+                {
+                    "Key": "PostInCode",
+                    "Value": "3AW"
+                },
+                {
+                    "Key": "gasmeterserialnumber",
+                    "Value": "G4A02339389901"
+                },
+                {
+                    "Key": "LDZ",
+                    "Value": "NT"
+                }
+            ],
+            [
+                {
+                    "Key": "IGTIndicator",
+                    "Value": "False"
+                },
+                {
+                    "Key": "County",
+                    "Value": "MIDDLESEX"
+                },
+                {
+                    "Key": "GasTransporter",
+                    "Value": "National Grid Gas"
+                },
+                {
+                    "Key": "amrMeter",
+                    "Value": false
+                },
+                {
+                    "Key": "Thoroughfare",
+                    "Value": "LOWLANDS ROAD"
+                },
+                {
+                    "Key": "Postcode",
+                    "Value": "HA1 3AW"
+                },
+                {
+                    "Key": "BuildingName",
+                    "Value": "3 LOWLANDS COURT"
+                },
+                {
+                    "Key": "MeterSerialNumber",
+                    "Value": "03083809"
+                },
+                {
+                    "Key": "MPRN",
+                    "Value": "3295663404"
+                },
+                {
+                    "Key": "LargeSiteIndicator",
+                    "Value": "False"
+                },
+                {
+                    "Key": "AddressAsLine",
+                    "Value": "3 LOWLANDS COURT LOWLANDS ROAD HARROW HA1 3AW"
+                },
+                {
+                    "Key": "keyMeter",
+                    "Value": false
+                },
+                {
+                    "Key": "PostOutCode",
+                    "Value": "HA1"
+                },
+                {
+                    "Key": "PostTown",
+                    "Value": "HARROW"
+                },
+                {
+                    "Key": "PostInCode",
+                    "Value": "3AW"
+                },
+                {
+                    "Key": "gasmeterserialnumber",
+                    "Value": "03083809"
+                },
+                {
+                    "Key": "LDZ",
+                    "Value": "NT"
+                }
+            ],
+            [
+                {
+                    "Key": "IGTIndicator",
+                    "Value": "False"
+                },
+                {
+                    "Key": "County",
+                    "Value": "MIDDLESEX"
+                },
+                {
+                    "Key": "GasTransporter",
+                    "Value": "National Grid Gas"
+                },
+                {
+                    "Key": "amrMeter",
+                    "Value": false
+                },
+                {
+                    "Key": "Thoroughfare",
+                    "Value": "LOWLANDS ROAD"
+                },
+                {
+                    "Key": "Postcode",
+                    "Value": "HA1 3AW"
+                },
+                {
+                    "Key": "BuildingName",
+                    "Value": "TECHNOLOGY HOUSE 73-77"
+                },
+                {
+                    "Key": "MeterSerialNumber",
+                    "Value": "M016A0146616A6"
+                },
+                {
+                    "Key": "MPRN",
+                    "Value": "3535010"
+                },
+                {
+                    "Key": "LargeSiteIndicator",
+                    "Value": "False"
+                },
+                {
+                    "Key": "AddressAsLine",
+                    "Value": "TECHNOLOGY HOUSE 73-77 LOWLANDS ROAD HARROW HA1 3AW"
+                },
+                {
+                    "Key": "keyMeter",
+                    "Value": false
+                },
+                {
+                    "Key": "PostOutCode",
+                    "Value": "HA1"
+                },
+                {
+                    "Key": "PostTown",
+                    "Value": "HARROW"
+                },
+                {
+                    "Key": "PostInCode",
+                    "Value": "3AW"
+                },
+                {
+                    "Key": "gasmeterserialnumber",
+                    "Value": "M016A0146616A6"
+                },
+                {
+                    "Key": "LDZ",
+                    "Value": "NT"
+                }
+            ]
+        ],
+        "CachedResult": true,
+        "Error": null
+    }
+}

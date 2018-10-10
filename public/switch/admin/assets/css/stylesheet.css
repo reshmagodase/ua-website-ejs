@@ -1,0 +1,18 @@
+
+  /* Font imports */
+
+  @font-face {
+    font-family: 'vag_roundedbold';
+    src: url('../fonts/vag_rounded_bold-webfont.eot'), url('../fonts/vag_rounded_bold-webfont.svg#vag_roundedbold') format('svg');
+    src: url('../fonts/vag_rounded_bold-webfont.eot?#iefix') format('embedded-opentype'), url('../fonts/vag_rounded_bold-webfont.woff') format('woff'), url('../fonts/vag_rounded_bold-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'vag_roundedregular';
+    src: url('../fonts/vag_rounded_thin-webfont.eot'), url('../fonts/vag_rounded_thin-webfont.svg#vag_roundedregular') format('svg');
+    src: url('../fonts/vag_rounded_thin-webfont.eot?#iefix') format('embedded-opentype'), url('../fonts/vag_rounded_thin-webfont.woff') format('woff'), url('../fonts/vag_rounded_thin-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
