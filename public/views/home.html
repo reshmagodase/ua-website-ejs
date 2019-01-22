@@ -42,7 +42,7 @@
         height: 70px;
         display: table;
         width: 100%;
-        background: url(img/uaBanner.png);
+        background: url(img/banner.jpg);
         background-repeat: no-repeat;
         background-position: center;
     }
@@ -51,7 +51,10 @@
     }
 </style>
 
-<div style="background: url(img/uaBanner.png);background-size: contain">
+<div style="background: url(img/banner.jpg);background-size: contain;
+background-repeat: no-repeat;
+background-position: center;
+background-color: #f4f4f4;">
     <div class="banner-img">&nbsp;</div>
     <img class="mobileBannerImg" src="img/uaMobile.png" width="100%">
 </div>
@@ -198,15 +201,13 @@
 </style>
 <script type="text/javascript" src="js/slick.min.js"></script>
 <script type="text/javascript">
-
     $('.center').slick({
         dots: true,
         infinite: false,
         speed: 300,
         slidesToShow: 7,
         slidesToScroll: 7,
-        responsive: [
-            {
+        responsive: [{
                 breakpoint: 1024,
                 settings: {
                     slidesToShow: 5,
