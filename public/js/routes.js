@@ -646,12 +646,11 @@ app.controller('RequestController', function ($scope, $location, $http) {
                 dataType: "json",
                 contentType: "application/json; charset=utf-8"
             })
-                .success(function (data, status) {
-
+                .then(function (data, status) {
                     window.location = "/thank-you/";
-                })
-
-                .error(function (data, status) {
+                },
+                function (error) {
+                    console.log('in error')
                 })
 
         }
