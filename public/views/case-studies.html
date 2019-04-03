@@ -1,6 +1,6 @@
 <header class="header">
     <div class="text-vertical-center">
-        <h1 class="heading_text"><span class="fontBold">case studies</span>
+        <h1 class="heading_text"><span class="fontBold">customer stories</span>
         </h1>
     </div>
 </header>
@@ -30,6 +30,32 @@
                         </div>
                     </div>
                 </a>
+            </div>
+
+        </div>
+    </div>
+</section>
+<!-- added by dnyanesh -->
+<section class="clients" ng-controller="PartnersController">
+    <div class="container text-center">
+        <h2 class="heading_text_inner fontBold">Partners</h2>
+        <br> <br>
+
+        <div class="row">
+            <div ng-repeat="data in Partners">
+                <div ng-if="$index % 4 == 0" class="clearfix"></div>
+                <div ng-if="$index % 2 == 0" class="clearfix visible-sm"></div>
+
+
+                <div class="col-md-3 col-sm-6">
+                    <div class="partners">
+                        <a href="{{data.link}}" target="_blank"> <img
+                                src="{{data.image1}}"
+                                title="{{data.partner_name}}" alt="{{data.partner_name}}">
+                            <span>{{data.partner_name}}</span>
+                        </a>
+                    </div>
+                </div>
             </div>
 
         </div>
