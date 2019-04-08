@@ -32,7 +32,7 @@
                 <li>The ability to hit and exceed targets</li>
                 <li>Ability to build and manage your sales pipeline</li>
             </ul>
-            <button type="submit" class="btnFindOutMore" ng-click="showFormModal();">Apply Now
+            <button type="submit" class="btnFindOutMore" onclick="openApplyModal()">Apply Now
             </button>
         </div>
     </div>
@@ -118,7 +118,8 @@
             </div>
             <div class="modal-body text-center">
                 <!-- <img src="http://osmhotels.com//assets/check-true.jpg"> -->
-                <p style="color:#000" class="lead">CV successfully submitted. Thank you, We will get back to you soon!</p>
+                <p style="color:#000" class="lead">CV successfully submitted. Thank you, We will get back to you soon!
+                </p>
                 <!-- <a href="index.php" class="rd_more btn btn-default">Go to Home</a> -->
             </div>
 
@@ -190,6 +191,7 @@
     .justify {
         text-align: justify;
     }
+
     g {
         display: none;
     }
@@ -242,7 +244,16 @@
 
             });
 
+
+
         }
 
     });
+
+    function openApplyModal() {
+        $("#cvModal").modal('show');
+        myDropzone.removeAllFiles();
+        $("#cvnameId").val('');
+        $("#cvemail").val('')
+    }
 </script>
