@@ -99,3 +99,51 @@
     at Function.Module._load (internal/modules/cjs/loader.js:543:3)
     at Function.Module.runMain (internal/modules/cjs/loader.js:744:10)
     at startup (internal/bootstrap/node.js:238:19)
+
+-------Error :------Mon Oct 15 2018 11:10:55 GMT+0000 (UTC)---Error: error:0B080074:x509 certificate routines:X509_check_private_key:key values mismatch
+    at Error (native)
+    at Object.createSecureContext (_tls_common.js:85:17)
+    at Server (_tls_wrap.js:775:25)
+    at new Server (https.js:26:14)
+    at Object.exports.createServer (https.js:47:10)
+    at Object.<anonymous> (/home/ubuntu/ua-website/bin/www:36:17)
+    at Module._compile (module.js:577:32)
+    at Object.Module._extensions..js (module.js:586:10)
+    at Module.load (module.js:494:32)
+    at tryModuleLoad (module.js:453:12)
+
+-------Error :------Mon Oct 15 2018 11:10:55 GMT+0000 (UTC)---Error: listen EADDRINUSE :::3007
+    at Object.exports._errnoException (util.js:1020:11)
+    at exports._exceptionWithHostPort (util.js:1043:20)
+    at Server._listen2 (net.js:1271:14)
+    at listen (net.js:1307:10)
+    at Server.listen (net.js:1403:5)
+    at Object.<anonymous> (/home/ubuntu/ua-website/app.js:31:16)
+    at Module._compile (module.js:577:32)
+    at Object.Module._extensions..js (module.js:586:10)
+    at Module.load (module.js:494:32)
+    at tryModuleLoad (module.js:453:12)
+
+-------Error :------Mon Oct 15 2018 11:37:06 GMT+0000 (UTC)---Error: error:0B080074:x509 certificate routines:X509_check_private_key:key values mismatch
+    at Error (native)
+    at Object.createSecureContext (_tls_common.js:85:17)
+    at Server (_tls_wrap.js:775:25)
+    at new Server (https.js:26:14)
+    at Object.exports.createServer (https.js:47:10)
+    at Object.<anonymous> (/home/ubuntu/ua-website/bin/www:36:17)
+    at Module._compile (module.js:577:32)
+    at Object.Module._extensions..js (module.js:586:10)
+    at Module.load (module.js:494:32)
+    at tryModuleLoad (module.js:453:12)
+
+-------Error :------Mon Oct 15 2018 11:37:48 GMT+0000 (UTC)---Error: error:0B080074:x509 certificate routines:X509_check_private_key:key values mismatch
+    at Error (native)
+    at Object.createSecureContext (_tls_common.js:85:17)
+    at Server (_tls_wrap.js:775:25)
+    at new Server (https.js:26:14)
+    at Object.exports.createServer (https.js:47:10)
+    at Object.<anonymous> (/home/ubuntu/ua-website/bin/www:36:17)
+    at Module._compile (module.js:577:32)
+    at Object.Module._extensions..js (module.js:586:10)
+    at Module.load (module.js:494:32)
+    at tryModuleLoad (module.js:453:12)
