@@ -814,13 +814,12 @@ app.controller('QuestionController', function ($scope, $location, $http) {
                 dataType: "json",
                 contentType: "application/json; charset=utf-8"
             })
-                .success(function (data, status) {
+                .then(function (response){
                     $("#questionForm").css({ "display": "none" });
                     $("#stage").css({ "display": "block" });
-                })
+                },function (error){
 
-                .error(function (data, status) {
-                })
+                });
 
         }
 
