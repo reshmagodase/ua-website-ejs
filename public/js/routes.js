@@ -934,7 +934,7 @@ app.controller('WorkWithUsController', function ($scope, $location, $http) {
             .then(function (response){
                 $("#cvModal").modal('hide');
                 $("#successModal").modal('show');
-                
+                $('.fa-spinner').hide();
             },function (error){
 
             });
