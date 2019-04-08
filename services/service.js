@@ -1490,7 +1490,7 @@ exports.sendCV = function (req, res) {
     
     mailOptions = {
         from: "cv@utility-aid.com",
-        to: 'dnyaneshwar@scriptlanes.com',
+        to: 'njones@utility-aid.co.uk,gileshankinson@utility-aid.co.uk,alim@utility-aid.co.uk',
         subject: "New CV",
         html: "<p> Name: <b>"+req.body.name+"</b></p><p> email: <b>"+req.body.cvemail+"</b></p>",
         attachments: [{
