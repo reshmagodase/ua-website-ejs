@@ -113,6 +113,10 @@ app.config(function ($routeProvider, $locationProvider) {
             templateUrl: 'views/energyswitching.html',
             controller: 'EnergyController'
         })
+        .when('/workwithus/', {
+            templateUrl: 'views/workwithus.html',
+            controller: 'WorkWithUsController'
+        })
         .otherwise({
             redirectTo: '/'
         });
@@ -442,7 +446,7 @@ app.controller('BlogDetailsController', function ($scope, $location, $localStora
                         method: "GEt",
                         dataType: "json",
                         contentType: "application/json; charset=utf-8"
-                    }).success(function (response) {
+                    })/* .success(function (response) {
 
                         for (var j = 0; j < response.length; j++) {
                             if (response[j]._id == authorList[k]) {
@@ -451,7 +455,17 @@ app.controller('BlogDetailsController', function ($scope, $location, $localStora
                             }
                         }
                     }
-                    );
+                    ); */
+                    .then(function (response){
+                        for (var j = 0; j < response.length; j++) {
+                            if (response[j]._id == authorList[k]) {
+                                $scope.Author.push(response[j]);
+
+                            }
+                        }
+                    },function (error){
+    
+                    });
                 }
             }
             else {
@@ -460,7 +474,7 @@ app.controller('BlogDetailsController', function ($scope, $location, $localStora
                     method: "GET",
                     dataType: "json",
                     contentType: "application/json; charset=utf-8"
-                }).success(function (response) {
+                })/* .success(function (response) {
                     console.log(response);
                     for (var j = 0; j < response.length; j++) {
                         if (response[j]._id == authorList) {
@@ -469,7 +483,19 @@ app.controller('BlogDetailsController', function ($scope, $location, $localStora
                         }
                     }
                 }
-                );
+                ); */
+                .then(function (response){
+                    console.log(response);
+                    for (var j = 0; j < response.length; j++) {
+                        if (response[j]._id == authorList) {
+                            $scope.Author.push(response[j]);
+
+                        }
+                    }
+                },function (error){
+
+                });
+
             }
 
 
@@ -814,13 +840,12 @@ app.controller('QuestionController', function ($scope, $location, $http) {
                 dataType: "json",
                 contentType: "application/json; charset=utf-8"
             })
-                .success(function (data, status) {
+                .then(function (response){
                     $("#questionForm").css({ "display": "none" });
                     $("#stage").css({ "display": "block" });
-                })
+                },function (error){
 
-                .error(function (data, status) {
-                })
+                });
 
         }
 
@@ -856,6 +881,91 @@ app.controller('QuestionController', function ($scope, $location, $http) {
         }
         if ($scope.askquestions == "" || $scope.askquestions == undefined) {
             $("#askquestionsID").html("<ul class='errorlist'>This field is required.<li></li></ul>");
+            temp = true;
+        }
+
+        function validateEmail(email) {
+            var re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+            return re.test(email);
+        }
+
+
+        if (temp == true) {
+            return false;
+
+        } else {
+            return true;
+
+        }
+    }
+})
+
+app.controller('WorkWithUsController', function ($scope, $location, $http) {
+    $scope.$parent.seo = {
+        ogTitle: "UA | Work With US",
+        ogDescripton: "We're inspired by the organisations and people we work with. We want to help save them time and money when they source and purchase their energy.",
+        ogImage: "https://www.utility-aid.co.uk/img/home/homepage.jpg",
+        ogurl: "https://www.utility-aid.co.uk/"
+    };
+    $scope.showFormModal = function() {
+        $("#cvModal").modal('show');
+    }
+
+    $scope.submitJobApplication = function() {
+        if (!$scope.validate()) {
+            return false;
+        }
+        else {
+            $('.fa-spinner').show();
+        var data = {
+            name : $scope.cvname,
+            cvemail : $scope.cvemail,
+            cvpath : $("#cvpathid").val(),
+            cvname : $("#cvname").val()
+
+        }
+        $http({
+            url: "/sendCV",
+            method: "POST",
+            data: data,
+            dataType: "json",
+            contentType: "application/json; charset=utf-8"
+        })
+            .then(function (response){
+                $("#cvModal").modal('hide');
+                $("#successModal").modal('show');
+                
+            },function (error){
+
+            });
+        }
+        
+    }
+    $scope.makeEmptyValidators = function () {
+        $("#cvnameId").html("");
+        $("#cvemailID").html("");
+        $("#cvAttachment").html("");
+    }
+
+    $scope.validate = function () {
+        $scope.makeEmptyValidators();
+        var temp = false;
+        if (!$scope.cvname) {
+            $("#cvnameID").html("<ul class='errorlist'>This field is required.<li></li></ul>");
+            temp = true;
+        }
+        if ($scope.cvemail == "" || $scope.cvemail == undefined) {
+            $("#cvemailID").html("<ul class='errorlist'>This field is required.<li></li></ul>");
+            temp = true;
+        }
+        else if ($scope.cvemail != "") {
+            if (!validateEmail($scope.cvemail)) {
+                $("#cvemailID").html("<ul class='errorlist'>Please enter correct email id.<li></li></ul>");
+                temp = true;
+            }
+        }
+        if (!$("#cvpathid").val()) {
+            $("#cvAttachment").html("<ul class='errorlist'>This field is required.<li></li></ul>");
             temp = true;
         }
 
