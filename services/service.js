@@ -1495,10 +1495,11 @@ exports.sendCV = function (req, res) {
         html: "<p> Name: <b>"+req.body.name+"</b></p><p> email: <b>"+req.body.cvemail+"</b></p>",
         attachments: [{
             filename: req.body.filename,
-            path: 'https://utility-aid.co.uk/'+req.body.cvpath
+            path: __dirname+'/'+req.body.cvpath
             // path: 'https://en.defacto.nl/images/social/demo-1200x630-b3c5c9a1.png'
         }]
     };
+    console.log('mailOptions', mailOptions);
     transporter.sendMail(mailOptions, function(err) {
         if (err) {
             console.log(err);
@@ -1518,8 +1519,8 @@ exports.uploadCV = function (req, res) {
         imageArray.push(req.files[j]);
     }
     for (var i = 0; i <= imageArray.length - 1; i++) {
-        var np = './public/utilityAid/cv/' + req.files[i].filename;
-        var directoryPath = 'utilityAid/cv/' + req.files[i].filename;
+        var np = /* './public/utilityAid/cv/' */'./services/cv/' + req.files[i].filename;
+        var directoryPath = /* 'utilityAid/cv/' + */ 'cv/'+ req.files[i].filename;
         var tmp = './public/utilityAid/tmp/' + req.files[i].filename;
         var imagePath = {};
         fs.rename('./public/utilityAid/tmp/' + req.files[i].filename, np, function (success) {
