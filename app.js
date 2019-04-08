@@ -15,6 +15,7 @@ var bodyParser = require('body-parser');
 var service = require('./services/service');
 var session = require('client-sessions');
 var multer = require('multer');
+var multipartyMiddleware = require('connect-multiparty')();
 
 
 var http = require('http');
@@ -171,9 +172,10 @@ app.post('/addNews', service.addNews);
 app.post('/editNews', service.editNews);
 app.post('/getNewsDetails', service.getNewsDetails);
 app.post("/uploadUANewsPhoto", upMulter.array('file', 10), service.uploadUANewsPhoto);
-
+app.post("/uploadCV", upMulter.array('file', 10), service.uploadCV);
 
 app.post('/getContactData', service.getContactData);
+app.post('/sendCV', service.sendCV);
 
 
 

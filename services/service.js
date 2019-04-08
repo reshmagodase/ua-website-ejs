@@ -15,6 +15,7 @@ var exec = require('child_process').exec;
 var im = require('imagemagick');
 var Jimp = require("jimp");
 var session = require('client-sessions');
+var multipartyMiddleware = require('connect-multiparty')();
 //var lwip = require('lwip');
 
 var nodemailer = require('nodemailer');
@@ -1483,6 +1484,60 @@ exports.uploadNewsPhoto = function (req, res) {
     }
 };
 
+/* Added by dnyanesh */
+exports.sendCV = function (req, res) {
+    console.log(req.body);
+    
+    mailOptions = {
+        from: "cv@utility-aid.com",
+        to: 'dnyaneshwar@scriptlanes.com',
+        subject: "New CV",
+        html: "<p> Name: <b>"+req.body.name+"</b></p><p> email: <b>"+req.body.cvemail+"</b></p>",
+        attachments: [{
+            filename: req.body.filename,
+            path: 'https://utility-aid.co.uk/'+req.body.cvpath
+            // path: 'https://en.defacto.nl/images/social/demo-1200x630-b3c5c9a1.png'
+        }]
+    };
+    transporter.sendMail(mailOptions, function(err) {
+        if (err) {
+            console.log(err);
+            res.status(500).end();
+        }
+        console.log('Mail sent successfully');
+        res.status(200).end()
+    });
+};
+exports.uploadCV = function (req, res) {
+
+    var imageArray = [];
+    var array = [];
+    var arr = parseInt(req.files.length);
+    console.log('req.files', req.files);
+    for (var j = 0; j < arr; j++) {
+        imageArray.push(req.files[j]);
+    }
+    for (var i = 0; i <= imageArray.length - 1; i++) {
+        var np = './public/utilityAid/cv/' + req.files[i].filename;
+        var directoryPath = 'utilityAid/cv/' + req.files[i].filename;
+        var tmp = './public/utilityAid/tmp/' + req.files[i].filename;
+        var imagePath = {};
+        fs.rename('./public/utilityAid/tmp/' + req.files[i].filename, np, function (success) {
+            console.log("File uploaded successfully");
+        });
+        imagePath = {
+            path: directoryPath,
+            createdDate: new Date().getTime().toString(),
+            name: req.files[i].filename
+        };
+        array.push(imagePath);
+        //res.header('Access-Control-Allow-Origin', '*');
+        // res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
+        //res.header('Access-Control-Allow-Headers', 'Content-Type');
+        //res.code(200);
+        res.send(imagePath);
+    }
+};
 /*=================================================
  * ua-energy API calls ends here
  * =================================================*/
