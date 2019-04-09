@@ -13,8 +13,8 @@
         <div class="col-sm-12" style="text-align:left;">
 
 
-            <p>Full-time and Part-time available </p>
-            <p>Salary: £18,000.00 basic salary (or pro-rata) plus tiered bonuses rising to £40,000 per annum</p>
+            <p> <b> Full-time and Part-time roles available</b> </p>
+            <p><b>Salary:</b> £18,000.00 basic salary (or pro-rata) plus tiered bonuses rising to £40,000 per annum</p>
 
             <p><b>Description: </b></p>
             <p>Your role will be based in our Norwich City Centre office, where you will join a small but growing sales
@@ -67,7 +67,7 @@
                             </div>
                             <div class="controls">
                                 <div class="dropzone"
-                                    style="color: #000;border: 1px solid #ccc;padding: 10px;border-radius: 25px;cursor: pointer;"
+                                    style="color: #000;border: 1px solid #ccc;padding: 10px;border-radius: 25px;cursor: pointer;background-color: #fff;"
                                     id="myDropzone">
                                     <div class="dz-message needsclick">
                                         Drop your CV here
@@ -145,6 +145,14 @@
         }
     }
 
+    li {
+        font-size: 16.5px;
+    }
+
+    b {
+        font-size: 18px;
+    }
+
     .fa-spinner {
         display: none;
         width: 50px;
@@ -152,6 +160,12 @@
 
     .success-popup {
         transition: .3s ease all;
+    }
+
+    .modal-dialog {
+        position: relative;
+        width: auto;
+        margin: 4px;
     }
 
     .blogs a {
@@ -196,12 +210,12 @@
         display: none;
     }
 
-    .dz-upload { 
-    display: block; 
-    background-color: #3496C1; 
-    height: 10px;
-    width: 0%;
-}
+    .dz-upload {
+        display: block;
+        background-color: #3496C1;
+        height: 10px;
+        width: 0%;
+    }
 </style>
 <script>
     var myDropzone = new Dropzone("div#myDropzone", {
