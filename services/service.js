@@ -654,7 +654,7 @@ exports.getCaseStudyList = function (req, res) {
 
 exports.getPartnerList = function (req, res) {
     db.collection('partners', function (err, collection) {
-        collection.find(req.body).sort({ 'createdDate': -1 }).toArray(function (err, result) {
+        collection.find(req.body).sort({ 'partner_name': 1 }).toArray(function (err, result) {
 
             if (err) {
                 res.send({ 'status': 'error', 'message': 'An error has occurred' });
