@@ -1037,7 +1037,7 @@ exports.sendQuestionMail = function (req, res) {
     var mailOptions = {
         from: 'Utility Aid', // sender address
         //to: 'enquiries@utility-aid.co.uk,gary@viva-worldwide.com,mdaly@utility-aid.com,WCampbell@utility-aid.co.uk', // list of receivers
-        to: 'GilesHankinson@utility-aid.co.uk,chetan@scriptlanes.com,njones@utility-aid.co.uk,mneville@utility-aid.co.uk,sjames@utility-aid.co.uk',
+        to: 'GilesHankinson@utility-aid.co.uk,chetan@scriptlanes.com,njones@utility-aid.co.uk,ALim@utility-aid.co.uk',
         subject: 'Ask a Question', // Subject line
         text: '', // plaintext body
         html: htmlFormat
@@ -1084,7 +1084,7 @@ exports.sendQuestionMailUAEnergy = function (req, res) {
     var mailOptions = {
         from: 'UA Energy', // sender address
         //to: 'enquiries@utility-aid.co.uk,gary@viva-worldwide.com,mdaly@utility-aid.com,WCampbell@utility-aid.co.uk', // list of receivers
-        to: 'GilesHankinson@utility-aid.co.uk,chetan@scriptlanes.com,njones@utility-aid.co.uk,mneville@utility-aid.co.uk,sjames@utility-aid.co.uk',
+        to: 'GilesHankinson@utility-aid.co.uk,chetan@scriptlanes.com,njones@utility-aid.co.uk,ALim@utility-aid.co.uk',
         subject: 'Ask a Question', // Subject line
         text: '', // plaintext body
         html: htmlFormat
