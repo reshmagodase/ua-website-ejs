@@ -181,7 +181,7 @@
                     var heading = response[i].heading.split(' ').join('_');
                     heading = heading.split('?').join('*');
                     htmlText += '<div class="row ua-energy-row"><div style="display: none" class="newsdate' + i + '">' + formatDate(new Date(response[i].newsdate)) + '</div> ' +
-                        '<div class="col-lg-5 col-md-5"> <div class="ua-news-right-background"> <a class="ua-expand-link" href="/news-media/' + id + '/' + response[i].newsdate + '" style="text-decoration:none"><img class="image' + i + '" src="' + response[i].image + '" alt="news"/> </a></div>  </div>' +
+                        '<div class="col-lg-5 col-md-5"> <div class="ua-news-right-background"> <a class="ua-expand-link" href="/news-media/' + heading + '/' + response[i].newsdate + '" style="text-decoration:none"><img class="image' + i + '" src="' + response[i].image + '" alt="news"/> </a></div>  </div>' +
                         '<div class="col-lg-7 col-md-7"> <div class="ua-news"> ' +
                         '<a class="ua-expand-link" href="/news-media/' + heading + '/' + response[i].newsdate + '" style="text-decoration:none;color:#1D282F"><h3 class="news-title heading' + i + '">' + response[i].heading + '</h3></a> ' +
                         '<a class="ua-expand-link" href="/news-media/' + heading + '/' + response[i].newsdate + '" style="text-decoration:none;color:#1D282F"><p class="news-content description' + i + '">' + response[i].description + ' </p></a> <br> ' +
