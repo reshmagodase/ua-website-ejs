@@ -921,9 +921,11 @@ app.controller('WorkWithUsController', function ($scope, $location, $http) {
             name : $scope.cvname,
             cvemail : $scope.cvemail,
             cvpath : $("#cvpathid").val(),
-            cvname : $("#cvname").val()
+            cvname : $("#cvname").val(),
+            location: $("#position").html()
 
         }
+        console.log('data', data)
         $http({
             url: "/sendCV",
             method: "POST",

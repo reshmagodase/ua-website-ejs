@@ -653,6 +653,7 @@ exports.getCaseStudyList = function (req, res) {
 }
 
 exports.getPartnerList = function (req, res) {
+    console.log("getpartnerlist called");
     db.collection('partners', function (err, collection) {
         collection.find(req.body).sort({ 'partner_name': 1 }).toArray(function (err, result) {
 
@@ -799,11 +800,11 @@ exports.getBlogDetails = function (req, res) {
 exports.getNewsList = function (req, res) {
     db.collection('uaNews', function (err, collection) {
         collection.find(req.body).sort({ 'newsdate': -1 }).toArray(function (err, result) {
-
+            console.log(result);
             if (err) {
                 res.send({ 'status': 'error', 'message': 'An error has occurred' });
             }
-            if (result == null) {
+            if (result == null || result.length == 0) {
                 res.send({ 'status': 'error', 'message': 'Data Not Found' });
             }
             if (result !== null) {
@@ -1487,10 +1488,20 @@ exports.uploadNewsPhoto = function (req, res) {
 /* Added by dnyanesh */
 exports.sendCV = function (req, res) {
     console.log(req.body);
+    var reciepients;
+    if(req.body.location == "Norwich") {
+        reciepients = 'njones@utility-aid.co.uk,gileshankinson@utility-aid.co.uk,alim@utility-aid.co.uk'
+    }
+
+    if(req.body.location == "Glasgow") {
+        reciepients = 'LDuffy@utility-aid.net,alim@utility-aid.co.uk'
+        // reciepients = 'dnyaneshwar@scriptlanes.com'
+    }
     
+    console.log('reciepients', reciepients);
     mailOptions = {
         from: "cv@utility-aid.com",
-        to: 'njones@utility-aid.co.uk,gileshankinson@utility-aid.co.uk,alim@utility-aid.co.uk',
+        to: reciepients,
         subject: "New CV",
         html: "<p> Name: <b>"+req.body.name+"</b></p><p> email: <b>"+req.body.cvemail+"</b></p>",
         attachments: [{
