@@ -1,0 +1,215 @@
+
+
+-------Error :------Mon Apr 10 2017 16:46:33 GMT+0530 (India Standard Time)---Error: mac verify failure
+    at Error (native)
+    at Object.createSecureContext (_tls_common.js:130:17)
+    at Server (_tls_wrap.js:733:25)
+    at new Server (https.js:17:14)
+    at Object.exports.createServer (https.js:37:10)
+    at Object.<anonymous> (d:\Chetan\ua-website\bin\www:40:25)
+    at Module._compile (module.js:409:26)
+    at Object.Module._extensions..js (module.js:416:10)
+    at Module.load (module.js:343:32)
+    at Function.Module._load (module.js:300:12)
+
+-------Error :------Mon Apr 10 2017 16:46:43 GMT+0530 (India Standard Time)---Error: mac verify failure
+    at Error (native)
+    at Object.createSecureContext (_tls_common.js:130:17)
+    at Server (_tls_wrap.js:733:25)
+    at new Server (https.js:17:14)
+    at Object.exports.createServer (https.js:37:10)
+    at Object.<anonymous> (d:\Chetan\ua-website\bin\www:40:25)
+    at Module._compile (module.js:409:26)
+    at Object.Module._extensions..js (module.js:416:10)
+<<<<<<< HEAD
+    at Module.load (module.js:343:32)
+    at Function.Module._load (module.js:300:12)
+
+-------Error :------Tue Jun 06 2017 10:42:08 GMT+0530 (India Standard Time)---Error: Can't set headers after they are sent.
+    at ServerResponse.OutgoingMessage.setHeader (_http_outgoing.js:344:11)
+    at ServerResponse.header (d:\Chetan\ua-website\node_modules\express\lib\response.js:718:10)
+    at ServerResponse.send (d:\Chetan\ua-website\node_modules\express\lib\response.js:163:12)
+    at ServerResponse.json (d:\Chetan\ua-website\node_modules\express\lib\response.js:249:15)
+    at ServerResponse.send (d:\Chetan\ua-website\node_modules\express\lib\response.js:151:21)
+    at d:\Chetan\ua-website\services\service.js:1087:21
+    at handleCallback (d:\Chetan\ua-website\node_modules\mongodb\lib\utils.js:96:12)
+    at d:\Chetan\ua-website\node_modules\mongodb\lib\cursor.js:839:22
+    at handleCallback (d:\Chetan\ua-website\node_modules\mongodb\lib\utils.js:96:12)
+    at d:\Chetan\ua-website\node_modules\mongodb\lib\cursor.js:665:20
+=======
+
+-------Error :------Mon Apr 10 2017 07:13:41 GMT-0400 (EDT)---Error: mac verify failure
+    at Error (native)
+    at Object.createSecureContext (_tls_common.js:174:17)
+    at Server (_tls_wrap.js:596:25)
+    at new Server (https.js:36:14)
+    at Object.exports.createServer (https.js:56:10)
+    at Object.<anonymous> (/home/ec2-user/ua-website/bin/www:40:25)
+    at Module._compile (module.js:460:26)
+    at Object.Module._extensions..js (module.js:478:10)
+    at Module.load (module.js:355:32)
+    at Function.Module._load (module.js:310:12)
+>>>>>>> ca686aabcadd47a2cff621139122da8ba4857486
+
+
+-------Error :------Mon May 07 2018 04:55:07 GMT-0400 (EDT)---Error: mac verify failure
+    at Error (native)
+    at Object.createSecureContext (_tls_common.js:174:17)
+    at Server (_tls_wrap.js:596:25)
+    at new Server (https.js:36:14)
+    at Object.exports.createServer (https.js:56:10)
+    at Object.<anonymous> (/home/ec2-user/ua-website/bin/www:40:25)
+    at Module._compile (module.js:460:26)
+    at Object.Module._extensions..js (module.js:478:10)
+    at Module.load (module.js:355:32)
+    at Function.Module._load (module.js:310:12)
+
+-------Error :------Mon May 07 2018 04:55:42 GMT-0400 (EDT)---Error: mac verify failure
+    at Error (native)
+    at Object.createSecureContext (_tls_common.js:174:17)
+    at Server (_tls_wrap.js:596:25)
+    at new Server (https.js:36:14)
+    at Object.exports.createServer (https.js:56:10)
+    at Object.<anonymous> (/home/ec2-user/ua-website/bin/www:40:25)
+    at Module._compile (module.js:460:26)
+    at Object.Module._extensions..js (module.js:478:10)
+    at Module.load (module.js:355:32)
+    at Function.Module._load (module.js:310:12)
+
+-------Error :------Mon May 07 2018 04:56:55 GMT-0400 (EDT)---Error: mac verify failure
+    at Error (native)
+    at Object.createSecureContext (_tls_common.js:174:17)
+    at Server (_tls_wrap.js:596:25)
+    at new Server (https.js:36:14)
+    at Object.exports.createServer (https.js:56:10)
+    at Object.<anonymous> (/home/ec2-user/ua-website/bin/www:40:25)
+    at Module._compile (module.js:460:26)
+    at Object.Module._extensions..js (module.js:478:10)
+    at Module.load (module.js:355:32)
+    at Function.Module._load (module.js:310:12)
+
+-------Error :------Fri Sep 14 2018 16:52:20 GMT+0530 (IST)---Error: ENOENT: no such file or directory, open './SSL/ua.crt'
+    at Object.fs.openSync (fs.js:577:3)
+    at fs.readFileSync (fs.js:483:33)
+    at Object.<anonymous> (/home/chetan/Desktop/Chetan Git Folder/ua-website/bin/www:14:11)
+    at Module._compile (internal/modules/cjs/loader.js:702:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:713:10)
+    at Module.load (internal/modules/cjs/loader.js:612:32)
+    at tryModuleLoad (internal/modules/cjs/loader.js:551:12)
+    at Function.Module._load (internal/modules/cjs/loader.js:543:3)
+    at Function.Module.runMain (internal/modules/cjs/loader.js:744:10)
+    at startup (internal/bootstrap/node.js:238:19)
+
+<<<<<<< HEAD
+-------Error :------Mon Oct 15 2018 11:10:55 GMT+0000 (UTC)---Error: error:0B080074:x509 certificate routines:X509_check_private_key:key values mismatch
+    at Error (native)
+    at Object.createSecureContext (_tls_common.js:85:17)
+    at Server (_tls_wrap.js:775:25)
+    at new Server (https.js:26:14)
+    at Object.exports.createServer (https.js:47:10)
+    at Object.<anonymous> (/home/ubuntu/ua-website/bin/www:36:17)
+    at Module._compile (module.js:577:32)
+    at Object.Module._extensions..js (module.js:586:10)
+    at Module.load (module.js:494:32)
+    at tryModuleLoad (module.js:453:12)
+
+-------Error :------Mon Oct 15 2018 11:10:55 GMT+0000 (UTC)---Error: listen EADDRINUSE :::3007
+    at Object.exports._errnoException (util.js:1020:11)
+    at exports._exceptionWithHostPort (util.js:1043:20)
+    at Server._listen2 (net.js:1271:14)
+    at listen (net.js:1307:10)
+    at Server.listen (net.js:1403:5)
+    at Object.<anonymous> (/home/ubuntu/ua-website/app.js:31:16)
+    at Module._compile (module.js:577:32)
+    at Object.Module._extensions..js (module.js:586:10)
+    at Module.load (module.js:494:32)
+    at tryModuleLoad (module.js:453:12)
+
+-------Error :------Mon Oct 15 2018 11:37:06 GMT+0000 (UTC)---Error: error:0B080074:x509 certificate routines:X509_check_private_key:key values mismatch
+    at Error (native)
+    at Object.createSecureContext (_tls_common.js:85:17)
+    at Server (_tls_wrap.js:775:25)
+    at new Server (https.js:26:14)
+    at Object.exports.createServer (https.js:47:10)
+    at Object.<anonymous> (/home/ubuntu/ua-website/bin/www:36:17)
+    at Module._compile (module.js:577:32)
+    at Object.Module._extensions..js (module.js:586:10)
+    at Module.load (module.js:494:32)
+    at tryModuleLoad (module.js:453:12)
+
+-------Error :------Mon Oct 15 2018 11:37:48 GMT+0000 (UTC)---Error: error:0B080074:x509 certificate routines:X509_check_private_key:key values mismatch
+    at Error (native)
+    at Object.createSecureContext (_tls_common.js:85:17)
+    at Server (_tls_wrap.js:775:25)
+    at new Server (https.js:26:14)
+    at Object.exports.createServer (https.js:47:10)
+    at Object.<anonymous> (/home/ubuntu/ua-website/bin/www:36:17)
+    at Module._compile (module.js:577:32)
+    at Object.Module._extensions..js (module.js:586:10)
+    at Module.load (module.js:494:32)
+    at tryModuleLoad (module.js:453:12)
+=======
+-------Error :------Fri Apr 05 2019 14:29:48 GMT+0530 (IST)---ReferenceError: app is not defined
+    at Object.<anonymous> (/home/dnyaneshwar/scriptlansProjects/ua-website/services/service.js:1487:1)
+    at Module._compile (module.js:653:30)
+    at Object.Module._extensions..js (module.js:664:10)
+    at Module.load (module.js:566:32)
+    at tryModuleLoad (module.js:506:12)
+    at Function.Module._load (module.js:498:3)
+    at Module.require (module.js:597:17)
+    at require (internal/module.js:11:18)
+    at Object.<anonymous> (/home/dnyaneshwar/scriptlansProjects/ua-website/app.js:15:15)
+    at Module._compile (module.js:653:30)
+
+-------Error :------Fri Apr 05 2019 14:31:22 GMT+0530 (IST)---ReferenceError: app is not defined
+    at Object.<anonymous> (/home/dnyaneshwar/scriptlansProjects/ua-website/services/service.js:1487:1)
+    at Module._compile (module.js:653:30)
+    at Object.Module._extensions..js (module.js:664:10)
+    at Module.load (module.js:566:32)
+    at tryModuleLoad (module.js:506:12)
+    at Function.Module._load (module.js:498:3)
+    at Module.require (module.js:597:17)
+    at require (internal/module.js:11:18)
+    at Object.<anonymous> (/home/dnyaneshwar/scriptlansProjects/ua-website/app.js:15:15)
+    at Module._compile (module.js:653:30)
+
+-------Error :------Fri Apr 05 2019 14:32:54 GMT+0530 (IST)---/home/dnyaneshwar/scriptlansProjects/ua-website/services/service.js:1507
+});
+ ^
+
+SyntaxError: Unexpected token )
+    at createScript (vm.js:80:10)
+    at Object.runInThisContext (vm.js:139:10)
+    at Module._compile (module.js:617:28)
+    at Object.Module._extensions..js (module.js:664:10)
+    at Module.load (module.js:566:32)
+    at tryModuleLoad (module.js:506:12)
+    at Function.Module._load (module.js:498:3)
+    at Module.require (module.js:597:17)
+    at require (internal/module.js:11:18)
+    at Object.<anonymous> (/home/dnyaneshwar/scriptlansProjects/ua-website/app.js:15:15)
+
+-------Error :------Fri Apr 05 2019 14:33:11 GMT+0530 (IST)---Error: Cannot find module 'compression'
+    at Function.Module._resolveFilename (module.js:548:15)
+    at Function.Module._load (module.js:475:25)
+    at Module.require (module.js:597:17)
+    at require (internal/module.js:11:18)
+    at Object.<anonymous> (/home/dnyaneshwar/scriptlansProjects/ua-website/app.js:53:19)
+    at Module._compile (module.js:653:30)
+    at Object.Module._extensions..js (module.js:664:10)
+    at Module.load (module.js:566:32)
+    at tryModuleLoad (module.js:506:12)
+    at Function.Module._load (module.js:498:3)
+
+-------Error :------Fri Apr 05 2019 15:18:33 GMT+0530 (IST)---Error: Cannot find module 'connect-multiparty'
+    at Function.Module._resolveFilename (module.js:548:15)
+    at Function.Module._load (module.js:475:25)
+    at Module.require (module.js:597:17)
+    at require (internal/module.js:11:18)
+    at Object.<anonymous> (/home/dnyaneshwar/scriptlansProjects/ua-website/app.js:18:28)
+    at Module._compile (module.js:653:30)
+    at Object.Module._extensions..js (module.js:664:10)
+    at Module.load (module.js:566:32)
+    at tryModuleLoad (module.js:506:12)
+    at Function.Module._load (module.js:498:3)
+>>>>>>> 3fb2494f0b73e495e590318824c2bf94dbbadfbb
