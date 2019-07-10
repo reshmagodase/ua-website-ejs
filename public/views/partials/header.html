@@ -1,30 +1,43 @@
 <nav class="navbar container-fluid navbar-default">
-    <div class="navbar-header">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" href="/"><img src="img/Utilityaid_New.png?23"/> </a>
-    </div>
-    <div class="collapse navbar-collapse" id="myNavbar">
-        <ul class="nav navbar-nav navbar-right">
-            <li><a href="/why-ua/">why Utility Aid?</a></li>
+  <div class="navbar-header">
+    <button
+      type="button"
+      class="navbar-toggle"
+      data-toggle="collapse"
+      data-target="#myNavbar"
+    >
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <a class="navbar-brand" href="/"
+      ><img bn-lazy-src="img/Utilityaid_New.png?23" />
+    </a>
+  </div>
+  <div class="collapse navbar-collapse" id="myNavbar">
+    <ul class="nav navbar-nav navbar-right">
+      <li><a href="/why-ua/">why Utility Aid?</a></li>
 
-            <li class="dropdown">
-                <a class="dropdown-toggle" data-toggle="dropdown" style="cursor: pointer">products
-                    <span class="caret"></span></a>
-                <ul class="dropdown-menu">
-                    <li><a href="/our-products/">our products</a></li>
-                    <li><a href="/switch/" target="_blank">business energy switching</a></li>
-                    <li><a href="/energyswitching/">domestic energy switching</a></li>
-                </ul>
-            </li>
-            <!-- <li><a href="/our-clients-say/">our clients say</a></li> -->
-            <li><a href="/case-studies/">customer stories</a></li>
-            <li><a href="/advisory-board/">advisory board</a></li>
+      <li class="dropdown">
+        <a
+          class="dropdown-toggle"
+          data-toggle="dropdown"
+          style="cursor: pointer"
+          >products <span class="caret"></span
+        ></a>
+        <ul class="dropdown-menu">
+          <li><a href="/our-products/">our products</a></li>
+          <li>
+            <a href="/switch/" target="_blank">business energy switching</a>
+          </li>
+          <li><a href="/energyswitching/">domestic energy switching</a></li>
+        </ul>
+      </li>
+      <!-- <li><a href="/our-clients-say/">our clients say</a></li> -->
+      <li><a href="/case-studies/">customer stories</a></li>
+      <li><a href="/advisory-board/">advisory board</a></li>
 
-            <!--  <li class="dropdown">
+      <!--  <li class="dropdown">
                   <a class="dropdown-toggle" data-toggle="dropdown" style="cursor: pointer">advisory board
                       <span class="caret"></span></a>
                   <ul class="dropdown-menu">
@@ -33,92 +46,85 @@
                   </ul>
               </li>-->
 
-            <li><a href="/media/">media</a></li>
+      <li><a href="/media/">media</a></li>
 
+      <li><a href="/faq/">FAQs</a></li>
+      <li><a href="/workwithus/">work with us</a></li>
+      <li><a href="/contact/">contact</a></li>
+      <li class="fontBold freephone">
+        freephone:
+        <span style="color: #3697c2"
+          >0808 1788 170&nbsp;
 
-            <li><a href="/faq/">FAQs</a></li>
-            <li><a href="/workwithus/">work with us</a></li>
-            <li><a href="/contact/">contact</a></li>
-            <li class="fontBold freephone">freephone:
-                <span style="color: #3697c2">0808 1788 170&nbsp;
-
-                <a href="https://www.facebook.com/ua.domoregood">
-                    <img src="img/socialIcons/fb.png" style="height: 20px">
-                </a>
-                <a href="https://twitter.com/UA_Energy" class="tw">
-                    <img src="img/socialIcons/tw.png" style="height: 20px">
-                </a>
-                <a href="https://www.linkedin.com/company/utility-aid-ltd" class="ln">
-                    <img src="img/socialIcons/ln.png" style="height: 20px">
-                </a>
-                <a href="https://www.instagram.com/utilityaid/" class="in">
-                    <img src="img/socialIcons/insta.png" style="height: 20px">
-                </a>
-                </span>
-
-
-            </li>
-
-        </ul>
-
-    </div>
-
+          <a href="https://www.facebook.com/ua.domoregood">
+            <img bn-lazy-src="img/socialIcons/fb.png" style="height: 20px" />
+          </a>
+          <a href="https://twitter.com/UA_Energy" class="tw">
+            <img bn-lazy-src="img/socialIcons/tw.png" style="height: 20px" />
+          </a>
+          <a href="https://www.linkedin.com/company/utility-aid-ltd" class="ln">
+            <img bn-lazy-src="img/socialIcons/ln.png" style="height: 20px" />
+          </a>
+          <a href="https://www.instagram.com/utilityaid/" class="in">
+            <img bn-lazy-src="img/socialIcons/insta.png" style="height: 20px" />
+          </a>
+        </span>
+      </li>
+    </ul>
+  </div>
 </nav>
 <style>
-    .dropdown-menu {
-        background-color: #17252A;
+  .dropdown-menu {
+    background-color: #17252a;
+  }
 
+  @media (min-width: 768px) {
+    .freephone {
+      position: absolute !important;
+      top: 5px;
+      right: 1.5%;
     }
 
-    @media (min-width: 768px) {
-        .freephone {
-            position: absolute !important;
-            top: 5px;
-            right: 1.5%;
-        }
+    .navbar-nav > li > a {
+      margin-top: 20px;
+      padding-bottom: 5px;
+    }
+  }
 
-        .navbar-nav > li > a {
-            margin-top: 20px;
-            padding-bottom: 5px;
-        }
-
+  @media (max-width: 767px) {
+    .navbar-nav .open .dropdown-menu {
+      background-color: #17252a;
     }
 
-    @media (max-width: 767px) {
-
-        .navbar-nav .open .dropdown-menu {
-            background-color: #17252A;
-
-        }
-
-        .navbar-nav .open .dropdown-menu > li > a {
-            color: white !important;
-        }
+    .navbar-nav .open .dropdown-menu > li > a {
+      color: white !important;
     }
+  }
 
-    .dropdown-menu > li {
-    }
+  .dropdown-menu > li {
+  }
 
-    .dropdown-menu > li > a {
-        color: white;
-        font-size: 20.5px;
-    }
+  .dropdown-menu > li > a {
+    color: white;
+    font-size: 20.5px;
+  }
 
-    .container-fluid, .container {
-        padding: 70px 20px;
-    }
+  .container-fluid,
+  .container {
+    padding: 70px 20px;
+  }
 
+  .navbar-brand img {
+    height: 50px;
+  }
+
+  @media (max-width: 768px) {
     .navbar-brand img {
-        height: 50px;
+      height: 40px;
     }
 
-    @media (max-width: 768px) {
-        .navbar-brand img {
-            height: 40px;
-        }
-
-        .navbar.container-fluid {
-            padding: 10px 20px 10px;
-        }
+    .navbar.container-fluid {
+      padding: 10px 20px 10px;
     }
+  }
 </style>
