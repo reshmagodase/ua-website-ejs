@@ -171,10 +171,15 @@ background-color: #f4f4f4;"
     -o-background-size: cover;
   }
 
-  @media (max-width: 768px) {
-    .header {
+  @media screen and (max-width: 768px) {
+    header {
       background: url("../img/contact/contactMobile.jpg?123") no-repeat center
         25% fixed;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .header {
       background-attachment: scroll;
     }
   }
