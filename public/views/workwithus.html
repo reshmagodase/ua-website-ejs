@@ -288,8 +288,20 @@
         width: 0%;
     }
 </style>
+
 <script>
-    var myDropzone = new Dropzone("div#myDropzone", {
+       window.onload = function() {
+
+        loadJs(
+            "https://cdnjs.cloudflare.com/ajax/libs/dropzone/4.2.0/min/dropzone.min.js"
+          );
+      }
+            
+
+    
+    
+    setTimeout(function(){
+        var myDropzone = new Dropzone("div#myDropzone", {
 
         paramName: "file",
         // Prevents Dropzone from uploading dropped files immediately
@@ -340,12 +352,14 @@
 
         }
 
-    });
+        });
+    },2000)
+   
 
     function openApplyModal(location) {
         $("#cvModal").modal('show');
         $("#position").html(location);
-        myDropzone.removeAllFiles();
+        // myDropzone.removeAllFiles();
         $("#cvnameId").val('');
         $("#cvemail").val('')
     }
