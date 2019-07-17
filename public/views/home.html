@@ -1,6 +1,6 @@
 <header class="home header">
   <div class="text-vertical-center">
-    <h1 class="heading_text" style="margin-top: 8%">
+    <h1 class="heading_text" style="margin-top: 0;padding-top:0">
       <span class="fontBold">
         <br />
         Welcome to Utility Aid</span
@@ -8,10 +8,34 @@
 
       <p class="heading_text_inner" id="text1"></p>
     </h1>
-    <img class="OJEUlogo" bn-lazy-src="img/ncvoLogo.png?2" />
+    <h2>
+      <!-- <video poster="img/videoimg.jpg" width="300" height="200" src="videos/RA504_Utility_Aid_MASTER.mp4" controls loop></video> -->
+      <video poster="img/videoimg.jpg" width="300" height="200" src="videos/RA504_Utility_Aid_MASTER_Compressed.mp4"
+        controls loop></video>
+    </h2>
+
+    <!-- <img class="OJEUlogo" bn-lazy-src="img/ncvoLogo.png?2" /> -->
   </div>
 </header>
 <style>
+  video {
+    width: 40%;
+    height: auto;
+    border: 2px solid #000;
+    border-radius: 10px;
+  }
+
+  @media screen and (max-width: 600px) {
+    video {
+      width: 100%;
+      height: auto;
+    }
+
+    .text-vertical-center {
+      padding: 0;
+    }
+  }
+
   .OJEUlogo {
     width: 150px;
   }
@@ -57,7 +81,7 @@ background-position: center;
 background-color: #f4f4f4;"
 >
   <div class="banner-img">&nbsp;</div>
-  <img class="mobileBannerImg" bn-lazy-src="img/uaMobile.png" width="100%" />
+  <img class="mobileBannerImg" bn-lazy-src="img/uaMobile.jpg" width="100%" />
 </div>
 <section class="home" style="background-color: #17252a">
   <div class="container-fluid" style="padding: 20px">
