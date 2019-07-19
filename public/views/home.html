@@ -10,7 +10,7 @@
     </h1>
     <h2>
       <!-- <video poster="img/videoimg.jpg" width="300" height="200" src="videos/RA504_Utility_Aid_MASTER.mp4" controls loop></video> -->
-      <video poster="img/videoimg.jpg" width="300" height="200" src="videos/RA504_Utility_Aid_MASTER_Compressed.mp4"
+      <video id="videoplayer" poster="img/videoimg.jpg" width="300" height="200" src="videos/RA504_Utility_Aid_MASTER_Compressed.mp4"
         controls loop></video>
     </h2>
 
@@ -37,14 +37,20 @@
     "//www.google-analytics.com/analytics.js",
     "ga"
   );
+  ga("create", "UA-103779998-1", "auto");
+  // var vid = document.getElementById("videoplayer");
+  //   vid.onplay = function() {
+  //     console.log("koko")
+  //     ga('send', 'event', 'Videos', 'play', 'Video 1');
+  // };
+  ga('send', {
+  hitType: 'event',
+  eventCategory: 'Videos',
+  eventAction: 'play',
+  eventLabel: 'Homepage Video'
+});
 
-  ga("send", {
-    hitType: "event",
-    eventCategory: "Videos",
-    eventAction: "play",
-    eventLabel: "Fall Campaign"
-  });
-  </script>
+</script>
 <style>
   video {
     width: 40%;
