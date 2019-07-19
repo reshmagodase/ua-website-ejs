@@ -510,6 +510,13 @@
   eventAction: 'play',
   eventLabel: 'Homepage Video'
 });
+
+ga('send', {
+  hitType: 'event',
+  eventCategory: 'Videos Views',
+  eventAction: 'pause',
+  eventLabel: 'Homepage Video Pause'
+});
 </script>
 <script defer>
   !(function (f, b, e, v, n, t, s) {
