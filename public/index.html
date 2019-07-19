@@ -43,6 +43,8 @@
         'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
       f.parentNode.insertBefore(j, f);
     })(window, document, 'script', 'dataLayer', 'GTM-WP7DNHT');
+    var metricValue = '123';
+    ga('set', 'metric1', metricValue);
   </script>
   <!-- End Google Tag Manager -->
   <link rel="preload" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" as="style" />
@@ -186,8 +188,8 @@
 
 <body>
   <!-- Google Tag Manager (noscript) -->
-<!-- <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WP7DNHT"
-  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript> -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WP7DNHT" height="0" width="0"
+      style="display:none;visibility:hidden"></iframe></noscript>
   <!-- End Google Tag Manager (noscript) -->
   <div ng-include src="'views/partials/header.html'"></div>
   <ng-view autoscroll="true"></ng-view>
