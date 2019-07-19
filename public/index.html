@@ -504,13 +504,13 @@
 
     ga('create', 'UA-127347833-2', 'auto');
   ga("send", "pageview");
-  ga('send', {
+  ga('myTracker.send', {
   hitType: 'event',
   eventCategory: 'Videos',
   eventAction: 'play',
   eventLabel: 'Homepage Video'
 });
-ga('send', {
+ga('myClicks.send', {
   hitType: 'event',
   eventCategory: 'Clicks',
   eventAction: 'click',
