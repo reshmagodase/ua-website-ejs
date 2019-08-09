@@ -1,9 +1,12 @@
 <header class="whyua header">
 
     <div class="text-vertical-center">
-        <h1 class="heading_text"><span class="fontBold"> why Utility Aid?</span>
+        <h1 class="heading_text" style="margin-top: 100px;padding-top:0"><span class="fontBold"> why Utility Aid?</span>
         </h1>
-
+        <h2>
+            <video id="videoplayerwhyua" width="300" height="200" poster="img/videoimg1.jpg"
+                src="videos/RA504_Utility_Aid_VOL_MASTER_small.mp4" controls loop></video>
+        </h2>
     </div>
 </header>
 <section class="savemoney" id="savemoney" style="background-color: #17252a">
@@ -51,7 +54,7 @@
                     <a href="/blog/{{formatDate(data.publish_date_0) |  date:'yyyy/M/d'}}/{{data.slug}}/">
                         <div class="innerblog">
                             <div class="pic"
-                                 style="background: url('{{data.thumbImage}}') no-repeat center center scroll;">
+                                style="background: url('{{data.thumbImage}}') no-repeat center center scroll;">
                             </div>
                             <div class="details">
                                 <h2>
@@ -76,7 +79,6 @@
     </div>
 </section>
 <style>
-
     .header {
         background: url('../img/whyua/whyua.jpg') no-repeat center 25% fixed;
         display: table;
@@ -87,6 +89,24 @@
         -moz-background-size: cover;
         background-size: cover;
         -o-background-size: cover;
+    }
+
+    video {
+        width: 40%;
+        height: auto;
+        border: 2px solid #000;
+        border-radius: 10px;
+    }
+
+    @media screen and (max-width: 600px) {
+        video {
+            width: 100%;
+            height: auto;
+        }
+
+        .text-vertical-center {
+            padding: 0;
+        }
     }
 
     @media (max-width: 768px) {

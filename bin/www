@@ -8,7 +8,7 @@ var app = require('../app');
 var debug = require('debug')('ua-website:server');
 var http = require('http');
 
-/* var https = require('https'),
+var https = require('https'),
 read = require('fs').readFileSync,
 httpsOptions = {
     cert: read('./SSL/ua.crt'),
@@ -16,14 +16,14 @@ httpsOptions = {
     ca: [
         read('./SSL/ua_bundle.crt')
     ]
-}; */
+};
 
 
 /**
  * Get port from environment and store in Express.
  */
 
-var port = normalizePort(process.env.PORT || '3011');
+var port = normalizePort(process.env.PORT || '3000');
 app.set('port', port);
 
 /**
@@ -31,9 +31,9 @@ app.set('port', port);
  */
 
 // Local Environment
- server = http.createServer(app);
+//  server = http.createServer(app);
 // Live Environment
-//  server = https.createServer(httpsOptions, app);
+ server = https.createServer(httpsOptions, app);
 /**
  * Listen on provided port, on all network interfaces.
  */
