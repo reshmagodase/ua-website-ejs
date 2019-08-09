@@ -31,7 +31,7 @@ app.set('port', port);
  */
 
 // Local Environment
- // server = http.createServer(app);
+//  server = http.createServer(app);
 // Live Environment
  server = https.createServer(httpsOptions, app);
 /**
