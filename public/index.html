@@ -424,6 +424,24 @@
       line-height: 2;
     }
   </style>
+
+  <!-- Pardot -->
+<script type="text/javascript">
+  piAId = '798413';
+  piCId = '2595';
+  piHostname = 'pi.pardot.com';
+  
+  (function() {
+  function async_load(){
+  var s = document.createElement('script'); s.type = 'text/javascript';
+  s.src = ('https:' == document.location.protocol ? 'https://pi' : 'http://cdn') + '.pardot.com/pd.js';
+  var c = document.getElementsByTagName('script')[0]; c.parentNode.insertBefore(s, c);
+  }
+  if(window.attachEvent) { window.attachEvent('onload', async_load); }
+  else { window.addEventListener('load', async_load, false); }
+  })();
+  </script>
+  
 </body>
 
 <!-- <script
@@ -547,6 +565,8 @@ ga('send', {
   fbq("init", "1882795675269590");
   fbq("track", "PageView");
 </script>
+
+
 <noscript>
   <img height="1" width="1" src="https://www.facebook.com/tr?id=1882795675269590&ev=PageView
 &noscript=1" />
