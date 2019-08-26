@@ -29,7 +29,7 @@ redirect.use(function requireHTTPS(req, res, next) {
     }
     next();
 });
-redirectServer.listen(3009);
+redirectServer.listen(3007);
 
 var app = express();
 app.use(function (req, res, next) {
