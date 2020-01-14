@@ -860,9 +860,9 @@ exports.getNewsDetails = function (req, res) {
             json = { '_id': new ObjectID(req.body.objectId) };
         }
         else {
-            var heading=req.body.heading;
-            heading=heading.split('_').join(' ');
-            heading=heading.split('*').join('?');
+            var heading = req.body.heading;
+            heading = heading.split('_').join(' ');
+            heading = heading.split('*').join('?');
             json = { 'heading': heading };
         }
         collection.findOne(json, function (err, result) {
@@ -1489,29 +1489,29 @@ exports.uploadNewsPhoto = function (req, res) {
 exports.sendCV = function (req, res) {
     console.log(req.body);
     var reciepients;
-    if(req.body.location == "Norwich") {
+    if (req.body.location == "Norwich") {
         reciepients = 'njones@utility-aid.co.uk,gileshankinson@utility-aid.co.uk,alim@utility-aid.co.uk'
     }
 
-    if(req.body.location == "Glasgow") {
+    if (req.body.location == "Glasgow") {
         reciepients = 'LDuffy@utility-aid.net,alim@utility-aid.co.uk'
         // reciepients = 'dnyaneshwar@scriptlanes.com'
     }
-    
+
     console.log('reciepients', reciepients);
     mailOptions = {
         from: "cv@utility-aid.com",
         to: reciepients,
         subject: "New CV",
-        html: "<p> Name: <b>"+req.body.name+"</b></p><p> email: <b>"+req.body.cvemail+"</b></p>",
+        html: "<p> Name: <b>" + req.body.name + "</b></p><p> email: <b>" + req.body.cvemail + "</b></p>",
         attachments: [{
             filename: req.body.filename,
-            path: __dirname+'/'+req.body.cvpath
+            path: __dirname + '/' + req.body.cvpath
             // path: 'https://en.defacto.nl/images/social/demo-1200x630-b3c5c9a1.png'
         }]
     };
     console.log('mailOptions', mailOptions);
-    transporter.sendMail(mailOptions, function(err) {
+    transporter.sendMail(mailOptions, function (err) {
         if (err) {
             console.log(err);
             res.status(500).end();
@@ -1531,7 +1531,7 @@ exports.uploadCV = function (req, res) {
     }
     for (var i = 0; i <= imageArray.length - 1; i++) {
         var np = /* './public/utilityAid/cv/' */'./services/cv/' + req.files[i].filename;
-        var directoryPath = /* 'utilityAid/cv/' + */ 'cv/'+ req.files[i].filename;
+        var directoryPath = /* 'utilityAid/cv/' + */ 'cv/' + req.files[i].filename;
         var tmp = './public/utilityAid/tmp/' + req.files[i].filename;
         var imagePath = {};
         fs.rename('./public/utilityAid/tmp/' + req.files[i].filename, np, function (success) {
@@ -1550,6 +1550,47 @@ exports.uploadCV = function (req, res) {
         res.send(imagePath);
     }
 };
+
+// add church campaign data
+
+exports.addchurchCampaignData = function (req, res) {
+    console.log('in campaign', req.body);
+    var info = req.body;
+    info.createdDate = new Date();
+    info.updatedDate = new Date();
+    db.collection('churchcampaign', function (err, collection) {
+        collection.insert(info, { safe: true }, function (err, result) {
+            if (err) {
+                res.send({ 'status': 'error', 'message': 'An error has occurred' });
+            }
+            else {
+                console.log(result);
+                res.send({code: 200, result:result});
+            }
+        });
+    });
+}
+
+exports.getChurchCampaignData = function (req, res) {
+    db.collection('churchcampaign', function (err, collection) {
+        collection.find({}).toArray(function (err, result) {
+            if (err) {
+                res.send({ 'status': 'error', 'message': 'An error has occurred' });
+            }
+            if (result == null) {
+                res.send({ 'status': 'error', 'message': 'Data Not Found' });
+            }
+            if (result !== null) {
+                console.log(result);
+                var data = result;
+                res.send(data);
+            }
+
+        });
+    });
+}
+
+
 /*=================================================
  * ua-energy API calls ends here
  * =================================================*/

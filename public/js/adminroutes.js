@@ -103,6 +103,10 @@ app.config(function ($routeProvider, $locationProvider) {
             templateUrl: 'viewsAdmin/product.html',
             controller: 'ProductCtrl'
         })
+        .when('/admin/campaign/', {
+            templateUrl: 'viewsAdmin/churchcampaign.html',
+            controller: 'campaignCtrl'
+        })
         .otherwise({
             redirectTo: '/admin/'
         });
@@ -115,7 +119,7 @@ app.controller('ProductListCtrl', function ($scope, $http) {
     var httpRequest = $http({
         method: 'POST',
         url: '/getProductList',
-        data: {"collection": "products"}
+        data: { "collection": "products" }
 
     }).success(function (data, status) {
         $scope.list = data;
@@ -128,7 +132,7 @@ app.controller('ProductListCtrl', function ($scope, $http) {
     }
     $scope.deleteData = function () {
         $("#deleteModal").modal("hide");
-        $.post("/deleteData", {"collection": "testimonial", "objectId": $scope.objectId}, function (data) {
+        $.post("/deleteData", { "collection": "testimonial", "objectId": $scope.objectId }, function (data) {
         });
         alert("Data deleted successfully!");
         window.location = "/list-testimonials-admin";
@@ -140,7 +144,7 @@ app.controller('ProductCtrl', function ($scope, $http) {
     $("#successMsg").css("display", "none");
     $("#product_text").Editor();
 
-    $.post("/getProductDetails", {"objectId": getQueryStringValue("id")}, function (data) {
+    $.post("/getProductDetails", { "objectId": getQueryStringValue("id") }, function (data) {
         $scope.$apply(function () {
             $scope.objectId = data._id;
             $("#order").val(data.order);
@@ -190,7 +194,7 @@ app.controller('ProductCtrl', function ($scope, $http) {
 
 });
 app.controller('ContactListCtrl', function ($scope, $http) {
-    $.post("/getProductList", {"collection": "contact"}, function (data) {
+    $.post("/getProductList", { "collection": "contact" }, function (data) {
         $scope.$apply(function () {
             $scope.items = data;
         });
@@ -198,7 +202,7 @@ app.controller('ContactListCtrl', function ($scope, $http) {
     });
 });
 app.controller('ContactAddCtrl', function ($scope, $http) {
-    $.post("/getContactData", {"objectId": getQueryStringValue("id")}, function (data) {
+    $.post("/getContactData", { "objectId": getQueryStringValue("id") }, function (data) {
         $scope.$apply(function () {
             $("#objectId").val(data._id);
             $("#title").val(data.title);
@@ -434,7 +438,7 @@ app.controller('CaseStudyAddCtrl', function ($scope, $http) {
         }
 
         formData = formData + formDataAppend;
-        console.log('formData',formData);
+        console.log('formData', formData);
         var url;
         if (getQueryStringValue("id") == '') {
             url = "/addCaseStudies";
@@ -616,7 +620,7 @@ app.controller('PartnerAddCtrl', function ($scope, $http) {
     }
 
 
-//Upload CaseStudy  Data
+    //Upload CaseStudy  Data
     $('form').submit(function (evt) {
         evt.preventDefault();
         formData = $(this).serialize();
@@ -915,7 +919,7 @@ app.controller('AuthorAddCtrl', function ($scope, $http) {
         return unescape(window.location.search.replace(new RegExp("^(?:.*[&\\?]" + escape(key).replace(/[\.\+\*]/g, "\\$&") + "(?:\\=([^&]*))?)?.*$", "i"), "$1"));
     }
 
-//Upload CaseStudy  Data
+    //Upload CaseStudy  Data
     $('form').submit(function (evt) {
         evt.preventDefault();
         formData = $(this).serialize();
@@ -1088,7 +1092,7 @@ app.controller('fpsCtrl', function ($scope, $http) {
     $("#successMsg").css("display", "none");
     $("#product_text").Editor();
 
-    $.post("/getProductList", {"collection": "fps"}, function (data) {
+    $.post("/getProductList", { "collection": "fps" }, function (data) {
         $scope.$apply(function () {
             $scope.objectId = data[0]._id;
             $("#editor1 .Editor-editor").html(decodeURIComponent(data[0].product_text));
@@ -1121,7 +1125,7 @@ app.controller('mtsCtrl', function ($scope, $http) {
     $("#successMsg").css("display", "none");
     $("#product_text").Editor();
 
-    $.post("/getProductList", {"collection": "mts"}, function (data) {
+    $.post("/getProductList", { "collection": "mts" }, function (data) {
         $scope.$apply(function () {
             $scope.objectId = data[0]._id;
             $("#editor1 .Editor-editor").html(decodeURIComponent(data[0].product_text));
@@ -1154,7 +1158,7 @@ app.controller('pmsCtrl', function ($scope, $http) {
     $("#successMsg").css("display", "none");
     $("#product_text").Editor();
 
-    $.post("/getProductList", {"collection": "pms"}, function (data) {
+    $.post("/getProductList", { "collection": "pms" }, function (data) {
         $scope.$apply(function () {
             $scope.objectId = data[0]._id;
             $("#editor1 .Editor-editor").html(decodeURIComponent(data[0].product_text));
@@ -1187,7 +1191,7 @@ app.controller('besCtrl', function ($scope, $http) {
     $("#successMsg").css("display", "none");
     $("#product_text").Editor();
 
-    $.post("/getProductList", {"collection": "bes"}, function (data) {
+    $.post("/getProductList", { "collection": "bes" }, function (data) {
         $scope.$apply(function () {
             $scope.objectId = data[0]._id;
             $("#editor1 .Editor-editor").html(decodeURIComponent(data[0].product_text));
@@ -1220,7 +1224,7 @@ app.controller('busCtrl', function ($scope, $http) {
     $("#successMsg").css("display", "none");
     $("#product_text").Editor();
 
-    $.post("/getProductList", {"collection": "bus"}, function (data) {
+    $.post("/getProductList", { "collection": "bus" }, function (data) {
         $scope.$apply(function () {
             $scope.objectId = data[0]._id;
             $("#editor1 .Editor-editor").html(decodeURIComponent(data[0].product_text));
@@ -1253,7 +1257,7 @@ app.controller('faqCtrl', function ($scope, $http) {
     $("#successMsg").css("display", "none");
     $("#product_text").Editor();
 
-    $.post("/getProductList", {"collection": "faq"}, function (data) {
+    $.post("/getProductList", { "collection": "faq" }, function (data) {
         $scope.$apply(function () {
             $scope.objectId = data[0]._id;
             $("#editor1 .Editor-editor").html(decodeURIComponent(data[0].product_text));
@@ -1285,7 +1289,7 @@ app.controller('faqCtrl', function ($scope, $http) {
 app.controller('whyuaCtrl', function ($scope, $http) {
     $("#successMsg").css("display", "none");
 
-    $.post("/getProductList", {"collection": "whyua"}, function (data) {
+    $.post("/getProductList", { "collection": "whyua" }, function (data) {
         $scope.$apply(function () {
             $scope.objectId = data[0]._id;
             $("#titletext").val(data[0].titletext);
@@ -1325,7 +1329,7 @@ app.controller('HomeCtrl', function ($scope, $http) {
     $("#successMsg").css("display", "none");
     $("#text4").Editor();
 
-    $.post("/getProductList", {"collection": "home"}, function (data) {
+    $.post("/getProductList", { "collection": "home" }, function (data) {
         $scope.$apply(function () {
             $scope.objectId = data[0]._id;
             $("#editor1 .Editor-editor").html(decodeURIComponent(data[0].text4));
@@ -1365,7 +1369,7 @@ app.controller('ABCtrl', function ($scope, $http) {
     $("#successMsg").css("display", "none");
     $("#text4").Editor();
 
-    $.post("/getProductList", {"collection": "advisory"}, function (data) {
+    $.post("/getProductList", { "collection": "advisory" }, function (data) {
         $scope.$apply(function () {
             $("#objectId").val(data[0]._id);
             $("#titletext").val(data[0].titletext);
@@ -1399,6 +1403,34 @@ app.controller('ABCtrl', function ($scope, $http) {
     });// form submit end
 
 });
+
+app.controller('campaignCtrl', function ($scope, $http) {
+
+    $scope.noOfPages = Math.ceil($scope.totalItems / $scope.entryLimit);
+    $.post("/getCampaignData", function (data) {
+        $scope.$apply(function () {
+            $scope.items = data;
+            $scope.datalists = $scope.items;
+
+            $scope.curPage = 0;
+            $scope.pageSize = 10;
+        });
+
+    });
+
+
+    $scope.numberOfPages = function () {
+        return Math.ceil($scope.datalists.length / $scope.pageSize);
+    };
+});
+
+app.filter('startPagination', function () {
+    return function (input, start) {
+        start = +start;
+        return input.slice(start);
+    };
+});
+
 app.directive('emitLastRepeaterElement', function () {
     return function (scope) {
         if (scope.$last) {

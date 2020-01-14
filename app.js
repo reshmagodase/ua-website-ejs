@@ -17,7 +17,7 @@ var session = require('client-sessions');
 var multer = require('multer');
 var multipartyMiddleware = require('connect-multiparty')();
 
-
+var app = express();
 var http = require('http');
 var redirect = express();
 
@@ -31,7 +31,7 @@ redirect.use(function requireHTTPS(req, res, next) {
 });
 redirectServer.listen(3007);
 
-var app = express();
+
 app.use(function (req, res, next) {
     /*    res.header("Access-Control-Allow-Origin", "https://uaenergy.co.uk");*/
     res.header("Access-Control-Allow-Origin", "*");
@@ -176,6 +176,9 @@ app.post("/uploadCV", upMulter.array('file', 10), service.uploadCV);
 
 app.post('/getContactData', service.getContactData);
 app.post('/sendCV', service.sendCV);
+// church campaign
+app.post('/addCampaignData', service.addchurchCampaignData);
+app.post('/getCampaignData', service.getChurchCampaignData);
 
 
 
@@ -197,7 +200,9 @@ app.get('/switch/*', function (req, res) {
 });
 
 
-
+app.get('/campaign/*', function (req, res) {
+    res.sendfile('./public/campaign/index.html');
+});
 
 
 
