@@ -22,14 +22,14 @@ var http = require('http');
 var redirect = express();
 
 
-/* var redirectServer = http.createServer(redirect);
+var redirectServer = http.createServer(redirect);
 redirect.use(function requireHTTPS(req, res, next) {
     if (!req.secure) {
         return res.redirect('https://' + req.headers.host + req.url);
     }
     next();
 });
-redirectServer.listen(3007); */
+redirectServer.listen(3007);
 
 
 app.use(function (req, res, next) {
