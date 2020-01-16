@@ -1,0 +1,25 @@
+
+
+-------Error :------Tue Jan 14 2020 16:09:48 GMT+0530 (India Standard Time)---TypeError: Converting circular structure to JSON
+    at JSON.stringify (<anonymous>)
+    at ServerResponse.json (/home/dnyaneshwar/scriptlansProjects/ua-website/node_modules/express/lib/response.js:242:19)
+    at ServerResponse.send (/home/dnyaneshwar/scriptlansProjects/ua-website/node_modules/express/lib/response.js:151:21)
+    at /home/dnyaneshwar/scriptlansProjects/ua-website/services/service.js:1584:21
+    at handleCallback (/home/dnyaneshwar/scriptlansProjects/ua-website/node_modules/mongodb/lib/utils.js:96:12)
+    at Collection.find (/home/dnyaneshwar/scriptlansProjects/ua-website/node_modules/mongodb/lib/collection.js:354:44)
+    at /home/dnyaneshwar/scriptlansProjects/ua-website/services/service.js:1576:20
+    at Db.collection (/home/dnyaneshwar/scriptlansProjects/ua-website/node_modules/mongodb/lib/db.js:424:20)
+    at exports.getChurchCampaignData (/home/dnyaneshwar/scriptlansProjects/ua-website/services/service.js:1575:8)
+    at Layer.handle [as handle_request] (/home/dnyaneshwar/scriptlansProjects/ua-website/node_modules/express/lib/router/layer.js:95:5)
+
+-------Error :------Tue Jan 14 2020 16:10:52 GMT+0530 (India Standard Time)---TypeError: Converting circular structure to JSON
+    at JSON.stringify (<anonymous>)
+    at ServerResponse.json (/home/dnyaneshwar/scriptlansProjects/ua-website/node_modules/express/lib/response.js:242:19)
+    at ServerResponse.send (/home/dnyaneshwar/scriptlansProjects/ua-website/node_modules/express/lib/response.js:151:21)
+    at /home/dnyaneshwar/scriptlansProjects/ua-website/services/service.js:1585:21
+    at handleCallback (/home/dnyaneshwar/scriptlansProjects/ua-website/node_modules/mongodb/lib/utils.js:96:12)
+    at Collection.find (/home/dnyaneshwar/scriptlansProjects/ua-website/node_modules/mongodb/lib/collection.js:354:44)
+    at /home/dnyaneshwar/scriptlansProjects/ua-website/services/service.js:1576:20
+    at Db.collection (/home/dnyaneshwar/scriptlansProjects/ua-website/node_modules/mongodb/lib/db.js:424:20)
+    at exports.getChurchCampaignData (/home/dnyaneshwar/scriptlansProjects/ua-website/services/service.js:1575:8)
+    at Layer.handle [as handle_request] (/home/dnyaneshwar/scriptlansProjects/ua-website/node_modules/express/lib/router/layer.js:95:5)

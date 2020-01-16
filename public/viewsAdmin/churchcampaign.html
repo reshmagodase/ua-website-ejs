@@ -2,7 +2,6 @@
 
 <div class="content">
     <div class="inner"><h1>Campaign Data</h1>
-
         <div class="clearfix"></div>
         <div id="content-main">
             <table id="mytable" class='table table-striped'>
@@ -11,11 +10,11 @@
                     <th>Name</th>
                     <th>Church</th>
                     <th>Email</th>
+                    <th>Phone</th>
                     <th>Created Date</th>
                 </tr>
                 </thead>
                 <tr ng-repeat="data in datalists | startPagination: curPage * pageSize | limitTo: pageSize">
-
                     <td title="Name">
                         {{data.name}}
                     </td>
@@ -25,19 +24,13 @@
                     <td title="Email">
                         {{data.email}}
                     </td>
+                    <td title="Email">
+                        {{data.phone}}
+                    </td>
                     <td title="Created date">
                         {{data.createdDate | date : "dd.MM.y"}}
                     </td>
-
-                    <!-- <td title="Mail">
-                        {{data.mail}}
-                    </td> -->
-                    <!-- <td><a href="/admin/contact?id={{data._id}}">Edit</a></td> -->
-                    <!--<td><a style="cursor: pointer;" ng-click="deleteModal(data._id);"> Delete</a></td>-->
                 </tr>
-                <!-- <tr ng-if="datalists.status = 'error'">
-                    <td>{{datalists.message}}</td>
-                </tr> -->
             </table>
             <ul class="pager" ng-show="datalists.length">
                 <li>
