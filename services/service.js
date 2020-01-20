@@ -1590,6 +1590,24 @@ exports.getChurchCampaignData = function (req, res) {
     });
 }
 
+exports.addEmailCampaignData = function(req, res) {
+    console.log('in email campaign', req.body);
+    var info = req.body;
+    info.createdDate = new Date();
+    info.updatedDate = new Date();
+    db.collection('emailcampaign', function (err, collection) {
+        collection.insert(info, { safe: true }, function (err, result) {
+            if (err) {
+                res.send({ 'status': 'error', 'message': 'An error has occurred' });
+            }
+            else {
+                console.log(result);
+                res.send({code: 200, result:result});
+            }
+        });
+    });
+}
+
 
 /*=================================================
  * ua-energy API calls ends here

@@ -179,6 +179,7 @@ app.post('/sendCV', service.sendCV);
 // church campaign
 app.post('/addCampaignData', service.addchurchCampaignData);
 app.post('/getCampaignData', service.getChurchCampaignData);
+app.post('/addEmailCampaignData', service.addEmailCampaignData);
 
 
 
