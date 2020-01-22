@@ -5944,7 +5944,45 @@ exports.sendLOAmail = function(req, res) {
             return console.log(error);
         }
         console.log('Message sent: ' + info.response);
+        db.collection('emailwithpardot', function (err, collection) {
+            let info = {
+                Email: req.body.email,
+                ID: req.body.ID,
+                loasent: true,
+                addtocall: req.body.addtocall
+            }
+            collection.update({ 'ID': req.body.ID }, info, { safe: true }, function (err, result) {
+                if (err) {
+                    res.send({ 'status': 'error', 'message': 'An error has occurred' });
+                }
+                else {
+                    console.log(result);
+                    res.send({ 'status': 'success', 'message': 'Data Updated successfully' });
+                }
+            });
+        });
+        // res.send({code: 200, message: "Mail sent"});
 
+    });
+}
+
+exports.changeAddtoCallStatusPardotEmail = function(req, res) {
+    db.collection('emailwithpardot', function (err, collection) {
+        let info = {
+            Email: req.body.email,
+            ID: req.body.ID,
+            addtocall: true,
+            loasent: req.body.loasent,
+        }
+        collection.update({ 'ID': req.body.ID }, info, { safe: true }, function (err, result) {
+            if (err) {
+                res.send({ 'status': 'error', 'message': 'An error has occurred' });
+            }
+            else {
+                console.log(result);
+                res.send({ 'status': 'success', 'message': 'Data Updated successfully' });
+            }
+        });
     });
 }
 

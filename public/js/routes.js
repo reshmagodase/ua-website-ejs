@@ -962,7 +962,9 @@ app.controller("EmailCampaignController", function ($scope, $location, $http, $r
             url: "/sendLOAmail",
             method: "POST",
             data: {
-              email: response.data[0].Email
+              email: response.data[0].Email,
+              ID: response.data[0].ID,
+              addtocall: response.data[0].addtocall ? response.data[0].addtocall : false
             },
             dataType: "json",
             contentType: "application/json; charset=utf-8"
@@ -986,6 +988,43 @@ app.controller("EmailCampaignController", function ($scope, $location, $http, $r
 
   if ($location.$$path == "/addtocall/") {
     console.log('addtocall');
+    let data = {
+      pardotId: $routeParams.pardotId
+    }
+    $scope.addtoCallList = function() {
+      $http({
+        url: "/getEmailByPardotId",
+        method: "POST",
+        data: data,
+        dataType: "json",
+        contentType: "application/json; charset=utf-8"
+      }).then(
+        function (response) {
+          $http({
+            url: "/changeAddtoCallStatusPardotEmail",
+            method: "POST",
+            data: {
+              email: response.data[0].Email,
+              ID: response.data[0].ID,
+              loasent: response.data[0].loasent ? response.data[0].loasent : false
+            },
+            dataType: "json",
+            contentType: "application/json; charset=utf-8"
+          }).then(
+            function (response) {
+              console.log(response);
+            },
+            function (error) {
+              console.log(error);
+            }
+          );
+        },
+        function (error) {
+          console.log(error);
+        }
+      );
+    }
+    $scope.addtoCallList();
   }
 
 })
