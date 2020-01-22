@@ -88,6 +88,19 @@ var transporter = nodemailer.createTransport({
     }
 });
 
+var transporter1 = nodemailer.createTransport({
+    host: "smtp.office365.com", // Office 365 server
+    port: 587, // secure SMTP
+    secure: false, // false for TLS - as a boolean not string - but the default is false so just remove this completely
+    auth: {
+      user: "baptist@utility-aid.co.uk",
+      pass: "Bol75227"
+    },
+    tls: {
+      ciphers: "SSLv3"
+    }
+  });
+
 
 /*Jimp.read("https://www.utility-aid.co.uk/utilityAid/backgroundImages/thumbnails/1450768341396-Resources.jpg", function (err, lenna) {
  if (err) throw err;
@@ -5927,7 +5940,7 @@ exports.addPardotEmail = function(req, res) {
 exports.sendLOAmail = function(req, res) {
     var htmlFormat = '<!DOCTYPE html><html lang="en"><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width" /><title>Utility Aid</title><base href="/" /><meta name="viewport" content="width=device-width, initial-scale=1" /><link rel="icon" type="image/x-icon" href="favicon.ico" /></head><body><table><tr><td> Hi,</td></tr><tr><td> Please find attached the letters of authority, to be signed, dated, and printed onto your own letter headed paper. Please return these to baptist@utility-aid.co.uk along with a recent electricity/gas bill</td></tr><tr><td> Kind Regards</td></tr><tr><td> Utility Aid</td></tr></table></body></html>'
     var mailOptions = {
-        from: 'Utility Aid', // sender address
+        from: 'baptist@utility-aid.co.uk', // sender address
         //to: 'enquiries@utility-aid.co.uk,gary@viva-worldwide.com,mdaly@utility-aid.com,WCampbell@utility-aid.co.uk', // list of receivers
         to: req.body.email,
         subject: 'LOA Template', // Subject line
@@ -5939,7 +5952,7 @@ exports.sendLOAmail = function(req, res) {
             // path: 'https://en.defacto.nl/images/social/demo-1200x630-b3c5c9a1.png'
         }]
     };
-    transporter.sendMail(mailOptions, function (error, info) {
+    transporter1.sendMail(mailOptions, function (error, info) {
         if (error) {
             return console.log(error);
         }
