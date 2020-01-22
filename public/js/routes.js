@@ -116,7 +116,7 @@ app.config(function ($routeProvider, $locationProvider) {
       templateUrl: "views/emailCampaign.html",
       controller: "EmailCampaignController"
     })
-    .when("/loa/", {
+    .when("/addtocall/", {
       templateUrl: "views/loa.html",
       controller: "EmailCampaignController"
     })
@@ -940,80 +940,54 @@ app.controller("QuestionController", function ($scope, $location, $http) {
   };
 });
 
-app.controller("EmailCampaignController", function ($scope, $location, $http) {
-  /* $scope.addCallList = function() {
-    $("#emailModal").modal("show");
-  }
+app.controller("EmailCampaignController", function ($scope, $location, $http, $routeParams) {
+  console.log('param', $routeParams.pardotId);
+  console.log('$location', $location.$$path);
+  if ($location.$$path == "/success/") {
+    let data = {
+      pardotId: $routeParams.pardotId
+    }
 
-  $scope.submitAddToCall = function() {
-    if (!$scope.validate()) {
-      return false;
-    } else {
-      alert();
-      $(".fa-spinner").show();
-      var data = {
-        name: $scope.cvname,
-        cvemail: $scope.cvemail,
-        cvpath: $("#cvpathid").val(),
-        cvname: $("#cvname").val(),
-        location: $("#position").html()
-      };
-      console.log("data", data);
+    console.log(data);
+    $scope.sendLOA = function () {
       $http({
-        url: "/addEmailCampaignData",
+        url: "/getEmailByPardotId",
         method: "POST",
         data: data,
         dataType: "json",
         contentType: "application/json; charset=utf-8"
       }).then(
         function (response) {
-          $("#emailModal").modal("hide");
-          // $("#successModal").modal("show");
-          $(".fa-spinner").hide();
+          $http({
+            url: "/sendLOAmail",
+            method: "POST",
+            data: {
+              email: response.data[0].Email
+            },
+            dataType: "json",
+            contentType: "application/json; charset=utf-8"
+          }).then(
+            function (response) {
+              console.log(response);
+            },
+            function (error) {
+              console.log(error);
+            }
+          );
         },
-        function (error) { }
+        function (error) {
+          console.log(error);
+        }
       );
     }
+
+    $scope.sendLOA();
   }
 
-  $scope.makeEmptyValidators = function () {
-    $("#cvnameId").html("");
-  };
+  if ($location.$$path == "/addtocall/") {
+    console.log('addtocall');
+  }
 
-  $scope.validate = function () {
-    $scope.makeEmptyValidators();
-    var temp = false;
-    if (!$scope.cvname) {
-      $("#cvnameID").html(
-        "<ul class='errorlist'>This field is required.<li></li></ul>"
-      );
-      temp = true;
-    }
-    if ($scope.cvemail == "" || $scope.cvemail == undefined) {
-      $("#cvemailID").html(
-        "<ul class='errorlist'>This field is required.<li></li></ul>"
-      );
-      temp = true;
-    } else if ($scope.cvemail != "") {
-      if (!validateEmail($scope.cvemail)) {
-        $("#cvemailID").html(
-          "<ul class='errorlist'>Please enter correct email id.<li></li></ul>"
-        );
-        temp = true;
-      }
-    }
-
-    function validateEmail(email) {
-      var re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-      return re.test(email);
-    }
-
-    if (temp == true) {
-      return false;
-    } else {
-      return true;
-    }
-  }; */
 })
 
 app.controller("WorkWithUsController", function ($scope, $location, $http) {

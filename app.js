@@ -180,6 +180,9 @@ app.post('/sendCV', service.sendCV);
 app.post('/addCampaignData', service.addchurchCampaignData);
 app.post('/getCampaignData', service.getChurchCampaignData);
 app.post('/addEmailCampaignData', service.addEmailCampaignData);
+app.get('/addPardotEmail', service.addPardotEmail);
+app.post('/getEmailByPardotId', service.getEmailByPardotId);
+app.post('/sendLOAmail', service.sendLOAmail);
 
 
 
