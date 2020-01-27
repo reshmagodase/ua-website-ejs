@@ -107,6 +107,10 @@ app.config(function ($routeProvider, $locationProvider) {
             templateUrl: 'viewsAdmin/churchcampaign.html',
             controller: 'campaignCtrl'
         })
+        .when('/admin/loa/', {
+            templateUrl: 'viewsAdmin/loa.html',
+            controller: 'loaCtrl'
+        })
         .otherwise({
             redirectTo: '/admin/'
         });
@@ -1408,6 +1412,26 @@ app.controller('campaignCtrl', function ($scope, $http) {
 
     $scope.noOfPages = Math.ceil($scope.totalItems / $scope.entryLimit);
     $.post("/getCampaignData", function (data) {
+        $scope.$apply(function () {
+            $scope.items = data;
+            $scope.datalists = $scope.items;
+
+            $scope.curPage = 0;
+            $scope.pageSize = 10;
+        });
+
+    });
+
+
+    $scope.numberOfPages = function () {
+        return Math.ceil($scope.datalists.length / $scope.pageSize);
+    };
+});
+
+app.controller('loaCtrl', function ($scope, $http) {
+
+    $scope.noOfPages = Math.ceil($scope.totalItems / $scope.entryLimit);
+    $.post("/getLOAData", function (data) {
         $scope.$apply(function () {
             $scope.items = data;
             $scope.datalists = $scope.items;

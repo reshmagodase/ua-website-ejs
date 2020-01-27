@@ -1,0 +1,218 @@
+<header class="home header mobile">
+  <div class="col-sm-12 text-vertical-center" style="background-color: white;">
+    <h2 style="margin-top: 0;padding-top:0;color: black;">
+      <br />
+      LOA Upload
+    </h2>
+  </div>
+</header>
+<div class="container">
+  <div class="col-sm-8 col-sm-offset-2">
+    <div class="control-group" id="questionForm">
+      <div class="controls">
+        <div class="dropzone"
+          style="color: #000;border: 1px solid #ccc;padding: 10px;cursor: pointer;background-color: #fff;"
+          id="myDropzone">
+          <div class="dz-message needsclick">
+            Drag drop file/click here to upload LOA
+          </div>
+        </div>
+        <span id="cvAttachment"></span>
+      </div>
+      <div class="controls ">
+        <input class="form-control ng-pristine ng-valid" id="cvemail" ng-model="cvemail" name="cvemail"
+          placeholder="Email" type="text">
+        <span id="cvemailID"></span>
+        <input type="hidden" name="cvpath" ng-model="cvpath" id="cvpathid">
+        <!-- <input type="hidden" name="name" ng-model="name" id="nameid"> -->
+      </div>
+      <div class="controls ">
+        <input class="form-control ng-pristine ng-valid" id="cvnameId" ng-model="name" name="name"
+          placeholder="Company Name" type="text">
+        <span id="cvnameID"></span>
+
+      </div>
+
+
+      <div class="control-group text-center">
+        <div class="controls" style="padding-top:16px">
+          <button type="submit" class="btnFindOutMore" ng-click="submitLOA();">Submit
+          </button> <br>
+          <img src="/img/whyua/loading-gif.gif" class="fa fa-spinner"></i>
+        </div>
+      </div>
+    </div>
+    <div id="stage" class="form-all">
+      <p style="text-align:center;">
+        <img src="img/check-icon.png" alt="" width="128" height="128">
+      </p>
+
+      <div style="text-align:center;">
+        <h1 style="text-align: center;">Thank You!</h1>
+
+        <p style="text-align: center;">We've received your query! Our team will respond as soon
+          as possible.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  p {
+    text-align: justify;
+  }
+
+  .fa-spinner {
+    display: none;
+    width: 50px;
+  }
+
+  .blogs a {
+    text-decoration: none;
+  }
+
+  .blogs a:hover .details p {
+    color: white !important;
+  }
+
+  .blogs a:hover .innerblog {
+    background-color: #3697C2;
+  }
+
+  .blogs a:hover h2 {
+    color: white !important;
+  }
+
+  .blogs {
+    background-color: #23527c;
+    color: #fff;
+  }
+
+  .btnFindOutMore {
+    text-decoration: none;
+    color: #fff;
+    padding: 3px 10px;
+    border: 6px solid #fff;
+    border-radius: 20px;
+    font-size: 18px;
+    background-color: #23527c;
+  }
+
+  .btnFindOutMore:hover {
+    text-decoration: none;
+    color: #fff;
+    padding: 3px 10px;
+    border: 6px solid #fff;
+    border-radius: 20px;
+    font-size: 18px;
+    background-color: #23527c;
+  }
+
+  .btnFindOutMore2 {
+    text-decoration: none;
+    color: #23527c;
+    padding: 3px 10px;
+    border: 6px solid #23527c;
+    border-radius: 20px;
+    font-size: 18px;
+    background-color: #f2f2f2;
+  }
+
+  .justify {
+    text-align: justify;
+  }
+
+  g {
+    display: none;
+  }
+
+  .dz-upload {
+    display: block;
+    background-color: #3496C1;
+    height: 10px;
+    width: 0%;
+  }
+
+  .controls {
+    padding-bottom: 15px;
+  }
+
+  .errorlist {
+    margin-top: 3px;
+    margin-bottom: 0px;
+    color: red;
+    font-size: 12px;
+  }
+
+  @media (max-width: 767px) {
+
+    .container-fluid,
+    .container {
+      padding: 40px 20px;
+      padding-top: 10px;
+    }
+
+    .mobile {
+      text-align: center;
+    }
+  }
+</style>
+
+<script>
+  window.onload = function () {
+
+    loadJs(
+      "https://cdnjs.cloudflare.com/ajax/libs/dropzone/4.2.0/min/dropzone.min.js"
+    );
+  }
+
+  setTimeout(function () {
+    var myDropzone = new Dropzone("div#myDropzone", {
+
+      paramName: "file",
+      // Prevents Dropzone from uploading dropped files immediately
+      autoProcessQueue: true,
+      maxFiles: 1,
+      maxFileSize: 2, //MB
+      dictDefaultMessage: "<h3>Click or Drop files here to upload</h3>",
+      acceptedFiles: '.pdf, .docx',
+      url: "/uploadLOA",
+      init: function () {
+        this.hiddenFileInput.removeAttribute('multiple');
+        myDropzone = this; // closure
+        // You might want to show the submit button only when
+        // files are dropped here:
+        this.on('sending', function (file, xhr, formData) {
+
+
+        });
+
+        this.on("addedfile", function () {
+          dropzoneFileAdded = 'YES';
+
+          // console.log("added file");
+          // Show submit button here and/or inform user to click it.
+        });
+
+
+        this.on("success", function (file, responseText) {
+          console.log('responseText', responseText);
+          $("#newsImage").html("<img src='" + responseText.path + "' height=200px/>")
+          $("#cvpathid").val(responseText.path);
+          $("#cvname").val(responseText.name);
+          $("#cvAttachment").html("");
+          // Handle the responseText here. For example, add the text to the preview element:
+
+          //alert("User Image Uploaded Successfully");
+
+
+        });
+
+
+
+      }
+
+    });
+  }, 2000)
+</script>

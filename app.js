@@ -184,9 +184,9 @@ app.get('/addPardotEmail', service.addPardotEmail);
 app.post('/getEmailByPardotId', service.getEmailByPardotId);
 app.post('/sendLOAmail', service.sendLOAmail);
 app.post('/changeAddtoCallStatusPardotEmail', service.changeAddtoCallStatusPardotEmail);
-
-
-
+app.post('/uploadLOA', upMulter.array('file', 10), service.uploadLOA);
+app.post('/saveLOA', service.saveLOA);
+app.post('/getLOAData', service.getLOAData);
 
 app.get('/admin/', function (req, res) {
     req.session.reset();

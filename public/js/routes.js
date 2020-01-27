@@ -120,6 +120,10 @@ app.config(function ($routeProvider, $locationProvider) {
       templateUrl: "views/loa.html",
       controller: "EmailCampaignController"
     })
+    .when("/loa-upload/", {
+      templateUrl: "views/loaupload.html",
+      controller: "LOAUploadController"
+    })
     .otherwise({
       redirectTo: "/"
     });
@@ -991,7 +995,7 @@ app.controller("EmailCampaignController", function ($scope, $location, $http, $r
     let data = {
       pardotId: $routeParams.pardotId
     }
-    $scope.addtoCallList = function() {
+    $scope.addtoCallList = function () {
       $http({
         url: "/getEmailByPardotId",
         method: "POST",
@@ -1116,6 +1120,95 @@ app.controller("WorkWithUsController", function ($scope, $location, $http) {
       return true;
     }
   };
+});
+
+app.controller("LOAUploadController", function ($scope, $http) {
+  $scope.$parent.seo = {
+    ogTitle: "UA | LOA Upload",
+    ogDescripton:
+      "We're inspired by the organisations and people we work with. We want to help save them time and money when they source and purchase their energy.",
+    ogImage: "https://www.utility-aid.co.uk/logoUA.png",
+    ogurl: "https://www.utility-aid.co.uk/"
+  };
+
+  $scope.submitLOA = function () {
+    if (!$scope.validate()) {
+      return false;
+    } else {
+      $(".fa-spinner").show();
+      var data = {
+        name: $scope.name,
+        cvemail: $scope.cvemail,
+        cvpath: $("#cvpathid").val(),
+        location: $("#position").html()
+      };
+      console.log("data", data);
+      $http({
+        url: "/saveLOA",
+        method: "POST",
+        data: data,
+        dataType: "json",
+        contentType: "application/json; charset=utf-8"
+      }).then(
+        function (response) {
+          $("#stage").show();
+          $("#questionForm").hide();
+          $(".fa-spinner").hide();
+        },
+        function (error) { 
+          alert("something went wrong. Please try again.")
+        }
+      );
+    }
+  };
+
+  $scope.makeEmptyValidators = function () {
+    $("#cvnameId").html("");
+    $("#cvemailID").html("");
+    $("#cvAttachment").html("");
+  };
+
+  $scope.validate = function () {
+    $scope.makeEmptyValidators();
+    var temp = false;
+    if (!$scope.name) {
+      $("#cvnameID").html(
+        "<ul class='errorlist'>This field is required.</ul>"
+      );
+      temp = true;
+    }
+    if ($scope.cvemail == "" || $scope.cvemail == undefined) {
+      $("#cvemailID").html(
+        "<ul class='errorlist'>This field is required.</ul>"
+      );
+      temp = true;
+    } else if ($scope.cvemail != "") {
+      if (!validateEmail($scope.cvemail)) {
+        $("#cvemailID").html(
+          "<ul class='errorlist'>Please enter correct email id.</ul>"
+        );
+        temp = true;
+      }
+    }
+    if (!$("#cvpathid").val()) {
+      $("#cvAttachment").html(
+        "<ul class='errorlist'>This field is required.</ul>"
+      );
+      temp = true;
+    }
+
+    function validateEmail(email) {
+      var re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+      return re.test(email);
+    }
+
+    if (temp == true) {
+      return false;
+    } else {
+      return true;
+    }
+  };
+
 });
 
 app.directive("emitLastRepeaterElement", function () {

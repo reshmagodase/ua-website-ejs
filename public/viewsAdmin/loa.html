@@ -1,0 +1,45 @@
+<div ng-include src="'viewsAdmin/partials/header.html'"></div>
+
+<div class="content">
+    <div class="inner">
+        <h1>LOA List</h1>
+        <div class="clearfix"></div>
+        <div id="content-main">
+            <table id="mytable" class='table table-striped'>
+                <thead>
+                    <tr>
+                        <th>Company Name</th>
+                        <th>Email</th>
+                        <th>File</th>
+                        <th>Created Date</th>
+                    </tr>
+                </thead>
+                <tr ng-repeat="data in datalists | startPagination: curPage * pageSize | limitTo: pageSize">
+                    <td title="Name">
+                        {{data.name}}
+                    </td>
+                    <td title="Email">
+                        {{data.cvemail}}
+                    </td>
+                    <td title="Email">
+                        <a target="blank" href="/{{data.cvpath}}">{{data.cvpath}}</a>
+
+                    </td>
+                    <td title="Created date">
+                        {{data.createdDate | date : "dd.MM.y"}}
+                    </td>
+                </tr>
+            </table>
+            <ul class="pager" ng-show="datalists.length">
+                <li>
+                    <button type="button" class="btn btn-link" ng-disabled="curPage == 0"
+                        ng-click="curPage=curPage-1">&lt; Previous</button>
+                </li>
+                <li>
+                    <button type="button" class="btn btn-link" ng-disabled="curPage >= datalists.length/pageSize - 1"
+                        ng-click="curPage = curPage+1">Next &gt; </button>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
