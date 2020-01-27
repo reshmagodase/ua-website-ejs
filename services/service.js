@@ -1767,6 +1767,22 @@ exports.saveLOA = function (req, res) {
             }
             else {
                 console.log(result);
+                var htmlFormat = '<!DOCTYPE html><html lang="en"><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width" /><title>Utility Aid</title><base href="/" /><meta name="viewport" content="width=device-width, initial-scale=1" /><link rel="icon" type="image/x-icon" href="favicon.ico" /></head><body><table><tr><td> Hi,</td></tr><tr><td> New LOA has been uploaded by <b>' + req.body.name + '</b><br><br></td></tr><tr><td> Kind Regards</td></tr><tr><td> Utility Aid</td></tr></table></body></html>';
+                mailOptions = {
+                    from: "baptist@utility-aid.co.uk",
+                    to: "dnyaneshwar@scriptlanes.com",
+                    subject: "New LOA",
+                    html: htmlFormat
+                };
+                console.log('mailOptions', mailOptions);
+                transporter1.sendMail(mailOptions, function (err) {
+                    if (err) {
+                        console.log(err);
+                        res.status(500).end();
+                    }
+                    console.log('Mail sent successfully');
+                    // res.status(200).end()
+                });
                 res.send({ code: 200, result: result });
             }
         });
