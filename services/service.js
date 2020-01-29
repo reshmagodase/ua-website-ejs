@@ -1631,10 +1631,10 @@ exports.getEmailByPardotId = function (req, res) {
             if (result.length == 0) {
                 console.log(req.body.path);
                 let action = "";
-                if(req.body.path == "/success/") {
+                if(req.body.path == "success") {
                     action = "loasent"
                 }
-                if(req.body.path == "/addtocall/") {
+                if(req.body.path == "addtocall") {
                     action = "addtocall"
                 }
                 let info = {
