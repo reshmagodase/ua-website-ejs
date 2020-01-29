@@ -949,7 +949,8 @@ app.controller("EmailCampaignController", function ($scope, $location, $http, $r
   console.log('$location', $location.$$path);
   if ($location.$$path == "/success/") {
     let data = {
-      pardotId: $routeParams.pardotId
+      pardotId: $routeParams.pardotId,
+      path: "/success/"
     }
 
     console.log(data);
@@ -993,7 +994,8 @@ app.controller("EmailCampaignController", function ($scope, $location, $http, $r
   if ($location.$$path == "/addtocall/") {
     console.log('addtocall');
     let data = {
-      pardotId: $routeParams.pardotId
+      pardotId: $routeParams.pardotId,
+      path: "/addtocall/"
     }
     $scope.addtoCallList = function () {
       $http({

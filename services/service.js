@@ -1627,10 +1627,26 @@ exports.getEmailByPardotId = function (req, res) {
             if (err) {
                 res.send({ 'status': 'error', 'message': 'An error has occurred' });
             }
-            if (result == null) {
-                res.send({ 'status': 'error', 'message': 'Data Not Found' });
+            console.log(result)
+            if (result.length == 0) {
+                let info = {
+                    ID: req.body.pardotId,
+                    action: req.body.path == "/success/" ? "loasent" : "addtocall"
+                }
+                db.collection('campaignlogs', function (err, collection) {
+                    collection.insert(info, { safe: true }, function (err, result) {
+                        if (err) {
+                            res.send({ 'status': 'error', 'message': 'An error has occurred' });
+                        }
+                        else {
+                            console.log(result);
+                            res.send({ code: 200, result: result });
+                        }
+                    });
+                });
+                // res.send({ 'status': 'error', 'message': 'Data Not Found' });
             }
-            if (result !== null) {
+            if (result.length > 0) {
                 console.log(result);
                 var data = result;
                 res.send(data);
