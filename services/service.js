@@ -1629,9 +1629,17 @@ exports.getEmailByPardotId = function (req, res) {
             }
             console.log(result)
             if (result.length == 0) {
+                console.log(req.body.path);
+                let action = "";
+                if(req.body.path == "/success/") {
+                    action = "loasent"
+                }
+                if(req.body.path == "/addtocall/") {
+                    action = "addtocall"
+                }
                 let info = {
                     ID: req.body.pardotId,
-                    action: req.body.path == "/success/" ? "loasent" : "addtocall"
+                    action: action
                 }
                 db.collection('campaignlogs', function (err, collection) {
                     collection.insert(info, { safe: true }, function (err, result) {
