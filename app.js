@@ -183,6 +183,7 @@ app.post('/addEmailCampaignData', service.addEmailCampaignData);
 app.get('/addPardotEmail', service.addPardotEmail);
 app.post('/getEmailByPardotId', service.getEmailByPardotId);
 app.post('/sendLOAmail', service.sendLOAmail);
+app.post('/sendLOA', service.sendLOA);
 app.post('/changeAddtoCallStatusPardotEmail', service.changeAddtoCallStatusPardotEmail);
 app.post('/uploadLOA', upMulter.array('file', 10), service.uploadLOA);
 app.post('/saveLOA', service.saveLOA);

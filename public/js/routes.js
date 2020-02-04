@@ -120,6 +120,10 @@ app.config(function ($routeProvider, $locationProvider) {
       templateUrl: "views/loa.html",
       controller: "EmailCampaignController"
     })
+    .when("/sendloa/", {
+      templateUrl: "views/sendloa.html",
+      controller: "EmailCampaignController"
+    })
     .when("/loa-upload/", {
       templateUrl: "views/loaupload.html",
       controller: "LOAUploadController"
@@ -947,6 +951,13 @@ app.controller("QuestionController", function ($scope, $location, $http) {
 app.controller("EmailCampaignController", function ($scope, $location, $http, $routeParams) {
   console.log('param', $routeParams.pardotId);
   console.log('$location', $location.$$path);
+  $scope.$parent.seo = {
+    ogTitle: "UA | Emails",
+    ogDescripton:
+      "We're inspired by the organisations and people we work with. We want to help save them time and money when they source and purchase their energy.",
+    ogImage: "https://www.utility-aid.co.uk/img/home/homepage.jpg",
+    ogurl: "https://www.utility-aid.co.uk/"
+  };
   if ($location.$$path == "/success/") {
     let data = {
       pardotId: $routeParams.pardotId,
@@ -989,6 +1000,50 @@ app.controller("EmailCampaignController", function ($scope, $location, $http, $r
     }
 
     $scope.sendLOA();
+  }
+
+  if ($location.$$path == "/sendloa/") {
+    let data = {
+      pardotId: $routeParams.pardotId,
+      path: "sendloa"
+    }
+
+    console.log(data);
+    $scope.sentLOA = function () {
+      $http({
+        url: "/getEmailByPardotId",
+        method: "POST",
+        data: data,
+        dataType: "json",
+        contentType: "application/json; charset=utf-8"
+      }).then(
+        function (response) {
+          $http({
+            url: "/sendLOA",
+            method: "POST",
+            data: {
+              email: response.data[0].Email,
+              ID: response.data[0].ID,
+              addtocall: response.data[0].addtocall ? response.data[0].addtocall : false
+            },
+            dataType: "json",
+            contentType: "application/json; charset=utf-8"
+          }).then(
+            function (response) {
+              console.log(response);
+            },
+            function (error) {
+              console.log(error);
+            }
+          );
+        },
+        function (error) {
+          console.log(error);
+        }
+      );
+    }
+
+    $scope.sentLOA();
   }
 
   if ($location.$$path == "/addtocall/") {
@@ -1157,7 +1212,7 @@ app.controller("LOAUploadController", function ($scope, $http) {
           $("#questionForm").hide();
           $(".fa-spinner").hide();
         },
-        function (error) { 
+        function (error) {
           alert("something went wrong. Please try again.")
         }
       );

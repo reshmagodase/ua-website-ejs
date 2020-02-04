@@ -1728,6 +1728,47 @@ exports.sendLOAmail = function (req, res) {
     });
 }
 
+exports.sendLOA = function(req, res) {
+    var htmlFormat = '<!DOCTYPE html><html lang="en"><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width" /><title>Utility Aid</title><base href="/" /><meta name="viewport" content="width=device-width, initial-scale=1" /><link rel="icon" type="image/x-icon" href="favicon.ico" /></head><body><table><tr><td> Hi,</td></tr><tr><td> Please find attached the letters of authority, to be signed, dated, and printed onto your own letter headed paper. Please return these to baptist@utility-aid.co.uk along with a recent electricity/gas bill</td></tr><tr><td> Kind Regards</td></tr><tr><td> Utility Aid</td></tr></table></body></html>'
+    var mailOptions = {
+        from: 'baptist@utility-aid.co.uk', // sender address
+        to: req.body.email,
+        subject: 'LOA Template', // Subject line
+        text: '', // plaintext body
+        html: htmlFormat,
+        attachments: [{
+            // filename: req.body.filename,
+            path: 'http://utility-aid.co.uk/LOA-Templates.zip'
+            // path: 'https://en.defacto.nl/images/social/demo-1200x630-b3c5c9a1.png'
+        }]
+    };
+    transporter1.sendMail(mailOptions, function (error, info) {
+        if (error) {
+            return console.log(error);
+        }
+        console.log('Message sent: ' + info.response);
+        db.collection('emailwithpardot', function (err, collection) {
+            let info = {
+                Email: req.body.email,
+                ID: req.body.ID,
+                loasent: true,
+                addtocall: req.body.addtocall
+            }
+            collection.update({ 'ID': req.body.ID }, info, { safe: true }, function (err, result) {
+                if (err) {
+                    res.send({ 'status': 'error', 'message': 'An error has occurred' });
+                }
+                else {
+                    console.log(result);
+                    res.send({ 'status': 'success', 'message': 'Data Updated successfully' });
+                }
+            });
+        });
+        // res.send({code: 200, message: "Mail sent"});
+
+    });
+}
+
 exports.changeAddtoCallStatusPardotEmail = function (req, res) {
     db.collection('emailwithpardot', function (err, collection) {
         let info = {
