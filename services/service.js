@@ -1772,9 +1772,9 @@ exports.sendLOAmail = function (req, res) {
 }
 
 exports.sendLOA = function(req, res) {
-    var htmlFormat = '<!DOCTYPE html><html lang="en"><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width" /><title>Utility Aid</title><base href="/" /><meta name="viewport" content="width=device-width, initial-scale=1" /><link rel="icon" type="image/x-icon" href="favicon.ico" /></head><body><table><tr><td> Hi,</td></tr><tr><td> Please find attached the letters of authority, to be signed, dated, and printed onto your own letter headed paper. Please return these to baptist@utility-aid.co.uk along with a recent electricity/gas bill</td></tr><tr><td> Kind Regards</td></tr><tr><td> Utility Aid</td></tr></table></body></html>'
+    var htmlFormat = '<!DOCTYPE html><html lang="en"><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width" /><title>Utility Aid</title><base href="/" /><meta name="viewport" content="width=device-width, initial-scale=1" /><link rel="icon" type="image/x-icon" href="favicon.ico" /></head><body><table><tr><td> Hi,</td></tr><tr><td> Please find attached the letters of authority, to be signed, dated, and printed onto your own letter headed paper. Please return these to customercare@utility-aid.co.uk along with a recent electricity/gas bill</td></tr><tr><td> Kind Regards</td></tr><tr><td> Utility Aid</td></tr></table></body></html>'
     var mailOptions = {
-        from: 'baptist@utility-aid.co.uk', // sender address
+        from: 'customercare@utility-aid.co.uk', // sender address
         to: req.body.email,
         subject: 'LOA Template', // Subject line
         text: '', // plaintext body
