@@ -188,6 +188,7 @@ app.post('/changeAddtoCallStatusPardotEmail', service.changeAddtoCallStatusPardo
 app.post('/uploadLOA', upMulter.array('file', 10), service.uploadLOA);
 app.post('/saveLOA', service.saveLOA);
 app.post('/getLOAData', service.getLOAData);
+app.post('/getEmailBySalesforceId', service.getEmailBySalesforceId);
 
 app.get('/admin/', function (req, res) {
     req.session.reset();

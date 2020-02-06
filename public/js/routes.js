@@ -1011,7 +1011,7 @@ app.controller("EmailCampaignController", function ($scope, $location, $http, $r
     console.log(data);
     $scope.sentLOA = function () {
       $http({
-        url: "/getEmailByPardotId",
+        url: "/getEmailBySalesforceId",
         method: "POST",
         data: data,
         dataType: "json",
@@ -1022,9 +1022,9 @@ app.controller("EmailCampaignController", function ($scope, $location, $http, $r
             url: "/sendLOA",
             method: "POST",
             data: {
-              email: response.data[0].Email,
-              ID: response.data[0].ID,
-              addtocall: response.data[0].addtocall ? response.data[0].addtocall : false
+              email: response.data[0].email,
+              salesforceId: response.data[0].salesforceId,
+              sendloa: true
             },
             dataType: "json",
             contentType: "application/json; charset=utf-8"

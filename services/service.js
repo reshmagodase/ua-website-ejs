@@ -1664,6 +1664,49 @@ exports.getEmailByPardotId = function (req, res) {
     });
 }
 
+exports.getEmailBySalesforceId = function (req, res) {
+    db.collection('salesforceidwithemail', function (err, collection) {
+        collection.find({ salesforceId: req.body.pardotId }).toArray(function (err, result) {
+            if (err) {
+                res.send({ 'status': 'error', 'message': 'An error has occurred' });
+            }
+            console.log(result)
+            if (result.length == 0) {
+                console.log(req.body.path);
+                let action = "loasend2";
+                /* if(req.body.path == "success") {
+                    action = "loasent"
+                }
+                if(req.body.path == "addtocall") {
+                    action = "addtocall"
+                } */
+                let info = {
+                    ID: req.body.pardotId,
+                    action: action
+                }
+                db.collection('campaignlogs', function (err, collection) {
+                    collection.insert(info, { safe: true }, function (err, result) {
+                        if (err) {
+                            res.send({ 'status': 'error', 'message': 'An error has occurred' });
+                        }
+                        else {
+                            console.log(result);
+                            res.send({ code: 200, result: result });
+                        }
+                    });
+                });
+                // res.send({ 'status': 'error', 'message': 'Data Not Found' });
+            }
+            if (result.length > 0) {
+                console.log(result);
+                var data = result;
+                res.send(data);
+            }
+
+        });
+    });
+}
+
 exports.addPardotEmail = function (req, res) {
     console.log('in add');
     var info = req.body;
@@ -1747,14 +1790,13 @@ exports.sendLOA = function(req, res) {
             return console.log(error);
         }
         console.log('Message sent: ' + info.response);
-        db.collection('emailwithpardot', function (err, collection) {
+        db.collection('salesforceidwithemail', function (err, collection) {
             let info = {
-                Email: req.body.email,
-                ID: req.body.ID,
+                email: req.body.email,
+                salesforceId: req.body.salesforceId,
                 loasent: true,
-                addtocall: req.body.addtocall
             }
-            collection.update({ 'ID': req.body.ID }, info, { safe: true }, function (err, result) {
+            collection.update({ 'salesforceId': req.body.salesforceId }, info, { safe: true }, function (err, result) {
                 if (err) {
                     res.send({ 'status': 'error', 'message': 'An error has occurred' });
                 }
