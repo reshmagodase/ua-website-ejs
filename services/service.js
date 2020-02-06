@@ -1785,7 +1785,7 @@ exports.sendLOA = function(req, res) {
             // path: 'https://en.defacto.nl/images/social/demo-1200x630-b3c5c9a1.png'
         }]
     };
-    transporter1.sendMail(mailOptions, function (error, info) {
+    transporter.sendMail(mailOptions, function (error, info) {
         if (error) {
             return console.log(error);
         }
