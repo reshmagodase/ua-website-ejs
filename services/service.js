@@ -101,6 +101,19 @@ var transporter1 = nodemailer.createTransport({
     }
 });
 
+var transporter2 = nodemailer.createTransport({
+    host: "smtp.office365.com", // Office 365 server
+    port: 587, // secure SMTP
+    secure: false, // false for TLS - as a boolean not string - but the default is false so just remove this completely
+    auth: {
+        user: "CustomerCare@utility-aid.com",
+        pass: "Faz98436"
+    },
+    tls: {
+        ciphers: "SSLv3"
+    }
+});
+
 
 /*Jimp.read("https://www.utility-aid.co.uk/utilityAid/backgroundImages/thumbnails/1450768341396-Resources.jpg", function (err, lenna) {
  if (err) throw err;
@@ -1631,10 +1644,10 @@ exports.getEmailByPardotId = function (req, res) {
             if (result.length == 0) {
                 console.log(req.body.path);
                 let action = "";
-                if(req.body.path == "success") {
+                if (req.body.path == "success") {
                     action = "loasent"
                 }
-                if(req.body.path == "addtocall") {
+                if (req.body.path == "addtocall") {
                     action = "addtocall"
                 }
                 let info = {
@@ -1771,8 +1784,8 @@ exports.sendLOAmail = function (req, res) {
     });
 }
 
-exports.sendLOA = function(req, res) {
-    var htmlFormat = '<!DOCTYPE html><html><head><title></title><style>body{font-size:9.0pt;font-family:"Arial",sans-serif;color:#20271f}.contact b{color:#3496c1}.contact{line-height:1.7}.contact span{color:#20271f}.contact1 b{color:#000}.contact1{line-height:1.7}.contact1 span{color:#20271f}</style></head><body> <br><div style="font-size:11pt;">Hello, <br><p> Please find attached the letters of authority, to be signed, dated, and printed onto your own letter headed paper. Please return these to customercare@utility-aid.co.uk along with a recent electricity/gas bill.</p> <br> Many Thanks <br> <br><div> <b style="color:#3496c1;font-size:12.0pt">Team UA</b></div></div> <br> <br><div> <img src="https://utility-aid.co.uk/emailTemplateImages/4.png" style="max-width: 240px;width: 100%"></div> <br> <br><div class="contact"> <b>T.</b> 0808 178 8170</div><div class="contact"> <b>F.</b> 0870 112 3967</div> <br> <br><div class="contact1"> <b>w</b> <a href="https://utility-aid.co.uk" target="_blank"> <span>utility-aid.co.uk </span> </a></div><div class="contact1"> <b>Fb.</b> <a href="https://www.facebook.com/ua.domoregood" target="_blank"> <span>facebook.com/ua.domoregood </span> </a></div><div class="contact1"> <b>Tw </b> <a href="https://twitter.com/UA_Energy" target="_blank"> <span>@UA_Energy </span> </a></div> <br> <br><div> <img src="https://utility-aid.co.uk/emailTemplateImages/3.jpg" style="max-width: 602px;width: 100%"></div> <br> <br><div style="font-size: 9.0pt; font-family: Helvetica,sans-serif; color: black;"> This email and any files transmitted with it are confidential and intended solely for the use of the individual or entity to whom they are addressed. If you have received this email in error please notify the system manager. Please note that any views or opinions presented in this email are solely those of the author and do not necessarily represent those of the company. The information you are being sent has been scanned as free from any errors or viruses, instances can occur where external factors which are beyond our control may contribute to the corruption/infection of e-mails. Utility Aid Ltd therefore accepts no liability for any damage caused by any virus transmitted by this email. Utility Aid Ltd. Union Building, Rose Lane, Norwich, NR1 1BY Registered in the UK & Wales. Company number: 04408718</div></body></html>'
+exports.sendLOA = function (req, res) {
+    var htmlFormat = '<!DOCTYPE html><html><head><title></title><style>body{font-size:9.0pt;font-family:"Arial",sans-serif;color:#20271f}.contact b{color:#3496c1}.contact{line-height:1.7}.contact span{color:#20271f}.contact1 b{color:#000}.contact1{line-height:1.7}.contact1 span{color:#20271f}</style></head><body> <br><div style="font-size:11pt;">Hello, <br><p> Please find attached the letters of authority, to be signed, dated, and printed onto your own letter headed paper. Please return these to customercare@utility-aid.co.uk.</p><p>If you have sent us your LOA in the last 6 months, please ignore this request.</p> <br> Many Thanks <br> <br><div> <b style="color:#3496c1;font-size:12.0pt">Team UA</b></div></div> <br> <br><div> <img src="https://utility-aid.co.uk/emailTemplateImages/4.png" style="max-width: 240px;width: 100%"></div> <br> <br><div class="contact"> <b>T.</b> 0808 178 8170</div><div class="contact"> <b>F.</b> 0870 112 3967</div> <br> <br><div class="contact1"> <b>w</b> <a href="https://utility-aid.co.uk" target="_blank"> <span>utility-aid.co.uk </span> </a></div><div class="contact1"> <b>Fb.</b> <a href="https://www.facebook.com/ua.domoregood" target="_blank"> <span>facebook.com/ua.domoregood </span> </a></div><div class="contact1"> <b>Tw </b> <a href="https://twitter.com/UA_Energy" target="_blank"> <span>@UA_Energy </span> </a></div> <br> <br><div> <img src="https://utility-aid.co.uk/emailTemplateImages/3.jpg" style="max-width: 602px;width: 100%"></div> <br> <br><div style="font-size: 9.0pt; font-family: Helvetica,sans-serif; color: black;"> This email and any files transmitted with it are confidential and intended solely for the use of the individual or entity to whom they are addressed. If you have received this email in error please notify the system manager. Please note that any views or opinions presented in this email are solely those of the author and do not necessarily represent those of the company. The information you are being sent has been scanned as free from any errors or viruses, instances can occur where external factors which are beyond our control may contribute to the corruption/infection of e-mails. Utility Aid Ltd therefore accepts no liability for any damage caused by any virus transmitted by this email. Utility Aid Ltd. Union Building, Rose Lane, Norwich, NR1 1BY Registered in the UK & Wales. Company number: 04408718</div></body></html>'
     var mailOptions = {
         from: 'customercare@utility-aid.co.uk', // sender address
         to: req.body.email,
@@ -1785,7 +1798,7 @@ exports.sendLOA = function(req, res) {
             // path: 'https://en.defacto.nl/images/social/demo-1200x630-b3c5c9a1.png'
         }]
     };
-    transporter.sendMail(mailOptions, function (error, info) {
+    transporter2.sendMail(mailOptions, function (error, info) {
         if (error) {
             return console.log(error);
         }
