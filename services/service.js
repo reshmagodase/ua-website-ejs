@@ -1792,14 +1792,15 @@ exports.sendLOA = function (req, res) {
         subject: 'LOA Template', // Subject line
         text: '', // plaintext body
         html: htmlFormat,
-        attachments: [{
+        attachments: [
+            // {
             // filename: req.body.filename,
-            path: 'http://utility-aid.co.uk/LOA-Templates.zip'
+            // path: 'http://utility-aid.co.uk/LOA-Templates.zip'
             // path: 'https://en.defacto.nl/images/social/demo-1200x630-b3c5c9a1.png'
-        },
-        {
-            path: 'http://utility-aid.co.uk/LOA-Template.docx'
-        }
+            // },
+            {
+                path: 'http://utility-aid.co.uk/LOA-Template.docx'
+            }
         ]
     };
     transporter2.sendMail(mailOptions, function (error, info) {
