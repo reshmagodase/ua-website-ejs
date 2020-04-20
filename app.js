@@ -211,7 +211,9 @@ app.get('/baptist/*', function (req, res) {
     res.sendfile('./public/baptist/index.html');
 });
 
-
+app.get('/new/*', function (req, res) {
+    res.sendfile('./public/new/index.html');
+});
 
 
 
