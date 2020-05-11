@@ -1948,7 +1948,7 @@ exports.sendGoogleAdContact = function (req, res) {
                 var htmlFormat = '<!DOCTYPE html><html lang="en"><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width" /><title>Utility Aid</title><base href="/" /><meta name="viewport" content="width=device-width, initial-scale=1" /><link rel="icon" type="image/x-icon" href="favicon.ico" /></head><body><table><tr><td> Hi,</td></tr><tr><td> New contact request from Google ad <b><br><b>Name: ' + req.body.name + '</b><br><b>Contact No: ' + req.body.contactNo + '</b><br><b>Email: ' + req.body.cvemail + '</b><br><b>Message: ' + req.body.message + '</b><br><br></td></tr><tr><td> Kind Regards</td></tr><tr><td> Utility Aid</td></tr></table></body></html>';
                 mailOptions = {
                     from: "customercare@utility-aid.co.uk",
-                    to: "dnyaneshwar@scriptlanes.com",
+                    to: "THendry@utility-aid.co.uk",
                     subject: "New Google ad contact",
                     html: htmlFormat
                 };
