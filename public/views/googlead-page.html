@@ -1,0 +1,209 @@
+<nav id="googleAd" class="navbar container-fluid navbar-default">
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <a class="navbar-brand" href="/"><img bn-lazy-src="img/Utilityaid_New.png?23" />
+    </a>
+  </div>
+  <div class="collapse navbar-collapse" id="myNavbar">
+    <ul class="nav navbar-nav navbar-right">
+      <li class="fontBold freephone">
+        freephone:
+        <span style="color: #3697c2">0808 1788 170&nbsp;
+
+          <a href="https://www.facebook.com/ua.domoregood">
+            <img bn-lazy-src="img/socialIcons/fb.png" style="height: 20px" />
+          </a>
+          <a href="https://twitter.com/UA_Energy" class="tw">
+            <img bn-lazy-src="img/socialIcons/tw.png" style="height: 20px" />
+          </a>
+          <a href="https://www.linkedin.com/company/utility-aid-ltd" class="ln">
+            <img bn-lazy-src="img/socialIcons/ln.png" style="height: 20px" />
+          </a>
+          <a href="https://www.instagram.com/utilityaid/" class="in">
+            <img bn-lazy-src="img/socialIcons/insta.png" style="height: 20px" />
+          </a>
+        </span>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<header class="home header mobile text-center">
+  <div class="container text-vertical-center" style="background-color: white;padding-bottom: 0px;padding-top: 20px;">
+    <h2 style="margin-top: 0;padding-top:0;color: black;">
+      <br />
+      Contact Us
+    </h2>
+    <div class="col-sm-12 text-right uploadLoa">
+      <a href="/loa-upload" class="btn btn-primary">Uplaod LOA</a>
+    </div>
+  </div>
+</header>
+
+<div class="container" style="padding-top: 20px;">
+  <div class="col-sm-8 col-sm-offset-2">
+    <div class="control-group" id="googleAdForm">
+
+
+      <div class="controls ">
+        <input class="form-control ng-pristine ng-valid" id="name" ng-model="name" name="name" placeholder="Name"
+          type="text">
+        <span id="nameID"></span>
+      </div>
+
+      <div class="controls ">
+        <input class="form-control ng-pristine ng-valid" id="contactNo" ng-model="contactNo" name="contactNo"
+          placeholder="Contact No" type="text">
+        <span id="contactNoID"></span>
+      </div>
+
+      <div class="controls ">
+        <input class="form-control ng-pristine ng-valid" id="cvemail" ng-model="cvemail" name="cvemail"
+          placeholder="Email" type="text">
+        <span id="cvemailID"></span>
+      </div>
+
+      <div class="controls ">
+        <textarea class="form-control ng-pristine ng-valid" id="message" ng-model="message" name="message"
+          placeholder="Message"></textarea>
+        <span id="messageID"></span>
+      </div>
+
+      <div class="control-group text-center">
+        <div class="controls" style="padding-top:16px">
+          <button type="submit" class="btnFindOutMore" ng-click="submitContactForm();">Submit
+          </button> <br>
+          <img src="/img/whyua/loading-gif.gif" class="fa fa-spinner"></i>
+        </div>
+      </div>
+    </div>
+    <div id="stage" class="form-all">
+      <p style="text-align:center;">
+        <img src="img/check-icon.png" alt="" width="128" height="128">
+      </p>
+
+      <div style="text-align:center;">
+        <h1 style="text-align: center;">Thank You!</h1>
+
+        <p style="text-align: center;">We've received your request! Our team will respond you as soon
+          as possible.
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-12">
+    <p>OR <br> Contact with</p>
+    <div class="row">
+      <div class="col-sm-6" style="padding-right: 0;">
+        <a href="https://api.whatsapp.com/send?phone=9762806037&text=urlencodedtext"
+          target="_blank">
+          <img src="img/whatsapp.png" class="pull-right" style="cursor: pointer;" width="60" alt="whatsapp">
+        </a>
+      </div>
+      <div class="col-sm-6">
+        <a href="https://www.facebook.com/ua.domoregood" target="_blank">
+          <img src="img/facebook-logo.png" class="pull-left" style="cursor: pointer;" width="100" alt="whatsapp">
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .dropdown-menu {
+    background-color: #17252a;
+  }
+
+  .controls {
+    padding-bottom: 10px;
+  }
+
+  .errorlist {
+    margin-top: 3px;
+    margin-bottom: 0px;
+    color: red;
+    font-size: 12px;
+  }
+
+  .fa-spinner {
+    display: none;
+    width: 50px;
+  }
+
+  .btnFindOutMore {
+    text-decoration: none;
+    color: #fff;
+    padding: 3px 10px;
+    border: 6px solid #fff;
+    border-radius: 20px;
+    font-size: 18px;
+    background-color: #23527c;
+  }
+
+  .btnFindOutMore:hover {
+    text-decoration: none;
+    color: #fff;
+    padding: 3px 10px;
+    border: 6px solid #fff;
+    border-radius: 20px;
+    font-size: 18px;
+    background-color: #23527c;
+  }
+
+  @media (min-width: 768px) {
+    .freephone {
+      position: absolute !important;
+      top: 5px;
+      right: 1.5%;
+    }
+
+    .navbar-nav>li>a {
+      margin-top: 20px;
+      padding-bottom: 5px;
+    }
+  }
+
+  @media (max-width: 767px) {
+    .navbar-nav .open .dropdown-menu {
+      background-color: #17252a;
+    }
+
+    .navbar-nav .open .dropdown-menu>li>a {
+      color: white !important;
+    }
+
+    .uploadLoa {
+      text-align: center;
+    }
+  }
+
+  .dropdown-menu>li {}
+
+  .dropdown-menu>li>a {
+    color: white;
+    font-size: 20.5px;
+  }
+
+  .container-fluid,
+  .container {
+    padding: 70px 20px;
+  }
+
+  .navbar-brand img {
+    height: 50px;
+  }
+
+  @media (max-width: 768px) {
+    .navbar-brand img {
+      height: 40px;
+    }
+
+    .navbar.container-fluid {
+      padding: 10px 20px 10px;
+    }
+  }
+</style>

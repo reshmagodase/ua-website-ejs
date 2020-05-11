@@ -128,6 +128,10 @@ app.config(function ($routeProvider, $locationProvider) {
       templateUrl: "views/loaupload.html",
       controller: "LOAUploadController"
     })
+    .when("/google-ad/", {
+      templateUrl: "views/googlead-page.html",
+      controller: "GoogleAdCtrl"
+    })
     .otherwise({
       redirectTo: "/"
     });
@@ -141,6 +145,7 @@ app.controller("DefaultController", function ($scope, $http) {
     ogImage: "https://www.utility-aid.co.uk/logoUA.png",
     ogurl: "https://www.utility-aid.co.uk/"
   };
+  $('.navbar').show();
 });
 app.controller("whyuaController", function ($scope, $http) {
   $scope.$parent.seo = {
@@ -834,6 +839,7 @@ app.controller("faqCtrl", function ($scope, $location, $http) {
       "We're inspired by the organisations and people we work with. We want to help save them time and money when they source and purchase their energy.",
     ogurl: "https://www.utility-aid.co.uk/faq/"
   };
+  $('.navbar').show();
 
   $.post("/getProductList", { collection: "faq" }, function (data) {
     $scope.$apply(function () {
@@ -852,7 +858,7 @@ app.controller("HomeCtrl", function ($scope, $location, $http) {
     ogImage: "https://www.utility-aid.co.uk/img/home/homepage.jpg",
     ogurl: "https://www.utility-aid.co.uk/"
   };
-
+  $('.navbar').show();
   $.post("/getProductList", { collection: "home" }, function (data) {
     $scope.$apply(function () {
       //$scope.product_text = decodeURIComponent(data[0].product_text);
@@ -1179,6 +1185,112 @@ app.controller("WorkWithUsController", function ($scope, $location, $http) {
   };
 });
 
+app.controller("GoogleAdCtrl", function ($scope, $http) {
+  $scope.$parent.seo = {
+    ogTitle: "UA | Contact Us",
+    ogDescripton:
+      "We're inspired by the organisations and people we work with. We want to help save them time and money when they source and purchase their energy.",
+    ogImage: "https://www.utility-aid.co.uk/logoUA.png",
+    ogurl: "https://www.utility-aid.co.uk/"
+  };
+
+  $('.navbar').hide();
+  $('#googleAd').show();
+
+  $scope.submitContactForm = function () {
+    if (!$scope.validate()) {
+      return false;
+    } else {
+      $(".fa-spinner").show();
+      var data = {
+        name: $scope.name,
+        cvemail: $scope.cvemail,
+        contactNo: $scope.contactNo,
+        message: $scope.message
+      };
+      console.log("data", data);
+      $http({
+        url: "/sendGoogleAdContact",
+        method: "POST",
+        data: data,
+        dataType: "json",
+        contentType: "application/json; charset=utf-8"
+      }).then(
+        function (response) {
+          $("#stage").show();
+          $("#questionForm").hide();
+          $(".fa-spinner").hide();
+          $('.navbar').hide();
+          $('#googleAd').show();
+          $scope.name = '';
+          $scope.contactNo = '';
+          $scope.cvemail = '';
+          $scope.message = '';
+
+        },
+        function (error) {
+          alert("something went wrong. Please try again.")
+        }
+      );
+    }
+  };
+
+  $scope.makeEmptyValidators = function () {
+    $("#nameID").html("");
+    $("#cvemailID").html("");
+    $("#contactNoID").html("");
+    $("#messageID").html("");
+  };
+
+  $scope.validate = function () {
+    $scope.makeEmptyValidators();
+    var temp = false;
+    if (!$scope.name) {
+      $("#nameID").html(
+        "<ul class='errorlist'>This field is required.</ul>"
+      );
+      temp = true;
+    }
+    if ($scope.cvemail == "" || $scope.cvemail == undefined) {
+      $("#cvemailID").html(
+        "<ul class='errorlist'>This field is required.</ul>"
+      );
+      temp = true;
+    }
+    if ($scope.contactNo == "" || $scope.contactNo == undefined) {
+      $("#contactNoID").html(
+        "<ul class='errorlist'>This field is required.</ul>"
+      );
+      temp = true;
+    } else if ($scope.cvemail != "") {
+      if (!validateEmail($scope.cvemail)) {
+        $("#cvemailID").html(
+          "<ul class='errorlist'>Please enter correct email id.</ul>"
+        );
+        temp = true;
+      }
+    }
+    if (!$("#message").val()) {
+      $("#messageID").html(
+        "<ul class='errorlist'>This field is required.</ul>"
+      );
+      temp = true;
+    }
+
+    function validateEmail(email) {
+      var re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+      return re.test(email);
+    }
+
+    if (temp == true) {
+      return false;
+    } else {
+      return true;
+    }
+  };
+
+})
+
 app.controller("LOAUploadController", function ($scope, $http) {
   $scope.$parent.seo = {
     ogTitle: "UA | LOA Upload",
@@ -1187,6 +1299,8 @@ app.controller("LOAUploadController", function ($scope, $http) {
     ogImage: "https://www.utility-aid.co.uk/logoUA.png",
     ogurl: "https://www.utility-aid.co.uk/"
   };
+
+  $('.navbar').show();
 
   $scope.submitLOA = function () {
     if (!$scope.validate()) {
