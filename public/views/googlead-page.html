@@ -34,40 +34,44 @@
 
 <header class="home header mobile text-center">
   <div class="container text-vertical-center" style="background-color: white;padding-bottom: 0px;padding-top: 20px;">
-    <h2 style="margin-top: 0;padding-top:0;color: black;">
-      <br />
+    <h2 class="heading" class="uploadLoa" style="margin-top: 0;padding-top:0;color: black;display: inline;">
       Contact Us
     </h2>
-    <div class="col-sm-12 text-right uploadLoa">
+    <a href="/loa-upload" class="btn btn-primary pull-right" style="margin-left: 10px;">Uplaod LOA</a>
+    <!-- <div class="col-sm-2 text-right uploadLoa">
       <a href="/loa-upload" class="btn btn-primary">Uplaod LOA</a>
-    </div>
+    </div> -->
   </div>
 </header>
 
-<div class="container" style="padding-top: 20px;">
+<div class="container" style="padding-top: 0px;">
   <div class="col-sm-8 col-sm-offset-2">
     <div class="control-group" id="googleAdForm">
 
 
       <div class="controls ">
+        <label for="" style="color: black;font-size: 14px;">Name</label>
         <input class="form-control ng-pristine ng-valid" id="name" ng-model="name" name="name" placeholder="Name"
           type="text">
         <span id="nameID"></span>
       </div>
 
       <div class="controls ">
+        <label for="" style="color: black;font-size: 14px;">Contact No</label>
         <input class="form-control ng-pristine ng-valid" id="contactNo" ng-model="contactNo" name="contactNo"
           placeholder="Contact No" type="text">
         <span id="contactNoID"></span>
       </div>
 
       <div class="controls ">
+        <label for="" style="color: black;font-size: 14px;">Email</label>
         <input class="form-control ng-pristine ng-valid" id="cvemail" ng-model="cvemail" name="cvemail"
           placeholder="Email" type="text">
         <span id="cvemailID"></span>
       </div>
 
       <div class="controls ">
+        <label for="" style="color: black;font-size: 14px;">Message</label>
         <textarea class="form-control ng-pristine ng-valid" id="message" ng-model="message" name="message"
           placeholder="Message"></textarea>
         <span id="messageID"></span>
@@ -97,10 +101,15 @@
   </div>
   <div class="col-sm-12 text-center">
     <p style="color: black;">OR <br> Contact with</p>
-    <div class="row">
+    <a href="https://api.whatsapp.com/send?phone=447508530907&text=Hi" target="_blank">
+      <img src="img/whatsapp.png" style="cursor: pointer;" width="60" alt="whatsapp">
+    </a>
+    <a href="https://www.facebook.com/ua.domoregood" target="_blank">
+      <img src="img/facebook-logo.png" style="cursor: pointer;" width="100" alt="whatsapp">
+    </a>
+    <!-- <div class="row">
       <div class="col-sm-6" style="padding-right: 0;">
-        <a href="https://api.whatsapp.com/send?phone=447508530907&text=Hi"
-          target="_blank">
+        <a href="https://api.whatsapp.com/send?phone=447508530907&text=Hi" target="_blank">
           <img src="img/whatsapp.png" class="pull-right" style="cursor: pointer;" width="60" alt="whatsapp">
         </a>
       </div>
@@ -109,7 +118,7 @@
           <img src="img/facebook-logo.png" class="pull-left" style="cursor: pointer;" width="100" alt="whatsapp">
         </a>
       </div>
-    </div>
+    </div> -->
   </div>
 </div>
 
@@ -134,24 +143,28 @@
     width: 50px;
   }
 
+  .heading {
+    margin-left: 100px;
+  }
+
   .btnFindOutMore {
     text-decoration: none;
-    color: #fff;
+    color: #23527c;
     padding: 3px 10px;
-    border: 6px solid #fff;
+    border: 6px solid #23527c;
     border-radius: 20px;
     font-size: 18px;
-    background-color: #23527c;
+    background-color: #f2f2f2;
   }
 
   .btnFindOutMore:hover {
     text-decoration: none;
-    color: #fff;
+    color: #23527c;
     padding: 3px 10px;
-    border: 6px solid #fff;
+    border: 6px solid #23527c;
     border-radius: 20px;
     font-size: 18px;
-    background-color: #23527c;
+    background-color: #f2f2f2;
   }
 
   @media (min-width: 768px) {
@@ -178,7 +191,12 @@
 
     .uploadLoa {
       text-align: center;
+      float: none !important;
     }
+
+    .heading {
+    margin-left: 50px;
+  }
   }
 
   /* .dropdown-menu>li {} */
