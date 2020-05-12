@@ -101,6 +101,14 @@ app.config(function ($routeProvider, $locationProvider) {
       templateUrl: "views/thank-you.html",
       controller: "DefaultController"
     })
+    .when("/thankyou-upload-loa/", {
+      templateUrl: "views/loa-thankyou.html",
+      controller: "DefaultController"
+    })
+    .when("/thankyou-ad/", {
+      templateUrl: "views/googlead-thankyou.html",
+      controller: "DefaultController"
+    })
     .when("/engine/", {
       templateUrl: "views/engine.html"
     })
@@ -1186,6 +1194,8 @@ app.controller("WorkWithUsController", function ($scope, $location, $http) {
 });
 
 app.controller("GoogleAdCtrl", function ($scope, $http) {
+  $('.navbar').hide();
+  $('#googleAd').show();
   $scope.$parent.seo = {
     ogTitle: "UA | Contact Us",
     ogDescripton:
@@ -1193,9 +1203,6 @@ app.controller("GoogleAdCtrl", function ($scope, $http) {
     ogImage: "https://www.utility-aid.co.uk/logoUA.png",
     ogurl: "https://www.utility-aid.co.uk/"
   };
-
-  $('.navbar').hide();
-  $('#googleAd').show();
 
   $scope.submitContactForm = function () {
     if (!$scope.validate()) {
@@ -1217,11 +1224,12 @@ app.controller("GoogleAdCtrl", function ($scope, $http) {
         contentType: "application/json; charset=utf-8"
       }).then(
         function (response) {
-          $("#stage").show();
-          $("#questionForm").hide();
+          // $("#stage").show();
+          // $("#questionForm").hide();
+          window.location = "/thankyou-ad/";
           $(".fa-spinner").hide();
           $('.navbar').hide();
-          $('#googleAd').show();
+          // $('#googleAd').show();
           $scope.name = '';
           $scope.contactNo = '';
           $scope.cvemail = '';
@@ -1322,8 +1330,9 @@ app.controller("LOAUploadController", function ($scope, $http) {
         contentType: "application/json; charset=utf-8"
       }).then(
         function (response) {
-          $("#stage").show();
-          $("#questionForm").hide();
+          // $("#stage").show();
+          window.location = "/thankyou-upload-loa/";
+          // $("#questionForm").hide();
           $(".fa-spinner").hide();
         },
         function (error) {
