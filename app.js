@@ -39,7 +39,7 @@ app.use(function (req, res, next) {
     res.header('Access-Control-Allow-Methods', 'POST, GET, PUT, DELETE, OPTIONS');
     res.header("Access-Control-Allow-Headers", "content-type, accept");
     res.header("Access-Control-Allow-Credentials", "true");
-    res.header("Access-Control-Allow-Headers", "Content-Type, X-Requested-With, X-PINGOTHER, X-File-Name, Cache-Control");
+    res.header("Access-Control-Allow-Headers", "Content-Type, X-Requested-With, X-PINGOTHER, X-File-Name");
     if ('OPTIONS' == req.method) {
         res.writeHead('200');
         res.end();
