@@ -3,9 +3,9 @@
 
 <head>
   <meta charset="UTF-8" />
-  <meta http-equiv="cache-control" content="no-cache" />
-<meta http-equiv="Pragma" content="no-cache" />
-<meta http-equiv="Expires" content="-1" />
+  <!-- <meta http-equiv="cache-control" content="no-cache" /> -->
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Expires" content="-1" />
   <meta name="fragment" content="!" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale = 1.0" />
@@ -189,7 +189,7 @@
 
 <body>
   <!-- Google Tag Manager (noscript) -->
-<!-- <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WP7DNHT"
+  <!-- <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WP7DNHT"
   height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript> -->
   <!-- End Google Tag Manager (noscript) -->
   <div ng-include src="'views/partials/header.html'"></div>
@@ -429,22 +429,22 @@
   </style>
 
   <!-- Pardot -->
-<script type="text/javascript">
-  piAId = '798413';
-  piCId = '2595';
-  piHostname = 'pi.pardot.com';
-  
-  (function() {
-  function async_load(){
-  var s = document.createElement('script'); s.type = 'text/javascript';
-  s.src = ('https:' == document.location.protocol ? 'https://pi' : 'http://cdn') + '.pardot.com/pd.js';
-  var c = document.getElementsByTagName('script')[0]; c.parentNode.insertBefore(s, c);
-  }
-  if(window.attachEvent) { window.attachEvent('onload', async_load); }
-  else { window.addEventListener('load', async_load, false); }
-  })();
+  <script type="text/javascript">
+    piAId = '798413';
+    piCId = '2595';
+    piHostname = 'pi.pardot.com';
+
+    (function () {
+      function async_load() {
+        var s = document.createElement('script'); s.type = 'text/javascript';
+        s.src = ('https:' == document.location.protocol ? 'https://pi' : 'http://cdn') + '.pardot.com/pd.js';
+        var c = document.getElementsByTagName('script')[0]; c.parentNode.insertBefore(s, c);
+      }
+      if (window.attachEvent) { window.attachEvent('onload', async_load); }
+      else { window.addEventListener('load', async_load, false); }
+    })();
   </script>
-  
+
 </body>
 
 <!-- <script
@@ -487,8 +487,8 @@
 
   $("a.back-to-top").click(function () {
     $("html, body").animate({
-        scrollTop: 0
-      },
+      scrollTop: 0
+    },
       900
     );
     return false;
@@ -521,24 +521,24 @@
       (i[r].q = i[r].q || []).push(arguments)
     }, i[r].l = 1 * new Date(); a = s.createElement(o),
       m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
-    })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+  })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
 
-    // ga('create', 'UA-107429122-1', 'auto');
-    ga('create', 'UA-103779998-1', 'auto');
+  // ga('create', 'UA-107429122-1', 'auto');
+  ga('create', 'UA-103779998-1', 'auto');
   ga("send", "pageview");
   ga('send', {
-  hitType: 'event',
-  eventCategory: 'Videos Views',
-  eventAction: 'play',
-  eventLabel: 'Homepage Video'
-});
+    hitType: 'event',
+    eventCategory: 'Videos Views',
+    eventAction: 'play',
+    eventLabel: 'Homepage Video'
+  });
 
-ga('send', {
-  hitType: 'event',
-  eventCategory: 'Videos Views',
-  eventAction: 'pause',
-  eventLabel: 'Homepage Video Pause'
-});
+  ga('send', {
+    hitType: 'event',
+    eventCategory: 'Videos Views',
+    eventAction: 'pause',
+    eventLabel: 'Homepage Video Pause'
+  });
 
 </script>
 <script defer>
@@ -574,7 +574,7 @@ ga('send', {
 <script async src="https://www.googletagmanager.com/gtag/js?id=AW-644839341"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
+  function gtag() { dataLayer.push(arguments); }
   gtag('js', new Date());
 
   gtag('config', 'AW-644839341');
@@ -583,20 +583,22 @@ ga('send', {
 
 <!-- Facebook Pixel Code -->
 <script>
-  !function(f,b,e,v,n,t,s)
-  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-  n.queue=[];t=b.createElement(e);t.async=!0;
-  t.src=v;s=b.getElementsByTagName(e)[0];
-  s.parentNode.insertBefore(t,s)}(window, document,'script',
-  'https://connect.facebook.net/en_US/fbevents.js');
+  !function (f, b, e, v, n, t, s) {
+    if (f.fbq) return; n = f.fbq = function () {
+      n.callMethod ?
+      n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+    };
+    if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
+    n.queue = []; t = b.createElement(e); t.async = !0;
+    t.src = v; s = b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t, s)
+  }(window, document, 'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
   fbq('init', '193968051892480');
   fbq('track', 'PageView');
 </script>
 <noscript><img height="1" width="1" style="display:none"
-  src="https://www.facebook.com/tr?id=193968051892480&ev=PageView&noscript=1"
-/></noscript>
+    src="https://www.facebook.com/tr?id=193968051892480&ev=PageView&noscript=1" /></noscript>
 <!-- End Facebook Pixel Code -->
 
 
