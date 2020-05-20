@@ -1407,6 +1407,12 @@ app.filter("to_trusted", [
   }
 ]);
 
+app.run(function ($rootScope, $templateCache) {
+  $rootScope.$on('$viewContentLoaded', function () {
+      $templateCache.removeAll();
+  });
+});
+
 app.directive("bnLazySrc", function ($window, $document) {
   var lazyLoader = (function () {
     var images = [];
