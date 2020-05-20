@@ -137,7 +137,7 @@ app.config(function ($routeProvider, $locationProvider) {
       controller: "LOAUploadController"
     })
     .when("/google-ad/", {
-      templateUrl: "views/googlead-page.html",
+      templateUrl: "views/googlead-page1.html",
       controller: "GoogleAdCtrl"
     })
     .otherwise({
