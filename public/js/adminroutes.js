@@ -589,13 +589,16 @@ app.controller('PartnerAddCtrl', function ($scope, $http) {
     var url = "/getPartnerDetails";
     var formData = '{"objectId":"' + getQueryStringValue("id") + '"}';
 
-    console.log(formData);
+    console.log('--------',formData);
 
     var getCallback = function (response) {
         console.log(response);
         $.each(response, function (i, item) {
+            // console.log('i', i)
             if (i == "_id") {
-                $("#objectId").val(item);
+                // console.log('itemi', item)
+                $("#id").val(item);
+                // document.getElementById("objectId").value = item;
             }
             else if (i == "active") {
                 $('#active').prop('checked', item);
@@ -639,6 +642,7 @@ app.controller('PartnerAddCtrl', function ($scope, $http) {
             alert("Data added successfully!");
             window.location = "/admin/partnerlist/";
         };
+        console.log('formdata', formData)
         $.ajax({
             url: url,
             type: "POST",

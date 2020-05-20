@@ -718,6 +718,7 @@ exports.editPartners = function (req, res) {
     info.updatedDate = new Date().getTime().toString();
 
     delete info.objectId;
+    console.log('-----------', info)
     db.collection('partners', function (err, collection) {
         collection.update({ '_id': new ObjectID(id) }, info, { safe: true }, function (err, result) {
             if (err) {
