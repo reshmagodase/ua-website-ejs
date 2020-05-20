@@ -40,6 +40,9 @@ app.use(function (req, res, next) {
     res.header("Access-Control-Allow-Headers", "content-type, accept");
     res.header("Access-Control-Allow-Credentials", "true");
     res.header("Access-Control-Allow-Headers", "Content-Type, X-Requested-With, X-PINGOTHER, X-File-Name");
+    res.header("Cache-Control", "no-cache, no-store, must-revalidate")
+    res.header("Pragma", "no-cache")
+    res.header("Expires", "0")
     if ('OPTIONS' == req.method) {
         res.writeHead('200');
         res.end();
