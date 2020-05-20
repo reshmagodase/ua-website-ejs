@@ -1194,8 +1194,8 @@ app.controller("WorkWithUsController", function ($scope, $location, $http) {
 });
 
 app.controller("GoogleAdCtrl", function ($scope, $http) {
-  $('.navbar').hide();
-  $('#googleAd').show();
+  // $('.navbar').hide();
+  // $('#googleAd').show();
   $scope.$parent.seo = {
     ogTitle: "UA | Contact Us",
     ogDescripton:
@@ -1228,7 +1228,7 @@ app.controller("GoogleAdCtrl", function ($scope, $http) {
           // $("#questionForm").hide();
           window.location = "/thankyou-ad/";
           $(".fa-spinner").hide();
-          $('.navbar').hide();
+          // $('.navbar').hide();
           // $('#googleAd').show();
           $scope.name = '';
           $scope.contactNo = '';
