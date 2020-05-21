@@ -182,6 +182,13 @@
     display: block;
     margin-bottom: 40px;
   }
+
+  .dz-error-mark {
+    display: none;
+  }
+  .dz-success-mark {
+    display: none;
+  }
 </style>
 
 <script>
@@ -203,8 +210,10 @@
       dictDefaultMessage: "<h3>Click or Drop files here to upload</h3>",
       acceptedFiles: 'image/jpeg,image/png,image/gif,image/jpg,application/pdf',
       url: "/uploadLOA",
+      addRemoveLinks: true,
       init: function () {
         this.hiddenFileInput.removeAttribute('multiple');
+        
         myDropzone = this; // closure
         // You might want to show the submit button only when
         // files are dropped here:
@@ -213,9 +222,18 @@
 
         });
 
+        this.on("removedfile", function (file) {
+          // dropzoneFileAdded = 'YES';
+          $(".dz-message").show();
+          // console.log("added file");
+          // Show submit button here and/or inform user to click it.
+        });
+
         this.on("addedfile", function () {
           dropzoneFileAdded = 'YES';
-
+          if (this.files.length > 1) {
+   this.removeFile(this.files[0]);
+  }
           // console.log("added file");
           // Show submit button here and/or inform user to click it.
         });
@@ -227,6 +245,7 @@
           $("#cvpathid").val(responseText.path);
           $("#cvname").val(responseText.name);
           $("#cvAttachment").html("");
+          $(".dz-message").hide();
           // Handle the responseText here. For example, add the text to the preview element:
 
           //alert("User Image Uploaded Successfully");
