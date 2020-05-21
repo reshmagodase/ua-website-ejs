@@ -20,6 +20,7 @@
             </svg><br>
             Choose a file or drag it here.
           </div>
+          <h4 class="uploadingText">File is Uploading. Please wait...</h4>
         </div>
         <span id="cvAttachment"></span>
       </div>
@@ -189,6 +190,10 @@
   .dz-success-mark {
     display: none;
   }
+  .uploadingText {
+    display: none;
+    color: green;
+  }
 </style>
 
 <script>
@@ -218,7 +223,8 @@
         // You might want to show the submit button only when
         // files are dropped here:
         this.on('sending', function (file, xhr, formData) {
-
+          $(".uploadingText").show();
+          // alert("uploading");
 
         });
 
@@ -246,6 +252,7 @@
           $("#cvname").val(responseText.name);
           $("#cvAttachment").html("");
           $(".dz-message").hide();
+          $(".uploadingText").hide();
           // Handle the responseText here. For example, add the text to the preview element:
 
           //alert("User Image Uploaded Successfully");
