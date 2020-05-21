@@ -1421,7 +1421,7 @@ app.controller('campaignCtrl', function ($scope, $http) {
             $scope.datalists = $scope.items;
 
             $scope.curPage = 0;
-            $scope.pageSize = 10;
+            $scope.pageSize = 50;
         });
 
     });
@@ -1441,7 +1441,7 @@ app.controller('loaCtrl', function ($scope, $http) {
             $scope.datalists = $scope.items;
 
             $scope.curPage = 0;
-            $scope.pageSize = 10;
+            $scope.pageSize = 50;
         });
 
     });
