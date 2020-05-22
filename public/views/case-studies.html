@@ -49,9 +49,13 @@
 
                 <div class="col-md-3 col-sm-6">
                     <div class="partners">
-                        <a href="{{data.link}}" target="_blank"> <img
+                        <a href="{{data.link}}" target="_blank"> 
+                            <!-- <div> -->
+                            <img class="circle"
                                 src="{{data.image1}}"
                                 title="{{data.partner_name}}" alt="{{data.partner_name}}">
+                            <!-- </div> -->
+
                             <span>{{data.partner_name}}</span>
                         </a>
                     </div>
@@ -111,5 +115,9 @@
 
     .blogs a:hover h2 {
         color: white !important;
+    }
+    .circle {
+        border-radius: 50%;
+    background-color: #fff;
     }
 </style>
