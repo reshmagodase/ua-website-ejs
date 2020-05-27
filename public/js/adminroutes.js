@@ -111,6 +111,14 @@ app.config(function ($routeProvider, $locationProvider) {
             templateUrl: 'viewsAdmin/loa.html',
             controller: 'loaCtrl'
         })
+        .when('/admin/testimonials/', {
+            templateUrl: 'viewsAdmin/testimonials.html',
+            controller: 'testimonialsCtrl'
+        })
+        .when('/admin/addtestimonial/', {
+            templateUrl: 'viewsAdmin/addtestimonial.html',
+            controller: 'testimonialsCtrl'
+        })
         .otherwise({
             redirectTo: '/admin/'
         });
@@ -1431,6 +1439,64 @@ app.controller('campaignCtrl', function ($scope, $http) {
         return Math.ceil($scope.datalists.length / $scope.pageSize);
     };
 });
+
+app.controller('testimonialsCtrl', function ($scope, $http) {
+
+    $.post("/getTestimonials", function (data) {
+        $scope.$apply(function () {
+            $scope.list = data;
+        });
+
+    });
+
+    if(getQueryStringValue("id")) {
+        $.post("/getTestimonialDetails", { "objectId": getQueryStringValue("id") }, function (data) {
+            $scope.$apply(function () {
+                $scope.objectId = data._id;
+                // $("#order").val(data.order);
+                $("#text1").val(data.name);
+                $("#editor1 .Editor-editor").html(decodeURIComponent(data.testimonial));
+            });
+        });
+    }
+
+    $("#successMsg").css("display", "none");
+    $("#text4").Editor();
+
+    $('form').submit(function (evt) {
+        evt.preventDefault();
+        var formData = {
+            "testimonial": encodeURIComponent($('#editor1 .Editor-editor').html()),
+            "name": $("#text1").val(),
+        }
+
+        var url;
+
+        if (getQueryStringValue("id") == '') {
+            url = "/addtestimonials";
+        }
+        else {
+            formData.objectId = getQueryStringValue("id");
+            url = "/edittestimonials";
+        }
+        // var url = "/addtestimonials";
+        var getCallback = function (response) {
+            $("#successMsg").css("display", "block");
+            window.location = "/admin/testimonials/";
+        };
+        $.ajax({
+            url: url,
+            type: "POST",
+            data: formData,
+            contentType: "application/x-www-form-urlencoded; charset=UTF-8",
+            success: getCallback
+        });
+    });// form submit end
+
+    function getQueryStringValue(key) {
+        return unescape(window.location.search.replace(new RegExp("^(?:.*[&\\?]" + escape(key).replace(/[\.\+\*]/g, "\\$&") + "(?:\\=([^&]*))?)?.*$", "i"), "$1"));
+    }
+})
 
 app.controller('loaCtrl', function ($scope, $http) {
 

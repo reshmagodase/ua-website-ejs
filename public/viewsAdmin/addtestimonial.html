@@ -1,0 +1,75 @@
+<div ng-include src="'viewsAdmin/partials/header.html'"></div>
+<div class="content">
+    <div class="inner"><h1>Add Testimonial</h1></div>
+    <div class="clearfix"></div>
+
+
+    <div id="content-main">
+
+        <form enctype="multipart/form-data" action="" method="post" id="add_edit_translation_form"
+              class="form-horizontal">
+            <input type="hidden" id="objectId" name="objectId"/>
+
+            <div>
+
+                <div class="inner">
+
+
+                    <fieldset class="">
+
+                        <h2>Page content</h2>
+
+
+                        <div class="form-row">
+                            <div class="field-box field-page_content_extended_title required">
+                                <div class="form-group">
+                                    <label class="">Name</label>
+
+                                    <div class="control-group">
+
+                                       <textarea cols="40" id="text1" name="text1"
+                                                 rows="10"></textarea>
+
+
+                                    </div>
+
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="">Testimonial</label>
+
+
+                                    <div class="control-group" id="editor1">
+                                        <div id="text4" name="text4"></div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </fieldset>
+
+                    <div class="">
+                        <div class="col-md-4">
+                            <input type="submit" value="Save" class="btn btn-primary" name="_save">
+
+                        </div>
+                        <div class="col-md-4">
+                            <div id="successMsg" style="text-align: center;">
+                                Saved Successfully!
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+
+
+        </form>
+    </div>
+
+
+    <div class="clearfix" style="padding-bottom: 50px;"></div>
+</div>

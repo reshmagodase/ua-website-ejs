@@ -1,0 +1,1130 @@
+<header class="home header">
+    <div class="text-vertical-center">
+        <h1 class="heading_text" style="margin-top: 0;padding-top:0">
+            <span class="fontBold">
+                <!-- <br /> -->
+                Welcome to Utility Aid</span>
+
+            <p class="heading_text_inner" id="text1"></p>
+        </h1>
+        <div class="row">
+            <div class="col-sm-6">
+                <h2>
+                    <!-- <video poster="img/videoimg.jpg" width="300" height="200" src="videos/RA504_Utility_Aid_MASTER.mp4" controls loop></video> -->
+                    <video id="videoplayer" poster="img/videoimg.jpg" width="300" height="200"
+                        src="videos/RA504UtilityAidSUBTITLES.mp4" controls loop>
+                        <!-- <track label="English" kind="subtitles" srclang="en" src="videos/subtitle.srt" default> -->
+                        <track label="English" kind="subtitles" src="videos/UASubtitles.vtt" srclang="en" default>
+                    </video>
+                </h2>
+            </div>
+            <div class="col-sm-6 formDiv">
+                <div class="control-group contactForm1" id="googleAdForm" style="text-align: left;">
+            
+                    <h3 class="text-center" style="font-weight: bold;">Contact Us</h3>
+                  <div class="controls ">
+                    <label for="" style="color: #ffffff;font-size: 14px;">Name</label>
+                    <input class="form-control ng-pristine ng-valid" id="name" ng-model="name" name="name" placeholder="Name"
+                      type="text">
+                    <span id="nameID"></span>
+                  </div>
+            
+                  <div class="controls ">
+                    <label for="" style="color: #ffffff;font-size: 14px;">Mobile</label>
+                    <input class="form-control ng-pristine ng-valid" id="contactNo" ng-model="contactNo" name="contactNo"
+                      placeholder="Mobile" type="text">
+                    <span id="contactNoID"></span>
+                  </div>
+            
+                  <div class="controls ">
+                    <label for="" style="color: #ffffff;font-size: 14px;">Email</label>
+                    <input class="form-control ng-pristine ng-valid" id="cvemail" ng-model="cvemail" name="cvemail"
+                      placeholder="Email" type="text">
+                    <span id="cvemailID"></span>
+                  </div>
+            
+                  <div class="controls ">
+                    <label for="" style="color: #ffffff;font-size: 14px;">Company</label>
+                    <input class="form-control ng-pristine ng-valid" id="company" ng-model="company" name="cvemail"
+                      placeholder="Company" type="text">
+                    <span id="contactID"></span>
+                  </div>
+            
+                  <div class="control-group text-center">
+                    <div class="controls" style="padding-top:16px">
+                      <button type="submit" class="formbtnFindOutMore" ng-click="submitLeadForm();">Submit
+                      </button> <br>
+                      <img src="/img/whyua/loading-gif.gif" class="fa fa-spinner"></i>
+                    </div>
+                  </div>
+                </div>
+                <div id="stage" class="form-all">
+                  <p style="text-align:center;">
+                    <img src="img/check-icon.png" alt="" width="128" height="128">
+                  </p>
+            
+                  <div style="text-align:center;">
+                    <h1 style="text-align: center;">Thank You!</h1>
+            
+                    <p style="text-align: center;">We've received your request! Our team will respond you as soon
+                      as possible.
+                    </p>
+                  </div>
+                </div>
+              </div>
+        </div>
+
+        <!-- <img class="OJEUlogo" bn-lazy-src="img/ncvoLogo.png?2" /> -->
+    </div>
+</header>
+<div class="enquiry-section rightPosition" id="enquirySection">
+    <div class="tab-content">
+        <div id="home" class="tab-pane fade in active show">
+            <a class="btn-enquiry hideonMobileonly" id="enquiryformbyselldo" href="#home" onclick="EnquiryAlert()">
+                <!-- <span class="icon">
+                    <img style="width: 20px;transform: rotate(90deg);" src="images/enquirySidebar.png">
+                </span>  -->
+                ENQUIRE NOW</a>
+            <a class="btn-enquiryMobile enquiry-icon" id="enquiryformbyselldo" href="#home" onclick="EnquiryAlert()">
+                <img style="width: 40px;transform: rotate(90deg);" src="img/enquiry1.png">
+            </a>
+            <div id="contact-form-bg">
+                <div class="row">
+                    <div class="col-sm-12 col-lg-12 col-md-12 ">
+                        <div class="text-left">
+                            <h3>Contact form</h3>
+                        </div>
+                    </div>
+                </div>
+
+                <form id="contactForm">
+                    <p id="pdfMessage" style="padding-left: 10px;"></p>
+                    <div class="row">
+                        <div class="col-sm-12 col-md-12 col-lg-12 col-12">
+                            <div class="form-group">
+                                <input type="email" name="email" id="email" class=" form-control" placeholder="Email">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12 col-md-12 col-lg-12 col-12">
+                            <div class="form-group">
+                                <input type="tel" name="phoneNo" id="phoneNo" size="40" class="form-control"
+                                    placeholder="Phone">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12 col-md-12 col-lg-12 col-12">
+                            <div class="form-group">
+                                <select name="status_type" id="status_type" class="form-control">
+                                    <option value="Residential">Residential</option>
+                                    <option value="Commercial">Commercial</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12 col-md-12 col-lg-12 col-12">
+                            <div class="form-group">
+                                <select name="project" id="project" class="form-control">
+                                    <option value="Arwana, Karve nagar Pune">Arwana, Karve nagar Pune
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-12 col-lg-12">
+                            <div class="form-group">
+                                <textarea name="comment" id="comment" cols="40" rows="3" class="form-control"
+                                    placeholder="Comments"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12 text-right col-sm-12 col-md-12 col-lg-12">
+                            <button type="submit" id="contact_form" class="btn enquirybtn">Submit</button>
+                        </div>
+                        <br>
+                        <br>
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
+                            <span id="message"></span>
+                        </div>
+                    </div>
+                </form>
+                <br>
+            </div>
+        </div>
+        <div id="menu1" class="tab-pane fade">
+            <a class="btn-enquiry" id="enquiryformbyselldo" href="#menu1" onclick="EnquiryAlert()"><span class="icon">
+                    <img style="width: 20px;transform: rotate(90deg);" src="images/enquirySidebar.png"></span>
+                ENQUIRE NOW
+            </a>
+            <div class="container " id="contact-form-bg">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12  col-md-12 col-lg-12">
+                        <h3>Call Me Back</h3>
+                        <p>Just give us your contact number and you will receive a call from our representative:</p>
+                    </div>
+                </div>
+                <div class="sell_do_ctc">
+                    <form id="callBack">
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-12   col-md-12 col-lg-12">
+                                <div class="form-group">
+                                    <input type="text" id="contactNumber" placeholder="Phone number" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12 text-right col-sm-12 col-md-12 col-lg-12">
+                                <button type="submit" class="btn enquirybtn">Submit</button>
+                            </div>
+                            <br>
+                            <div>
+                                <span id="message"></span>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer-action nav nav-tabs">
+        <a href="#home" data-toggle="tab" class="contact-form active"><i class="icon-inquire"></i>Contact Form</a>
+        <a href="#menu1" data-toggle="tab" class="call-back "><i class="icon-phone"></i>Call Me Back
+        </a>
+    </div>
+</div>
+<!-- Enquiry Form Ends-->
+<!-- Call button on mobile -->
+<div class="rightPosition mobileNoicon hideonWeb">
+    <a href="tel:08081788170" title="Request a callback">
+        <img width="40px" src="img/telephone.png">
+    </a>
+</div>
+
+<!-- Call button on mobile Ends -->
+<style>
+    video {
+        width: 100%;
+        height: auto;
+        border: 2px solid #000;
+        border-radius: 10px;
+    }
+
+    .navbar-nav>li {
+        display: none;
+    }
+
+    .freephone {
+        display: block !important;
+    }
+
+    @media screen and (max-width: 600px) {
+        video {
+            width: 100%;
+            height: auto;
+        }
+
+        .text-vertical-center {
+            padding: 0;
+        }
+    }
+
+    @media only screen and (min-device-width: 601px) and (max-device-width: 768px) {
+        video {
+            width: 70%;
+            height: auto;
+        }
+
+    }
+
+    @media only screen and (min-device-width: 480px) and (max-device-width: 768px) and (orientation: landscape) {
+        video {
+            width: 70%;
+            height: auto;
+        }
+
+        .heading_text {
+            margin-top: 15px !important;
+        }
+
+    }
+
+    .OJEUlogo {
+        width: 150px;
+    }
+
+    @media screen and (max-width: 600px) {
+        .OJEUlogo {
+            width: 150px;
+        }
+
+        .saveMore {
+            font-size: 18px !important;
+        }
+
+        .heading_text {
+            margin-top: 15px !important;
+        }
+    }
+
+    @media (max-width: 800px) {
+        .banner-img {
+            /*  background: url(img/uaMobile.png) !important;
+              width: 100% !important;
+              background-position: center !important;
+              background-repeat: no-repeat !important */
+            display: none !important;
+        }
+
+        .mobileBannerImg {
+            display: block !important;
+        }
+    }
+
+    .banner-img {
+        height: 70px;
+        display: table;
+        width: 100%;
+        background: url(img/banner.jpg);
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+
+    .mobileBannerImg {
+        display: none;
+    }
+
+    #text2 {
+        display: none;
+    }
+
+    .controls {
+    padding-bottom: 10px;
+  }
+
+  /* .navbar {
+    display: none;
+  } */
+
+  .errorlist {
+    margin-top: 3px;
+    margin-bottom: 0px;
+    color: red;
+    font-size: 12px;
+    margin-left: 10%;
+  }
+
+  .fa-spinner {
+    display: none;
+    width: 50px;
+  }
+
+  .heading {
+    margin-left: 0;
+  }
+
+  #insta {
+  background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+  -webkit-background-clip: text;
+          /* Also define standard property for compatibility */
+          background-clip: text;
+  -webkit-text-fill-color: transparent;
+  
+  font-size: 200px; /* change this to change the size*/
+  
+}
+
+  .formbtnFindOutMore {
+    text-decoration: none;
+    color: #23527c;
+    padding: 3px 10px;
+    border: 6px solid #23527c;
+    border-radius: 20px;
+    font-size: 18px;
+    background-color: #f2f2f2;
+  }
+
+  .formbtnFindOutMore:hover {
+    text-decoration: none;
+    color: #23527c;
+    padding: 3px 10px;
+    border: 6px solid #23527c;
+    border-radius: 20px;
+    font-size: 18px;
+    background-color: #f2f2f2;
+  }
+
+  @media (min-width: 768px) {
+    .freephone {
+      position: absolute !important;
+      top: 5px;
+      right: 1.5%;
+    }
+
+    .navbar-nav>li>a {
+      margin-top: 20px;
+      padding-bottom: 5px;
+    }
+  }
+
+  @media (max-width: 767px) {
+    .navbar-nav .open .dropdown-menu {
+      background-color: #17252a;
+    }
+
+    .navbar-nav .open .dropdown-menu>li>a {
+      color: white !important;
+    }
+
+    .uploadLoa {
+      text-align: center;
+      float: none !important;
+    }
+
+    .heading {
+    margin-left: 0;
+  }
+
+  .form-control {
+    width: 100% !important;
+    display: block;
+  }
+
+  label {
+    min-width: 70px;
+  }
+
+  .formDiv {
+    padding-bottom: 10px;
+  }
+  }
+
+  .contactForm1 {
+    border: 1px solid;
+    padding: 10px;
+  }
+
+  .form-control {
+    width: 80%;
+    display: inline-block;
+  }
+
+  label {
+    min-width: 70px;
+  }
+
+  /* css for sticky buttons */
+  .enquiry-section {
+    background: #e7ccaf;
+    min-height: 430px;
+    padding: 0 0 60px 0;
+    position: fixed;
+    top: 45%;
+    transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    width: 350px;
+    z-index: 999;
+    color: black;
+    -webkit-border-radius: 0 0 0 20px;
+    -moz-border-radius: 0 0 0 20px;
+    -ms-border-radius: 0 0 0 20px;
+    border-radius: 0 0 0 20px;
+}
+
+.enquiry-section .btn-enquiry {
+    font-family: vag_roundedbold, sans-serif;
+    background: #3697c2;
+    width: 175px;
+    height: 50px;
+    transform: rotate(-90deg);
+    -webkit-transform: rotate(-90deg);
+    -moz-transform: rotate(-90deg);
+    -o-transform: rotate(-90deg);
+    -ms-transform: rotate(-90deg);
+    border-radius: 15px 15px 0px 0px;
+    position: absolute;
+    left: -110px;
+    top: 50%;
+    display: block;
+    color: #ffffff;
+    padding: 12px 14px;
+    word-spacing: 2px;
+    letter-spacing: 0.5px;
+    border: 2px solid;
+}
+
+.enquiry-section #contact-form-bg {
+    margin: 0;
+    padding: 10px 0px;
+}
+
+.enquiry-section .selldof .title {
+    margin: 0 0 10px 10px !important;
+    padding: 0 !important;
+    font-size: 22px !important;
+    width: 100% !important;
+    float: left !important;
+    text-align: left !important;
+    letter-spacing: 0 !important;
+}
+
+.enquiry-section .footer-action {
+    margin: 0;
+    padding: 0;
+    height: 60px;
+    position: absolute;
+    width: 100%;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    -webkit-border-radius: 0 0 0 20px;
+    -moz-border-radius: 0 0 0 20px;
+    -ms-border-radius: 0 0 0 20px;
+    border-radius: 0 0 0 20px;
+    /* background: #58458b; */
+    display: table;
+}
+
+.enquiry-section .footer-action .contact-form {
+    border-radius: 0px 0px 0px 22px;
+}
+
+.enquiry-section .footer-action a {
+    margin: 0;
+    padding: 2px 30px;
+    width: 50%;
+    display: table;
+    height: 60px;
+    display: table-cell;
+    vertical-align: middle;
+    font-size: 18px;
+    color: black;
+}
+
+.enquiry-section .footer-action a i {
+    margin: -3px 15px 0 30px;
+    padding: 0;
+    font-size: 28px;
+    float: left;
+}
+
+.enquiry-section #call-back-bg {
+    padding: 20px;
+}
+
+.enquiry-section .footer-action .active {
+    background: #fffefd;
+    opacity: .7;
+    overflow: hidden;
+}
+
+@media (max-width: 768px) {
+.rightPosition {
+        right: -252px !important;
+    }
+}
+
+@media (max-width: 425px) {
+.rightPosition {
+        right: -237px !important;
+    }
+}    
+@media (min-width: 992px) {
+    .rightPosition {
+        right: -350px !important;
+    }
+}
+
+@media  (min-width: 768px) and (max-width: 1023px) {
+    .rightPosition {
+        right: -250px !important;
+    }
+
+    .mobileNoicon {
+        right: -311px !important;
+        min-height: 30px;
+        position: fixed;
+        top: 63%;
+        transform: translateY(-50%);
+        -moz-transform: translateY(-50%);
+        -webkit-transform: translateY(-50%);
+        width: 350px;
+        z-index: 999;
+        color: black;
+        -webkit-border-radius: 0 0 0 20px;
+        -moz-border-radius: 0 0 0 20px;
+        -ms-border-radius: 0 0 0 20px;
+        border-radius: 0 0 0 20px;
+    }
+}
+@media  (min-width: 1024px) and (max-width: 1024px) {
+    .rightPosition {
+        right: -350px !important;
+    }
+
+    .mobileNoicon {
+        right: -311px !important;
+        min-height: 30px;
+        position: fixed;
+        top: 67%;
+        transform: translateY(-50%);
+        -moz-transform: translateY(-50%);
+        -webkit-transform: translateY(-50%);
+        width: 350px;
+        z-index: 999;
+        color: black;
+        -webkit-border-radius: 0 0 0 20px;
+        -moz-border-radius: 0 0 0 20px;
+        -ms-border-radius: 0 0 0 20px;
+        border-radius: 0 0 0 20px;
+    }
+}
+
+@media (max-width: 320px) {
+    .mobileNoicon {
+        right: -311px !important;
+        min-height: 30px;
+        position: fixed;
+        top: 67%;
+        transform: translateY(-50%);
+        -moz-transform: translateY(-50%);
+        -webkit-transform: translateY(-50%);
+        width: 350px;
+        z-index: 998;
+        color: black;
+        -webkit-border-radius: 0 0 0 20px;
+        -moz-border-radius: 0 0 0 20px;
+        -ms-border-radius: 0 0 0 20px;
+        border-radius: 0 0 0 20px;
+    }
+    .enquiry-icon {
+        right: -311px !important;
+        min-height: 30px;
+        position: fixed;
+        top: 67%;
+        transform: translateY(-50%);
+        -moz-transform: translateY(-50%);
+        -webkit-transform: translateY(-50%);
+        width: 350px;
+        z-index: 999;
+        color: black;
+        -webkit-border-radius: 0 0 0 20px;
+        -moz-border-radius: 0 0 0 20px;
+        -ms-border-radius: 0 0 0 20px;
+        border-radius: 0 0 0 20px;
+    }
+    .enquiry-section .btn-enquiryMobile {
+        transform: rotate(-90deg);
+        -webkit-transform: rotate(-90deg);
+        -moz-transform: rotate(-90deg);
+        -o-transform: rotate(-90deg);
+        -ms-transform: rotate(-90deg);
+        border-radius: 15px 15px 0px 0px;
+        position: absolute;
+        left: -197px;
+        top: 29%;
+        display: block;
+        color: black;
+        padding: 12px 14px;
+        word-spacing: 2px;
+        letter-spacing: 0.5px;
+    }
+}
+
+@media (max-width: 480px) and (min-width: 321px) {
+    .mobileNoicon {
+        right: -311px !important;
+        min-height: 30px;
+        position: fixed;
+        top: 64%;
+        transform: translateY(-50%);
+        -moz-transform: translateY(-50%);
+        -webkit-transform: translateY(-50%);
+        width: 350px;
+        z-index: 998;
+        color: black;
+        -webkit-border-radius: 0 0 0 20px;
+        -moz-border-radius: 0 0 0 20px;
+        -ms-border-radius: 0 0 0 20px;
+        border-radius: 0 0 0 20px;
+    }
+    .enquiry-icon {
+        right: -311px !important;
+        min-height: 30px;
+        position: fixed;
+        top: 50%;
+        transform: translateY(-50%);
+        -moz-transform: translateY(-50%);
+        -webkit-transform: translateY(-50%);
+        width: 40px;
+        z-index: 999;
+        color: black;
+        -webkit-border-radius: 0 0 0 20px;
+        -moz-border-radius: 0 0 0 20px;
+        -ms-border-radius: 0 0 0 20px;
+        border-radius: 0 0 0 20px;
+    }
+    .enquiry-section .btn-enquiryMobile {
+        transform: rotate(-90deg);
+        -webkit-transform: rotate(-90deg);
+        -moz-transform: rotate(-90deg);
+        -o-transform: rotate(-90deg);
+        -ms-transform: rotate(-90deg);
+        border-radius: 15px 15px 0px 0px;
+        position: absolute;
+        left: -42px;
+        top: 57%;
+        display: block;
+        color: black;
+        padding: 12px 14px;
+        word-spacing: 2px;
+        letter-spacing: 0.5px;
+    }
+}
+
+@media (max-width: 767px) and (min-width: 481px) {
+    .mobileNoicon {
+        right: -311px !important;
+        min-height: 30px;
+        position: fixed;
+        top: 80%;
+        transform: translateY(-50%);
+        -moz-transform: translateY(-50%);
+        -webkit-transform: translateY(-50%);
+        width: 350px;
+        z-index: 998;
+        color: black;
+        -webkit-border-radius: 0 0 0 20px;
+        -moz-border-radius: 0 0 0 20px;
+        -ms-border-radius: 0 0 0 20px;
+        border-radius: 0 0 0 20px;
+    }
+    .enquiry-icon {
+        right: -311px !important;
+        min-height: 30px;
+        position: fixed;
+        top: 70%;
+        transform: translateY(-50%);
+        -moz-transform: translateY(-50%);
+        -webkit-transform: translateY(-50%);
+        width: 350px;
+        z-index: 999;
+        color: black;
+        -webkit-border-radius: 0 0 0 20px;
+        -moz-border-radius: 0 0 0 20px;
+        -ms-border-radius: 0 0 0 20px;
+        border-radius: 0 0 0 20px;
+    }
+    .enquiry-section .btn-enquiryMobile {
+        transform: rotate(-90deg);
+        -webkit-transform: rotate(-90deg);
+        -moz-transform: rotate(-90deg);
+        -o-transform: rotate(-90deg);
+        -ms-transform: rotate(-90deg);
+        border-radius: 15px 15px 0px 0px;
+        position: absolute;
+        left: -45px;
+        top: 55%;
+        display: block;
+        color: black;
+        padding: 12px 14px;
+        word-spacing: 2px;
+        letter-spacing: 0.5px;
+    }
+    .enquiry-section {
+        top: 34% !important;
+    }
+    .enquiry-section .btn-enquiry {
+        font-family: vag_roundedbold, sans-serif;
+        background: #3697c2;
+        width: 148px;
+        height: 45px;
+        transform: rotate(-90deg);
+        -webkit-transform: rotate(-90deg);
+        -moz-transform: rotate(-90deg);
+        -o-transform: rotate(-90deg);
+        -ms-transform: rotate(-90deg);
+        border-radius: 15px 15px 0px 0px;
+        position: absolute;
+        left: -98px;
+        top: 55%;
+        display: block;
+        color: #ffffff;
+        padding: 15px 14px;
+        word-spacing: 2px;
+        letter-spacing: 0.5px;
+        font-size: 16px;
+        border: 2px solid;
+    }
+}
+
+@media (max-width: 768px) {
+.enquiry-section {
+    width: 250px !important;
+    padding: 0;
+}
+}
+
+@media (max-width: 568px) and (min-width: 481px) {
+    .mobileNoicon {
+        right: -303px !important;
+        top: 85%;
+    }
+    .enquiry-icon {
+        right: -303px !important;
+        top: 75%;
+    }
+    .enquiry-section .btn-enquiry {
+        font-family: vag_roundedbold, sans-serif;
+        background: #3697c2;
+        width: 145px;
+        height: 40px;
+        transform: rotate(-90deg);
+        -webkit-transform: rotate(-90deg);
+        -moz-transform: rotate(-90deg);
+        -o-transform: rotate(-90deg);
+        -ms-transform: rotate(-90deg);
+        border-radius: 15px 15px 0px 0px;
+        position: absolute;
+        left: -93px;
+        top: 55%;
+        display: block;
+        color: #ffffff;
+        padding: 15px 14px;
+        word-spacing: 2px;
+        letter-spacing: 0.5px;
+        font-size: 14px;
+        border: 2px solid;
+    }
+    .enquiry-section .btn-enquiry {
+        top: 57% !important;
+    }
+}
+
+@media (max-width: 567px) and (min-width: 481px) {
+    .enquiry-section .btn-enquiry {
+        top: 55% !important;
+    }
+}
+
+@media screen and (min-width: 769px) {
+    .hideonWeb {
+        display: block;
+    }
+    .enquiry-icon {
+        display: none;
+    }
+
+    .mobileNoicon {
+        right: -311px !important;
+        min-height: 30px;
+        position: fixed;
+        top: 67%;
+        transform: translateY(-50%);
+        -moz-transform: translateY(-50%);
+        -webkit-transform: translateY(-50%);
+        width: 350px;
+        z-index: 999;
+        color: black;
+        -webkit-border-radius: 0 0 0 20px;
+        -moz-border-radius: 0 0 0 20px;
+        -ms-border-radius: 0 0 0 20px;
+        border-radius: 0 0 0 20px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .hideonMobileonly {
+        display: none !important;
+    }
+}
+
+a:focus, a:hover {
+    /* color: #23527c; */
+    text-decoration: none;
+}
+@media (max-width: 425px){
+.enquiry-section {
+    width: 234px !important;
+}
+}
+
+#quote-carousel {
+    padding: 0 10px 30px 10px;
+    margin-top: 60px;
+}
+#quote-carousel .carousel-control {
+    background: none;
+    color: #CACACA;
+    font-size: 2.3em;
+    text-shadow: none;
+    margin-top: 30px;
+}
+#quote-carousel .carousel-indicators {
+    position: relative;
+    right: 50%;
+    top: auto;
+    bottom: 0px;
+    margin-top: 20px;
+    margin-right: -19px;
+}
+#quote-carousel .carousel-indicators li {
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    border: 1px solid #ccc;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    border-radius: 50%;
+    opacity: 0.4;
+    overflow: hidden;
+    transition: all .4s ease-in;
+    vertical-align: middle;
+}
+#quote-carousel .carousel-indicators .active {
+    width: 128px;
+    height: 128px;
+    opacity: 1;
+    transition: all .2s;
+}
+.item blockquote {
+    border-left: none;
+    margin: 0;
+}
+
+.fa-chevron-right {
+    margin-top: 50%;
+}
+
+.fa-chevron-left {
+    margin-top: 50%;
+}
+</style>
+
+<div style="background: url(img/banner.jpg);background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: #f4f4f4;">
+    <div class="banner-img">&nbsp;</div>
+    <img class="mobileBannerImg" bn-lazy-src="img/uaMobile.jpg" width="100%" />
+</div>
+
+<section class="home darkBlue " style="background-color: #3697c2">
+    <div class="container-fluid">
+        <div class="text-center">
+            <h2 class="heading_text">
+                Utility Aid + you
+                <span class="fontBold"> = &pound;&pound;&pound; saved</span>
+
+                <p class="subheading" id="text3"></p>
+            </h2>
+            <br />
+            <a href="" class="btnFindOutMore fontBold">learn more</a>
+            <br />
+            <br />
+        </div>
+    </div>
+</section>
+<section class="home burner lightBlue ">
+    <div class="text-vertical-center">
+        <!-- <span ng-repeat="data in testimonialsList">
+            <p ng-bind-html ="data.testimonial | decodeFilter"></p>
+            <p style="color: rgb(54, 151, 194);">{{data.name}}</p>
+        </span> -->
+
+        <div class="carousel slide" data-ride="carousel" id="quote-carousel">
+            <!-- Carousel Slides / Quotes -->
+            <div class="carousel-inner text-center">
+                <!-- Quote 1 -->
+                <div class="item active" ng-repeat="data in testimonialsList">
+                    <blockquote>
+                        <div class="row">
+                            <div class="col-sm-8 col-sm-offset-2">
+                                <p ng-bind-html ="data.testimonial | decodeFilter"></p>
+                                <p style="color: rgb(54, 151, 194);">{{data.name}}</p>
+                            </div>
+                        </div>
+                    </blockquote>
+                </div>
+            </div>
+
+            <!-- Carousel Buttons Next/Prev -->
+            <a data-slide="prev" href="#quote-carousel" class="left carousel-control"><i class="fa fa-chevron-left"></i></a>
+            <a data-slide="next" href="#quote-carousel" class="right carousel-control"><i class="fa fa-chevron-right"></i></a>
+        </div>
+        
+        <br />
+        <a href="#" class="btnFindOutMore saveMore fontBold">find
+            out how much you can save</a>
+        <br />
+        <br />
+    </div>
+</section>
+<section class="home" style="background-color: #17252a">
+    <div class="container-fluid" style="padding: 20px">
+        <div class="text-center">
+            <h2 class="subheading" id="text2"></h2>
+
+            <div class="center slider">
+                <div>
+                    <img bn-lazy-src="img/home/clients/1.png" />
+                </div>
+                <div>
+                    <img bn-lazy-src="img/home/clients/2.png" />
+                </div>
+                <div>
+                    <img bn-lazy-src="img/home/clients/3.png" />
+                </div>
+                <div>
+                    <img bn-lazy-src="img/home/clients/4.png" />
+                </div>
+                <div>
+                    <img bn-lazy-src="img/home/clients/5.png" />
+                </div>
+                <div>
+                    <img bn-lazy-src="img/home/clients/6.png" />
+                </div>
+                <div>
+                    <img bn-lazy-src="img/home/clients/7.png" />
+                </div>
+                <div>
+                    <img bn-lazy-src="img/home/clients/8.png" />
+                </div>
+                <div>
+                    <img bn-lazy-src="img/home/clients/9.png" />
+                </div>
+                <div>
+                    <img bn-lazy-src="img/home/clients/10.png" />
+                </div>
+                <div>
+                    <img bn-lazy-src="img/home/clients/11.png" />
+                </div>
+                <div>
+                    <img bn-lazy-src="img/home/clients/12.png" />
+                </div>
+                <div>
+                    <img bn-lazy-src="img/home/clients/13.png" />
+                </div>
+                <div>
+                    <img bn-lazy-src="img/home/clients/14.png" />
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- <section class="home" style="background-color: #17252a">
+    <div class="container-fluid">
+        <div class="text-center">
+            <h2 class="heading_text_inner">
+                <span class="fontBold"> Let's work together!</span>
+
+                <p style="font-size: 21.5px">
+                    <br />The money we save for your organisation can be used to do more
+                    good!
+                </p>
+                <br />
+                <img bn-lazy-src="img/home/letsdomoregood.png" style="width: 100%;max-width: 605px" />
+            </h2>
+        </div>
+    </div>
+</section> -->
+<style>
+    .header {
+        background: url("../img/contact/contact1.jpg?123") no-repeat center 25% fixed;
+        display: table;
+        position: relative;
+        width: 100%;
+        height: 70%;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        background-size: cover;
+        -o-background-size: cover;
+    }
+
+    /* @media (max-width: 768px) {
+      .header {
+        background: url("../img/contact/contactMobile.jpg?123");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-attachment: scroll;
+        background-size: cover;
+      } 
+    } */
+
+    .burner {
+        background: url("img/home/burner.jpg") no-repeat center center scroll;
+        display: table;
+        position: relative;
+        width: 100%;
+        height: 70%;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        background-size: cover;
+        -o-background-size: cover;
+    }
+
+    @media (max-width: 768px) {
+        .burner {
+            background: url("img/home/burner.jpg") no-repeat center center scroll;
+            display: table;
+            position: relative;
+            width: 100%;
+            height: 70%;
+        }
+    }
+</style>
+<script type="text/javascript" src="js/slick.min.js" async></script>
+<script type="text/javascript">
+    $(".center").slick({
+        dots: true,
+        infinite: false,
+        speed: 300,
+        slidesToShow: 7,
+        slidesToScroll: 7,
+        responsive: [
+            {
+                breakpoint: 1024,
+                settings: {
+                    slidesToShow: 5,
+                    slidesToScroll: 5,
+                    infinite: true,
+                    dots: true
+                }
+            },
+            {
+                breakpoint: 600,
+                settings: {
+                    slidesToShow: 3,
+                    slidesToScroll: 3
+                }
+            },
+            {
+                breakpoint: 480,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1
+                }
+            }
+            // You can unslick at a given breakpoint now by adding:
+            // settings: "unslick"
+            // instead of a settings object
+        ]
+    });
+</script>
+<script type="text/javascript">
+    $(document).on('click', function (event) {
+        if (!$(event.target).closest('#enquirySection').length && !$(event.target).closest('#downloadbtn').length &&
+            !$(event.target).closest('#downloadbtnmob').length) {
+            // ... clicked on the 'body', but not inside of #menutop
+            $(".enquiry-section").addClass('rightPosition');
+            flag = false;
+        }
+    });
+    function EnquiryAlert() {
+
+    }
+</script>

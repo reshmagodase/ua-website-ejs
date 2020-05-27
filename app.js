@@ -176,6 +176,10 @@ app.post('/editNews', service.editNews);
 app.post('/getNewsDetails', service.getNewsDetails);
 app.post("/uploadUANewsPhoto", upMulter.array('file', 10), service.uploadUANewsPhoto);
 app.post("/uploadCV", upMulter.array('file', 10), service.uploadCV);
+app.post('/addtestimonials', service.addtestimonials);
+app.post('/getTestimonials', service.getTestimonials);
+app.post('/getTestimonialDetails', service.getTestimonialDetails);
+app.post('/edittestimonials', service.edittestimonials);
 
 app.post('/getContactData', service.getContactData);
 app.post('/sendCV', service.sendCV);
@@ -193,6 +197,7 @@ app.post('/saveLOA', service.saveLOA);
 app.post('/getLOAData', service.getLOAData);
 app.post('/getEmailBySalesforceId', service.getEmailBySalesforceId);
 app.post('/sendGoogleAdContact', service.sendGoogleAdContact);
+app.post('/sendLeadContact', service.sendLeadContact);
 
 app.get('/admin/', function (req, res) {
     req.session.reset();

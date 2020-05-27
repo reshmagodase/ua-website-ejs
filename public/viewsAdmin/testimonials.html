@@ -1,0 +1,41 @@
+<div ng-include src="'viewsAdmin/partials/header.html'"></div>
+<div class="object-tools btn-toolbar inner">
+    <div class="btn-group">
+
+
+    </div>
+    <div class="btn-group">
+
+        <a href="/admin/addtestimonial/" target="_self" class="addlink btn btn-success"><i
+                class="glyphicon glyphicon-plus"></i>
+            Add Testimonial
+        </a>
+
+    </div>
+</div>
+<div class="content">
+    <div class="inner"><h1>Testimonials List</h1>
+
+        <div class="clearfix"></div>
+        <div id="content-main">
+            <table id="mytable" class='table table-striped'>
+                <thead>
+                <tr>
+                    <!-- <th>Order</th> -->
+                    <th>Testimonial</th>
+                    <th>Edit</th>
+                    <!--<th>Delete</th>-->
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="data in list | orderBy:'order/1'" >
+                    <!-- <td>{{data.order}}</td> -->
+                    <td>{{data.name}}</td>
+                    <td><a href="/admin/addtestimonial?id={{data._id}}">Edit Content</a></td>
+                    <!--<td><a style="cursor: pointer;" ng-click="deleteModal(data._id);"> Delete Content</a></td>-->
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

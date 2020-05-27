@@ -1968,6 +1968,112 @@ exports.sendGoogleAdContact = function (req, res) {
     });
 }
 
+exports.sendLeadContact = function (req, res) {
+    var info = req.body;
+    info.createdDate = new Date();
+    info.updatedDate = new Date();
+
+    db.collection('leads', function (err, collection) {
+        collection.insert(info, { safe: true }, function (err, result) {
+            if (err) {
+                res.send({ 'status': 'error', 'message': 'An error has occurred' });
+            }
+            else {
+                console.log(result);
+                var htmlFormat = '<!DOCTYPE html><html lang="en"><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width" /><title>Utility Aid</title><base href="/" /><meta name="viewport" content="width=device-width, initial-scale=1" /><link rel="icon" type="image/x-icon" href="favicon.ico" /></head><body><table><tr><td> Hi,</td></tr><tr><td> New contact request from <b><br><b>Name: ' + req.body.name + '</b><br><b>Contact No: ' + req.body.contactNo + '</b><br><b>Email: ' + req.body.cvemail + '</b><br><b>Company: ' + req.body.company + '</b><br><br></td></tr><tr><td> Kind Regards</td></tr><tr><td> Utility Aid</td></tr></table></body></html>';
+                mailOptions = {
+                    from: "customercare@utility-aid.co.uk",
+                    to: "dnyaneshwar@scriptlanes.com",
+                    subject: "New Lead",
+                    html: htmlFormat
+                };
+                console.log('mailOptions', mailOptions);
+                transporter2.sendMail(mailOptions, function (err) {
+                    if (err) {
+                        console.log(err);
+                        res.status(500).end();
+                    }
+                    console.log('Mail sent successfully');
+                    // res.status(200).end()
+                });
+                res.send({ code: 200, result: result });
+            }
+        });
+    });
+}
+
+exports.addtestimonials = function (req, res) {
+    console.log('req', req.body);
+    db.collection('testimonials', function (err, collection) {
+        collection.insert(req.body, { safe: true }, function (err, result) {
+            console.log('error', err)
+            if (err) {
+                res.send({ 'status': 'error', 'message': 'An error has occurred' });
+            }
+            else {
+                console.log(result);
+                res.send({ code: 200, result: result });
+            }
+        })
+    })
+}
+
+exports.getTestimonials = function (req, res) {
+    db.collection('testimonials', function (err, collection) {
+        collection.find({}).toArray(function (err, result) {
+            if (err) {
+                res.send({ 'status': 'error', 'message': 'An error has occurred' });
+            }
+            if (result == null) {
+                res.send({ 'status': 'error', 'message': 'Data Not Found' });
+            }
+            if (result !== null) {
+                console.log(result);
+                var data = result;
+                res.send(data);
+            }
+
+        });
+    });
+}
+
+exports.getTestimonialDetails = function (req, res) {
+    // console.log('objectId', objectId);
+    db.collection('testimonials', function (err, collection) {
+        console.log(req.body.objectId);
+        collection.findOne({ '_id': new ObjectID(req.body.objectId) }, function (err, result) {
+            console.log('result', result)
+            if (err) {
+                res.send({ 'status': 'error', 'message': 'An error has occurred' });
+            }
+            if (result == null) {
+                res.send({ 'status': 'error', 'message': 'Data Not Found' });
+            }
+            if (result !== null) {
+                res.send(result);
+            }
+        });
+    });
+}
+
+exports.edittestimonials = function (req, res) {
+    var info = req.body;
+    var id = req.body.objectId;
+    info.updatedDate = new Date().getTime().toString();
+
+    delete info.objectId;
+    db.collection('testimonials', function (err, collection) {
+        collection.update({ '_id': new ObjectID(id) }, info, { safe: true }, function (err, result) {
+            if (err) {
+                res.send({ 'status': 'error', 'message': 'An error has occurred' });
+            }
+            else {
+                console.log(result);
+                res.send({ 'status': 'success', 'message': 'Data Updated successfully' });
+            }
+        });
+    });
+}
 
 /*=================================================
  * ua-energy API calls ends here

@@ -140,6 +140,10 @@ app.config(function ($routeProvider, $locationProvider) {
       templateUrl: "views/googlead-page1.html",
       controller: "GoogleAdCtrl"
     })
+    .when("/energy-broker/", {
+      templateUrl: "views/energy-brokers.html",
+      controller: "energyBrokerCtrl"
+    })
     .otherwise({
       redirectTo: "/"
     });
@@ -1299,6 +1303,132 @@ app.controller("GoogleAdCtrl", function ($scope, $http) {
 
 })
 
+app.controller("energyBrokerCtrl", function ($scope, $http) {
+  $scope.$parent.seo = {
+    ogTitle: "UA | Energy and Utilities Consultancy",
+    ogDescripton:
+      "We're inspired by the organisations and people we work with. We want to help save them time and money when they source and purchase their energy.",
+    ogImage: "https://www.utility-aid.co.uk/img/home/homepage.jpg",
+    ogurl: "https://www.utility-aid.co.uk/"
+  };
+  $('.navbar').show();
+  $.post("/getProductList", { collection: "home" }, function (data) {
+    $scope.$apply(function () {
+      //$scope.product_text = decodeURIComponent(data[0].product_text);
+      $("#text1").html(data[0].text1);
+      $("#text2").html(data[0].text2);
+      $("#text3").html(data[0].text3);
+      $("#text4").html(
+        decodeURIComponent(data[0].text4).replace(/(?:&nbsp;)/g, " ")
+      );
+    });
+  });
+
+  $.post("/getTestimonials", function (data) {
+    $scope.$apply(function () {
+        $scope.testimonialsList = data;
+        // for(var i=0;i<$scope.testimonialsList.length;i++) {
+        //   $scope.testimonialsList[i].testimonial = decodeURIComponent($scope.testimonialsList[i].testimonial).replace(/(?:&nbsp;)/g, " ");
+        // }
+    });
+
+});
+
+  $scope.submitLeadForm = function () {
+    // alert()
+    if (!$scope.validate()) {
+      return false;
+    } else {
+      $(".fa-spinner").show();
+      var data = {
+        name: $scope.name,
+        cvemail: $scope.cvemail,
+        contactNo: $scope.contactNo,
+        company: $scope.company
+      };
+      console.log("data", data);
+      $http({
+        url: "/sendLeadContact",
+        method: "POST",
+        data: data,
+        dataType: "json",
+        contentType: "application/json; charset=utf-8"
+      }).then(
+        function (response) {
+          // $("#stage").show();
+          // $("#questionForm").hide();
+          window.location = "/thankyou-ad/";
+          $(".fa-spinner").hide();
+          // $('.navbar').hide();
+          // $('#googleAd').show();
+          $scope.name = '';
+          $scope.contactNo = '';
+          $scope.cvemail = '';
+          $scope.company = '';
+
+        },
+        function (error) {
+          alert("something went wrong. Please try again.")
+        }
+      );
+    }
+  };
+
+  $scope.makeEmptyValidators = function () {
+    $("#nameID").html("");
+    $("#cvemailID").html("");
+    $("#contactNoID").html("");
+    $("#companyID").html("");
+  };
+
+  $scope.validate = function () {
+    $scope.makeEmptyValidators();
+    var temp = false;
+    if (!$scope.name) {
+      $("#nameID").html(
+        "<ul class='errorlist'>This field is required.</ul>"
+      );
+      temp = true;
+    }
+    if ($scope.cvemail == "" || $scope.cvemail == undefined) {
+      $("#cvemailID").html(
+        "<ul class='errorlist'>This field is required.</ul>"
+      );
+      temp = true;
+    }
+    if ($scope.contactNo == "" || $scope.contactNo == undefined) {
+      $("#contactNoID").html(
+        "<ul class='errorlist'>This field is required.</ul>"
+      );
+      temp = true;
+    } else if ($scope.cvemail != "") {
+      if (!validateEmail($scope.cvemail)) {
+        $("#cvemailID").html(
+          "<ul class='errorlist'>Please enter correct email id.</ul>"
+        );
+        temp = true;
+      }
+    }
+    if (!$("#company").val()) {
+      $("#contactID").html(
+        "<ul class='errorlist'>This field is required.</ul>"
+      );
+      temp = true;
+    }
+
+    function validateEmail(email) {
+      var re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+      return re.test(email);
+    }
+
+    if (temp == true) {
+      return false;
+    } else {
+      return true;
+    }
+  };
+})
+
 app.controller("LOAUploadController", function ($scope, $http) {
   $scope.$parent.seo = {
     ogTitle: "UA | LOA Upload",
@@ -1389,6 +1519,12 @@ app.controller("LOAUploadController", function ($scope, $http) {
     }
   };
 
+});
+
+app.filter('decodeFilter', function($sce) {
+  return function(input) {
+      return $sce.trustAsHtml(decodeURIComponent(input));
+  };
 });
 
 app.directive("emitLastRepeaterElement", function () {
