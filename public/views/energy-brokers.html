@@ -401,6 +401,14 @@
   .formDiv {
     padding-bottom: 10px;
   }
+
+  .fa-chevron-right {
+    margin-top: 200% !important;
+}
+
+.fa-chevron-left {
+    margin-top: 200% !important;
+}
   }
 
   .contactForm1 {
@@ -527,6 +535,8 @@
 .rightPosition {
         right: -252px !important;
     }
+
+    
 }
 
 @media (max-width: 425px) {
@@ -861,7 +871,7 @@ a:focus, a:hover {
 #quote-carousel .carousel-control {
     background: none;
     color: #CACACA;
-    font-size: 2.3em;
+    font-size: 1em;
     text-shadow: none;
     margin-top: 30px;
 }
@@ -940,7 +950,7 @@ a:focus, a:hover {
             <!-- Carousel Slides / Quotes -->
             <div class="carousel-inner text-center">
                 <!-- Quote 1 -->
-                <div class="item active" ng-repeat="data in testimonialsList">
+                <div class="item" ng-repeat="data in testimonialsList" ng-class="{active: $index == 0}">
                     <blockquote>
                         <div class="row">
                             <div class="col-sm-8 col-sm-offset-2">
