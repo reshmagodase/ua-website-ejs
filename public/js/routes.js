@@ -1327,6 +1327,12 @@ app.controller("energyBrokerCtrl", function ($scope, $http) {
   $.post("/getTestimonials", function (data) {
     $scope.$apply(function () {
         $scope.testimonialsList = data;
+        if($scope.testimonialsList.length > 1) {
+          $scope.isShowArrows = true;
+        } else {
+          $scope.isShowArrows = false;
+        }
+        
         // for(var i=0;i<$scope.testimonialsList.length;i++) {
         //   $scope.testimonialsList[i].testimonial = decodeURIComponent($scope.testimonialsList[i].testimonial).replace(/(?:&nbsp;)/g, " ");
         // }
