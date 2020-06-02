@@ -940,6 +940,9 @@ a:focus, a:hover {
     font-size: 18px;
     background-color: #f2f2f2;
   }
+  .btnFindOutMore {
+      cursor: pointer;
+  }
 </style>
 
 <div style="background: url(img/banner.jpg);background-size: contain;
@@ -960,7 +963,7 @@ a:focus, a:hover {
                 <p class="subheading" id="text3"></p>
             </h2>
             <br />
-            <a href="#leadform" class="btnFindOutMore fontBold">learn more</a>
+            <a onclick="goToByScroll('leadform')" class="btnFindOutMore fontBold">learn more</a>
             <br />
             <br />
         </div>
@@ -995,7 +998,7 @@ a:focus, a:hover {
         </div>
         
         <br />
-        <a href="#leadform" class="btnFindOutMore saveMore fontBold">find
+        <a onclick="goToByScroll('leadform')" class="btnFindOutMore saveMore fontBold">find
             out how much you can save</a>
         <br />
         <br />
@@ -1297,6 +1300,9 @@ a:focus, a:hover {
         
         
     });
+    function goToByScroll(id){
+    $('html,body').animate({scrollTop: $("#"+id).offset().top},'slow');
+}
     function EnquiryAlert() {
 
     }
