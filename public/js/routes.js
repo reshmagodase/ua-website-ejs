@@ -871,6 +871,11 @@ app.controller("HomeCtrl", function ($scope, $location, $http) {
     ogurl: "https://www.utility-aid.co.uk/"
   };
   $('.navbar').show();
+  $("#myNavbar").addClass("collapse");
+  // $('.navbar-toggle').hide();
+  $(".navbar-toggle").css("visibility", 'visible');
+  $(".navbar-collapse").css({"border-top": "1px solid #e7e7e7"})
+
   $.post("/getProductList", { collection: "home" }, function (data) {
     $scope.$apply(function () {
       //$scope.product_text = decodeURIComponent(data[0].product_text);
@@ -1312,6 +1317,9 @@ app.controller("energyBrokerCtrl", function ($scope, $http) {
     ogurl: "https://www.utility-aid.co.uk/"
   };
   $('.navbar').show();
+  $("#myNavbar").removeClass("collapse");
+  // $('.navbar-toggle').hide();
+  $(".navbar-toggle").css("visibility", 'hidden');
   $.post("/getProductList", { collection: "home" }, function (data) {
     $scope.$apply(function () {
       //$scope.product_text = decodeURIComponent(data[0].product_text);
@@ -1433,6 +1441,183 @@ app.controller("energyBrokerCtrl", function ($scope, $http) {
       return true;
     }
   };
+
+  // bottom Lead form
+
+  $scope.submitContactForm = function () {
+    if (!$scope.validate1()) {
+      return false;
+    } else {
+      $(".fa-spinner").show();
+      var data = {
+        name: $scope.name,
+        cvemail: $scope.cvemail,
+        contactNo: $scope.contactNo,
+        message: $scope.message
+      };
+      console.log("data", data);
+      $http({
+        url: "/sendGoogleAdContact",
+        method: "POST",
+        data: data,
+        dataType: "json",
+        contentType: "application/json; charset=utf-8"
+      }).then(
+        function (response) {
+          // $("#stage").show();
+          // $("#questionForm").hide();
+          window.location = "/thankyou-ad/";
+          $(".fa-spinner").hide();
+          // $('.navbar').hide();
+          // $('#googleAd').show();
+          $scope.name = '';
+          $scope.contactNo = '';
+          $scope.cvemail = '';
+          $scope.message = '';
+
+        },
+        function (error) {
+          alert("something went wrong. Please try again.")
+        }
+      );
+    }
+  };
+
+  $scope.makeEmptyValidators1 = function () {
+    $("#nameID").html("");
+    $("#cvemailID").html("");
+    $("#contactNoID").html("");
+    $("#messageID").html("");
+  };
+
+  $scope.validate1 = function () {
+    $scope.makeEmptyValidators1();
+    var temp = false;
+    if (!$scope.name) {
+      $("#nameID").html(
+        "<ul class='errorlist'>This field is required.</ul>"
+      );
+      temp = true;
+    }
+    if ($scope.cvemail == "" || $scope.cvemail == undefined) {
+      $("#cvemailID").html(
+        "<ul class='errorlist'>This field is required.</ul>"
+      );
+      temp = true;
+    }
+    if ($scope.contactNo == "" || $scope.contactNo == undefined) {
+      $("#contactNoID").html(
+        "<ul class='errorlist'>This field is required.</ul>"
+      );
+      temp = true;
+    } else if ($scope.cvemail != "") {
+      if (!validateEmail($scope.cvemail)) {
+        $("#cvemailID").html(
+          "<ul class='errorlist'>Please enter correct email id.</ul>"
+        );
+        temp = true;
+      }
+    }
+    if (!$("#message1").val()) {
+      $("#messageID").html(
+        "<ul class='errorlist'>This field is required.</ul>"
+      );
+      temp = true;
+    }
+
+    function validateEmail(email) {
+      var re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+      return re.test(email);
+    }
+
+    if (temp == true) {
+      return false;
+    } else {
+      return true;
+    }
+  };
+  $("#stage1").css({ display: "none" });
+  $(".navbar-collapse").css({"border-top": "none"})
+  // Modal form submit
+  $scope.submitLead = function () {
+    if (!$scope.validate()) {
+      return false;
+    } else {
+      $scope.requestData = {};
+      $scope.requestData.name = $scope.askname;
+      $scope.requestData.contactNo = $scope.askphone;
+      $scope.requestData.cvemail = $scope.askemail;
+      $scope.requestData.message = $scope.askquestions;
+
+      $http({
+        url: "/sendGoogleAdContact",
+        method: "POST",
+        data: $scope.requestData,
+        dataType: "json",
+        contentType: "application/json; charset=utf-8"
+      }).then(
+        function (response) {
+          $("#leadForm2").css({ display: "none" });
+          $("#stage1").css({ display: "block" });
+        },
+        function (error) { }
+      );
+    }
+  };
+
+  $scope.makeEmptyValidators = function () {
+    $("#asknameID1").html("");
+    $("#askemailID1").html("");
+    $("#askphoneID1").html("");
+    $("#askquestionsID1").html("");
+  };
+
+  $scope.validate = function () {
+    $scope.makeEmptyValidators();
+    var temp = false;
+    if ($scope.askname == "" || $scope.askname == undefined) {
+      $("#asknameID1").html(
+        "<ul class='errorlist'>This field is required.<li></li></ul>"
+      );
+      temp = true;
+    }
+    if ($scope.askemail == "" || $scope.askemail == undefined) {
+      $("#askemailID1").html(
+        "<ul class='errorlist'>This field is required.<li></li></ul>"
+      );
+      temp = true;
+    } else if ($scope.askemail != "") {
+      if (!validateEmail($scope.askemail)) {
+        $("#askemailID1").html(
+          "<ul class='errorlist'>Please enter correct email id.<li></li></ul>"
+        );
+        temp = true;
+      }
+    }
+    if ($scope.askphone == "" || $scope.askphone == undefined) {
+      $("#askphoneID1").html(
+        "<ul class='errorlist'>This field is required.<li></li></ul>"
+      );
+      temp = true;
+    }
+    if ($scope.askquestions == "" || $scope.askquestions == undefined) {
+      $("#askquestionsID1").html(
+        "<ul class='errorlist'>This field is required.<li></li></ul>"
+      );
+      temp = true;
+    }
+
+    function validateEmail(email) {
+      var re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+      return re.test(email);
+    }
+
+    if (temp == true) {
+      return false;
+    } else {
+      return true;
+    }
+  };
 })
 
 app.controller("LOAUploadController", function ($scope, $http) {
@@ -1524,6 +1709,8 @@ app.controller("LOAUploadController", function ($scope, $http) {
       return true;
     }
   };
+
+  
 
 });
 

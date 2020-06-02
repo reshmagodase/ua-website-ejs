@@ -80,12 +80,12 @@
 <div class="enquiry-section rightPosition" id="enquirySection">
     <div class="tab-content">
         <div id="home" class="tab-pane fade in active show">
-            <a class="btn-enquiry hideonMobileonly" id="enquiryformbyselldo" href="#home" onclick="EnquiryAlert()">
+            <a class="btn-enquiry hideonMobileonly" id="enquiryformbyselldo" style="cursor: pointer;" data-toggle="modal" data-target="#leadFormModal">
                 <!-- <span class="icon">
                     <img style="width: 20px;transform: rotate(90deg);" src="images/enquirySidebar.png">
                 </span>  -->
                 ENQUIRE NOW</a>
-            <a class="btn-enquiryMobile enquiry-icon" id="enquiryformbyselldo" href="#home" onclick="EnquiryAlert()">
+            <a class="btn-enquiryMobile enquiry-icon" id="enquiryformbyselldo" data-toggle="modal" data-target="#leadFormModal">
                 <img style="width: 40px;transform: rotate(90deg);" src="img/enquiry1.png">
             </a>
             <div id="contact-form-bg">
@@ -157,7 +157,7 @@
             </div>
         </div>
         <div id="menu1" class="tab-pane fade">
-            <a class="btn-enquiry" id="enquiryformbyselldo" href="#menu1" onclick="EnquiryAlert()"><span class="icon">
+            <a class="btn-enquiry" id="enquiryformbyselldo" data-toggle="modal" data-target="#leadFormModal"><span class="icon">
                     <img style="width: 20px;transform: rotate(90deg);" src="images/enquirySidebar.png"></span>
                 ENQUIRE NOW
             </a>
@@ -551,6 +551,12 @@
     }
 }
 
+@media  (min-width: 769px) and (max-width: 1023px) {
+    .rightPosition {
+        right: -352px !important;
+    }
+}
+
 @media  (min-width: 768px) and (max-width: 1023px) {
     .rightPosition {
         right: -250px !important;
@@ -914,6 +920,26 @@ a:focus, a:hover {
 .fa-chevron-left {
     margin-top: 50%;
 }
+
+.btnFindOutMore2 {
+    text-decoration: none;
+    color: #23527c;
+    padding: 3px 10px;
+    border: 6px solid #23527c;
+    border-radius: 20px;
+    font-size: 18px;
+    background-color: #f2f2f2;
+  }
+
+  .btnFindOutMore2:hover {
+    text-decoration: none;
+    color: #23527c;
+    padding: 3px 10px;
+    border: 6px solid #23527c;
+    border-radius: 20px;
+    font-size: 18px;
+    background-color: #f2f2f2;
+  }
 </style>
 
 <div style="background: url(img/banner.jpg);background-size: contain;
@@ -934,7 +960,7 @@ a:focus, a:hover {
                 <p class="subheading" id="text3"></p>
             </h2>
             <br />
-            <a href="" class="btnFindOutMore fontBold">learn more</a>
+            <a href="#leadform" class="btnFindOutMore fontBold">learn more</a>
             <br />
             <br />
         </div>
@@ -969,7 +995,7 @@ a:focus, a:hover {
         </div>
         
         <br />
-        <a href="#" class="btnFindOutMore saveMore fontBold">find
+        <a href="#leadform" class="btnFindOutMore saveMore fontBold">find
             out how much you can save</a>
         <br />
         <br />
@@ -1027,22 +1053,166 @@ a:focus, a:hover {
         </div>
     </div>
 </section>
-<!-- <section class="home" style="background-color: #17252a">
-    <div class="container-fluid">
-        <div class="text-center">
-            <h2 class="heading_text_inner">
-                <span class="fontBold"> Let's work together!</span>
-
-                <p style="font-size: 21.5px">
-                    <br />The money we save for your organisation can be used to do more
-                    good!
-                </p>
-                <br />
-                <img bn-lazy-src="img/home/letsdomoregood.png" style="width: 100%;max-width: 605px" />
-            </h2>
+<section id="leadform">
+    <header class="home header mobile text-center">
+        <div class="col-sm-12 text-vertical-center" style="background-color: white;padding-bottom: 0px;padding-top: 30px;">
+          <h2 class="heading" class="uploadLoa" style="margin-top: 0;padding-top:0;color: black;display: inline;">
+            Contact Us
+          </h2>
+          <p style="color: black;font-size: 18;">
+            If you would like some more information feel free to explore our site or contact us below.
+          </p>
         </div>
+      </header>
+    <div class="container" style="padding-top: 20px;">
+        <div class="col-sm-8 col-sm-offset-2">
+          <div class="control-group" id="googleAdForm">
+      
+      
+            <div class="controls ">
+              <label for="" style="color: black;font-size: 14px;">Name</label>
+              <input class="form-control ng-pristine ng-valid" id="name" ng-model="name" name="name" placeholder="Name"
+                type="text">
+              <span id="nameID"></span>
+            </div>
+      
+            <div class="controls ">
+              <label for="" style="color: black;font-size: 14px;">Contact No</label>
+              <input class="form-control ng-pristine ng-valid" id="contactNo" ng-model="contactNo" name="contactNo"
+                placeholder="Contact No" type="text">
+              <span id="contactNoID"></span>
+            </div>
+      
+            <div class="controls ">
+              <label for="" style="color: black;font-size: 14px;">Email</label>
+              <input class="form-control ng-pristine ng-valid" id="cvemail" ng-model="cvemail" name="cvemail"
+                placeholder="Email" type="text">
+              <span id="cvemailID"></span>
+            </div>
+      
+            <div class="controls ">
+              <label for="" style="color: black;font-size: 14px;">Message</label>
+              <textarea class="form-control ng-pristine ng-valid" id="message1" ng-model="message" name="message"
+                placeholder="Message"></textarea>
+              <span id="messageID"></span>
+            </div>
+      
+            <div class="control-group text-center">
+              <div class="controls" style="padding-top:16px">
+                <button type="submit" class="btnFindOutMore2" ng-click="submitContactForm();">Submit
+                </button> <br>
+                <img src="/img/whyua/loading-gif.gif" class="fa fa-spinner"></i>
+              </div>
+            </div>
+          </div>
+          <div id="stage" class="form-all">
+            <p style="text-align:center;">
+              <img src="img/check-icon.png" alt="" width="128" height="128">
+            </p>
+      
+            <div style="text-align:center;">
+              <h1 style="text-align: center;">Thank You!</h1>
+      
+              <p style="text-align: center;">We've received your request! Our team will respond you as soon
+                as possible.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-12 text-center" style="padding: 0;">
+          <p style="color: black;">or <br> Contact with</p>
+          <a href="https://api.whatsapp.com/send?phone=447500798922&text=Hi" target="_blank">
+            <!-- <img src="img/whatsapp.png" style="cursor: pointer;" width="90" alt="whatsapp"> -->
+            <i class="fa fa-whatsapp" style="font-size:50px;color:#4FCE5D"></i>
+          </a>
+          <a href="https://www.facebook.com/ua.domoregood" target="_blank" style="margin-left: 5px;">
+            <!-- <img src="img/facebook.png" style="cursor: pointer;" width="100" alt="whatsapp"> -->
+            <i class="fa fa-facebook-square" style="font-size:50px;color:#3b5998"></i>
+          </a>
+          <a href="https://twitter.com/UA_Energy" target="_blank" style="margin-left: 5px;">
+            <!-- <img src="img/facebook.png" style="cursor: pointer;" width="100" alt="whatsapp"> -->
+            <i class="fa fa-twitter" style="font-size:50px;color:#00acee"></i>
+          </a>
+          <a href="https://www.instagram.com/utilityaid/" target="_blank" style="margin-left: 5px;">
+            <!-- <img src="img/facebook.png" style="cursor: pointer;" width="100" alt="whatsapp"> -->
+            <i id="insta" class="fa fa-instagram" style="font-size:50px;"></i>
+          </a>
+          <a href="https://www.linkedin.com/company/1462326/admin/" target="_blank" style="margin-left: 5px;">
+            <i class="fa fa-linkedin-square" style="font-size:50px;color:#0e76a8"></i>
+          </a>
+        </div>
+      </div>
+</section>
+
+<!-- Modal -->
+<div class="modal fade ask" id="leadFormModal" role="dialog">
+    <div class="modal-dialog modal-lg">
+      <table class="modal-content askTable" style="background-color: #F2F2F2;margin: 0 auto">
+        <tr>
+          <td style="min-width: 350px;padding: 10px 0px" class="text-center">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">
+                &times;
+              </button>
+              <h2 class="modal-title" style="color:#000000">
+                How can
+                <span style="color:#3697C2"> we help?</span>
+              </h2>
+            </div>
+            <div class="modal-body">
+              <div class="control-group" id="leadForm2">
+                <div class="controls ">
+                  <input class="form-control ng-pristine ng-valid" id="askname" ng-model="askname" name="askname"
+                    placeholder="Name" type="text" />
+                  <span id="asknameID1"></span>
+                </div>
+                <div class="controls ">
+                  <input class="form-control ng-pristine ng-valid" id="askphone" ng-model="askphone" name="askphone"
+                    placeholder="Phone" type="text" />
+                  <span id="askphoneID1"></span>
+                </div>
+                <div class="controls ">
+                  <input class="form-control ng-pristine ng-valid" id="askemail" ng-model="askemail" name="askemail"
+                    placeholder="Email" type="text" />
+                  <span id="askemailID1"></span>
+                </div>
+                <div class="controls ">
+                  <textarea style="height: 150px" ng-model="askquestions" class="form-control" cols="25"
+                    id="askquestions" name="askquestions" placeholder="Message" rows="10"></textarea>
+                  <span id="askquestionsID1"></span>
+                </div>
+                <div class="control-group">
+                  <div class="controls" style="padding-top:16px">
+                    <button type="submit" class="btnFindOutMore" ng-click="submitLead();">
+                      Submit
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div id="stage1" class="form-all">
+                <p style="text-align:center;">
+                  <img bn-lazy-src="img/check-icon.png" alt="" width="128" height="128" />
+                </p>
+
+                <div style="text-align:center;">
+                  <h1 style="text-align: center;color: #000000;">Thank You!</h1>
+
+                  <p style="text-align: center;color: #000000;">
+                    We've received your request! Our team will respond as soon
+                    as possible.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <!--  <div class="modal-footer">
+                          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                      </div>-->
+          </td>
+        </tr>
+      </table>
     </div>
-</section> -->
+  </div>
+
 <style>
     .header {
         background: url("../img/contact/contact1.jpg?123") no-repeat center 25% fixed;
@@ -1055,16 +1225,6 @@ a:focus, a:hover {
         background-size: cover;
         -o-background-size: cover;
     }
-
-    /* @media (max-width: 768px) {
-      .header {
-        background: url("../img/contact/contactMobile.jpg?123");
-        background-repeat: no-repeat;
-        background-position: center;
-        background-attachment: scroll;
-        background-size: cover;
-      } 
-    } */
 
     .burner {
         background: url("img/home/burner.jpg") no-repeat center center scroll;
@@ -1134,6 +1294,8 @@ a:focus, a:hover {
             $(".enquiry-section").addClass('rightPosition');
             flag = false;
         }
+        
+        
     });
     function EnquiryAlert() {
 
