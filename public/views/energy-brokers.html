@@ -88,113 +88,13 @@
             <a class="btn-enquiryMobile enquiry-icon" id="enquiryformbyselldo" data-toggle="modal" data-target="#leadFormModal">
                 <img style="width: 40px;transform: rotate(90deg);" src="img/enquiry1.png">
             </a>
-            <div id="contact-form-bg">
-                <div class="row">
-                    <div class="col-sm-12 col-lg-12 col-md-12 ">
-                        <div class="text-left">
-                            <h3>Contact form</h3>
-                        </div>
-                    </div>
-                </div>
-
-                <form id="contactForm">
-                    <p id="pdfMessage" style="padding-left: 10px;"></p>
-                    <div class="row">
-                        <div class="col-sm-12 col-md-12 col-lg-12 col-12">
-                            <div class="form-group">
-                                <input type="email" name="email" id="email" class=" form-control" placeholder="Email">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-sm-12 col-md-12 col-lg-12 col-12">
-                            <div class="form-group">
-                                <input type="tel" name="phoneNo" id="phoneNo" size="40" class="form-control"
-                                    placeholder="Phone">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-sm-12 col-md-12 col-lg-12 col-12">
-                            <div class="form-group">
-                                <select name="status_type" id="status_type" class="form-control">
-                                    <option value="Residential">Residential</option>
-                                    <option value="Commercial">Commercial</option>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-sm-12 col-md-12 col-lg-12 col-12">
-                            <div class="form-group">
-                                <select name="project" id="project" class="form-control">
-                                    <option value="Arwana, Karve nagar Pune">Arwana, Karve nagar Pune
-                                    </option>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-xs-12 col-sm-12 col-md-12 col-12 col-lg-12">
-                            <div class="form-group">
-                                <textarea name="comment" id="comment" cols="40" rows="3" class="form-control"
-                                    placeholder="Comments"></textarea>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-xs-12 text-right col-sm-12 col-md-12 col-lg-12">
-                            <button type="submit" id="contact_form" class="btn enquirybtn">Submit</button>
-                        </div>
-                        <br>
-                        <br>
-                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
-                            <span id="message"></span>
-                        </div>
-                    </div>
-                </form>
-                <br>
-            </div>
         </div>
         <div id="menu1" class="tab-pane fade">
             <a class="btn-enquiry" id="enquiryformbyselldo" data-toggle="modal" data-target="#leadFormModal"><span class="icon">
                     <img style="width: 20px;transform: rotate(90deg);" src="images/enquirySidebar.png"></span>
                 ENQUIRE NOW
             </a>
-            <div class="container " id="contact-form-bg">
-                <div class="row">
-                    <div class="col-xs-12 col-sm-12  col-md-12 col-lg-12">
-                        <h3>Call Me Back</h3>
-                        <p>Just give us your contact number and you will receive a call from our representative:</p>
-                    </div>
-                </div>
-                <div class="sell_do_ctc">
-                    <form id="callBack">
-                        <div class="row">
-                            <div class="col-xs-12 col-sm-12   col-md-12 col-lg-12">
-                                <div class="form-group">
-                                    <input type="text" id="contactNumber" placeholder="Phone number" class="form-control">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-xs-12 text-right col-sm-12 col-md-12 col-lg-12">
-                                <button type="submit" class="btn enquirybtn">Submit</button>
-                            </div>
-                            <br>
-                            <div>
-                                <span id="message"></span>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
         </div>
-    </div>
-    <div class="footer-action nav nav-tabs">
-        <a href="#home" data-toggle="tab" class="contact-form active"><i class="icon-inquire"></i>Contact Form</a>
-        <a href="#menu1" data-toggle="tab" class="call-back "><i class="icon-phone"></i>Call Me Back
-        </a>
     </div>
 </div>
 <!-- Enquiry Form Ends-->
@@ -427,7 +327,7 @@
 
   /* css for sticky buttons */
   .enquiry-section {
-    background: #e7ccaf;
+    background: transparent;
     min-height: 430px;
     padding: 0 0 60px 0;
     position: fixed;
@@ -470,6 +370,10 @@
 .enquiry-section #contact-form-bg {
     margin: 0;
     padding: 10px 0px;
+}
+
+.contact-form-bg {
+    display: none;
 }
 
 .enquiry-section .selldof .title {
@@ -558,9 +462,9 @@
 }
 
 @media  (min-width: 768px) and (max-width: 1023px) {
-    .rightPosition {
+    /* .rightPosition {
         right: -250px !important;
-    }
+    } */
 
     .mobileNoicon {
         right: -311px !important;
