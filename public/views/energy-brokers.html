@@ -10,7 +10,7 @@
             <div class="col-sm-6">
                 <h2>
                     <!-- <video poster="img/videoimg.jpg" width="300" height="200" src="videos/RA504_Utility_Aid_MASTER.mp4" controls loop></video> -->
-                    <video id="videoplayer" poster="img/videoimg.jpg" width="300" height="200"
+                    <video id="videoplayer" preload="metadata" poster="img/videoimg.jpg" width="300" height="200"
                         src="videos/RA504UtilityAidSUBTITLES.mp4" controls loop>
                         <!-- <track label="English" kind="subtitles" srclang="en" src="videos/subtitle.srt" default> -->
                         <track label="English" kind="subtitles" src="videos/UASubtitles.vtt" srclang="en" default>
@@ -1180,6 +1180,13 @@ a:focus, a:hover {
     function goToByScroll(id){
     $('html,body').animate({scrollTop: $("#"+id).offset().top},'slow');
 }
+var video = document.getElementById('videoplayer');
+video.addEventListener('loadedmetadata', function() {
+    if (video.buffered.length === 0) return;
+
+    var bufferedSeconds = video.buffered.end(0) - video.buffered.start(0);
+    console.log(bufferedSeconds + ' seconds of video are ready to play!');
+  });
     function EnquiryAlert() {
 
     }
