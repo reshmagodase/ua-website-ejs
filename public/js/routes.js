@@ -872,6 +872,7 @@ app.controller("HomeCtrl", function ($scope, $location, $http) {
   };
   $('.navbar').show();
   $("#myNavbar").addClass("collapse");
+  $("#myNavbar").css("display", 'none');
   // $('.navbar-toggle').hide();
   $(".navbar-toggle").css("visibility", 'visible');
   $(".navbar-collapse").css({"border-top": "1px solid #e7e7e7"})
@@ -1318,6 +1319,7 @@ app.controller("energyBrokerCtrl", function ($scope, $http) {
   };
   $('.navbar').show();
   $("#myNavbar").removeClass("collapse");
+  $("#myNavbar").css("display", 'block');
   // $('.navbar-toggle').hide();
   $(".navbar-toggle").css("visibility", 'hidden');
   $.post("/getProductList", { collection: "home" }, function (data) {
