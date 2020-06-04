@@ -1542,7 +1542,7 @@ app.controller("energyBrokerCtrl", function ($scope, $http) {
   $(".navbar-collapse").css({"border-top": "none"})
   // Modal form submit
   $scope.submitLead = function () {
-    if (!$scope.validate()) {
+    if (!$scope.validate11()) {
       return false;
     } else {
       $scope.requestData = {};
@@ -1574,7 +1574,7 @@ app.controller("energyBrokerCtrl", function ($scope, $http) {
     $("#askquestionsID1").html("");
   };
 
-  $scope.validate = function () {
+  $scope.validate11 = function () {
     $scope.makeEmptyValidators();
     var temp = false;
     if ($scope.askname == "" || $scope.askname == undefined) {
