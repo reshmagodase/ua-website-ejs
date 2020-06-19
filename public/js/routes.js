@@ -149,7 +149,7 @@ app.config(function ($routeProvider, $locationProvider) {
     });
 });
 
-app.controller("DefaultController", function ($scope, $http) {
+app.controller("DefaultController", function ($scope, $http, $window, $location) {
   $scope.$parent.seo = {
     ogTitle: "UA | Energy and Utilities Consultancy",
     ogDescripton:
@@ -875,7 +875,7 @@ app.controller("HomeCtrl", function ($scope, $location, $http) {
   $("#myNavbar").css("display", 'none');
   // $('.navbar-toggle').hide();
   $(".navbar-toggle").css("visibility", 'visible');
-  $(".navbar-collapse").css({"border-top": "1px solid #e7e7e7"})
+  $(".navbar-collapse").css({ "border-top": "1px solid #e7e7e7" })
 
   $.post("/getProductList", { collection: "home" }, function (data) {
     $scope.$apply(function () {
@@ -1336,19 +1336,19 @@ app.controller("energyBrokerCtrl", function ($scope, $http) {
 
   $.post("/getTestimonials", function (data) {
     $scope.$apply(function () {
-        $scope.testimonialsList = data;
-        if($scope.testimonialsList.length > 1) {
-          $scope.isShowArrows = true;
-        } else {
-          $scope.isShowArrows = false;
-        }
-        
-        // for(var i=0;i<$scope.testimonialsList.length;i++) {
-        //   $scope.testimonialsList[i].testimonial = decodeURIComponent($scope.testimonialsList[i].testimonial).replace(/(?:&nbsp;)/g, " ");
-        // }
+      $scope.testimonialsList = data;
+      if ($scope.testimonialsList.length > 1) {
+        $scope.isShowArrows = true;
+      } else {
+        $scope.isShowArrows = false;
+      }
+
+      // for(var i=0;i<$scope.testimonialsList.length;i++) {
+      //   $scope.testimonialsList[i].testimonial = decodeURIComponent($scope.testimonialsList[i].testimonial).replace(/(?:&nbsp;)/g, " ");
+      // }
     });
 
-});
+  });
 
   $scope.submitLeadForm = function () {
     // alert()
@@ -1539,7 +1539,7 @@ app.controller("energyBrokerCtrl", function ($scope, $http) {
     }
   };
   $("#stage1").css({ display: "none" });
-  $(".navbar-collapse").css({"border-top": "none"})
+  $(".navbar-collapse").css({ "border-top": "none" })
   // Modal form submit
   $scope.submitLead = function () {
     if (!$scope.validate11()) {
@@ -1712,13 +1712,13 @@ app.controller("LOAUploadController", function ($scope, $http) {
     }
   };
 
-  
+
 
 });
 
-app.filter('decodeFilter', function($sce) {
-  return function(input) {
-      return $sce.trustAsHtml(decodeURIComponent(input));
+app.filter('decodeFilter', function ($sce) {
+  return function (input) {
+    return $sce.trustAsHtml(decodeURIComponent(input));
   };
 });
 
@@ -1740,7 +1740,7 @@ app.filter("to_trusted", [
 
 app.run(function ($rootScope, $templateCache) {
   $rootScope.$on('$viewContentLoaded', function () {
-      $templateCache.removeAll();
+    $templateCache.removeAll();
   });
 });
 

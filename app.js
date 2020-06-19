@@ -56,9 +56,11 @@ app.use(function (req, res, next) {
 
 var compression = require('compression');
 app.use(compression());
+var connect_s4a = require('connect-s4a');
+var token = "3cc1f7ffb4800bfbb883377f0bb1ae7d";
 app.use(require('prerender-node').set('prerenderToken', 'e0JuidllFGOBZKApP33v'));
 // app.use(require('prerender-node'));
-
+app.use(connect_s4a(token));
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
