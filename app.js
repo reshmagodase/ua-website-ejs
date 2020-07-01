@@ -68,9 +68,13 @@ app.set('view engine', 'ejs');
 
 app.use(logger('dev'));
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({
+    extended: false
+}));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, "public"), { maxAge: "1y" }));
+app.use(express.static(path.join(__dirname, "public"), {
+    maxAge: "1y"
+}));
 app.use(express.static(path.join(__dirname, 'public/switch/website')));
 app.use(express.static(path.join(__dirname, 'public/switch/admin')));
 
@@ -93,12 +97,14 @@ app.use(session({
 app.use(function (req, res, next) {
     if (req.session && req.session.user) {
         db.collection('adminDetails', function (err, collection) {
-            collection.findOne({ userName: req.session.user.userName }, function (err, user) {
+            collection.findOne({
+                userName: req.session.user.userName
+            }, function (err, user) {
                 if (user) {
 
                     req.user = user;
                     delete req.user.password; // delete the password from the session
-                    req.session.user = user;  //refresh the session value
+                    req.session.user = user; //refresh the session value
                     res.locals.user = user;
                     //console.log(req.session.user);
                 }
@@ -128,7 +134,9 @@ var storage = multer.diskStorage({
     }
 })
 
-var upMulter = multer({ storage: storage });
+var upMulter = multer({
+    storage: storage
+});
 app.post('/login', service.login);
 app.post('/uploadImages', upMulter.array('file', 10), service.uploadImages);
 app.get('/getImages', service.getImages);
@@ -224,6 +232,10 @@ app.get('/baptist/*', function (req, res) {
 
 app.get('/new/*', function (req, res) {
     res.sendfile('./public/new/index.html');
+});
+
+app.get('/newTest/*', function (req, res) {
+    res.sendfile('./public/newTest/index.html');
 });
 
 
