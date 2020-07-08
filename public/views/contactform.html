@@ -1,0 +1,191 @@
+<header class="home header mobile">
+  <div class="row text-vertical-center" style="background-color: #F4F1F1;padding-top: 30px;">
+    <div class="col-sm-6 col-sm-offset-3 well shadow">
+      <h4 class="title">
+        <br />
+        Utility Aid Bill Audit in Partnership With Baptists Together
+      </h4>
+      <p class="text-center" style="color:#17252a;">Utility Aid are working in partnership
+        with Baptists Together to provide a free energy bill audit to their member churches. If you sign up,
+        Utility Aid will check your bills for any overcharging and work with you to claim any refunds due. This
+        service is entirely free and you will receive 100% of any refund due. To hear more, please complete the
+        form below</p>
+
+      <!-- <div class="container"> -->
+      <hr>
+      <div class="col-sm-12">
+        <div class="control-group" id="baptiscontactForm">
+          <div class="controls ">
+            <p style="color:#17252a;">Email</p>
+            <input class="form-control ng-pristine ng-valid" id="cvemail" ng-model="cvemail" name="cvemail"
+              placeholder="Email" type="text">
+            <span id="cvemailID"></span>
+            <input type="hidden" name="cvpath" ng-model="cvpath" id="cvpathid">
+            <!-- <input type="hidden" name="name" ng-model="name" id="nameid"> -->
+          </div>
+          <div class="controls ">
+            <p style="color:#17252a;">Name</p>
+            <input class="form-control ng-pristine ng-valid" id="cvnameId" ng-model="name" name="name"
+              placeholder="Name" type="text">
+            <span id="cvnameID"></span>
+
+          </div>
+          <div class="controls ">
+            <p style="color:#17252a;">Church</p>
+            <input class="form-control ng-pristine ng-valid" id="churchnameId" ng-model="churchName" name="churchName"
+              placeholder="Church" type="text">
+            <span id="churchID"></span>
+          </div>
+          <div class="controls ">
+            <p style="color:#17252a;">Phone No.</p>
+            <input class="form-control ng-pristine ng-valid" id="phoneId" ng-model="phone" name="phone"
+              placeholder="Phone No." type="text">
+            <span id="phoneNoID"></span>
+          </div>
+        </div>
+
+        <div class="control-group text-center">
+          <div class="controls" style="padding-top:16px">
+            <button type="submit" class="btn btn-primary" ng-click="submitContactForm();">Submit
+            </button> <br>
+            <img src="/img/whyua/loading-gif.gif" class="fa fa-spinner"></i>
+          </div>
+        </div>
+      </div>
+      <div id="stage" class="form-all">
+        <p style="text-align:center;">
+          <img src="img/check-icon.png" alt="" width="128" height="128">
+        </p>
+
+        <div style="text-align:center;">
+          <h1 style="text-align: center;">Thank You!</h1>
+
+          <p style="text-align: center;">We've received your LOA! Our team will respond you as soon
+            as possible.
+          </p>
+        </div>
+      </div>
+      <p class="text-right mr-4"><a style="text-decoration: underline;" href="https://utility-aid.co.uk/privacy-policy/">Click here for our privacy
+          policy</a></p>
+    </div>
+    <!-- </div> -->
+
+  </div>
+  </div>
+</header>
+
+
+
+<style>
+  p {
+    text-align: justify;
+  }
+
+  .well {
+    background-color: #fff;
+  }
+
+  .text-vertical-center {
+    padding: 0;
+  }
+
+  .title {
+    margin-top: 0;
+    padding-top: 0;
+    color: #3697c2;
+    font-weight: bold;
+    font-size: 23px;
+  }
+
+  .fa-spinner {
+    display: none;
+    width: 50px;
+  }
+
+  .blogs a {
+    text-decoration: none;
+  }
+
+  .blogs a:hover .details p {
+    color: white !important;
+  }
+
+  .blogs a:hover .innerblog {
+    background-color: #3697C2;
+  }
+
+  .blogs a:hover h2 {
+    color: white !important;
+  }
+
+  .blogs {
+    background-color: #23527c;
+    color: #fff;
+  }
+
+  .btnFindOutMore {
+    text-decoration: none;
+    color: #fff;
+    padding: 3px 10px;
+    border: 6px solid #fff;
+    border-radius: 20px;
+    font-size: 18px;
+    background-color: #23527c;
+  }
+
+  .btnFindOutMore:hover {
+    text-decoration: none;
+    color: #fff;
+    padding: 3px 10px;
+    border: 6px solid #fff;
+    border-radius: 20px;
+    font-size: 18px;
+    background-color: #23527c;
+  }
+
+  .btnFindOutMore2 {
+    text-decoration: none;
+    color: #23527c;
+    padding: 3px 10px;
+    border: 6px solid #23527c;
+    border-radius: 20px;
+    font-size: 18px;
+    background-color: #f2f2f2;
+  }
+
+  .justify {
+    text-align: justify;
+  }
+
+  .controls {
+    padding-bottom: 15px;
+  }
+
+  .errorlist {
+    margin-top: 3px;
+    margin-bottom: 0px;
+    color: red;
+    font-size: 12px;
+  }
+
+  @media (max-width: 767px) {
+
+    .container-fluid,
+    .container {
+      padding: 40px 20px;
+      padding-top: 10px;
+    }
+
+    .mobile {
+      text-align: center;
+    }
+
+    .dropzone {
+      padding: 40px;
+    }
+  }
+
+  .shadow {
+    box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .15) !important;
+  }
+</style>
