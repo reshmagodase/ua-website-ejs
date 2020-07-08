@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <title>Utilityaid</title>
-  <base href="/newTest/">
+  <base href="/">
   <!-- 
 <script src="runtime.js"></script>
 <script src="polyfills.js"></script>
@@ -79,63 +79,116 @@
       transition: all 1s ease-in;
     }
 
-    .nx {
-      padding-top: 18%;
+    .anim-typewriter {
+      animation: typewriter 1s steps(30) 500ms 1 normal both;
     }
 
-    .sp-loadbar {
-      width: 228px;
-      height: 18px;
-      border: 1px #fff solid;
-      border-radius: 4px;
-      margin-top: 15px;
-      background: linear-gradient(-60deg, transparent 0%, transparent 50%, #fff 50%, #fff 75%, transparent 75%, transparent);
-      background-size: 20px 30px;
-      background-position: 0px 0px;
-      -webkit-animation: spLoadBar 0.8s infinite linear;
-      animation: spLoadBar 0.5s infinite linear;
-      margin-left: auto;
-      margin-right: auto;
+    .dot-flashing {
+      position: relative;
+      width: 8px;
+      height: 8px;
+      border-radius: 5px;
+      background-color: #0093c1;
+      color: #0093c1;
+      animation: dotFlashing 1s infinite linear alternate;
+      animation-delay: .5s;
     }
 
-    @-webkit-keyframes spLoadBar {
+    .dot-flashing::before,
+    .dot-flashing::after {
+      content: '';
+      display: inline-block;
+      position: absolute;
+      top: 0;
+    }
+
+    .dot-flashing::before {
+      left: -15px;
+      width: 8px;
+      height: 8px;
+      border-radius: 5px;
+      background-color: #0093c1;
+      color: #0093c1;
+      animation: dotFlashing 1s infinite alternate;
+      animation-delay: 0s;
+    }
+
+    .dot-flashing::after {
+      left: 15px;
+      width: 8px;
+      height: 8px;
+      border-radius: 5px;
+      background-color: #0093c1;
+      color: #0093c1;
+      animation: dotFlashing 1s infinite alternate;
+      animation-delay: 1s;
+    }
+
+    @keyframes dotFlashing {
+      0% {
+        background-color: #0093c1;
+      }
+
+      50%,
+      100% {
+        background-color: #ebe6ff;
+      }
+    }
+
+    .loader-anim {
+      animation: fade 500ms ease-in forwards;
+      animation-delay: 2s;
+    }
+
+    @keyframes typewriter {
       from {
-        background-position: 0px 0px;
+        width: 0;
       }
 
       to {
-        background-position: -20px 0px;
+        width: 4em;
       }
     }
 
-    @keyframes spLoadBar {
-      from {
-        background-position: 0px 0px;
+    @keyframes fade {
+      0% {
+
+        opacity: 0;
+        transform: translateX(139px);
       }
 
-      to {
-        background-position: -20px 0px;
+      100% {
+
+        opacity: 1;
+        transform: translateX(0%);
       }
     }
   </style>
-  <link rel="stylesheet" href="styles.8f9d64966a7610004cf6.css">
-</head>
+<link rel="stylesheet" href="styles.8f9d64966a7610004cf6.css"></head>
 
 <body>
   <app-root>
     <div class="background text-center">
-      <div class="nx">
-        <div>
-          <img src="assets/Utilityaid_New.png" />
-        </div>
-        <div class="sp-div">
-          <div class="sp sp-loadbar"></div>
-          <h4 style="color: #fff;
-        margin-top: 12px;">Loading please wait...</h4>
+      <div style="padding-top: 20%;width:100%;">
+        <div style="display: flex;justify-content: center;">
+          <div class="loader-anim" style="opacity: 0;transform: translateX(139px);">
+            <img src="assets/pre-loader.gif" style="width: 40px;
+        height: 40px;">
+          </div>
+          <p class="anim-typewriter" style="font-family: vag_roundedbold;
+        color: #fff;
+        font-size: 39px;
+        margin-left: 14px; 
+        overflow: hidden;
+        width: 10em;
+        white-space: nowrap;
+
+        line-height: 1;">utility <span style="color:#0093c1">aid</span>
+            <div class="dot-flashing" style="margin-left: 22px;margin-top: 23px;"></div>
+          </p>
         </div>
       </div>
     </div>
-
   </app-root>
   <!-- Pardot -->
   <script type="text/javascript">
@@ -158,13 +211,7 @@
       }
     })();
   </script>
-  <script src="runtime-es2015.92deeb6ee5e8fbb89e51.js" type="module"></script>
-  <script src="runtime-es5.92deeb6ee5e8fbb89e51.js" nomodule defer></script>
-  <script src="polyfills-es5.da4d3bc203f08660a710.js" nomodule defer></script>
-  <script src="polyfills-es2015.391ed2cd1c356ef5a972.js" type="module"></script>
-  <script src="main-es2015.d90c361c3f6da67f238f.js" type="module"></script>
-  <script src="main-es5.d90c361c3f6da67f238f.js" nomodule defer></script>
-</body>
+<script src="runtime-es2015.92deeb6ee5e8fbb89e51.js" type="module"></script><script src="runtime-es5.92deeb6ee5e8fbb89e51.js" nomodule defer></script><script src="polyfills-es5.da4d3bc203f08660a710.js" nomodule defer></script><script src="polyfills-es2015.391ed2cd1c356ef5a972.js" type="module"></script><script src="main-es2015.862daf627b3d16d092e0.js" type="module"></script><script src="main-es5.862daf627b3d16d092e0.js" nomodule defer></script></body>
 <script async>
   (function (i, s, o, g, r, a, m) {
     i['GoogleAnalyticsObject'] = r;
