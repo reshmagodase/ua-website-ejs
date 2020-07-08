@@ -1949,8 +1949,8 @@ exports.saveContactFormData = function (req, res) {
                 var htmlFormat = '<!DOCTYPE html><html lang="en"><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width" /><title>Utility Aid</title><base href="/" /><meta name="viewport" content="width=device-width, initial-scale=1" /><link rel="icon" type="image/x-icon" href="favicon.ico" /></head><body><table><tr><td> Hi,</td></tr><tr><td> New Contact has been received from <b>' + req.body.source + '</b><br><br></td><td> Name <b>' + req.body.name + '</b><br><br></td><td> Email <b>' + req.body.email + '</b><br><br></td><td> Church <b>' + req.body.church + '</b><br><br></td><td> Phone No. <b>' + req.body.phone + '</b><br><br></td></tr><tr><td> Kind Regards</td></tr><tr><td> Utility Aid</td></tr></table></body></html>';
                 mailOptions = {
                     from: "baptist@utility-aid.co.uk",
-                    // to: "CustomerCare@utility-aid.co.uk",
-                    to: "dnyaneshwar@scriptlanes.com",
+                    to: "CustomerCare@utility-aid.co.uk",
+                    // to: "dnyaneshwar@scriptlanes.com",
                     subject: "New Contact",
                     html: htmlFormat
                 };

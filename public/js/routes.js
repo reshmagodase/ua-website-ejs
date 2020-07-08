@@ -152,6 +152,10 @@ app.config(function ($routeProvider, $locationProvider) {
       templateUrl: "views/contactform.html",
       controller: "ContactFormCtrl"
     })
+    .when("/contactform/", {
+      templateUrl: "views/contactform.html",
+      controller: "ContactFormCtrl"
+    })
     .otherwise({
       redirectTo: "/"
     });
@@ -1743,7 +1747,7 @@ app.controller("ContactFormCtrl", function ($scope, $http,$route) {
         email: $scope.cvemail,
         church: $scope.churchName,
         phone: $scope.phone,
-        source: $route.current.params.query
+        source: $route.current.params.query ? $route.current.params.query: "Default URL"
       };
       console.log("data", data);
       $http({
