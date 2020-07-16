@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <title>Utilityaid</title>
-  <base href="/newTest/">
+  <base href="/">
   <!-- 
 <script src="runtime.js"></script>
 <script src="polyfills.js"></script>
@@ -13,184 +13,43 @@
   <script src=“runtime-es2015.858f8dd898b75fe86926.js” type=“module”></script>
   <script src=“polyfills-es2015.e954256595c973372414.js” type=“module”></script>
   <script src=“main-es2015.63808232910db02f6170.js” type=“module”></script>
-  <script defer type="text/javascript" src="https://cdn.jsdelivr.net/npm/lozad/dist/lozad.min.js"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lozad/dist/lozad.min.js"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <meta http-equi="XUA-Compatible" content="IE=edge" />
   <link rel="icon" type="image/x-icon" href="favicon.ico">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css" async>
-  <script defer src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
-  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script> -->
-  <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script> -->
-
-  <link rel="preload" href="./assets/font/vag_rounded_bold-webfont-webfont.woff2" as="font" type="font/woff2"
-    crossorigin="anonymous">
-  <link rel="preload" href="./assets/font/vag_rounded_thin-webfont.woff2" as="font" type="font/woff2"
-    crossorigin="anonymous">
-
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" async>
-  <script defer src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
     integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
   </script>
   <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
     crossorigin="anonymous"> -->
   </script>
-  <script defer src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
     integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
   </script>
-  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
 
-  <script type="text/javascript" defer src="https://connect.facebook.net/en_US/sdk.js"></script>
-  <!-- <link rel="preload" as="script" href="https://connect.facebook.net/en_US/sdk.js"> -->
+  <script type="text/javascript" src="https://connect.facebook.net/en_US/sdk.js"></script>
   <!-- <link rel="stylesheet" media="mediatype and|not|only (expressions)" href="print.css"> -->
-  <style>
-    @font-face {
-      font-family: "vag_roundedbold";
 
-      unicode-range: U+000-5FF;
-      src:
-        local('vag_roundedbold'),
-        url("./assets/font/vag_rounded_bold-webfont-webfont.woff2") format("woff2"),
-        url("./assets/font/vag_rounded_bold-webfont.woff") format("woff"),
-        url("./assets/font/vag_rounded_bold-webfont.ttf") format("truetype");
 
-      font-weight: normal;
-      font-style: normal;
-    }
 
-    @font-face {
-      font-family: "vag_roundedregular";
-      unicode-range: U+000-5FF;
-      src:
-        local('vag_roundedregular'),
-        url("./assets/font/vag_rounded_thin-webfont.woff2") format("woff2"),
-        url("./assets/font/vag_rounded_thin-webfont.woff") format("woff"),
-        url("./assets/font/vag_rounded_thin-webfont.ttf") format("truetype");
-
-      font-weight: normal;
-      font-style: normal;
-    }
-
-    .background {
-      background-color: #17252a;
-      height: 100vh !important;
-      transition: all 1s ease-in;
-    }
-
-    .anim-typewriter {
-      animation: typewriter 1s steps(30) 500ms 1 normal both;
-    }
-
-    .dot-flashing {
-      position: relative;
-      width: 8px;
-      height: 8px;
-      border-radius: 5px;
-      background-color: #0093c1;
-      color: #0093c1;
-      animation: dotFlashing 1s infinite linear alternate;
-      animation-delay: .5s;
-    }
-
-    .dot-flashing::before,
-    .dot-flashing::after {
-      content: '';
-      display: inline-block;
-      position: absolute;
-      top: 0;
-    }
-
-    .dot-flashing::before {
-      left: -15px;
-      width: 8px;
-      height: 8px;
-      border-radius: 5px;
-      background-color: #0093c1;
-      color: #0093c1;
-      animation: dotFlashing 1s infinite alternate;
-      animation-delay: 0s;
-    }
-
-    .dot-flashing::after {
-      left: 15px;
-      width: 8px;
-      height: 8px;
-      border-radius: 5px;
-      background-color: #0093c1;
-      color: #0093c1;
-      animation: dotFlashing 1s infinite alternate;
-      animation-delay: 1s;
-    }
-
-    @keyframes dotFlashing {
-      0% {
-        background-color: #0093c1;
-      }
-
-      50%,
-      100% {
-        background-color: #ebe6ff;
-      }
-    }
-
-    .loader-anim {
-      animation: fade 500ms ease-in forwards;
-      animation-delay: 2s;
-    }
-
-    @keyframes typewriter {
-      from {
-        width: 0;
-      }
-
-      to {
-        width: 4em;
-      }
-    }
-
-    @keyframes fade {
-      0% {
-
-        opacity: 0;
-        transform: translateX(139px);
-      }
-
-      100% {
-
-        opacity: 1;
-        transform: translateX(0%);
-      }
-    }
-  </style>
-  <link rel="stylesheet" href="styles.8f9d64966a7610004cf6.css">
-</head>
+<link rel="stylesheet" href="styles.92b5f6bfbb8d0b889570.css"></head>
 
 <body>
-  <app-root>
-    <div class="background text-center">
-      <div style="padding-top: 20%;width:100%;">
-        <div style="display: flex;justify-content: center;">
-          <div class="loader-anim" style="opacity: 0;transform: translateX(139px);">
-            <img src="assets/pre-loader.gif" style="width: 40px;
-        height: 40px;">
-          </div>
-          <p class="anim-typewriter" style="font-family: vag_roundedbold;
-        color: #fff;
-        font-size: 39px;
-        margin-left: 14px; 
-        overflow: hidden;
-        width: 10em;
-        white-space: nowrap;
-
-        line-height: 1;">utility <span style="color:#0093c1">aid</span>
-            <div class="dot-flashing" style="margin-left: 22px;margin-top: 23px;"></div>
-          </p>
-        </div>
-      </div>
+  <!--[if lte IE 9]>
+    <div class="ifIE">
+<span class="d-flex justify-content-center"> <a href="https://support.microsoft.com/en-gb/help/17621/internet-explorer-downloads">Please upgrade your browser</a>and use IE 10 and IE 11.</span>
     </div>
-  </app-root>
+    <![endif]-->
+  <app-root></app-root>
   <!-- Pardot -->
   <script type="text/javascript">
     piAId = '798413';
@@ -212,14 +71,27 @@
       }
     })();
   </script>
-  <script src="runtime-es2015.92deeb6ee5e8fbb89e51.js" type="module"></script>
-  <script src="runtime-es5.92deeb6ee5e8fbb89e51.js" nomodule defer></script>
-  <script src="polyfills-es5.da4d3bc203f08660a710.js" nomodule defer></script>
-  <script src="polyfills-es2015.391ed2cd1c356ef5a972.js" type="module"></script>
-  <script src="main-es2015.2bda785ce62365292173.js" type="module"></script>
-  <script src="main-es5.2bda785ce62365292173.js" nomodule defer></script>
-</body>
+<script src="runtime-es2015.5a914b16a2c51e73fd73.js" type="module"></script><script src="runtime-es5.5a914b16a2c51e73fd73.js" nomodule defer></script><script src="polyfills-es5.b8b73d776db94b66cc6f.js" nomodule defer></script><script src="polyfills-es2015.885914d7851485e63ba3.js" type="module"></script><script src="main-es2015.30993ab02c9936342b0f.js" type="module"></script><script src="main-es5.30993ab02c9936342b0f.js" nomodule defer></script></body>
 <script async>
+  // (function (i, s, o, g, r, a, m) {
+  //   i["GoogleAnalyticsObject"] = r;
+  //   (i[r] =
+  //     i[r] ||
+  //     function () {
+  //       (i[r].q = i[r].q || []).push(arguments);
+  //     }),
+  //   (i[r].l = 1 * new Date());
+  //   (a = s.createElement(o)), (m = s.getElementsByTagName(o)[0]);
+  //   a.async = 1;
+  //   a.src = g;
+  //   m.parentNode.insertBefore(a, m);
+  // })(
+  //   window,
+  //   document,
+  //   "script",
+  //   "//www.google-analytics.com/analytics.js",
+  //   "ga"
+  // );
   (function (i, s, o, g, r, a, m) {
     i['GoogleAnalyticsObject'] = r;
     i[r] = i[r] || function () {
