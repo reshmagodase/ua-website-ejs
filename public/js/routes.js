@@ -109,6 +109,10 @@ app.config(function ($routeProvider, $locationProvider) {
       templateUrl: "views/googlead-thankyou.html",
       controller: "DefaultController"
     })
+    .when("/thankyou-contact/", {
+      templateUrl: "views/contact-thankyou.html",
+      controller: "DefaultController"
+    })
     .when("/engine/", {
       templateUrl: "views/engine.html"
     })
@@ -143,6 +147,14 @@ app.config(function ($routeProvider, $locationProvider) {
     .when("/energy-broker/", {
       templateUrl: "views/energy-brokers.html",
       controller: "energyBrokerCtrl"
+    })
+    .when("/contactform/:query", {
+      templateUrl: "views/contactform.html",
+      controller: "ContactFormCtrl"
+    })
+    .when("/contactform/", {
+      templateUrl: "views/contactform.html",
+      controller: "ContactFormCtrl"
     })
     .otherwise({
       redirectTo: "/"
@@ -875,7 +887,7 @@ app.controller("HomeCtrl", function ($scope, $location, $http) {
   $("#myNavbar").css("display", 'none');
   // $('.navbar-toggle').hide();
   $(".navbar-toggle").css("visibility", 'visible');
-  $(".navbar-collapse").css({ "border-top": "1px solid #e7e7e7" })
+  // $(".navbar-collapse").css({ "border-top": "1px solid #e7e7e7" })
 
   $.post("/getProductList", { collection: "home" }, function (data) {
     $scope.$apply(function () {
@@ -1715,6 +1727,102 @@ app.controller("LOAUploadController", function ($scope, $http) {
 
 
 });
+
+app.controller("ContactFormCtrl", function ($scope, $http,$route) {
+  $scope.$parent.seo = {
+    ogTitle: "UA | Contact",
+    ogDescripton:
+      "We're inspired by the organisations and people we work with. We want to help save them time and money when they source and purchase their energy.",
+    ogImage: "https://www.utility-aid.co.uk/logoUA.png",
+    ogurl: "https://www.utility-aid.co.uk/"
+  };
+
+  $scope.submitContactForm = function () {
+    if (!$scope.validate()) {
+      return false;
+    } else {
+      $(".fa-spinner").show();
+      var data = {
+        name: $scope.name,
+        email: $scope.cvemail,
+        church: $scope.churchName,
+        phone: $scope.phone,
+        source: $route.current.params.query ? $route.current.params.query: "Default URL"
+      };
+      console.log("data", data);
+      $http({
+        url: "/saveContactFormData",
+        method: "POST",
+        data: data,
+        dataType: "json",
+        contentType: "application/json; charset=utf-8"
+      }).then(
+        function (response) {
+          window.location = "/thankyou-contact/";
+          $(".fa-spinner").hide();
+        },
+        function (error) {
+          alert("something went wrong. Please try again.")
+        }
+      );
+    }
+  };
+
+  $scope.makeEmptyValidators = function () {
+    $("#cvnameId").html("");
+    $("#cvemailID").html("");
+    $("#churchID").html("");
+    $("#phoneNoID").html("");
+  };
+
+  $scope.validate = function () {
+    $scope.makeEmptyValidators();
+    var temp = false;
+    if (!$scope.name) {
+      $("#cvnameID").html(
+        "<ul class='errorlist'>This field is required.</ul>"
+      );
+      temp = true;
+    }
+    if ($scope.cvemail == "" || $scope.cvemail == undefined) {
+      $("#cvemailID").html(
+        "<ul class='errorlist'>This field is required.</ul>"
+      );
+      temp = true;
+    } else if ($scope.cvemail != "") {
+      if (!validateEmail($scope.cvemail)) {
+        $("#cvemailID").html(
+          "<ul class='errorlist'>Please enter correct email id.</ul>"
+        );
+        temp = true;
+      }
+    }
+    if (!$scope.churchName) {
+      $("#churchID").html(
+        "<ul class='errorlist'>This field is required.</ul>"
+      );
+      temp = true;
+    }
+
+    if (!$scope.phone) {
+      $("#phoneNoID").html(
+        "<ul class='errorlist'>This field is required.</ul>"
+      );
+      temp = true;
+    }
+
+    function validateEmail(email) {
+      var re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+      return re.test(email);
+    }
+
+    if (temp == true) {
+      return false;
+    } else {
+      return true;
+    }
+  };
+})
 
 app.filter('decodeFilter', function ($sce) {
   return function (input) {

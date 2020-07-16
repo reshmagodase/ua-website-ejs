@@ -1934,6 +1934,60 @@ exports.getLOAData = function (req, res) {
     });
 }
 
+exports.saveContactFormData = function (req, res) {
+    var info = req.body;
+    info.createdDate = new Date();
+    info.updatedDate = new Date();
+
+    db.collection('contactdata', function (err, collection) {
+        collection.insert(info, { safe: true }, function (err, result) {
+            if (err) {
+                res.send({ 'status': 'error', 'message': 'An error has occurred' });
+            }
+            else {
+                console.log(result);
+                var htmlFormat = '<!DOCTYPE html><html lang="en"><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width" /><title>Utility Aid</title><base href="/" /><meta name="viewport" content="width=device-width, initial-scale=1" /><link rel="icon" type="image/x-icon" href="favicon.ico" /></head><body><table><tr><td> Hi,</td></tr><tr><td> New Contact has been received from <b>' + req.body.source + '</b><br><br></td><td> Name <b>' + req.body.name + '</b><br><br></td><td> Email <b>' + req.body.email + '</b><br><br></td><td> Organisation <b>' + req.body.church + '</b><br><br></td><td> Phone No. <b>' + req.body.phone + '</b><br><br></td></tr><tr><td> Kind Regards</td></tr><tr><td> Utility Aid</td></tr></table></body></html>';
+                mailOptions = {
+                    from: "customercare@utility-aid.co.uk",
+                    to: "CustomerCare@utility-aid.co.uk",
+                    // to: "dnyaneshwar@scriptlanes.com",
+                    subject: "New Contact",
+                    html: htmlFormat
+                };
+                console.log('mailOptions', mailOptions);
+                transporter2.sendMail(mailOptions, function (err) {
+                    if (err) {
+                        console.log(err);
+                        res.status(500).end();
+                    }
+                    console.log('Mail sent successfully');
+                    // res.status(200).end()
+                });
+                res.send({ code: 200, result: result });
+            }
+        });
+    });
+}
+
+exports.getContactFormData = function (req, res) {
+    db.collection('contactdata', function (err, collection) {
+        collection.find({}).toArray(function (err, result) {
+            if (err) {
+                res.send({ 'status': 'error', 'message': 'An error has occurred' });
+            }
+            if (result == null) {
+                res.send({ 'status': 'error', 'message': 'Data Not Found' });
+            }
+            if (result !== null) {
+                console.log(result);
+                var data = result;
+                res.send(data);
+            }
+
+        });
+    });
+}
+
 exports.sendGoogleAdContact = function (req, res) {
     var info = req.body;
     info.createdDate = new Date();

@@ -204,10 +204,13 @@ app.post('/sendLOA', service.sendLOA);
 app.post('/changeAddtoCallStatusPardotEmail', service.changeAddtoCallStatusPardotEmail);
 app.post('/uploadLOA', upMulter.array('file', 10), service.uploadLOA);
 app.post('/saveLOA', service.saveLOA);
+
 app.post('/getLOAData', service.getLOAData);
 app.post('/getEmailBySalesforceId', service.getEmailBySalesforceId);
 app.post('/sendGoogleAdContact', service.sendGoogleAdContact);
 app.post('/sendLeadContact', service.sendLeadContact);
+app.post('/saveContactFormData', service.saveContactFormData);
+app.post('/getContactFormData', service.getContactFormData);
 
 app.get('/admin/', function (req, res) {
     req.session.reset();

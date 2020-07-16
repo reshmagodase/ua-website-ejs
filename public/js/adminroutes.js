@@ -119,6 +119,10 @@ app.config(function ($routeProvider, $locationProvider) {
             templateUrl: 'viewsAdmin/addtestimonial.html',
             controller: 'testimonialsCtrl'
         })
+        .when('/admin/contactdata/', {
+            templateUrl: 'viewsAdmin/contactdata.html',
+            controller: 'ContactdataCtrl'
+        })
         .otherwise({
             redirectTo: '/admin/'
         });
@@ -1502,6 +1506,26 @@ app.controller('loaCtrl', function ($scope, $http) {
 
     $scope.noOfPages = Math.ceil($scope.totalItems / $scope.entryLimit);
     $.post("/getLOAData", function (data) {
+        $scope.$apply(function () {
+            $scope.items = data;
+            $scope.datalists = $scope.items;
+
+            $scope.curPage = 0;
+            $scope.pageSize = 50;
+        });
+
+    });
+
+
+    $scope.numberOfPages = function () {
+        return Math.ceil($scope.datalists.length / $scope.pageSize);
+    };
+});
+
+app.controller('ContactdataCtrl', function ($scope, $http) {
+
+    $scope.noOfPages = Math.ceil($scope.totalItems / $scope.entryLimit);
+    $.post("/getContactFormData", function (data) {
         $scope.$apply(function () {
             $scope.items = data;
             $scope.datalists = $scope.items;
