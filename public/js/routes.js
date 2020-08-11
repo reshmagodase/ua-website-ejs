@@ -170,6 +170,7 @@ app.controller("DefaultController", function ($scope, $http, $window, $location)
     ogurl: "https://www.utility-aid.co.uk/"
   };
   $('.navbar').show();
+  $("#myNavbar").css("display", 'block');
 });
 app.controller("whyuaController", function ($scope, $http) {
   $scope.$parent.seo = {
@@ -884,7 +885,7 @@ app.controller("HomeCtrl", function ($scope, $location, $http) {
   };
   $('.navbar').show();
   $("#myNavbar").addClass("collapse");
-  $("#myNavbar").css("display", 'none');
+  // $("#myNavbar").css("display", 'none');
   // $('.navbar-toggle').hide();
   $(".navbar-toggle").css("visibility", 'visible');
   // $(".navbar-collapse").css({ "border-top": "1px solid #e7e7e7" })
