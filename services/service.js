@@ -81,7 +81,9 @@ exports.login = function (req, res) {
 
 
 var transporter = nodemailer.createTransport({
-    service: 'Gmail',
+    // service: 'Gmail',
+    service: "gmail",
+    host: "smtp.gmail.com",
     auth: {
         user: 'uaenergyandutilities@gmail.com',
         pass: 'utilityaid'
