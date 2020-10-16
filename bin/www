@@ -11,10 +11,10 @@ var http = require('http');
 var https = require('https'),
 read = require('fs').readFileSync,
 httpsOptions = {
-    cert: read('./SSL/ua.crt'),
+    cert: read('./SSL/75ed1acef07212a8.crt'),
     key: read('./SSL/ua_private.key'),
     ca: [
-        read('./SSL/ua_bundle.crt')
+        read('./SSL/gd_bundle-g2-g1.crt')
     ]
 };
 
