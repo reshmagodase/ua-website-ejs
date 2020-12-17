@@ -62,8 +62,8 @@ app.use(require('prerender-node').set('prerenderToken', 'e0JuidllFGOBZKApP33v'))
 // app.use(require('prerender-node'));
 app.use(connect_s4a(token));
 // view engine setup
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'ejs');
+// app.set('views', path.join(__dirname, 'views'));
+// app.set('view engine', 'ejs');
 
 
 app.use(logger('dev'));
@@ -75,8 +75,12 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public"), {
     maxAge: "1y"
 }));
-app.use(express.static(path.join(__dirname, 'public/switch/website')));
+
+app.use(express.static(path.join(__dirname, 'public/newTest')));
+app.use(express.static(path.join(__dirname, 'public/indexAdmin.html')));
 app.use(express.static(path.join(__dirname, 'public/switch/admin')));
+app.use(express.static(path.join(__dirname, 'public/switch/website')));
+
 
 
 
@@ -237,7 +241,7 @@ app.get('/new/*', function (req, res) {
     res.sendfile('./public/new/index.html');
 });
 
-app.get('/newTest/*', function (req, res) {
+app.get('*', function (req, res) {
     res.sendfile('./public/newTest/index.html');
 });
 
@@ -245,9 +249,9 @@ app.get('/newTest/*', function (req, res) {
 
 
 
-app.get('*', function (req, res) {
-    res.sendfile('./public/index.html');
-});
+// app.get('*', function (req, res) {
+//     res.sendfile('./public/index.html');
+// });
 
 
 /*=====================================
