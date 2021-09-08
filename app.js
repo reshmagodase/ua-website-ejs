@@ -17,6 +17,7 @@ var session = require('client-sessions');
 var multer = require('multer');
 var multipartyMiddleware = require('connect-multiparty')();
 var xmlparser = require('express-xml-bodyparser');
+var unirest = require("unirest");
 var app = express();
 var http = require('http');
 var redirect = express();
@@ -217,8 +218,17 @@ app.post('/sendLeadContact', service.sendLeadContact);
 app.post('/saveContactFormData', service.saveContactFormData);
 app.post('/getContactFormData', service.getContactFormData);
 app.post('/getsigneddocusigns', function(req, res) {
-    console.log("req", req.body);
-    res.send({code:200});
+    unirest
+      .post("https://utility-aid.co.uk:3001/api/getsigneddocuments")
+      .headers({
+        Accept: "application/json",
+        "Content-Type": "application/json"
+      })
+      .send(req.body)
+      .end(function(response) {
+        // callback(response.body);
+        res.send({code:200});
+      });
 });
 app.get('/admin/', function (req, res) {
     req.session.reset();
