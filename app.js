@@ -224,7 +224,7 @@ app.post('/getsigneddocusigns', function(req, res) {
         Accept: "application/json",
         "Content-Type": "application/json"
       })
-      .send(req.body)
+      .send(req.body.docusignenvelopeinformation.envelopestatus[0])
       .end(function(response) {
         // callback(response.body);
         res.send({code:200});
