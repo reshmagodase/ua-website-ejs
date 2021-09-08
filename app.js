@@ -16,7 +16,7 @@ var service = require('./services/service');
 var session = require('client-sessions');
 var multer = require('multer');
 var multipartyMiddleware = require('connect-multiparty')();
-
+var xmlparser = require('express-xml-bodyparser');
 var app = express();
 var http = require('http');
 var redirect = express();
@@ -71,6 +71,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
     extended: false
 }));
+app.use(xmlparser());
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public"), {
     maxAge: "1y"
@@ -215,7 +216,10 @@ app.post('/sendGoogleAdContact', service.sendGoogleAdContact);
 app.post('/sendLeadContact', service.sendLeadContact);
 app.post('/saveContactFormData', service.saveContactFormData);
 app.post('/getContactFormData', service.getContactFormData);
-
+app.post('/getsigneddocusigns', function(req, res) {
+    console.log("req", req.body);
+    res.send({code:200});
+});
 app.get('/admin/', function (req, res) {
     req.session.reset();
     res.sendfile('./public/indexAdmin.html');
