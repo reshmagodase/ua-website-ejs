@@ -11,7 +11,7 @@ var http = require('http');
 var https = require('https'),
 read = require('fs').readFileSync,
 httpsOptions = {
-    cert: read('./SSL/75ed1acef07212a8.crt'),
+    cert: read('./SSL/e19661c57b64a867.crt'),
     key: read('./SSL/ua_private.key'),
     ca: [
         read('./SSL/gd_bundle-g2-g1.crt')
@@ -31,9 +31,9 @@ app.set('port', port);
  */
 
 // Local Environment
- server = http.createServer(app);
+//  server = http.createServer(app);
 // Live Environment
-//  server = https.createServer(httpsOptions, app);
+ server = https.createServer(httpsOptions, app);
 /**
  * Listen on provided port, on all network interfaces.
  */
