@@ -146,13 +146,13 @@ var upMulter = multer({
 app.post('/login', service.login);
 app.post('/uploadImages', upMulter.array('file', 10), service.uploadImages);
 app.get('/getImages', service.getImages);
-app.get('/getAllImages', service.getAllImages);
+app.get('/getAllImages', service.getAllImages);// not used
 app.post('/uploadAuthorImages', upMulter.array('file', 10), service.uploadAuthorImages);
 app.get('/getAuthorImages', service.getAuthorImages);
 app.post('/uploadPartnerImages', upMulter.array('file', 10), service.uploadPartnerImages);
 app.get('/getPartnerImages', service.getPartnerImages);
-app.post('/uploadPeopleImages', upMulter.array('file', 10), service.uploadPeopleImages);
-app.get('/getPeopleImages', service.getPeopleImages);
+app.post('/uploadPeopleImages', upMulter.array('file', 10), service.uploadPeopleImages);//not used
+app.get('/getPeopleImages', service.getPeopleImages);//not used
 app.post('/uploadBackgroundImages', upMulter.array('file', 10), service.addBackgroundImages);
 app.get('/getBackgroundImages', service.getBackgroundImages);
 app.get('/getAllBackgroundImages', service.getAllBackgroundImages);
@@ -190,7 +190,7 @@ app.post('/getNewsList', service.getNewsList);
 app.post('/addNews', service.addNews);
 app.post('/editNews', service.editNews);
 app.post('/getNewsDetails', service.getNewsDetails);
-app.post("/uploadUANewsPhoto", upMulter.array('file', 10), service.uploadUANewsPhoto);
+app.post("/uploadUANewsPhoto", upMulter.array('file', 10), service.uploadUANewsPhoto);//mot used
 app.post("/uploadCV", upMulter.array('file', 10), service.uploadCV);
 app.post('/addtestimonials', service.addtestimonials);
 app.post('/getTestimonials', service.getTestimonials);
@@ -229,7 +229,7 @@ app.post('/getsigneddocusigns', function(req, res) {
         // callback(response.body);
         res.send({code:200});
       });
-});
+});// later for switching site
 app.get('/admin/', function (req, res) {
     req.session.reset();
     res.sendfile('./public/indexAdmin.html');
