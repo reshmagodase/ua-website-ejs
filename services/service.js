@@ -109,7 +109,7 @@ var transporter2 = nodemailer.createTransport({
     secure: false, // false for TLS - as a boolean not string - but the default is false so just remove this completely
     auth: {
         user: "CustomerCare@utility-aid.com",
-        pass: "Faz98436"
+        pass: "Faz98437"
     },
     tls: {
         ciphers: "SSLv3"
