@@ -197,6 +197,37 @@ app.post('/getTestimonials', service.getTestimonials);
 app.post('/getTestimonialDetails', service.getTestimonialDetails);
 app.post('/edittestimonials', service.edittestimonials);
 
+// new subtab apis
+app.post('/addInvoiceValidationPageData', service.addInvoiceValidationPageData);
+app.get('/getInvoiceValidationPageData', service.getInvoiceValidationPageData);
+app.post('/editInvoiceValidationPageData', service.editInvoiceValidationPageData);
+
+app.post('/addNetZeroPageData', service.addNetZeroPageData);
+app.get('/getNetZeroPageData', service.getNetZeroPageData);
+app.post('/editNetZeroPageData', service.editNetZeroPageData);
+
+app.post('/addVoidManagementServicePageData', service.addVoidManagementServicePageData);
+app.get('/getVoidManagementServicePageData', service.getVoidManagementServicePageData);
+app.post('/editVoidManagementServicePageData', service.editVoidManagementServicePageData);
+
+app.post('/addCustomerCarePageData', service.addCustomerCarePageData);
+app.get('/getCustomerCarePageData', service.getCustomerCarePageData);
+app.post('/editCustomerCarePageData', service.editCustomerCarePageData);
+
+app.post('/addAccountManagementPageData', service.addAccountManagementPageData);
+app.get('/getAccountManagementPageData', service.getAccountManagementPageData);
+app.post('/editAccountManagementPageData', service.editAccountManagementPageData);
+app.post('/sendNetZeroContact', service.sendNetZeroContact);
+
+app.post('/addOurHeritagePageData', service.addOurHeritagePageData);
+app.get('/getOurHeritagePageData', service.getOurHeritagePageData);
+app.post('/editOurHeritagePageData', service.editOurHeritagePageData);
+
+app.post('/addOurTeamPageData', service.addOurTeamPageData);
+app.get('/getOurTeamPageData', service.getOurTeamPageData);
+app.post('/getSingleOurTeamPageData', service.getSingleOurTeamPageData);
+app.post('/editOurTeamPageData', service.editOurTeamPageData);
+
 app.post('/getContactData', service.getContactData);
 app.post('/sendCV', service.sendCV);
 // church campaign
@@ -234,7 +265,7 @@ app.get('/admin/', function (req, res) {
     req.session.reset();
     res.sendfile('./public/indexAdmin.html');
 });
-app.get('/admin/*', requireLogin, function (req, res) {
+app.get('/admin/*', requireLogin,function (req, res) {
     res.sendfile('./public/indexAdmin.html');
 });
 
