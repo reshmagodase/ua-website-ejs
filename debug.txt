@@ -35,3 +35,27 @@
     at D:\Dnyanesh\SL\ua-website\node_modules\mongodb\lib\cursor.js:838:22
     at nextFunction (D:\Dnyanesh\SL\ua-website\node_modules\mongodb-core\lib\cursor.js:609:14)
     at Cursor.next [as _next] (D:\Dnyanesh\SL\ua-website\node_modules\mongodb-core\lib\cursor.js:773:3)
+
+-------Error :------Thu Nov 25 2021 12:51:11 GMT+0000 (UTC)---RangeError: Array buffer allocation failed
+    at new ArrayBuffer (<anonymous>)
+    at typedArrayConstructByLength (<anonymous>)
+    at new Uint8Array (native)
+    at new FastBuffer (buffer.js:38:5)
+    at Function.Buffer.alloc (buffer.js:245:10)
+    at new Buffer (buffer.js:156:19)
+    at Object.decode (/home/ubuntu/ua-website/node_modules/jpeg-js/lib/decoder.js:982:7)
+    at Jimp.parseBitmap (/home/ubuntu/ua-website/node_modules/jimp/index.js:310:36)
+    at /home/ubuntu/ua-website/node_modules/jimp/index.js:202:29
+    at FSReqWrap.readFileAfterClose [as oncomplete] (fs.js:511:3)
+
+-------Error :------Thu Nov 25 2021 14:00:54 GMT+0000 (UTC)---RangeError: Array buffer allocation failed
+    at new ArrayBuffer (<anonymous>)
+    at typedArrayConstructByLength (<anonymous>)
+    at new Uint8Array (native)
+    at new FastBuffer (buffer.js:38:5)
+    at Function.Buffer.alloc (buffer.js:245:10)
+    at new Buffer (buffer.js:156:19)
+    at Object.decode (/home/ubuntu/ua-website/node_modules/jpeg-js/lib/decoder.js:982:7)
+    at Jimp.parseBitmap (/home/ubuntu/ua-website/node_modules/jimp/index.js:310:36)
+    at /home/ubuntu/ua-website/node_modules/jimp/index.js:202:29
+    at FSReqWrap.readFileAfterClose [as oncomplete] (fs.js:511:3)
