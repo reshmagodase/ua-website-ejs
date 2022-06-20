@@ -2410,8 +2410,8 @@ exports.editAccountManagementPageData = function (req, res) {
 
 exports.sendNetZeroContact = function (req, res) {
     console.log(req.body);
-    // var reciepients = "customercare@utility-aid.co.uk";
-    var reciepients = "dnyaneshwar@scriptlanes.com";
+    var reciepients = "customercare@utility-aid.co.uk";
+    // var reciepients = "dnyaneshwar@scriptlanes.com";
 
     console.log('reciepients', reciepients);
     mailOptions = {
