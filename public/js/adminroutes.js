@@ -123,6 +123,37 @@ app.config(function ($routeProvider, $locationProvider) {
             templateUrl: 'viewsAdmin/contactdata.html',
             controller: 'ContactdataCtrl'
         })
+        .when('/admin/invoicevalidation/', {
+            templateUrl: 'viewsAdmin/invoicevalidation.html',
+            controller: 'invoicevalidationCtrl'
+        })
+        .when('/admin/netzero/', {
+            templateUrl: 'viewsAdmin/netZero.html',
+            controller: 'netZeroCtrl'
+        })
+        .when('/admin/voidmanagement/', {
+            templateUrl: 'viewsAdmin/voidmanagement.html',
+            controller: 'voidmanagementCtrl'
+        })
+        .when('/admin/customercare/', {
+            templateUrl: 'viewsAdmin/customercare.html',
+            controller: 'customercareCtrl'
+        })
+        .when('/admin/accountmanagement/', {
+            templateUrl: 'viewsAdmin/accountmanagement.html',
+            controller: 'accountmanagementCtrl'
+        })
+        .when('/admin/teamlist/', {
+            templateUrl: 'viewsAdmin/teamList.html',
+            controller: 'TeamListCtrl'
+        })
+        .when('/admin/team/', {
+            templateUrl: 'viewsAdmin/team.html'
+        })
+        .when('/admin/ourheritage/', {
+            templateUrl: 'viewsAdmin/ourHeritage.html',
+            controller: 'ourHeritageCtrl'
+        })
         .otherwise({
             redirectTo: '/admin/'
         });
@@ -1540,6 +1571,412 @@ app.controller('ContactdataCtrl', function ($scope, $http) {
     $scope.numberOfPages = function () {
         return Math.ceil($scope.datalists.length / $scope.pageSize);
     };
+});
+
+// Our services code
+
+app.controller('invoicevalidationCtrl', function ($scope, $http) {
+
+    console.log("in invoicevalidationCtrl")
+
+    $("#txtEditor23").Editor();
+    $("#txtEditor21").Editor();
+    $("#txtEditor22").Editor();
+
+    $("#txtEditor31").Editor();
+    $("#txtEditor41").Editor();
+
+    $.get("/getInvoiceValidationPageData", function (data) {
+        $scope.objectId = "";
+        $scope.$apply(function () {
+            $scope.voidItems = data;
+            $scope.objectId = data[0]._id;
+            $("#txtEditor3 .Editor-editor").html(decodeURIComponent(data[0].txtEditor3));
+            $("#text1").val(data[0].text1);
+            $("#text2").val(data[0].text2);
+            $("#text3").val(data[0].text3);
+            $("#txtEditor1 .Editor-editor").html(decodeURIComponent(data[0].txtEditor1));
+            $("#txtEditor2 .Editor-editor").html(decodeURIComponent(data[0].txtEditor2));
+            $("#txtEditor4 .Editor-editor").html(decodeURIComponent(data[0].txtEditor4));
+            $("#txtEditor5 .Editor-editor").html(decodeURIComponent(data[0].txtEditor5));
+        });
+    });
+
+    $('form').submit(function (evt) {
+        evt.preventDefault();
+        // $("#objectId").val(getQueryStringValue("id"));
+        var formDataAppend = "";
+        var formData = $(this).serialize();
+        
+        let txtEditor1 = encodeURIComponent($('#txtEditor1 .Editor-editor').html())
+        let txtEditor2 = encodeURIComponent($('#txtEditor2 .Editor-editor').html())
+        let txtEditor3 = encodeURIComponent($('#txtEditor3 .Editor-editor').html())
+        let txtEditor4 = encodeURIComponent($('#txtEditor4 .Editor-editor').html())
+        let txtEditor5 = encodeURIComponent($('#txtEditor5 .Editor-editor').html())
+        // formData = formData + '&txtEditor=' + txtEditor+'&txtEditor1='+txtEditor1+'&txtEditor2='+txtEditor2+"&objectId="+$scope.objectId;
+        // console.log("formData", formData);
+        let formData1 = {
+            txtEditor1: txtEditor1,
+            txtEditor2: txtEditor2,
+            txtEditor3: txtEditor3,
+            txtEditor4: txtEditor4,
+            txtEditor5: txtEditor5,
+            objectId: $scope.objectId,
+            text1: $("#text1").val(),
+            text2: $("#text2").val(),
+            text3: $("#text3").val()
+        }
+        console.log("formData1", formData1);
+        var url;
+        if (!$scope.objectId) {
+            url = "/addInvoiceValidationPageData";
+        } else {
+            url = "/editInvoiceValidationPageData";
+        }
+        console.log("");
+        var getCallback = function (response) {
+            alert("Data added successfully!");
+            window.location = "/admin/invoicevalidation/";
+        };
+        $.ajax({
+            url: url,
+            type: "POST",
+            data: formData1,
+            success: getCallback
+        });
+    });
+});
+
+app.controller('netZeroCtrl', function ($scope, $http) {
+
+    console.log("in netZeroCtrl")
+
+    $("#txtEditor23").Editor();
+    $("#txtEditor21").Editor();
+    $("#txtEditor22").Editor();
+
+    $("#txtEditor31").Editor();
+    $("#txtEditor41").Editor();
+
+    $.get("/getNetZeroPageData", function (data) {
+        $scope.objectId = "";
+        $scope.$apply(function () {
+            $scope.voidItems = data;
+            $scope.objectId = data[0]._id;
+            $("#txtEditor3 .Editor-editor").html(decodeURIComponent(data[0].txtEditor3));
+            $("#text1").val(data[0].text1);
+            $("#txtEditor1 .Editor-editor").html(decodeURIComponent(data[0].txtEditor1));
+            $("#txtEditor2 .Editor-editor").html(decodeURIComponent(data[0].txtEditor2));
+            $("#txtEditor4 .Editor-editor").html(decodeURIComponent(data[0].txtEditor4));
+            $("#txtEditor5 .Editor-editor").html(decodeURIComponent(data[0].txtEditor5));
+        });
+    });
+
+    $('form').submit(function (evt) {
+        evt.preventDefault();
+        // $("#objectId").val(getQueryStringValue("id"));
+        var formDataAppend = "";
+        var formData = $(this).serialize();
+        
+        let txtEditor1 = encodeURIComponent($('#txtEditor1 .Editor-editor').html())
+        let txtEditor2 = encodeURIComponent($('#txtEditor2 .Editor-editor').html())
+        let txtEditor3 = encodeURIComponent($('#txtEditor3 .Editor-editor').html())
+        let txtEditor4 = encodeURIComponent($('#txtEditor4 .Editor-editor').html())
+        let txtEditor5 = encodeURIComponent($('#txtEditor5 .Editor-editor').html())
+        // formData = formData + '&txtEditor=' + txtEditor+'&txtEditor1='+txtEditor1+'&txtEditor2='+txtEditor2+"&objectId="+$scope.objectId;
+        // console.log("formData", formData);
+        let formData1 = {
+            txtEditor1: txtEditor1,
+            txtEditor2: txtEditor2,
+            txtEditor3: txtEditor3,
+            txtEditor4: txtEditor4,
+            txtEditor5: txtEditor5,
+            objectId: $scope.objectId,
+            text1: $("#text1").val()
+        }
+        console.log("formData1", formData1);
+        var url;
+        if (!$scope.objectId) {
+            url = "/addNetZeroPageData";
+        } else {
+            url = "/editNetZeroPageData";
+        }
+        console.log("");
+        var getCallback = function (response) {
+            alert("Data added successfully!");
+            window.location = "/admin/netzero/";
+        };
+        $.ajax({
+            url: url,
+            type: "POST",
+            data: formData1,
+            success: getCallback
+        });
+    });
+});
+
+app.controller('voidmanagementCtrl', function ($scope, $http) {
+
+    console.log("in voidmanagementCtrl");
+    $("#txtEditor20").Editor();
+    $("#txtEditor21").Editor();
+    $("#txtEditor22").Editor();
+
+    $.get("/getVoidManagementServicePageData", function (data) {
+        $scope.$apply(function () {
+            $scope.voidItems = data;
+            $scope.objectId = data[0]._id;
+            $("#txtEditor .Editor-editor").html(decodeURIComponent(data[0].txtEditor));
+            $("#text1").val(data[0].text1);
+            $("#txtEditor1 .Editor-editor").html(decodeURIComponent(data[0].txtEditor1));
+            $("#txtEditor2 .Editor-editor").html(decodeURIComponent(data[0].txtEditor2));
+        });
+    });
+
+    $('form').submit(function (evt) {
+        evt.preventDefault();
+        // $("#objectId").val(getQueryStringValue("id"));
+        var formDataAppend = "";
+        var formData = $(this).serialize();
+        let txtEditor = encodeURIComponent($('#txtEditor .Editor-editor').html())
+        let txtEditor1 = encodeURIComponent($('#txtEditor1 .Editor-editor').html())
+        let txtEditor2 = encodeURIComponent($('#txtEditor2 .Editor-editor').html())
+        // formData = formData + '&txtEditor=' + txtEditor+'&txtEditor1='+txtEditor1+'&txtEditor2='+txtEditor2+"&objectId="+$scope.objectId;
+        // console.log("formData", formData);
+        let formData1 = {
+            txtEditor: txtEditor,
+            txtEditor1: txtEditor1,
+            txtEditor2: txtEditor2,
+            objectId: $scope.objectId,
+            text1: $("#text1").val()
+        }
+        console.log("formData1", formData1);
+        var url;
+        if (!objectId) {
+            url = "/addVoidManagementServicePageData";
+        } else {
+            url = "/editVoidManagementServicePageData";
+        }
+        var getCallback = function (response) {
+            alert("Data added successfully!");
+            window.location = "/admin/voidmanagement/";
+        };
+        $.ajax({
+            url: url,
+            type: "POST",
+            data: formData1,
+            success: getCallback
+        });
+    });
+});
+
+app.controller('customercareCtrl', function ($scope, $http) {
+
+    console.log("in customercareCtrl")
+
+    // $("#txtEditor23").Editor();
+    $("#txtEditor21").Editor();
+    // $("#txtEditor22").Editor();
+
+    // $("#txtEditor31").Editor();
+    // $("#txtEditor41").Editor();
+
+    $.get("/getCustomerCarePageData", function (data) {
+        $scope.objectId = "";
+        $scope.$apply(function () {
+            $scope.voidItems = data;
+            $scope.objectId = data[0]._id;
+            // $("#txtEditor3 .Editor-editor").html(decodeURIComponent(data[0].txtEditor3));
+            $("#text1").val(data[0].text1);
+            $("#txtEditor1 .Editor-editor").html(decodeURIComponent(data[0].txtEditor1));
+            // $("#txtEditor2 .Editor-editor").html(decodeURIComponent(data[0].txtEditor2));
+            // $("#txtEditor4 .Editor-editor").html(decodeURIComponent(data[0].txtEditor4));
+            // $("#txtEditor5 .Editor-editor").html(decodeURIComponent(data[0].txtEditor5));
+        });
+    });
+
+    $('form').submit(function (evt) {
+        evt.preventDefault();
+        // $("#objectId").val(getQueryStringValue("id"));
+        var formDataAppend = "";
+        var formData = $(this).serialize();
+        
+        let txtEditor1 = encodeURIComponent($('#txtEditor1 .Editor-editor').html())
+        // let txtEditor2 = encodeURIComponent($('#txtEditor2 .Editor-editor').html())
+        // let txtEditor3 = encodeURIComponent($('#txtEditor3 .Editor-editor').html())
+        // let txtEditor4 = encodeURIComponent($('#txtEditor4 .Editor-editor').html())
+        // let txtEditor5 = encodeURIComponent($('#txtEditor5 .Editor-editor').html())
+        // formData = formData + '&txtEditor=' + txtEditor+'&txtEditor1='+txtEditor1+'&txtEditor2='+txtEditor2+"&objectId="+$scope.objectId;
+        // console.log("formData", formData);
+        let formData1 = {
+            txtEditor1: txtEditor1,
+            // txtEditor2: txtEditor2,
+            // txtEditor3: txtEditor3,
+            // txtEditor4: txtEditor4,
+            // txtEditor5: txtEditor5,
+            objectId: $scope.objectId,
+            text1: $("#text1").val()
+        }
+        console.log("formData1", formData1);
+        var url;
+        if (!$scope.objectId) {
+            url = "/addCustomerCarePageData";
+        } else {
+            url = "/editCustomerCarePageData";
+        }
+        console.log("");
+        var getCallback = function (response) {
+            alert("Data added successfully!");
+            window.location = "/admin/customercare/";
+        };
+        $.ajax({
+            url: url,
+            type: "POST",
+            data: formData1,
+            success: getCallback
+        });
+    });
+});
+
+app.controller('accountmanagementCtrl', function ($scope, $http) {
+    
+    console.log("in accountmanagementCtrl")
+    $("#txtEditor21").Editor();
+
+    $.get("/getAccountManagementPageData", function (data) {
+        $scope.objectId = "";
+        $scope.$apply(function () {
+            $scope.voidItems = data;
+            $scope.objectId = data[0]._id;
+            $("#txtEditor1 .Editor-editor").html(decodeURIComponent(data[0].txtEditor1));
+        });
+    });
+
+    $('form').submit(function (evt) {
+        evt.preventDefault();
+        var formDataAppend = "";
+        var formData = $(this).serialize();
+        
+        let txtEditor1 = encodeURIComponent($('#txtEditor1 .Editor-editor').html())
+        let formData1 = {
+            txtEditor1: txtEditor1,
+            objectId: $scope.objectId
+        }
+        console.log("formData1", formData1);
+        var url;
+        if (!$scope.objectId) {
+            url = "/addAccountManagementPageData";
+        } else {
+            url = "/editAccountManagementPageData";
+        }
+        console.log("");
+        var getCallback = function (response) {
+            alert("Data added successfully!");
+            window.location = "/admin/accountmanagement/";
+        };
+        $.ajax({
+            url: url,
+            type: "POST",
+            data: formData1,
+            success: getCallback
+        });
+    });
+});
+
+app.controller('ourHeritageCtrl', function ($scope, $http) {
+    $("#successMsg").css("display", "none");
+    // $("#text4").Editor();
+
+    $.get("/getOurHeritagePageData", function (data) {
+        $scope.$apply(function () {
+            $scope.objectId = data[0]._id;
+            // $("#editor1 .Editor-editor").html(decodeURIComponent(data[0].text4));
+            $("#text1").val(data[0].text1);
+            $("#text2").val(data[0].text2);
+            $("#text3").val(data[0].text3);
+        });
+    });
+
+    $('form').submit(function (evt) {
+        evt.preventDefault();
+        var formData = {
+            "objectId": $scope.objectId,
+            "text1": $("#text1").val(),
+            "text2": $("#text2").val(),
+            "text3": $("#text3").val(),
+            "collection": "ourheritage"
+        }
+
+
+        var url = "/editOurHeritagePageData";
+        if (!$scope.objectId) {
+            url = "/addOurHeritagePageData";
+        } else {
+            url = "/editOurHeritagePageData";
+        }
+        var getCallback = function (response) {
+            alert("Data added successfully!");
+            $("#successMsg").css("display", "block");
+        };
+        $.ajax({
+            url: url,
+            type: "POST",
+            data: formData,
+            contentType: "application/x-www-form-urlencoded; charset=UTF-8",
+            success: getCallback
+        });
+    });// form submit end
+
+});
+
+app.controller('TeamListCtrl', function ($scope, $http) {
+
+
+    function formatDate(date) {
+        var monthNames = [
+            "January", "February", "March",
+            "April", "May", "June", "July",
+            "August", "September", "October",
+            "November", "December"
+        ];
+        var day = date.getDate();
+        var monthIndex = date.getMonth();
+        var year = date.getFullYear();
+
+        return day + ' ' + monthNames[monthIndex] + ' ' + year;
+    }
+
+
+    $.get("/getOurTeamPageData", {}, function (data) {
+        var tbl = $("<table/>").attr("id", "mytable");
+        $("#div1").append(tbl);
+        $("#mytable").append("<tbody>");
+        for (var i = 0; i < data.length; i++) {
+            var img1 = data[i]["heading"];
+
+            var IsPublished;
+            if (data[i]["active"] == 'on') {
+                IsPublished = " <i class='glyphicon glyphicon-ok'></i>"
+
+            }
+            else {
+                IsPublished = " <i class='glyphicon glyphicon-remove'></i>"
+            }
+            var td1 = "<tr><td>" + IsPublished + "</td>"
+            var td2 = "<td>" + data[i]["name"] + "</td>";
+            var td3 = "<td>" + data[i]["heading"] + "</td>"
+            var td4 = '<td><img src="' + data[i]["image"] + '" style="height:100px"/></td>'
+            var td5 = "<td><a href='/admin/team?id=" + data[i]["_id"] + "'>Edit Content</a> </td></tr>"
+
+
+            $("#mytable").append(td1 + td2 + td3 + td4 + td5);
+
+        }
+        $("#mytable").append("</tbody>");
+
+    });
+
+
 });
 
 app.filter('startPagination', function () {

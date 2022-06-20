@@ -2131,6 +2131,436 @@ exports.edittestimonials = function (req, res) {
     });
 }
 
+// SUB Tabs api from here
+
+exports.addInvoiceValidationPageData = function (req, res) {
+    console.log('req', req.body);
+    db.collection('invoicevalidation', function (err, collection) {
+        collection.insert(req.body, { safe: true }, function (err, result) {
+            console.log('error', err)
+            if (err) {
+                res.send({ 'status': 'error', 'message': 'An error has occurred' });
+            }
+            else {
+                console.log(result);
+                res.send({ code: 200, result: result });
+            }
+        })
+    })
+}
+
+exports.getInvoiceValidationPageData = function (req, res) {
+    // console.log('objectId', objectId);
+    db.collection('invoicevalidation', function (err, collection) {
+        console.log(req.body.objectId);
+        collection.find({}).toArray(function (err, result) {
+            console.log('result', result)
+            if (err) {
+                res.send({ 'status': 'error', 'message': 'An error has occurred' });
+            }
+            if (result == null) {
+                res.send({ 'status': 'error', 'message': 'Data Not Found' });
+            }
+            if (result !== null) {
+                res.send(result);
+            }
+        });
+    });
+}
+
+exports.editInvoiceValidationPageData = function (req, res) {
+    var info = req.body;
+    var id = req.body.objectId;
+    info.updatedDate = new Date().getTime().toString();
+
+    delete info.objectId;
+    db.collection('invoicevalidation', function (err, collection) {
+        collection.update({ '_id': new ObjectID(id) }, info, { safe: true }, function (err, result) {
+            if (err) {
+                res.send({ 'status': 'error', 'message': 'An error has occurred' });
+            }
+            else {
+                console.log(result);
+                res.send({ 'status': 'success', 'message': 'Data Updated successfully' });
+            }
+        });
+    });
+}
+
+// net zero page
+
+exports.addNetZeroPageData = function (req, res) {
+    console.log('req', req.body);
+    db.collection('netzero', function (err, collection) {
+        collection.insert(req.body, { safe: true }, function (err, result) {
+            console.log('error', err)
+            if (err) {
+                res.send({ 'status': 'error', 'message': 'An error has occurred' });
+            }
+            else {
+                console.log(result);
+                res.send({ code: 200, result: result });
+            }
+        })
+    })
+}
+
+exports.getNetZeroPageData = function (req, res) {
+    // console.log('objectId', objectId);
+    db.collection('netzero', function (err, collection) {
+        console.log(req.body.objectId);
+        collection.find({}).toArray(function (err, result) {
+            console.log('result', result)
+            if (err) {
+                res.send({ 'status': 'error', 'message': 'An error has occurred' });
+            }
+            if (result == null) {
+                res.send({ 'status': 'error', 'message': 'Data Not Found' });
+            }
+            if (result !== null) {
+                res.send(result);
+            }
+        });
+    });
+}
+
+exports.editNetZeroPageData = function (req, res) {
+    var info = req.body;
+    var id = req.body.objectId;
+    info.updatedDate = new Date().getTime().toString();
+
+    delete info.objectId;
+    db.collection('netzero', function (err, collection) {
+        collection.update({ '_id': new ObjectID(id) }, info, { safe: true }, function (err, result) {
+            if (err) {
+                res.send({ 'status': 'error', 'message': 'An error has occurred' });
+            }
+            else {
+                console.log(result);
+                res.send({ 'status': 'success', 'message': 'Data Updated successfully' });
+            }
+        });
+    });
+}
+
+// -Void Management Service
+exports.addVoidManagementServicePageData = function (req, res) {
+    console.log('req', req.body);
+    db.collection('voidservices', function (err, collection) {
+        collection.insert(req.body, { safe: true }, function (err, result) {
+            console.log('error', err)
+            if (err) {
+                res.send({ 'status': 'error', 'message': 'An error has occurred' });
+            }
+            else {
+                console.log(result);
+                res.send({ code: 200, result: result });
+            }
+        })
+    })
+}
+
+exports.getVoidManagementServicePageData = function (req, res) {
+    // console.log('objectId', objectId);
+    db.collection('voidservices', function (err, collection) {
+        console.log("err", err);
+        collection.find({}).toArray(function (err, result) {
+            console.log('result', result)
+            if (err) {
+                res.send({ 'status': 'error', 'message': 'An error has occurred' });
+            }
+            if (result == null) {
+                res.send({ 'status': 'error', 'message': 'Data Not Found' });
+            }
+            if (result !== null) {
+                res.send(result);
+            }
+        });
+    });
+}
+
+exports.editVoidManagementServicePageData = function (req, res) {
+    var info = req.body;
+    var id = req.body.objectId;
+    info.updatedDate = new Date().getTime().toString();
+
+    delete info.objectId;
+    db.collection('voidservices', function (err, collection) {
+        collection.update({ '_id': new ObjectID(id) }, info, { safe: true }, function (err, result) {
+            if (err) {
+                res.send({ 'status': 'error', 'message': 'An error has occurred' });
+            }
+            else {
+                console.log(result);
+                res.send({ 'status': 'success', 'message': 'Data Updated successfully' });
+            }
+        });
+    });
+}
+
+// Customer Care
+exports.addCustomerCarePageData = function (req, res) {
+    console.log('req', req.body);
+    db.collection('customercarepage', function (err, collection) {
+        collection.insert(req.body, { safe: true }, function (err, result) {
+            console.log('error', err)
+            if (err) {
+                res.send({ 'status': 'error', 'message': 'An error has occurred' });
+            }
+            else {
+                console.log(result);
+                res.send({ code: 200, result: result });
+            }
+        })
+    })
+}
+
+exports.getCustomerCarePageData = function (req, res) {
+    // console.log('objectId', objectId);
+    db.collection('customercarepage', function (err, collection) {
+        console.log(req.body.objectId);
+        collection.find({}).toArray(function (err, result) {
+            console.log('result', result)
+            if (err) {
+                res.send({ 'status': 'error', 'message': 'An error has occurred' });
+            }
+            if (result == null) {
+                res.send({ 'status': 'error', 'message': 'Data Not Found' });
+            }
+            if (result !== null) {
+                res.send(result);
+            }
+        });
+    });
+}
+
+exports.editCustomerCarePageData = function (req, res) {
+    var info = req.body;
+    var id = req.body.objectId;
+    info.updatedDate = new Date().getTime().toString();
+
+    delete info.objectId;
+    db.collection('customercarepage', function (err, collection) {
+        collection.update({ '_id': new ObjectID(id) }, info, { safe: true }, function (err, result) {
+            if (err) {
+                res.send({ 'status': 'error', 'message': 'An error has occurred' });
+            }
+            else {
+                console.log(result);
+                res.send({ 'status': 'success', 'message': 'Data Updated successfully' });
+            }
+        });
+    });
+}
+
+// -Account Management
+exports.addAccountManagementPageData = function (req, res) {
+    console.log('req', req.body);
+    db.collection('accountmanagement', function (err, collection) {
+        collection.insert(req.body, { safe: true }, function (err, result) {
+            console.log('error', err)
+            if (err) {
+                res.send({ 'status': 'error', 'message': 'An error has occurred' });
+            }
+            else {
+                console.log(result);
+                res.send({ code: 200, result: result });
+            }
+        })
+    })
+}
+
+exports.getAccountManagementPageData = function (req, res) {
+    // console.log('objectId', objectId);
+    db.collection('accountmanagement', function (err, collection) {
+        console.log(req.body.objectId);
+        collection.find({}).toArray(function (err, result) {
+            console.log('result', result)
+            if (err) {
+                res.send({ 'status': 'error', 'message': 'An error has occurred' });
+            }
+            if (result == null) {
+                res.send({ 'status': 'error', 'message': 'Data Not Found' });
+            }
+            if (result !== null) {
+                res.send(result);
+            }
+        });
+    });
+}
+
+exports.editAccountManagementPageData = function (req, res) {
+    var info = req.body;
+    var id = req.body.objectId;
+    info.updatedDate = new Date().getTime().toString();
+
+    delete info.objectId;
+    db.collection('accountmanagement', function (err, collection) {
+        collection.update({ '_id': new ObjectID(id) }, info, { safe: true }, function (err, result) {
+            if (err) {
+                res.send({ 'status': 'error', 'message': 'An error has occurred' });
+            }
+            else {
+                console.log(result);
+                res.send({ 'status': 'success', 'message': 'Data Updated successfully' });
+            }
+        });
+    });
+}
+
+exports.sendNetZeroContact = function (req, res) {
+    console.log(req.body);
+    // var reciepients = "customercare@utility-aid.co.uk";
+    var reciepients = "dnyaneshwar@scriptlanes.com";
+
+    console.log('reciepients', reciepients);
+    mailOptions = {
+        from: "customercare@utility-aid.co.uk",
+        to: reciepients,
+        subject: "NETZERO",
+        html: "<p> Name: <b>" + req.body.name + "</b></p><p> Phone: <b>" + req.body.phone + "</b></p><p> email: <b>" + req.body.email + "</b></p><p> Comment/Question: <b>" + req.body.comment + "</b></p>"
+    };
+    console.log('mailOptions', mailOptions);
+    transporter2.sendMail(mailOptions, function (err) {
+        if (err) {
+            console.log(err);
+            res.status(500).end();
+        }
+        console.log('Mail sent successfully');
+        res.status(200).end()
+    });
+};
+
+// -Our heritage
+exports.addOurHeritagePageData = function (req, res) {
+    console.log('req', req.body);
+    db.collection('ourheritage', function (err, collection) {
+        collection.insert(req.body, { safe: true }, function (err, result) {
+            console.log('error', err)
+            if (err) {
+                res.send({ 'status': 'error', 'message': 'An error has occurred' });
+            }
+            else {
+                console.log(result);
+                res.send({ code: 200, result: result });
+            }
+        })
+    })
+}
+
+exports.getOurHeritagePageData = function (req, res) {
+    // console.log('objectId', objectId);
+    db.collection('ourheritage', function (err, collection) {
+        console.log(req.body.objectId);
+        collection.find({}).toArray(function (err, result) {
+            console.log('result', result)
+            if (err) {
+                res.send({ 'status': 'error', 'message': 'An error has occurred' });
+            }
+            if (result == null) {
+                res.send({ 'status': 'error', 'message': 'Data Not Found' });
+            }
+            if (result !== null) {
+                res.send(result);
+            }
+        });
+    });
+}
+
+exports.editOurHeritagePageData = function (req, res) {
+    var info = req.body;
+    var id = req.body.objectId;
+    info.updatedDate = new Date().getTime().toString();
+
+    delete info.objectId;
+    db.collection('ourheritage', function (err, collection) {
+        collection.update({ '_id': new ObjectID(id) }, info, { safe: true }, function (err, result) {
+            if (err) {
+                res.send({ 'status': 'error', 'message': 'An error has occurred' });
+            }
+            else {
+                console.log(result);
+                res.send({ 'status': 'success', 'message': 'Data Updated successfully' });
+            }
+        });
+    });
+}
+
+// -Our Team
+exports.addOurTeamPageData = function (req, res) {
+    console.log('req', req.body);
+    db.collection('ourteam', function (err, collection) {
+        collection.insert(req.body, { safe: true }, function (err, result) {
+            console.log('error', err)
+            if (err) {
+                res.send({ 'status': 'error', 'message': 'An error has occurred' });
+            }
+            else {
+                console.log(result);
+                res.send({ code: 200, result: result });
+            }
+        })
+    })
+}
+
+exports.getOurTeamPageData = function (req, res) {
+    // console.log('objectId', objectId);
+    db.collection('ourteam', function (err, collection) {
+        console.log(req.body.objectId);
+        collection.find({}).toArray(function (err, result) {
+            console.log('result', result)
+            if (err) {
+                res.send({ 'status': 'error', 'message': 'An error has occurred' });
+            }
+            if (result == null) {
+                res.send({ 'status': 'error', 'message': 'Data Not Found' });
+            }
+            if (result !== null) {
+                res.send(result);
+            }
+        });
+    });
+}
+
+exports.getSingleOurTeamPageData = function (req, res) {
+    var id = req.body.objectId;
+    var collection = req.body.collection;
+    db.collection("ourteam", function (err, collection) {
+        collection.find({ '_id': new ObjectID(id) }).toArray(function (err, result) {
+            if (err) {
+                res.send({ 'status': 'error', 'message': 'An error has occurred' });
+            }
+            if (result == null) {
+                res.send({ 'status': 'error', 'message': 'Data Not Found' });
+            }
+            if (result !== null) {
+                console.log(result);
+                var data = result[0];
+                res.send(data);
+            }
+
+        });
+    });
+};
+
+exports.editOurTeamPageData = function (req, res) {
+    var info = req.body;
+    var id = req.body.objectId;
+    info.updatedDate = new Date().getTime().toString();
+
+    delete info.objectId;
+    db.collection('ourteam', function (err, collection) {
+        collection.update({ '_id': new ObjectID(id) }, info, { safe: true }, function (err, result) {
+            if (err) {
+                res.send({ 'status': 'error', 'message': 'An error has occurred' });
+            }
+            else {
+                console.log(result);
+                res.send({ 'status': 'success', 'message': 'Data Updated successfully' });
+            }
+        });
+    });
+}
 /*=================================================
  * ua-energy API calls ends here
  * =================================================*/
