@@ -1,0 +1,102 @@
+<div ng-include src="'viewsAdmin/partials/header.html'"></div>
+<div class="content">
+    <div class="inner">
+        <h1>National Charity Tender</h1>
+    </div>
+    <div class="clearfix"></div>
+
+
+    <div id="content-main">
+
+        <form enctype="multipart/form-data" action="" method="post" id="add_edit_translation_form"
+            class="form-horizontal">
+            <input type="hidden" id="objectId" name="objectId" />
+
+            <div>
+
+                <div class="inner">
+
+
+                    <fieldset class="">
+
+                        <h2>Page content</h2>
+
+
+                        <div class="form-row">
+                            <div class="field-box field-page_content_extended_title required">
+
+
+                                <div class="form-group">
+                                    <label class="">Text 1</label>
+
+                                    <div class="control-group">
+
+                                        <textarea cols="40" id="text1" name="text1" rows="10"></textarea>
+
+
+                                    </div>
+
+                                </div>
+                                <div class="form-group">
+                                    <label class="">Text 2</label>
+
+                                    <div class="control-group">
+
+
+                                        <textarea cols="40" id="text2" name="text2" rows="10"></textarea>
+
+
+                                    </div>
+
+                                </div>
+                                <div class="form-group">
+                                    <label class="">Text 3</label>
+
+                                    <div class="control-group">
+
+                                        <textarea cols="40" id="text3" name="text3" rows="10"></textarea>
+
+
+                                    </div>
+
+                                </div>
+
+                                <div class="form-row">
+                                    <div class="field-box field-page_content_body required">
+                                        <div class="form-group">
+                                            <label for="txtEditor21" class="">Text 4</label>
+                                            <div class="control-group" id="txtEditor4">
+                                                <textarea id="text4" name="text4"></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </fieldset>
+
+                    <div class="">
+                        <div class="col-md-4">
+                            <input type="submit" value="Save" class="btn btn-primary" name="_save">
+
+                        </div>
+                        <div class="col-md-4">
+                            <div id="successMsg" style="text-align: center;">
+                                Saved Successfully!
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+
+
+        </form>
+    </div>
+
+
+    <div class="clearfix" style="padding-bottom: 50px;"></div>
+</div>

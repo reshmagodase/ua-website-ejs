@@ -154,6 +154,10 @@ app.config(function ($routeProvider, $locationProvider) {
             templateUrl: 'viewsAdmin/ourHeritage.html',
             controller: 'ourHeritageCtrl'
         })
+        .when('/admin/national-charity/', {
+            templateUrl: 'viewsAdmin/national_charity.html',
+            controller: 'nationalCharityCtrl'
+        })
         .otherwise({
             redirectTo: '/admin/'
         });
@@ -632,7 +636,7 @@ app.controller('PartnerAddCtrl', function ($scope, $http) {
     var url = "/getPartnerDetails";
     var formData = '{"objectId":"' + getQueryStringValue("id") + '"}';
 
-    console.log('--------',formData);
+    console.log('--------', formData);
 
     var getCallback = function (response) {
         console.log(response);
@@ -1484,7 +1488,7 @@ app.controller('testimonialsCtrl', function ($scope, $http) {
 
     });
 
-    if(getQueryStringValue("id")) {
+    if (getQueryStringValue("id")) {
         $.post("/getTestimonialDetails", { "objectId": getQueryStringValue("id") }, function (data) {
             $scope.$apply(function () {
                 $scope.objectId = data._id;
@@ -1607,7 +1611,7 @@ app.controller('invoicevalidationCtrl', function ($scope, $http) {
         // $("#objectId").val(getQueryStringValue("id"));
         var formDataAppend = "";
         var formData = $(this).serialize();
-        
+
         let txtEditor1 = encodeURIComponent($('#txtEditor1 .Editor-editor').html())
         let txtEditor2 = encodeURIComponent($('#txtEditor2 .Editor-editor').html())
         let txtEditor3 = encodeURIComponent($('#txtEditor3 .Editor-editor').html())
@@ -1677,7 +1681,7 @@ app.controller('netZeroCtrl', function ($scope, $http) {
         // $("#objectId").val(getQueryStringValue("id"));
         var formDataAppend = "";
         var formData = $(this).serialize();
-        
+
         let txtEditor1 = encodeURIComponent($('#txtEditor1 .Editor-editor').html())
         let txtEditor2 = encodeURIComponent($('#txtEditor2 .Editor-editor').html())
         let txtEditor3 = encodeURIComponent($('#txtEditor3 .Editor-editor').html())
@@ -1800,7 +1804,7 @@ app.controller('customercareCtrl', function ($scope, $http) {
         // $("#objectId").val(getQueryStringValue("id"));
         var formDataAppend = "";
         var formData = $(this).serialize();
-        
+
         let txtEditor1 = encodeURIComponent($('#txtEditor1 .Editor-editor').html())
         // let txtEditor2 = encodeURIComponent($('#txtEditor2 .Editor-editor').html())
         // let txtEditor3 = encodeURIComponent($('#txtEditor3 .Editor-editor').html())
@@ -1839,7 +1843,7 @@ app.controller('customercareCtrl', function ($scope, $http) {
 });
 
 app.controller('accountmanagementCtrl', function ($scope, $http) {
-    
+
     console.log("in accountmanagementCtrl")
     $("#txtEditor21").Editor();
 
@@ -1856,7 +1860,7 @@ app.controller('accountmanagementCtrl', function ($scope, $http) {
         evt.preventDefault();
         var formDataAppend = "";
         var formData = $(this).serialize();
-        
+
         let txtEditor1 = encodeURIComponent($('#txtEditor1 .Editor-editor').html())
         let formData1 = {
             txtEditor1: txtEditor1,
@@ -1976,6 +1980,53 @@ app.controller('TeamListCtrl', function ($scope, $http) {
 
     });
 
+
+});
+
+app.controller('nationalCharityCtrl', function ($scope, $http) {
+    $("#successMsg").css("display", "none");
+    $("#text4").Editor();
+
+    $.get("/getOurHeritagePageData", function (data) {
+        $scope.$apply(function () {
+            $scope.objectId = data[0]._id;
+            $("#editor1 .Editor-editor").html(decodeURIComponent(data[0].text4));
+            $("#text1").val(data[0].text1);
+            $("#text2").val(data[0].text2);
+            $("#text3").val(data[0].text3);
+        });
+    });
+
+    $('form').submit(function (evt) {
+        evt.preventDefault();
+        var formData = {
+            "objectId": $scope.objectId,
+            "text1": $("#text1").val(),
+            "text2": $("#text2").val(),
+            "text3": $("#text3").val(),
+            "text4": encodeURIComponent($('#editor1 .Editor-editor').html()),
+            "collection": "national_charity"
+        }
+
+
+        var url = "/editOurHeritagePageData";
+        if (!$scope.objectId) {
+            url = "/addOurHeritagePageData";
+        } else {
+            url = "/editOurHeritagePageData";
+        }
+        var getCallback = function (response) {
+            alert("Data added successfully!");
+            $("#successMsg").css("display", "block");
+        };
+        $.ajax({
+            url: url,
+            type: "POST",
+            data: formData,
+            contentType: "application/x-www-form-urlencoded; charset=UTF-8",
+            success: getCallback
+        });
+    });// form submit end
 
 });
 
