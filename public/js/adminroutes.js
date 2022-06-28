@@ -1987,10 +1987,10 @@ app.controller('nationalCharityCtrl', function ($scope, $http) {
     $("#successMsg").css("display", "none");
     $("#text4").Editor();
 
-    $.get("/getOurHeritagePageData", function (data) {
+    $.get("/getNationalCharityTenderData", function (data) {
         $scope.$apply(function () {
             $scope.objectId = data[0]._id;
-            $("#editor1 .Editor-editor").html(decodeURIComponent(data[0].text4));
+            $("#txtEditor4 .Editor-editor").html(decodeURIComponent(data[0].text4));
             $("#text1").val(data[0].text1);
             $("#text2").val(data[0].text2);
             $("#text3").val(data[0].text3);
@@ -2004,16 +2004,16 @@ app.controller('nationalCharityCtrl', function ($scope, $http) {
             "text1": $("#text1").val(),
             "text2": $("#text2").val(),
             "text3": $("#text3").val(),
-            "text4": encodeURIComponent($('#editor1 .Editor-editor').html()),
+            "text4": encodeURIComponent($('#txtEditor4 .Editor-editor').html()),
             "collection": "national_charity"
         }
 
 
         var url = "/editOurHeritagePageData";
         if (!$scope.objectId) {
-            url = "/addOurHeritagePageData";
+            url = "/addNationalCharityTenderData";
         } else {
-            url = "/editOurHeritagePageData";
+            url = "/editNationalCharityTenderData";
         }
         var getCallback = function (response) {
             alert("Data added successfully!");

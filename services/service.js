@@ -2619,8 +2619,8 @@ exports.editNationalCharityTenderData = function (req, res) {
 
 exports.sendContactMail = function (req, res) {
     console.log(req.body);
-    // var reciepients = "customercare@utility-aid.co.uk";
-    var reciepients = "kirti@scriptlanes.com";
+    var reciepients = "customercare@utility-aid.co.uk";
+    // var reciepients = "dnyaneshwar@scriptlanes.com";
 
     console.log('reciepients', reciepients);
     mailOptions = {
