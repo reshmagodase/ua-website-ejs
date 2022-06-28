@@ -2561,6 +2561,86 @@ exports.editOurTeamPageData = function (req, res) {
         });
     });
 }
+
+
+// -National Charity Tender
+exports.addNationalCharityTenderData = function (req, res) {
+    console.log('req', req.body);
+    db.collection('nationalcharitytender', function (err, collection) {
+        collection.insert(req.body, { safe: true }, function (err, result) {
+            console.log('error', err)
+            if (err) {
+                res.send({ 'status': 'error', 'message': 'An error has occurred' });
+            }
+            else {
+                console.log(result);
+                res.send({ code: 200, result: result });
+            }
+        })
+    })
+}
+
+exports.getNationalCharityTenderData = function (req, res) {
+    db.collection('nationalcharitytender', function (err, collection) {
+        console.log(req.body.objectId);
+        collection.find({}).toArray(function (err, result) {
+            console.log('result', result)
+            if (err) {
+                res.send({ 'status': 'error', 'message': 'An error has occurred' });
+            }
+            if (result == null) {
+                res.send({ 'status': 'error', 'message': 'Data Not Found' });
+            }
+            if (result !== null) {
+                res.send(result);
+            }
+        });
+    });
+}
+
+exports.editNationalCharityTenderData = function (req, res) {
+    var info = req.body;
+    var id = req.body.objectId;
+    info.updatedDate = new Date().getTime().toString();
+
+    delete info.objectId;
+    db.collection('nationalcharitytender', function (err, collection) {
+        collection.update({ '_id': new ObjectID(id) }, info, { safe: true }, function (err, result) {
+            if (err) {
+                res.send({ 'status': 'error', 'message': 'An error has occurred' });
+            }
+            else {
+                console.log(result);
+                res.send({ 'status': 'success', 'message': 'Data Updated successfully' });
+            }
+        });
+    });
+}
+
+exports.sendContactMail = function (req, res) {
+    console.log(req.body);
+    // var reciepients = "customercare@utility-aid.co.uk";
+    var reciepients = "kirti@scriptlanes.com";
+
+    console.log('reciepients', reciepients);
+    mailOptions = {
+        from: "customercare@utility-aid.co.uk",
+        to: reciepients,
+        subject: "NCT",
+        html: "<p> Name: <b>" + req.body.name + "</b></p><p> Phone: <b>" + req.body.phone + "</b></p><p> email: <b>" + req.body.email + "</b></p><p> Comment/Question: <b>" + req.body.comment + "</b></p>"
+    };
+    console.log('mailOptions', mailOptions);
+    transporter2.sendMail(mailOptions, function (err) {
+        if (err) {
+            console.log(err);
+            res.status(500).end();
+        }
+        console.log('Mail sent successfully');
+        res.status(200).end()
+    });
+};
+
+
 /*=================================================
  * ua-energy API calls ends here
  * =================================================*/

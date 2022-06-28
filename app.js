@@ -248,6 +248,13 @@ app.post('/sendGoogleAdContact', service.sendGoogleAdContact);
 app.post('/sendLeadContact', service.sendLeadContact);
 app.post('/saveContactFormData', service.saveContactFormData);
 app.post('/getContactFormData', service.getContactFormData);
+
+// national charity tender
+app.post('/addNationalCharityTenderData', service.addNationalCharityTenderData);
+app.get('/getNationalCharityTenderData', service.getNationalCharityTenderData);
+app.post('/editNationalCharityTenderData', service.editNationalCharityTenderData);
+app.post('/sendContactMail', service.sendContactMail);
+
 app.post('/getsigneddocusigns', function(req, res) {
     unirest
       .post("https://utility-aid.co.uk:3001/api/getsigneddocuments")
