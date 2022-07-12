@@ -255,24 +255,37 @@ app.get('/getNationalCharityTenderData', service.getNationalCharityTenderData);
 app.post('/editNationalCharityTenderData', service.editNationalCharityTenderData);
 app.post('/sendContactMail', service.sendContactMail);
 
-app.post('/getsigneddocusigns', function(req, res) {
+// Review
+app.post('/addReviewPageData', service.addReviewPageData);
+app.get('/getReviewPageData', service.getReviewPageData);
+app.post('/getSingleReviewPageData', service.getSingleReviewPageData);
+app.post('/editReviewPageData', service.editReviewPageData);
+
+
+// Education Sector
+app.post('/addEducationSectorData', service.addEducationSectorData);
+app.get('/getEducationSectorData', service.getEducationSectorData);
+app.post('/editEducationSectorData', service.editEducationSectorData);
+
+
+app.post('/getsigneddocusigns', function (req, res) {
     unirest
-      .post("https://utility-aid.co.uk:3001/api/getsigneddocuments")
-      .headers({
-        Accept: "application/json",
-        "Content-Type": "application/json"
-      })
-      .send(req.body.docusignenvelopeinformation.envelopestatus[0])
-      .end(function(response) {
-        // callback(response.body);
-        res.send({code:200});
-      });
+        .post("https://utility-aid.co.uk:3001/api/getsigneddocuments")
+        .headers({
+            Accept: "application/json",
+            "Content-Type": "application/json"
+        })
+        .send(req.body.docusignenvelopeinformation.envelopestatus[0])
+        .end(function (response) {
+            // callback(response.body);
+            res.send({ code: 200 });
+        });
 });// later for switching site
 app.get('/admin/', function (req, res) {
     req.session.reset();
     res.sendfile('./public/indexAdmin.html');
 });
-app.get('/admin/*', requireLogin,function (req, res) {
+app.get('/admin/*', requireLogin, function (req, res) {
     res.sendfile('./public/indexAdmin.html');
 });
 

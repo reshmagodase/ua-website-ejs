@@ -2602,9 +2602,9 @@ exports.editNationalCharityTenderData = function (req, res) {
     var info = req.body;
     var id = req.body.objectId;
     info.updatedDate = new Date().getTime().toString();
-
     delete info.objectId;
     db.collection('nationalcharitytender', function (err, collection) {
+        console.log("REQUESTBODY", req.body)
         collection.update({ '_id': new ObjectID(id) }, info, { safe: true }, function (err, result) {
             if (err) {
                 res.send({ 'status': 'error', 'message': 'An error has occurred' });
@@ -2620,7 +2620,7 @@ exports.editNationalCharityTenderData = function (req, res) {
 exports.sendContactMail = function (req, res) {
     console.log(req.body);
     var reciepients = "customercare@utility-aid.co.uk";
-    // var reciepients = "dnyaneshwar@scriptlanes.com";
+    // var reciepients = "kirti@scriptlanes.com";
 
     console.log('reciepients', reciepients);
     mailOptions = {
@@ -2639,6 +2639,136 @@ exports.sendContactMail = function (req, res) {
         res.status(200).end()
     });
 };
+// -Review
+exports.addReviewPageData = function (req, res) {
+    console.log('req', req.body);
+    db.collection('review', function (err, collection) {
+        collection.insert(req.body, { safe: true }, function (err, result) {
+            console.log('error', err)
+            if (err) {
+                res.send({ 'status': 'error', 'message': 'An error has occurred' });
+            }
+            else {
+                console.log(result);
+                res.send({ code: 200, result: result });
+            }
+        })
+    })
+}
+
+exports.getReviewPageData = function (req, res) {
+    db.collection('review', function (err, collection) {
+        console.log(req.body.objectId);
+        collection.find({}).toArray(function (err, result) {
+            console.log('result', result)
+            if (err) {
+                res.send({ 'status': 'error', 'message': 'An error has occurred' });
+            }
+            if (result == null) {
+                res.send({ 'status': 'error', 'message': 'Data Not Found' });
+            }
+            if (result !== null) {
+                res.send(result);
+            }
+        });
+    });
+}
+
+exports.getSingleReviewPageData = function (req, res) {
+    var id = req.body.objectId;
+    // var collection = req.body.collection;
+    db.collection("review", function (err, collection) {
+        collection.find({ '_id': new ObjectID(id) }).toArray(function (err, result) {
+            if (err) {
+                res.send({ 'status': 'error', 'message': 'An error has occurred' });
+            }
+            if (result == null) {
+                res.send({ 'status': 'error', 'message': 'Data Not Found' });
+            }
+            if (result !== null) {
+                console.log(result);
+                var data = result[0];
+                res.send(data);
+            }
+
+        });
+    });
+};
+
+exports.editReviewPageData = function (req, res) {
+    var info = req.body;
+    var id = req.body.objectId;
+    info.updatedDate = new Date().getTime().toString();
+
+    delete info.objectId;
+    db.collection('review', function (err, collection) {
+        collection.update({ '_id': new ObjectID(id) }, info, { safe: true }, function (err, result) {
+            if (err) {
+                res.send({ 'status': 'error', 'message': 'An error has occurred' });
+            }
+            else {
+                console.log(result);
+                res.send({ 'status': 'success', 'message': 'Data Updated successfully' });
+            }
+        });
+    });
+}
+
+// -Education Sector
+exports.addEducationSectorData = function (req, res) {
+    console.log('req', req.body);
+    db.collection('educationsector', function (err, collection) {
+        collection.insert(req.body, { safe: true }, function (err, result) {
+            console.log('error', err)
+            if (err) {
+                res.send({ 'status': 'error', 'message': 'An error has occurred' });
+            }
+            else {
+                console.log(result);
+                res.send({ code: 200, result: result });
+            }
+        })
+    })
+}
+
+exports.getEducationSectorData = function (req, res) {
+    db.collection('educationsector', function (err, collection) {
+        console.log(req.body.objectId);
+        collection.find({}).toArray(function (err, result) {
+            console.log('result', result)
+            if (err) {
+                res.send({ 'status': 'error', 'message': 'An error has occurred' });
+            }
+            if (result == null) {
+                res.send({ 'status': 'error', 'message': 'Data Not Found' });
+            }
+            if (result !== null) {
+                res.send(result);
+            }
+        });
+    });
+}
+
+exports.editEducationSectorData = function (req, res) {
+    var info = req.body;
+    var id = req.body.objectId;
+    info.updatedDate = new Date().getTime().toString();
+    delete info.objectId;
+    db.collection('educationsector', function (err, collection) {
+        console.log("REQUESTBODY", req.body)
+        collection.update({ '_id': new ObjectID(id) }, info, { safe: true }, function (err, result) {
+            if (err) {
+                res.send({ 'status': 'error', 'message': 'An error has occurred' });
+            }
+            else {
+                console.log(result);
+                res.send({ 'status': 'success', 'message': 'Data Updated successfully' });
+            }
+        });
+    });
+}
+
+
 
 
 /*=================================================

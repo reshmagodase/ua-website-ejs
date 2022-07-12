@@ -158,6 +158,18 @@ app.config(function ($routeProvider, $locationProvider) {
             templateUrl: 'viewsAdmin/national_charity.html',
             controller: 'nationalCharityCtrl'
         })
+        .when('/admin/education_sector/', {
+            templateUrl: 'viewsAdmin/education_sector.html',
+            controller: 'educationSectorCtrl'
+        })
+        .when('/admin/our-customer/', {
+            templateUrl: 'viewsAdmin/our_customer_list.html',
+            controller: 'OurCustomerCtrl'
+        })
+        .when('/admin/addcustomer/', {
+            templateUrl: 'viewsAdmin/addcustomer.html',
+            controller: 'OurCustomerCtrl'
+        })
         .otherwise({
             redirectTo: '/admin/'
         });
@@ -2029,6 +2041,107 @@ app.controller('nationalCharityCtrl', function ($scope, $http) {
     });// form submit end
 
 });
+
+app.controller('educationSectorCtrl', function ($scope, $http) {
+    $("#successMsg").css("display", "none");
+
+    $.get("/getEducationSectorData", function (data) {
+        $scope.$apply(function () {
+            $scope.objectId = data[0]._id;
+            $("#text1").val(data[0].text1);
+            $("#text2").val(data[0].text2);
+            $("#text3").val(data[0].text3);
+        });
+    });
+
+    $('form').submit(function (evt) {
+        evt.preventDefault();
+        var formData = {
+            "objectId": $scope.objectId,
+            "text1": $("#text1").val(),
+            "text2": $("#text2").val(),
+            "text3": $("#text3").val()
+        }
+
+
+        var url = "/editEducationSectorData";
+        if (!$scope.objectId) {
+            url = "/addEducationSectorData";
+        } else {
+            url = "/editEducationSectorData";
+        }
+        var getCallback = function (response) {
+            alert("Data added successfully!");
+            $("#successMsg").css("display", "block");
+        };
+        $.ajax({
+            url: url,
+            type: "POST",
+            data: formData,
+            contentType: "application/x-www-form-urlencoded; charset=UTF-8",
+            success: getCallback
+        });
+    });// form submit end
+
+});
+
+app.controller('OurCustomerCtrl', function ($scope, $http) {
+
+    $.get("/getReviewPageData", function (data) {
+        $scope.$apply(function () {
+            $scope.list = data;
+        });
+
+    });
+
+    if (getQueryStringValue("id")) {
+        $.post("/getSingleReviewPageData", { "objectId": getQueryStringValue("id") }, function (data) {
+            $scope.$apply(function () {
+                $scope.objectId = data._id;
+                $("#text1").val(data.name);
+                $("#text2").val(data.review);
+                // $("#editor1 .Editor-editor").html(decodeURIComponent(data.testimonial));
+            });
+        });
+    }
+
+    $("#successMsg").css("display", "none");
+    // $("#text4").Editor();
+
+    $('form').submit(function (evt) {
+        evt.preventDefault();
+        var formData = {
+            "review": $("#text2").val(),
+            "name": $("#text1").val(),
+        }
+
+        var url;
+
+        if (getQueryStringValue("id") == '') {
+            url = "/addReviewPageData";
+        }
+        else {
+            formData.objectId = getQueryStringValue("id");
+            url = "/editReviewPageData";
+        }
+        // var url = "/addtestimonials";
+        var getCallback = function (response) {
+            $("#successMsg").css("display", "block");
+            window.location = "/admin/our-customer/";
+        };
+        $.ajax({
+            url: url,
+            type: "POST",
+            data: formData,
+            contentType: "application/x-www-form-urlencoded; charset=UTF-8",
+            success: getCallback
+        });
+    });// form submit end
+
+    function getQueryStringValue(key) {
+        return unescape(window.location.search.replace(new RegExp("^(?:.*[&\\?]" + escape(key).replace(/[\.\+\*]/g, "\\$&") + "(?:\\=([^&]*))?)?.*$", "i"), "$1"));
+    }
+})
 
 app.filter('startPagination', function () {
     return function (input, start) {
